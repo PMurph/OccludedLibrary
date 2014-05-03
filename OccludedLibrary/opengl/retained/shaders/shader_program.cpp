@@ -44,6 +44,17 @@ void shader_program::link_shaders() {
 	}
 }
 
+void shader_program::use_program() {
+	assert( m_linked );
+
+	if( !m_linked ) {
+		throw std::runtime_error( "shader_program.use_program: Failed to use program because the program has not been properly linked." );
+	}
+
+	glUseProgram( m_id );
+	assert( GL_NO_ERROR == glGetError() );
+}
+
 const GLuint shader_program::get_id() const {
 	assert( m_linked );
 
@@ -66,14 +77,7 @@ const std::string& shader_program::get_error_log() const {
 		throw std::runtime_error( "shader_program.get_compile_log: Failed to get compile log because program has been properly linked." );
 	}
 
-	for( std::vector<shader>::const_iterator it = m_shaders.begin(); it != m_shaders.end(); ++it ) {
-		if( !it->is_compiled() ) {
-			log += it->get_compile_log();
-			log.push_back( '\n' );
-		}
-	}
-
-	return m_errorLog + '\n' + log;
+	return m_errorLog;
 }
 
 // Private Member Functions
@@ -174,7 +178,7 @@ void shader_program::attach_shaders() {
 void shader_program::handle_link_errors() {
 	GLint logLength;
 	std::vector<GLchar> log;
-	std::string logStr;
+	std::string logStr( "" );
 
 	glGetProgramiv( m_id, GL_INFO_LOG_LENGTH, &logLength );
 	assert( GL_NO_ERROR == glGetError() );
@@ -183,6 +187,22 @@ void shader_program::handle_link_errors() {
 
 	glGetProgramInfoLog( m_id, static_cast<GLsizei>( logLength ), &logLength, &log[0] );
 	assert( GL_NO_ERROR == glGetError() );
+
+	for( std::vector<GLchar>::iterator it = log.begin(); it != log.end(); ++it ) {
+		logStr.push_back( *it );
+	}
+
+	logStr.push_back( '\n' );
+
+	// Adds all the logs 
+	for( std::vector<shader>::const_iterator it = m_shaders.begin(); it != m_shaders.end(); ++it ) {
+		if( !it->is_compiled() ) {
+			logStr += it->get_compile_log();
+			logStr.push_back( '\n' );
+		}
+	}
+
+	m_errorLog = logStr;
 
 	throw std::runtime_error( "shader_program.handle_link_errors: Failed to link shader programs due to link errors." );
 }

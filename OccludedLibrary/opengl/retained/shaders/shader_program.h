@@ -27,6 +27,8 @@ public:
 
 	void link_shaders();
 
+	void use_program();
+
 	const GLuint get_id() const;
 
 	const bool is_linked() const;
@@ -57,4 +59,7 @@ private:
 } // end of shaders namespace
 } // end of retained namespace
 } // end of opengl namespace
+
+typedef opengl::retained::shaders::shader_program shader_program;
+
 } // end of occluded namespace

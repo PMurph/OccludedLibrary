@@ -18,7 +18,7 @@ shader::~shader()
 void shader::compile_shader() {
 	GLint status;
 	const GLchar * src = NULL;
-	GLint srcLength = m_shaderSrc.size();
+	GLint srcLength = static_cast<GLint>( m_shaderSrc.size() );
 
 	if( m_shaderSrc == "" )
 		throw std::runtime_error( "shader.compile_shader: Failed to compile shader because source was an empty string." );

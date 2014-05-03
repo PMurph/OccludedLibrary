@@ -6,7 +6,9 @@
 
 #include  <GL/glew.h>
 
-namespace occluded { namespace opengl { namespace retained { namespace shaders {
+namespace occluded { 
+
+namespace opengl { namespace retained { namespace shaders {
 
 typedef enum SHADER_TYPE {
 	vert_shader = GL_VERTEX_SHADER,
@@ -57,4 +59,7 @@ private:
 } // end of shaders namespace
 } // end of retained namespace
 } // end of opengl namespace
+
+typedef opengl::retained::shaders::shader shader;
+
 } // end of occluded namespace
