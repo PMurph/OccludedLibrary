@@ -13,7 +13,7 @@ attribute_map::attribute_map( const bool interleaved ):
 attribute_map::~attribute_map() {
 }
 
-void attribute_map::add_attribute( const buffer_attribute& newAttrib ) {
+void attribute_map::add_attribute( const attribute& newAttrib ) {
 	if( !m_defining ) {
 		throw std::runtime_error( "attribute_map.add_attribute: Failed to add attribut(" + newAttrib.get_name() +
 			") because attribute map is not being defined." );
@@ -46,7 +46,7 @@ const unsigned int attribute_map::get_attrib_count() const {
 	return m_attribCount;
 }
 
-const std::vector<const buffer_attribute>& attribute_map::get_attributes() const {
+const std::vector<const attribute>& attribute_map::get_attributes() const {
 	if( m_defining )
 		throw std::runtime_error( "attribute_map.get_attributes: Failed to get attributes because the attribute map is still being defined." );
 
@@ -55,6 +55,10 @@ const std::vector<const buffer_attribute>& attribute_map::get_attributes() const
 
 const bool attribute_map::is_interleaved() const {
 	return m_interleaved;
+}
+
+const bool attribute_map::being_defined() const {
+	return m_defining;
 }
 
 } // end of attributes namespace
