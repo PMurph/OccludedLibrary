@@ -42,6 +42,16 @@ void attribute_map::reset( const bool interleaved ) {
 	m_interleaved = interleaved;
 }
 
+const std::size_t attribute_map::get_byte_size() const {
+	std::size_t byteSize = 0;
+
+	for( std::vector<const attribute>::const_iterator it = m_attributes.begin(); it != m_attributes.end(); ++it ) {
+		byteSize += it->get_attrib_size();
+	}
+
+	return byteSize;
+}
+
 const unsigned int attribute_map::get_attrib_count() const {
 	return m_attribCount;
 }

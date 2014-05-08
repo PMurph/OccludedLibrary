@@ -28,6 +28,8 @@ public:
 
 	void reset( const bool interleaved );
 
+	const std::size_t get_byte_size() const;
+
 	const unsigned int get_attrib_count() const;
 
 	const std::vector<const attribute>& get_attributes() const;
