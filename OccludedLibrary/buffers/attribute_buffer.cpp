@@ -24,7 +24,8 @@ void attribute_buffer::insert_values( const std::vector<char>& values, const uns
 }
 
 void attribute_buffer::clear_buffer() {
-	// TODO
+	m_numValues = 0;
+	m_data.clear();
 }
 
 const unsigned int attribute_buffer::get_num_values() const {
