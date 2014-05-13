@@ -20,7 +20,17 @@ attribute_buffer::~attribute_buffer()
 }
 
 void attribute_buffer::insert_values( const std::vector<char>& values, const unsigned int numVals ) {
-	insert_segregated_values( values, numVals );
+	if( values.size() != numVals * m_map.get_byte_size() ) {
+		throw std::runtime_error( "attribute_buffer.insert_values: Failed to insert values because the size of values vector(" + 
+			boost::lexical_cast<std::string>( values.size() ) + ") is not equals to the number bytes needed(" + 
+			boost::lexical_cast<std::string>( numVals * m_map.get_byte_size() ) + ")." );
+	}
+
+	if( m_map.is_interleaved() ) {
+		insert_interleaved_values( values, numVals );
+	} else {
+		insert_segregated_values( values, numVals );
+	}
 }
 
 void attribute_buffer::clear_buffer() {
@@ -74,6 +84,15 @@ void attribute_buffer::insert_segregated_values( const std::vector<char>& values
 
 	m_numValues += numVals;
 	m_data = newData;
+}
+
+void attribute_buffer::insert_interleaved_values( const std::vector<char>& values, const unsigned int numVals ) {
+	std::vector<char> newData;
+	std::size_t startIndex = m_data.size();
+
+	m_data.resize( m_data.size() + numVals * values.size() );
+
+	memcpy( &m_data[startIndex], &values[0], numVals * values.size() * sizeof( char ) );
 }
 
 } // end of buffers namespace

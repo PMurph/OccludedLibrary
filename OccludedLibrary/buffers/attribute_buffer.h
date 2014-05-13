@@ -26,7 +26,7 @@ public:
 
 	const std::vector<char>& get_all_data() const; //TODO
 
-	const attributes::attribute_map& get_attribute_map() const; //TODO
+	const attributes::attribute_map& get_attribute_map() const;
 
 private:
 	void init_buffer();
@@ -34,6 +34,8 @@ private:
 	void init_segregated_buffer();
 
 	void insert_segregated_values( const std::vector<char>& values, const unsigned int numVals );
+
+	void insert_interleaved_values( const std::vector<char>& values, const unsigned int numVals );
 };
 
 } // end of buffers namespace
