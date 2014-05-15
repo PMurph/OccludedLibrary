@@ -23,19 +23,13 @@ public:
 	~attribute_map();
 
 	void add_attribute( const attribute& newAttrib );
-
 	void end_definition();
-
 	void reset( const bool interleaved );
 
 	const std::size_t get_byte_size() const;
-
 	const unsigned int get_attrib_count() const;
-
 	const std::vector<const attribute>& get_attributes() const;
-
 	const bool is_interleaved() const;
-
 	const bool being_defined() const;
 };
 
