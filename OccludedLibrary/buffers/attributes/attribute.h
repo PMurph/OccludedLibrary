@@ -19,9 +19,9 @@ private:
 	std::string m_name;
 	unsigned int m_arity;
 	attribute_t m_type;
-
+	bool m_normalized;
 public:
-	attribute( const std::string& name, const unsigned int arity, const attribute_t type );
+	attribute( const std::string& name, const unsigned int arity, const attribute_t type, const bool normalized = false );
 	~attribute();
 
 	const std::string& get_name() const;
@@ -33,6 +33,8 @@ public:
 	const std::size_t get_component_size() const;
 
 	const std::size_t get_attrib_size() const;
+
+	const bool is_normalized() const;
 };
 
 } // end of attributes namespace

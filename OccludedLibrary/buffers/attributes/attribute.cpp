@@ -4,10 +4,11 @@ namespace occluded { namespace buffers { namespace attributes {
 
 const std::size_t attribute::ATTRIB_SIZE = 4; // May change if more attribute types are added
 
-attribute::attribute( const std::string& name, const unsigned int arity, const attribute_t type ):
+attribute::attribute( const std::string& name, const unsigned int arity, const attribute_t type, const bool normalized ):
 	m_name( name ),
 	m_arity( arity ),
-	m_type( type )
+	m_type( type ),
+	m_normalized( normalized )
 {
 }
 
@@ -34,6 +35,10 @@ const std::size_t attribute::get_component_size() const {
 
 const std::size_t attribute::get_attrib_size() const {
 	return ATTRIB_SIZE * m_arity;
+}
+
+const bool attribute::is_normalized() const {
+	return m_normalized;
 }
 
 } // end of attributes namespace
