@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\opengl">
+      <UniqueIdentifier>{f35460c3-8ebf-41eb-90fa-95ce5015600c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\opengl\retained">
+      <UniqueIdentifier>{dbedd6ee-9b26-4c63-b0cc-4bfcd8c2cc39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\opengl\retained\shaders">
+      <UniqueIdentifier>{a2945660-046d-48cb-aaa2-3cb286d70b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\opengl">
+      <UniqueIdentifier>{c6a702cc-431c-436e-a5a0-a29ea16f5b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\opengl\retained">
+      <UniqueIdentifier>{7ae4c004-5d31-46e3-95b0-e183732d7fbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\opengl\retained\shaders">
+      <UniqueIdentifier>{86c585b8-bd58-492a-a1eb-9357da90e280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\buffers">
+      <UniqueIdentifier>{7ffca62c-d8cd-43db-a8c7-30e5abd458b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\buffers\attributes">
+      <UniqueIdentifier>{9139c5c4-5244-461d-8fcf-95ad125164c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\buffers">
+      <UniqueIdentifier>{88a955fa-5cc3-4af0-8473-277932413edf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\buffers\attributes">
+      <UniqueIdentifier>{ef54003b-d5a7-4cef-aa5c-f24d4d5fb0e1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="opengl\retained\shaders\shader.cpp">
+      <Filter>Source Files\opengl\retained\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\retained\shaders\shader_program.cpp">
+      <Filter>Source Files\opengl\retained\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="buffers\attributes\attribute_map.cpp">
+      <Filter>Source Files\buffers\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="buffers\attributes\attribute.cpp">
+      <Filter>Source Files\buffers\attributes</Filter>
+    </ClCompile>
+    <ClCompile Include="buffers\attribute_buffer.cpp">
+      <Filter>Source Files\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\retained\gl_attribute_buffer.cpp">
+      <Filter>Source Files\opengl\retained</Filter>
+    </ClCompile>
+    <ClCompile Include="buffers\interleaved_attr_buffer.cpp">
+      <Filter>Source Files\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="buffers\segregated_attr_buffer.cpp">
+      <Filter>Source Files\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="buffers\attribute_buffer_factory.cpp">
+      <Filter>Source Files\buffers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="opengl\retained\shaders\shader.h">
+      <Filter>Header Files\opengl\retained\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\retained\shaders\shader_program.h">
+      <Filter>Header Files\opengl\retained\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="buffers\attributes\attribute_map.h">
+      <Filter>Header Files\buffers\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="buffers\attributes\attribute.h">
+      <Filter>Header Files\buffers\attributes</Filter>
+    </ClInclude>
+    <ClInclude Include="buffers\attribute_buffer.h">
+      <Filter>Header Files\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\retained\gl_attribute_buffer.h">
+      <Filter>Header Files\opengl\retained</Filter>
+    </ClInclude>
+    <ClInclude Include="buffers\interleaved_attr_buffer.h">
+      <Filter>Header Files\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="buffers\segregated_attr_buffer.h">
+      <Filter>Header Files\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="buffers\attribute_buffer_factory.h">
+      <Filter>Header Files\buffers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OccludedLibrary.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
