@@ -2,7 +2,7 @@
 
 #include <GL\glew.h>
 
-#include "..\..\buffers\attribute_buffer.h"
+#include "../../buffers/attribute_buffer_factory.h"
 
 namespace occluded { namespace opengl { namespace retained {
 
@@ -16,7 +16,7 @@ class gl_attribute_buffer
 {
 private:
 	GLuint m_id;
-	//buffers::attribute_buffer m_buffer;
+	std::auto_ptr<buffers::attribute_buffer> m_buffer;
 	buffer_usage_t m_usage;
 
 public:

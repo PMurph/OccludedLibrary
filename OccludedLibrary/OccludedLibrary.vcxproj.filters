@@ -43,6 +43,18 @@
     <Filter Include="Header Files\buffers\attributes">
       <UniqueIdentifier>{ef54003b-d5a7-4cef-aa5c-f24d4d5fb0e1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\utilities">
+      <UniqueIdentifier>{6e6a2ec4-b128-434d-8ce3-02f3fcd87342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utilities\files">
+      <UniqueIdentifier>{dcc8c393-8f99-4a62-8a4c-9ad35feb822b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utilities">
+      <UniqueIdentifier>{912b0f6c-05c3-462f-9345-63983114dbe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utilities\files">
+      <UniqueIdentifier>{cfe0e603-7468-4ae7-b4b3-f8880cd35c4e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="opengl\retained\shaders\shader.cpp">
@@ -71,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="buffers\attribute_buffer_factory.cpp">
       <Filter>Source Files\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\files\file_reader.cpp">
+      <Filter>Source Files\utilities\files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="buffers\attribute_buffer_factory.h">
       <Filter>Header Files\buffers</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\files\file_reader.h">
+      <Filter>Header Files\utilities\files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

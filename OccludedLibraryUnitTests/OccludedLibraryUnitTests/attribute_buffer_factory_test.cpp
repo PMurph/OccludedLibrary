@@ -7,7 +7,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace occluded::buffers;
 using namespace occluded::buffers::attributes;
 
-namespace OccludedLibraryTest
+namespace OccludedLibraryUnitTests
 {
 	TEST_CLASS( attribute_buffer_factory_test )
 	{

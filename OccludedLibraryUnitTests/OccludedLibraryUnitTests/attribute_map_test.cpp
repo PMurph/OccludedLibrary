@@ -6,11 +6,12 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace occluded::buffers::attributes;
 
-namespace OccludedLibraryTest
+namespace OccludedLibraryUnitTests
 {
-	TEST_CLASS(attribute_map_test)
+	TEST_CLASS( attribute_map_test )
 	{
 	public:
+
 		TEST_METHOD( attribute_map_being_defined_test )
 		{
 			attribute_map testMap( false );

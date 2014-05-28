@@ -6,9 +6,9 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace occluded::buffers::attributes;
 
-namespace OccludedLibraryTest
+namespace OccludedLibraryUnitTests
 {
-	TEST_CLASS(attribute_test)
+	TEST_CLASS( attribute_test )
 	{
 	public:
 		

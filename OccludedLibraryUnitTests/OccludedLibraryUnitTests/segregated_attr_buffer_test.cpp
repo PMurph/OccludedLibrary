@@ -7,7 +7,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace occluded::buffers;
 using namespace occluded::buffers::attributes;
 
-namespace OccludedLibraryTest
+namespace OccludedLibraryUnitTests
 {
 	static const float MAX_ERR = 0.0001f;
 
@@ -16,6 +16,7 @@ namespace OccludedLibraryTest
 	TEST_CLASS( segregated_attr_buffer_test )
 	{
 	public:
+
 		TEST_CLASS_INITIALIZE( segregated_attr_buffer_class_init )
 		{
 			testMap = new attribute_map( false );

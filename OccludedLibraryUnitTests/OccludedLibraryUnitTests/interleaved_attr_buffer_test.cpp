@@ -7,7 +7,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace occluded::buffers;
 using namespace occluded::buffers::attributes;
 
-namespace OccludedLibraryTest
+namespace OccludedLibraryUnitTests
 {
 	static const float MAX_ERR = 0.0001f;
 
