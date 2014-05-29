@@ -4,13 +4,10 @@
 
 #include "shader.h"
 
-namespace occluded { namespace opengl { namespace retained { namespace  shaders {
+namespace occluded { namespace opengl { namespace retained { namespace shaders {
 
 class shader_program
 {
-public:
-	friend class shader_program_builder;
-
 private:
 	GLuint m_id;
 	

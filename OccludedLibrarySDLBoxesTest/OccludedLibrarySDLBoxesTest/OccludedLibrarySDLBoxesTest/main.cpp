@@ -3,15 +3,21 @@
 static void init_SDL_window( SDL_Window* window );
 static void init_opengl_context_attributes();
 static void init_opengl( SDL_Window* window, SDL_GLContext& glContext );
-static void init_shader_program();
+static void init_shader_program( std::auto_ptr<occluded::shader_program>& shaderProg );
+static void init_boxes( std::vector<box>& boxes, std::auto_ptr<occluded::shader_program>& shaderProg );
+static void init_box_map( occluded::buffers::attributes::attribute_map& map );
 static void program_loop();
 
 int main( int argc, char** argv ) {
 	SDL_Window* win = NULL;
 	SDL_GLContext ctxt;
+	std::auto_ptr<occluded::shader_program> shaderProg( NULL );
+	std::vector<box> boxes;
 
 	init_SDL_window( win );
 	init_opengl( win, ctxt );
+	init_shader_program( shaderProg );
+	init_boxes( boxes, shaderProg );
 
 	running = true;
 
@@ -61,4 +67,38 @@ void init_opengl( SDL_Window* window, SDL_GLContext& glContext ) {
 	if( glewInit() != GLEW_OK ) {
 		exit(-1);
 	}
+}
+
+void init_shader_program( std::auto_ptr<occluded::shader_program>& shaderProg ) {
+	const std::string vertShaderSrc( occluded::utilities::files::file_reader::get_string_from_file( VERTEX_SHADER_PATH ) );
+	const std::string fragShaderSrc( occluded::utilities::files::file_reader::get_string_from_file( FRAG_SHADER_PATH ) );
+
+	shaderProg.reset( new occluded::shader_program( vertShaderSrc, "", "", "", fragShaderSrc, "" ) );
+
+	try {
+		shaderProg->link_shaders();
+	} catch( const std::exception& e ) {
+		exit( -1 );
+	}
+
+	if( !shaderProg->is_linked() ) {
+		exit( -1 );
+	}
+}
+
+void init_boxes( std::vector<box>& boxes, const std::auto_ptr<occluded::shader_program>& shaderProg ) {
+	occluded::buffers::attributes::attribute_map boxMap( true );
+	init_box_map( boxMap );
+
+	for( int i = 0; i < 5; ++i ) {
+		boxes.push_back( box( *shaderProg, boxMap ) );
+	}
+
+
+}
+
+void init_box_map( occluded::buffers::attributes::attribute_map& map ) {
+	map.add_attribute( occluded::buffers::attributes::attribute( "position", 3, occluded::buffers::attributes::attrib_float ) );
+	map.add_attribute( occluded::buffers::attributes::attribute( "color", 3, occluded::buffers::attributes::attrib_float, true ) );
+	map.end_definition();
 }
