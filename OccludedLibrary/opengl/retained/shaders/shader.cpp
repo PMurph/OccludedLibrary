@@ -8,6 +8,7 @@ shader::shader( const std::string& shaderSrc, const shader_type_t type ):
 	m_id( 0 ),
 	m_type( type )
 {
+	compile_shader();
 }
 
 

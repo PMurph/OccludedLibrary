@@ -28,6 +28,9 @@ public:
 	void insert_values( const std::vector<char>& values );
 
 	const GLuint get_id() const;
+
+	const buffers::attributes::attribute_map& get_buffer_map() const;
+
 private:
 	void init_buffer();
 };

@@ -10,19 +10,14 @@ class shader_program
 {
 private:
 	GLuint m_id;
-	
 	bool m_linked;
-
 	std::vector<shader> m_shaders;
-
 	std::string m_errorLog;
 
 public:
-	shader_program( const std::string& vertShaderSrc, const std::string& tessControlShaderSrc, const std::string& tessEvalShaderSrc,
-		const std::string& geoShaderSrc, const std::string& fragShaderSrc, const std::string& computeShaderSrc );
+	shader_program();
+	shader_program( const std::vector<shader>& shaders );
 	~shader_program();
-
-	void link_shaders();
 
 	void use_program();
 
@@ -33,22 +28,11 @@ public:
 	const std::string& get_error_log() const;
 
 private:
-	void init_shaders( const std::string& vertShaderSrc, const std::string& tessControlShaderSrc, const std::string& tessEvalShaderSrc,
-		const std::string& geoShaderSrc, const std::string& fragShaderSrc, const std::string& computerShaderSrc );
+	void init_shader_program( const std::vector<shader>& shaders );
 
-	void init_vert_shaders( const std::string& vertShaderSrc );
+	void link_shaders();
 
-	void init_tess_control_shader( const std::string& tessControlShaderSrc );
-
-	void init_tess_eval_shader( const std::string& tessEvalShaderSrc );
-
-	void init_geo_shader( const std::string& geoShaderSrc );
-
-	void init_frag_shader( const std::string& fragShadersrc );
-
-	void init_comp_shader( const std::string& computeShaderSrc );
-
-	void attach_shaders();
+	void attach_shaders( const std::vector<shader>& shaders );
 
 	void handle_link_errors();
 };

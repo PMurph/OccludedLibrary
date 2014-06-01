@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="box.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="box.h" />
+    <ClInclude Include="main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OccludedLibrary\OccludedLibrary.vcxproj">
+      <Project>{8a187f39-1043-4adb-a28f-1ce9be3da173}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5D638A9B-CC9A-4090-9588-5FEF904A04A1}</ProjectGuid>
     <RootNamespace>OccludedLibrarySDLBoxesTest</RootNamespace>
@@ -81,14 +94,18 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>E:\Libraries\SDL\SDL2-2.0.3\include;E:\Libraries\glew\glew-1.10.0\include;E:\Libraries\glm;E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibrary;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\Libraries\SDL\SDL2-2.0.3\include;E:\Libraries\boost\boost_1_55_0;E:\Libraries\glew\glew-1.10.0\include;E:\Libraries\glm;E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibrary;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\Libraries\glew\glew-1.10.0\lib\Release\x64;E:\Libraries\SDL\SDL2-2.0.3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>E:\Libraries\boost\boost_1_55_0\libs;E:\Libraries\glew\glew-1.10.0\lib\Release\x64;E:\Libraries\SDL\SDL2-2.0.3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>if not exist $(SolutionDir)$(Platform)\$(Configuration)\glew32.dll copy E:\Libraries\glew\glew-1.10.0\bin\Release\x64 $(SolutionDir)$(Platform)\$(Congifuration)\
+if not exist $(SolutionDir)$(Platform)\$(Configuration)\SDL2.dll copy E:\Libraries\SDL\SDL2-2.0.3\lib\x64\SDL2.dll $(SolutionDir)$(Platform)\$(Congifuration)\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

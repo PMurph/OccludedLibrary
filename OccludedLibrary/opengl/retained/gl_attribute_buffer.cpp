@@ -37,6 +37,10 @@ const GLuint gl_attribute_buffer::get_id() const {
 	return m_id;
 }
 
+const buffers::attributes::attribute_map& gl_attribute_buffer::get_buffer_map() const {
+	return m_buffer->get_attribute_map();
+}
+
 // Private Method
 
 void gl_attribute_buffer::init_buffer() {

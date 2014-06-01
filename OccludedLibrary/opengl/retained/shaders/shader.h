@@ -41,8 +41,6 @@ public:
 	shader( const std::string& shaderSrc, const shader_type_t type );
 	~shader();
 
-	void compile_shader();
-
 	const GLuint get_id() const;
 
 	const bool is_compiled() const;
@@ -52,6 +50,7 @@ public:
 	const std::string& get_compile_log() const;
 
 private:
+	void compile_shader();
 
 	void handle_compile_error();
 };
