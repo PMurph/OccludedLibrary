@@ -11,7 +11,6 @@ class shader_program
 private:
 	GLuint m_id;
 	bool m_linked;
-	std::vector<shader> m_shaders;
 	std::string m_errorLog;
 
 public:
@@ -19,7 +18,7 @@ public:
 	shader_program( const std::vector<shader>& shaders );
 	~shader_program();
 
-	void use_program();
+	void use_program() const;
 
 	const GLuint get_id() const;
 

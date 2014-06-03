@@ -98,12 +98,12 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\Libraries\boost\boost_1_55_0\libs;E:\Libraries\glew\glew-1.10.0\lib\Release\x64;E:\Libraries\SDL\SDL2-2.0.3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>E:\Libraries\glm;E:\Libraries\boost\boost_1_55_0\libs;E:\Libraries\glew\glew-1.10.0\lib\Release\x64;E:\Libraries\SDL\SDL2-2.0.3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist $(SolutionDir)$(Platform)\$(Configuration)\glew32.dll copy E:\Libraries\glew\glew-1.10.0\bin\Release\x64 $(SolutionDir)$(Platform)\$(Congifuration)\
+      <Command>if not exist $(SolutionDir)$(Platform)\$(Configuration)\glew32.dll copy E:\Libraries\glew\glew-1.10.0\bin\Release\x64\glew32.dll $(SolutionDir)$(Platform)\$(Congifuration)\
 if not exist $(SolutionDir)$(Platform)\$(Configuration)\SDL2.dll copy E:\Libraries\SDL\SDL2-2.0.3\lib\x64\SDL2.dll $(SolutionDir)$(Platform)\$(Congifuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

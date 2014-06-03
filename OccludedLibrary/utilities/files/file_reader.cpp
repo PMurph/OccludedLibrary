@@ -4,7 +4,7 @@ namespace occluded { namespace utilities { namespace files {
 
 const std::string file_reader::get_string_from_file( const std::string& filePath ) {
 	std::vector<char> rawString;
-	std::ifstream fileStream( filePath );
+	std::ifstream fileStream( filePath.c_str() );
 
 	if( !fileStream.is_open() ) {
 		throw std::runtime_error( "file_reader.get_string_from_file: Failed to get string from file(" + filePath + 

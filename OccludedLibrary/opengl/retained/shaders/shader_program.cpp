@@ -22,7 +22,7 @@ shader_program::~shader_program()
 {
 }
 
-void shader_program::use_program() {
+void shader_program::use_program() const {
 	if( !m_linked ) {
 		throw std::runtime_error( "shader_program.use_program: Failed to use program because the program has not been properly linked." );
 	}
@@ -62,7 +62,7 @@ void shader_program::init_shader_program( const std::vector<shader>& shaders ) {
 	if( m_id == 0 )
 		throw std::runtime_error( "shader_program.init_shader_progam: Failed to initialize shader program because there was an OpenGL error when creating the program." );
 
-	if( m_shaders.size() < 2 )
+	if( shaders.size() < 2 )
 		throw std::runtime_error( "shader_program.link_shaders: Failed to link shaders because there needs to be a least two shaders to link." );
 
 	attach_shaders( shaders );
@@ -91,13 +91,13 @@ void shader_program::link_shaders() {
 void shader_program::attach_shaders( const std::vector<shader>& shaders ) {
 	bool vertShader = false, fragShader = false;
 
-	for( std::vector<shader>::iterator it = m_shaders.begin(); it != m_shaders.end(); ++it ) {
+	for( std::vector<shader>::const_iterator it = shaders.begin(); it != shaders.end(); ++it ) {
 		if( !it->is_compiled() )
 			throw std::runtime_error( "shader_program.attach_shaders: Failed to attach shaders because a shader did not compile properly." + it->get_compile_log() );
 
 		glAttachShader( m_id, it->get_id() );
 		
-		if( glGetError() == GL_NO_ERROR )
+		if( GL_NO_ERROR != glGetError() )
 			throw std::runtime_error( "shader_program.attach_shaders: OpenGL error thrown when trying to attach shader." );
 
 		// Check to see if vertex shader or fragment shader. Needed to make sure that a shader program contains both a vertex shader and a fragment shader.
@@ -122,16 +122,6 @@ void shader_program::handle_link_errors() {
 
 	for( std::vector<GLchar>::iterator it = log.begin(); it != log.end(); ++it ) {
 		logStr.push_back( *it );
-	}
-
-	logStr.push_back( '\n' );
-
-	// Adds all the logs 
-	for( std::vector<shader>::const_iterator it = m_shaders.begin(); it != m_shaders.end(); ++it ) {
-		if( !it->is_compiled() ) {
-			logStr += it->get_compile_log();
-			logStr.push_back( '\n' );
-		}
 	}
 
 	m_errorLog = logStr;
