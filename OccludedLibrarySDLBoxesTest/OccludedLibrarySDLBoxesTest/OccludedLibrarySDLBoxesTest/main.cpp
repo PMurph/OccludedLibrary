@@ -7,8 +7,8 @@ static GLuint vao;
 static void init_SDL_window();
 static void init_opengl_context_attributes();
 static void init_opengl( SDL_GLContext& glContext );
-static void init_shader_program( occluded::shader_program& shaderProg );
-static void init_boxes( std::vector<box>& boxes, const occluded::shader_program& shaderProg );
+static void init_shader_program( std::auto_ptr<const occluded::shader_program>& shaderProg );
+static void init_boxes( std::vector<box>& boxes, const std::auto_ptr<const occluded::shader_program>& shaderProg );
 static void init_box_map( occluded::buffers::attributes::attribute_map& map );
 static void program_loop( std::vector<box>& boxes );
 static void process_input();
@@ -17,7 +17,7 @@ static void update_boxes( std::vector<box>& boxes );
 
 int main( int argc, char** argv ) {
 	SDL_GLContext ctxt;
-	occluded::shader_program shaderProg;
+	std::auto_ptr<const occluded::shader_program> shaderProg;
 	std::vector<box> boxes;
 
 	init_SDL_window();
@@ -106,32 +106,36 @@ void init_opengl( SDL_GLContext& glContext ) {
 	assert( GL_NO_ERROR == glGetError() );
 }
 
-void init_shader_program( occluded::shader_program& shaderProg ) {
+void init_shader_program( std::auto_ptr<const occluded::shader_program>& shaderProg ) {
 	const std::string vertShaderSrc( occluded::utilities::files::file_reader::get_string_from_file( VERTEX_SHADER_PATH ) );
 	const std::string fragShaderSrc( occluded::utilities::files::file_reader::get_string_from_file( FRAG_SHADER_PATH ) );
-	std::vector<occluded::shader> shaders;
+	std::vector< const boost::shared_ptr<const occluded::shader> > shaders;
+	boost::shared_ptr<const occluded::shader> vertShader( new occluded::shader( vertShaderSrc, occluded::opengl::retained::shaders::vert_shader ) );
+	boost::shared_ptr<const occluded::shader> fragShader( new occluded::shader( fragShaderSrc, occluded::opengl::retained::shaders::frag_shader ) );
 
-	shaders.push_back( occluded::shader( vertShaderSrc, occluded::opengl::retained::shaders::vert_shader ) );
-	shaders.push_back( occluded::shader( fragShaderSrc, occluded::opengl::retained::shaders::frag_shader ) );
+	shaders.push_back( vertShader );
+	shaders.push_back( fragShader );
 
-	shaderProg = occluded::shader_program( shaders );
+	shaderProg.reset( new occluded::shader_program( shaders ) );
 
-	shaderProg.use_program();
+	assert( GL_NO_ERROR == glGetError() );
 
-	projMatPtr = glGetUniformLocation( shaderProg.get_id(), "vProjection" );
+	shaderProg->use_program();
+
+	projMatPtr = glGetUniformLocation( shaderProg->get_id(), "vProjection" );
 	assert( GL_NO_ERROR == glGetError() );
 	glUniformMatrix4fv( projMatPtr, 1, GL_FALSE, glm::value_ptr( PROJECTION_MATRIX ) );
 	assert( GL_NO_ERROR == glGetError() );
 	
-	viewMatPtr = glGetUniformLocation( shaderProg.get_id(), "vView" );
+	viewMatPtr = glGetUniformLocation( shaderProg->get_id(), "vView" );
 	assert( GL_NO_ERROR == glGetError() );
 	glUniformMatrix4fv( viewMatPtr, 1, GL_FALSE, glm::value_ptr( VIEW_MATRIX ) );
 
-	glBindFragDataLocation( shaderProg.get_id(), 0, "finalColor" );
+	glBindFragDataLocation( shaderProg->get_id(), 0, "finalColor" );
 	assert( GL_NO_ERROR == glGetError() );
 }
 
-void init_boxes( std::vector<box>& boxes, const occluded::shader_program& shaderProg ) {
+void init_boxes( std::vector<box>& boxes, const std::auto_ptr<const occluded::shader_program>& shaderProg ) {
 	occluded::buffers::attributes::attribute_map boxMap( true );
 	init_box_map( boxMap );
 
@@ -142,7 +146,7 @@ void init_boxes( std::vector<box>& boxes, const occluded::shader_program& shader
 	assert( GL_NO_ERROR == glGetError() );
 
 	for( int i = 0; i < 5; ++i ) {
-		boxes.push_back( box( shaderProg, boxMap, vao ) );
+		boxes.push_back( box( *shaderProg, boxMap, vao ) );
 	}
 
 	boxes[0].set_pos( 2.f, 0.f, 0.f );

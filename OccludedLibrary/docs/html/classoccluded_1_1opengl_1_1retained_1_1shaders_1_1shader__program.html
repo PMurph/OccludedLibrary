@@ -111,18 +111,26 @@ $(document).ready(function(){initNavTree('classoccluded_1_1opengl_1_1retained_1_
 <div class="title">occluded::opengl::retained::shaders::shader_program Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A wrapper class for an OpenGL GLSL shader program.  
+ <a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="shader__program_8h_source.html">shader_program.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab866c58d6541142d873e0ec532fd194a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab866c58d6541142d873e0ec532fd194a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>shader_program</b> (const std::vector&lt; <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a> &gt; &amp;shaders)</td></tr>
+<tr class="memitem:a940103083cf5b991c8de690748311dc3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html#a940103083cf5b991c8de690748311dc3">shader_program</a> ()</td></tr>
+<tr class="memdesc:a940103083cf5b991c8de690748311dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty shader program that cannot be used for rendering.  <a href="#a940103083cf5b991c8de690748311dc3">More...</a><br /></td></tr>
+<tr class="separator:a940103083cf5b991c8de690748311dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab866c58d6541142d873e0ec532fd194a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html#ab866c58d6541142d873e0ec532fd194a">shader_program</a> (const std::vector&lt; <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a> &gt; &amp;shaders)</td></tr>
+<tr class="memdesc:ab866c58d6541142d873e0ec532fd194a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and initializes a OpenGL GLSL shader program.  <a href="#ab866c58d6541142d873e0ec532fd194a">More...</a><br /></td></tr>
 <tr class="separator:ab866c58d6541142d873e0ec532fd194a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a477e65af748d916f6769e0518788b014"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a477e65af748d916f6769e0518788b014"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>use_program</b> () const </td></tr>
-<tr class="separator:a477e65af748d916f6769e0518788b014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae98855d53b3ef7f8c147704e32e774aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae98855d53b3ef7f8c147704e32e774aa"></a>
-const GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>get_id</b> () const </td></tr>
-<tr class="separator:ae98855d53b3ef7f8c147704e32e774aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92731484e3b37d25b3dc66a3a1871d2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html#a92731484e3b37d25b3dc66a3a1871d2e">use_program</a> () const </td></tr>
+<tr class="memdesc:a92731484e3b37d25b3dc66a3a1871d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells OpenGL to use the shader program.  <a href="#a92731484e3b37d25b3dc66a3a1871d2e">More...</a><br /></td></tr>
+<tr class="separator:a92731484e3b37d25b3dc66a3a1871d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5824dc0a31ac6e1100cfa0677e309020"><td class="memItemLeft" align="right" valign="top">const GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html#a5824dc0a31ac6e1100cfa0677e309020">get_id</a> () const </td></tr>
+<tr class="memdesc:a5824dc0a31ac6e1100cfa0677e309020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the id of the shader program.  <a href="#a5824dc0a31ac6e1100cfa0677e309020">More...</a><br /></td></tr>
+<tr class="separator:a5824dc0a31ac6e1100cfa0677e309020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af713d427fa3e7a05ccee96cee435a100"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af713d427fa3e7a05ccee96cee435a100"></a>
 const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_linked</b> () const </td></tr>
 <tr class="separator:af713d427fa3e7a05ccee96cee435a100"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,6 +138,91 @@ const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_linked</b> (
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_error_log</b> () const </td></tr>
 <tr class="separator:af2eb6bffe5e771bf47013086ace9d16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A wrapper class for an OpenGL GLSL shader program. </p>
+<p>A wrapper class for an OpenGL GLSL shader program. Used to create, attach shaders to, link, and use a shader program as well as to store and quickly access information about a shader program with out having to query OpenGL directly. It also makes it easy to determine if a shader program is being used incorrectly by throwing exceptions when a function is called while the shader program is in the incorrect state or if invalid arguments are passed to it. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a940103083cf5b991c8de690748311dc3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::shaders::shader_program::shader_program </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an empty shader program that cannot be used for rendering. </p>
+<p>Create an empty shader program that cannot be used for rendering. This is used to make it easier for the programmer to use and not violate the programming standards of his/her project. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab866c58d6541142d873e0ec532fd194a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::shaders::shader_program::shader_program </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>shaders</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates and initializes a OpenGL GLSL shader program. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shaders</td><td>A vector of shaders that will be attached to the shader program.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Creates a shader program, attaches the shaders in the shaders vector, and links the shader program. If everything works correctly the shader program can be used for rendering. If a problem occurs the an exception will be raised by this constructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a5824dc0a31ac6e1100cfa0677e309020"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::shaders::shader_program::get_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the id of the shader program. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the id of the OpenGL GLSL shader program.</dd></dl>
+<p>Returns the id of the OpenGL GLSL shader program. This function will throw an exception if the shader program was not properly linked. This can be but should not be used to make a call to glUseProgram. Should be used for getting or binding the location of attributes and uniforms. </p><dl class="section warning"><dt>Warning</dt><dd>Do not use for making a call to glDeleteProgram because it will cause an error when the deconstructor tries to delete the program. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a92731484e3b37d25b3dc66a3a1871d2e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::shaders::shader_program::use_program </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tells OpenGL to use the shader program. </p>
+<p>Tells OpenGL to use this GLSL shader program for rendering. This function will throw an exception if the shader program was not linked properly. Used to quickly tell the user that there is a problem with the shader program with out causing OpenGL to enter an error state. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>OccludedLibrary/opengl/retained/shaders/<a class="el" href="shader__program_8h_source.html">shader_program.h</a></li>
 <li>OccludedLibrary/opengl/retained/shaders/shader_program.cpp</li>
@@ -140,7 +233,7 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>ge
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>opengl</b></li><li class="navelem"><b>retained</b></li><li class="navelem"><b>shaders</b></li><li class="navelem"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shader_program</a></li>
-    <li class="footer">Generated on Tue Jun 3 2014 00:33:34 for Occluded Library by
+    <li class="footer">Generated on Tue Jun 3 2014 12:24:22 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

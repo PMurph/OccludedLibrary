@@ -1,18 +1,26 @@
 \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{\section{occluded\+:\+:opengl\+:\+:retained\+:\+:shaders\+:\+:shader\+\_\+program Class Reference}
 \label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}}
 }
+
+
+A wrapper class for an Open\+G\+L G\+L\+S\+L shader program.  
+
+
+
+
+{\ttfamily \#include $<$shader\+\_\+program.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_ab866c58d6541142d873e0ec532fd194a}{{\bfseries shader\+\_\+program} (const std\+::vector$<$ \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader}{shader} $>$ \&shaders)}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_ab866c58d6541142d873e0ec532fd194a}
-
-\item 
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a477e65af748d916f6769e0518788b014}{void {\bfseries use\+\_\+program} () const }\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a477e65af748d916f6769e0518788b014}
-
-\item 
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_ae98855d53b3ef7f8c147704e32e774aa}{const G\+Luint {\bfseries get\+\_\+id} () const }\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_ae98855d53b3ef7f8c147704e32e774aa}
-
-\item 
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a940103083cf5b991c8de690748311dc3}{shader\+\_\+program} ()
+\begin{DoxyCompactList}\small\item\em Creates an empty shader program that cannot be used for rendering. \end{DoxyCompactList}\item 
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_ab866c58d6541142d873e0ec532fd194a}{shader\+\_\+program} (const std\+::vector$<$ \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader}{shader} $>$ \&shaders)
+\begin{DoxyCompactList}\small\item\em Creates and initializes a Open\+G\+L G\+L\+S\+L shader program. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a92731484e3b37d25b3dc66a3a1871d2e}{use\+\_\+program} () const 
+\begin{DoxyCompactList}\small\item\em Tells Open\+G\+L to use the shader program. \end{DoxyCompactList}\item 
+const G\+Luint \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a5824dc0a31ac6e1100cfa0677e309020}{get\+\_\+id} () const 
+\begin{DoxyCompactList}\small\item\em Gets the id of the shader program. \end{DoxyCompactList}\item 
 \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_af713d427fa3e7a05ccee96cee435a100}{const bool {\bfseries is\+\_\+linked} () const }\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_af713d427fa3e7a05ccee96cee435a100}
 
 \item 
@@ -20,6 +28,72 @@
 
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+A wrapper class for an Open\+G\+L G\+L\+S\+L shader program. 
+
+A wrapper class for an Open\+G\+L G\+L\+S\+L shader program. Used to create, attach shaders to, link, and use a shader program as well as to store and quickly access information about a shader program with out having to query Open\+G\+L directly. It also makes it easy to determine if a shader program is being used incorrectly by throwing exceptions when a function is called while the shader program is in the incorrect state or if invalid arguments are passed to it. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a940103083cf5b991c8de690748311dc3}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}!shader\+\_\+program@{shader\+\_\+program}}
+\index{shader\+\_\+program@{shader\+\_\+program}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}}
+\subsubsection[{shader\+\_\+program}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program\+::shader\+\_\+program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a940103083cf5b991c8de690748311dc3}
+
+
+Creates an empty shader program that cannot be used for rendering. 
+
+Create an empty shader program that cannot be used for rendering. This is used to make it easier for the programmer to use and not violate the programming standards of his/her project. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_ab866c58d6541142d873e0ec532fd194a}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}!shader\+\_\+program@{shader\+\_\+program}}
+\index{shader\+\_\+program@{shader\+\_\+program}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}}
+\subsubsection[{shader\+\_\+program}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program\+::shader\+\_\+program (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ {\bf shader} $>$ \&}]{shaders}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_ab866c58d6541142d873e0ec532fd194a}
+
+
+Creates and initializes a Open\+G\+L G\+L\+S\+L shader program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shaders} & A vector of shaders that will be attached to the shader program.\\
+\hline
+\end{DoxyParams}
+Creates a shader program, attaches the shaders in the shaders vector, and links the shader program. If everything works correctly the shader program can be used for rendering. If a problem occurs the an exception will be raised by this constructor. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a5824dc0a31ac6e1100cfa0677e309020}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}!get\+\_\+id@{get\+\_\+id}}
+\index{get\+\_\+id@{get\+\_\+id}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}}
+\subsubsection[{get\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program\+::get\+\_\+id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a5824dc0a31ac6e1100cfa0677e309020}
+
+
+Gets the id of the shader program. 
+
+\begin{DoxyReturn}{Returns}
+Returns the id of the Open\+G\+L G\+L\+S\+L shader program.
+\end{DoxyReturn}
+Returns the id of the Open\+G\+L G\+L\+S\+L shader program. This function will throw an exception if the shader program was not properly linked. This can be but should not be used to make a call to gl\+Use\+Program. Should be used for getting or binding the location of attributes and uniforms. \begin{DoxyWarning}{Warning}
+Do not use for making a call to gl\+Delete\+Program because it will cause an error when the deconstructor tries to delete the program. 
+\end{DoxyWarning}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a92731484e3b37d25b3dc66a3a1871d2e}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}!use\+\_\+program@{use\+\_\+program}}
+\index{use\+\_\+program@{use\+\_\+program}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program}}
+\subsubsection[{use\+\_\+program}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+program\+::use\+\_\+program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program_a92731484e3b37d25b3dc66a3a1871d2e}
+
+
+Tells Open\+G\+L to use the shader program. 
+
+Tells Open\+G\+L to use this G\+L\+S\+L shader program for rendering. This function will throw an exception if the shader program was not linked properly. Used to quickly tell the user that there is a problem with the shader program with out causing Open\+G\+L to enter an error state. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

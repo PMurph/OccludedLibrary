@@ -7,9 +7,9 @@
 
 var indexSectionsWithContent =
 {
-  0: "afgis",
+  0: "afgisu",
   1: "afgis",
-  2: "gis"
+  2: "gisu"
 };
 
 var indexSectionNames =
