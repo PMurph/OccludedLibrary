@@ -1,0 +1,117 @@
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader}{\section{occluded\+:\+:opengl\+:\+:retained\+:\+:shaders\+:\+:shader Class Reference}
+\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader}\index{occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}}
+}
+
+
+A wrapper class for an Open\+G\+L shader.  
+
+
+
+
+{\ttfamily \#include $<$shader.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_ac40b834734bf03a1c060f771b1741823}{shader} (const std\+::string \&shader\+Src, const shader\+\_\+type\+\_\+t type)
+\begin{DoxyCompactList}\small\item\em Initializes and compiles the shader. \end{DoxyCompactList}\item 
+const G\+Luint \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_a1694ca35f6ad85cf95a3f6b3c7b783e3}{get\+\_\+id} () const 
+\begin{DoxyCompactList}\small\item\em Gets the id of the shader. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_af1fe3fdd511da901ffa7665dad8a1d12}{is\+\_\+compiled} () const 
+\begin{DoxyCompactList}\small\item\em Returns true if the shader is compiled, and false otherwise. \end{DoxyCompactList}\item 
+const shader\+\_\+type\+\_\+t \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_af9befeaa32ea72f80d1c3825f4cd2f48}{get\+\_\+type} () const 
+\begin{DoxyCompactList}\small\item\em Gets the type of the shader. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_add6cda8459eb2a802e8eb22f70bbd1db}{get\+\_\+compile\+\_\+log} () const 
+\begin{DoxyCompactList}\small\item\em Gets the compile log if a compilation error occurs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A wrapper class for an Open\+G\+L shader. 
+
+A wrapper class for an Open\+G\+L G\+L\+S\+L shader. This is class holds information necessary for creating a G\+L\+S\+L shader as well as making it easy for accessing information about a compiled shader without having to query Open\+G\+L. It also allows for determining if a shader has not compiled properly and for accessing the error log to examine the compilation errors. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_ac40b834734bf03a1c060f771b1741823}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}!shader@{shader}}
+\index{shader@{shader}!occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}}
+\subsubsection[{shader}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+::shader (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{shader\+Src, }
+\item[{const shader\+\_\+type\+\_\+t}]{type}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_ac40b834734bf03a1c060f771b1741823}
+
+
+Initializes and compiles the shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader\+Src} & A reference to a string containing the source code of the G\+L\+S\+L shader. \\
+\hline
+{\em type} & The type of this G\+L\+S\+L shader.\\
+\hline
+\end{DoxyParams}
+Initializes and compiles the shader program specified by the shader source and the shader type provided. If the shader has a problem compiling, the compile log will be stored and an exception will be thrown. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_add6cda8459eb2a802e8eb22f70bbd1db}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}!get\+\_\+compile\+\_\+log@{get\+\_\+compile\+\_\+log}}
+\index{get\+\_\+compile\+\_\+log@{get\+\_\+compile\+\_\+log}!occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}}
+\subsubsection[{get\+\_\+compile\+\_\+log}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+::get\+\_\+compile\+\_\+log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_add6cda8459eb2a802e8eb22f70bbd1db}
+
+
+Gets the compile log if a compilation error occurs. 
+
+\begin{DoxyReturn}{Returns}
+Returns a reference to the string containing the shader's compile log.
+\end{DoxyReturn}
+Gets the the compile log of the G\+L\+S\+L shader if there is a problem during compilation. If there was no problem during compilation, an exception will be thrown. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_a1694ca35f6ad85cf95a3f6b3c7b783e3}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}!get\+\_\+id@{get\+\_\+id}}
+\index{get\+\_\+id@{get\+\_\+id}!occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}}
+\subsubsection[{get\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+::get\+\_\+id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_a1694ca35f6ad85cf95a3f6b3c7b783e3}
+
+
+Gets the id of the shader. 
+
+\begin{DoxyReturn}{Returns}
+Returns the id of the G\+L\+S\+L shader.
+\end{DoxyReturn}
+Gets the id of the G\+L\+S\+L shader and throws an exception if an error occured during shader compilation. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_af9befeaa32ea72f80d1c3825f4cd2f48}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}!get\+\_\+type@{get\+\_\+type}}
+\index{get\+\_\+type@{get\+\_\+type}!occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}}
+\subsubsection[{get\+\_\+type}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+::get\+\_\+type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_af9befeaa32ea72f80d1c3825f4cd2f48}
+
+
+Gets the type of the shader. 
+
+\begin{DoxyReturn}{Returns}
+Returns a shader\+\_\+type\+\_\+t representing the shader's type.
+\end{DoxyReturn}
+Gets the shader\+\_\+type\+\_\+t of the shader. Used to prevent problems with incorrect types of shaders being used in the same \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program}. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_af1fe3fdd511da901ffa7665dad8a1d12}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}!is\+\_\+compiled@{is\+\_\+compiled}}
+\index{is\+\_\+compiled@{is\+\_\+compiled}!occluded\+::opengl\+::retained\+::shaders\+::shader@{occluded\+::opengl\+::retained\+::shaders\+::shader}}
+\subsubsection[{is\+\_\+compiled}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+::is\+\_\+compiled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_af1fe3fdd511da901ffa7665dad8a1d12}
+
+
+Returns true if the shader is compiled, and false otherwise. 
+
+\begin{DoxyReturn}{Returns}
+Returns whether or not the shader is compiled.
+\end{DoxyReturn}
+Returns true if the G\+L\+S\+L is compiled and false if an error occured during compilation. This is used to quickly determine if a shader can be used in a G\+L\+S\+L shader program. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Occluded\+Library/opengl/retained/shaders/shader.\+h\item 
+Occluded\+Library/opengl/retained/shaders/shader.\+cpp\end{DoxyCompactItemize}

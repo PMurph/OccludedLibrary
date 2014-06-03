@@ -16,6 +16,35 @@ shader::~shader()
 {
 }
 
+const GLuint shader::get_id() const {
+	if( m_status != shader_compiled )
+		throw std::runtime_error( "shader.get_id: Failed to get shader id because it has not been compiled." );
+
+	return m_id;
+}
+
+const bool shader::is_compiled() const {
+	return shader_compiled == m_status;
+}
+
+const shader_type_t shader::get_type() const {
+	shader_type_t thisShaderType = invalid_shader;
+
+	if( m_status == shader_compiled )
+		thisShaderType = m_type;
+
+	return thisShaderType;
+}
+
+const std::string& shader::get_compile_log() const {
+	if( m_status != shader_error )
+		throw std::runtime_error( "shader.get_compile_log: Failed to get compile log because there has been no compile error" );
+
+	return m_compileLog;
+}
+
+// private member functions
+
 void shader::compile_shader() {
 	GLint status;
 	const GLchar * src = NULL;
@@ -48,35 +77,6 @@ void shader::compile_shader() {
 		m_status = shader_compiled;
 	}
 }
-
-const GLuint shader::get_id() const {
-	if( m_status != shader_compiled )
-		throw std::runtime_error( "shader.get_id: Failed to get shader id because it has not been compiled." );
-
-	return m_id;
-}
-
-const bool shader::is_compiled() const {
-	return shader_compiled == m_status;
-}
-
-const shader_type_t shader::get_type() const {
-	shader_type_t thisShaderType = invalid_shader;
-
-	if( m_status == shader_compiled )
-		thisShaderType = m_type;
-
-	return thisShaderType;
-}
-
-const std::string& shader::get_compile_log() const {
-	if( m_status != shader_error )
-		throw std::runtime_error( "shader.get_compile_log: Failed to get compile log because there has been no compile error" );
-
-	return m_compileLog;
-}
-
-// private member functions
 
 void shader::handle_compile_error() {
 	GLint logLength;
