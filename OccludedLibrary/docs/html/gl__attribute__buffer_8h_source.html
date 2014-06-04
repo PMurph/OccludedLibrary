@@ -113,47 +113,52 @@ $(document).ready(function(){initNavTree('gl__attribute__buffer_8h_source.html',
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>occluded { <span class="keyword">namespace </span>opengl { <span class="keyword">namespace </span>retained {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> BUFFER_USAGE {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    static_draw_usage = GL_STATIC_DRAW,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    stream_draw_usage = GL_STREAM_DRAW,</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    dynamic_draw_usage = GL_DYNAMIC_DRAW</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;} buffer_usage_t;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    GLuint m_id;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::auto_ptr&lt;buffers::attribute_buffer&gt; m_buffer;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    buffer_usage_t m_usage;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> BUFFER_USAGE {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    static_draw_usage = GL_STATIC_DRAW,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    stream_draw_usage = GL_STREAM_DRAW,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    dynamic_draw_usage = GL_DYNAMIC_DRAW</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;} buffer_usage_t;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a>( <span class="keyword">const</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a>&amp; map, <span class="keyword">const</span> buffer_usage_t usage );</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    ~<a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> bind_buffer();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> insert_values( <span class="keyword">const</span> std::vector&lt;char&gt;&amp; values );</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">const</span> GLuint get_id() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">const</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a>&amp; get_buffer_map() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> init_buffer();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;} <span class="comment">// end of retained namespace</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;} <span class="comment">// end of opengl namespace</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <span class="comment">// end of occluded namespace</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    GLuint m_id;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::auto_ptr&lt;buffers::attribute_buffer&gt; m_buffer;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    buffer_usage_t m_usage;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#afde90951c4cebabd6a6d80e5a7027cf0">gl_attribute_buffer</a>( <span class="keyword">const</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a>&amp; map, <span class="keyword">const</span> buffer_usage_t usage );</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ~<a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a58ea21106acfac03c3cc5b35ce59f6b2">bind_buffer</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#afd58deefb5659c0cd9a316263515b68f">insert_values</a>( <span class="keyword">const</span> std::vector&lt;char&gt;&amp; values );</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">const</span> GLuint <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#ab23624ebadcabdcb0d028e2fe0039ffd">get_id</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">const</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a>&amp; <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a1241841aa913b0df057b5d885f1447b4">get_buffer_map</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> init_buffer();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;};</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;} <span class="comment">// end of retained namespace</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// end of opengl namespace</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;} <span class="comment">// end of occluded namespace</span></div>
 <div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute__map_html"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">occluded::buffers::attributes::attribute_map</a></div><div class="ttdef"><b>Definition:</b> attribute_map.h:12</div></div>
-<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_html"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">occluded::opengl::retained::gl_attribute_buffer</a></div><div class="ttdef"><b>Definition:</b> gl_attribute_buffer.h:15</div></div>
+<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_html_afde90951c4cebabd6a6d80e5a7027cf0"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#afde90951c4cebabd6a6d80e5a7027cf0">occluded::opengl::retained::gl_attribute_buffer::gl_attribute_buffer</a></div><div class="ttdeci">gl_attribute_buffer(const buffers::attributes::attribute_map &amp;map, const buffer_usage_t usage)</div><div class="ttdoc">Initialize the buffer. </div><div class="ttdef"><b>Definition:</b> gl_attribute_buffer.cpp:5</div></div>
+<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_html_afd58deefb5659c0cd9a316263515b68f"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#afd58deefb5659c0cd9a316263515b68f">occluded::opengl::retained::gl_attribute_buffer::insert_values</a></div><div class="ttdeci">void insert_values(const std::vector&lt; char &gt; &amp;values)</div><div class="ttdoc">Inserts data into the buffer. </div><div class="ttdef"><b>Definition:</b> gl_attribute_buffer.cpp:29</div></div>
+<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_html_ab23624ebadcabdcb0d028e2fe0039ffd"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#ab23624ebadcabdcb0d028e2fe0039ffd">occluded::opengl::retained::gl_attribute_buffer::get_id</a></div><div class="ttdeci">const GLuint get_id() const </div><div class="ttdoc">Gets the id of the OpenGL buffer object. </div><div class="ttdef"><b>Definition:</b> gl_attribute_buffer.cpp:39</div></div>
+<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_html"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">occluded::opengl::retained::gl_attribute_buffer</a></div><div class="ttdoc">A wrapper class for an OpenGL buffer. </div><div class="ttdef"><b>Definition:</b> gl_attribute_buffer.h:30</div></div>
+<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_html_a58ea21106acfac03c3cc5b35ce59f6b2"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a58ea21106acfac03c3cc5b35ce59f6b2">occluded::opengl::retained::gl_attribute_buffer::bind_buffer</a></div><div class="ttdeci">void bind_buffer()</div><div class="ttdoc">Binds the buffer as an array buffer object. </div><div class="ttdef"><b>Definition:</b> gl_attribute_buffer.cpp:17</div></div>
+<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_html_a1241841aa913b0df057b5d885f1447b4"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a1241841aa913b0df057b5d885f1447b4">occluded::opengl::retained::gl_attribute_buffer::get_buffer_map</a></div><div class="ttdeci">const buffers::attributes::attribute_map &amp; get_buffer_map() const </div><div class="ttdoc">Gets the attribute_map of the attribute_buffer. </div><div class="ttdef"><b>Definition:</b> gl_attribute_buffer.cpp:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_eb31cc02556c90539efbe1c6c599098c.html">OccludedLibrary</a></li><li class="navelem"><a class="el" href="dir_725cdbe3b0660c87c65dc4288272c312.html">opengl</a></li><li class="navelem"><a class="el" href="dir_c4ead09a1921a448dbfe4c6bb29a8d0e.html">retained</a></li><li class="navelem"><b>gl_attribute_buffer.h</b></li>
-    <li class="footer">Generated on Tue Jun 3 2014 12:24:17 for Occluded Library by
+    <li class="footer">Generated on Tue Jun 3 2014 22:36:18 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

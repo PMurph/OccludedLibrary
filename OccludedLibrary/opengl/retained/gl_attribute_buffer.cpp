@@ -17,6 +17,7 @@ gl_attribute_buffer::~gl_attribute_buffer() {
 void gl_attribute_buffer::bind_buffer() {
 	glBindBuffer( GL_ARRAY_BUFFER, m_id );
 
+	// Check to make sure the buffer has a size greater than 0, so that the glBufferData call does not cause OpenGL to enter an error state.
 	if( m_buffer->get_byte_size() > 0 )
 		glBufferData( GL_ARRAY_BUFFER, m_buffer->get_byte_size(), &m_buffer->get_all_data()[0], m_usage );
 	

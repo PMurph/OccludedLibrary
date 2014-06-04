@@ -111,26 +111,152 @@ $(document).ready(function(){initNavTree('classoccluded_1_1opengl_1_1retained_1_
 <div class="title">occluded::opengl::retained::gl_attribute_buffer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A wrapper class for an OpenGL buffer.  
+ <a href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="gl__attribute__buffer_8h_source.html">gl_attribute_buffer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afde90951c4cebabd6a6d80e5a7027cf0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afde90951c4cebabd6a6d80e5a7027cf0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>gl_attribute_buffer</b> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;map, const buffer_usage_t usage)</td></tr>
+<tr class="memitem:afde90951c4cebabd6a6d80e5a7027cf0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#afde90951c4cebabd6a6d80e5a7027cf0">gl_attribute_buffer</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;map, const buffer_usage_t usage)</td></tr>
+<tr class="memdesc:afde90951c4cebabd6a6d80e5a7027cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the buffer.  <a href="#afde90951c4cebabd6a6d80e5a7027cf0">More...</a><br /></td></tr>
 <tr class="separator:afde90951c4cebabd6a6d80e5a7027cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9c701de489d6e8b7ece70f4ffd50ca1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9c701de489d6e8b7ece70f4ffd50ca1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>bind_buffer</b> ()</td></tr>
-<tr class="separator:ab9c701de489d6e8b7ece70f4ffd50ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07b2603386742c0f9b3d0115842b5ed5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a07b2603386742c0f9b3d0115842b5ed5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>insert_values</b> (const std::vector&lt; char &gt; &amp;values)</td></tr>
-<tr class="separator:a07b2603386742c0f9b3d0115842b5ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2c3be30814ed6daec32533aacf8e52b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2c3be30814ed6daec32533aacf8e52b"></a>
-const GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>get_id</b> () const </td></tr>
-<tr class="separator:ac2c3be30814ed6daec32533aacf8e52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a812a8329c763d45760128b71fa76c5e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a812a8329c763d45760128b71fa76c5e7"></a>
-const <br class="typebreak" />
-<a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_buffer_map</b> () const </td></tr>
-<tr class="separator:a812a8329c763d45760128b71fa76c5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58ea21106acfac03c3cc5b35ce59f6b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a58ea21106acfac03c3cc5b35ce59f6b2">bind_buffer</a> ()</td></tr>
+<tr class="memdesc:a58ea21106acfac03c3cc5b35ce59f6b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the buffer as an array buffer object.  <a href="#a58ea21106acfac03c3cc5b35ce59f6b2">More...</a><br /></td></tr>
+<tr class="separator:a58ea21106acfac03c3cc5b35ce59f6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd58deefb5659c0cd9a316263515b68f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#afd58deefb5659c0cd9a316263515b68f">insert_values</a> (const std::vector&lt; char &gt; &amp;values)</td></tr>
+<tr class="memdesc:afd58deefb5659c0cd9a316263515b68f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts data into the buffer.  <a href="#afd58deefb5659c0cd9a316263515b68f">More...</a><br /></td></tr>
+<tr class="separator:afd58deefb5659c0cd9a316263515b68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23624ebadcabdcb0d028e2fe0039ffd"><td class="memItemLeft" align="right" valign="top">const GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#ab23624ebadcabdcb0d028e2fe0039ffd">get_id</a> () const </td></tr>
+<tr class="memdesc:ab23624ebadcabdcb0d028e2fe0039ffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the id of the OpenGL buffer object.  <a href="#ab23624ebadcabdcb0d028e2fe0039ffd">More...</a><br /></td></tr>
+<tr class="separator:ab23624ebadcabdcb0d028e2fe0039ffd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1241841aa913b0df057b5d885f1447b4"><td class="memItemLeft" align="right" valign="top">const <br class="typebreak" />
+<a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a1241841aa913b0df057b5d885f1447b4">get_buffer_map</a> () const </td></tr>
+<tr class="memdesc:a1241841aa913b0df057b5d885f1447b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the attribute_map of the attribute_buffer.  <a href="#a1241841aa913b0df057b5d885f1447b4">More...</a><br /></td></tr>
+<tr class="separator:a1241841aa913b0df057b5d885f1447b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A wrapper class for an OpenGL buffer. </p>
+<p>A wrapper class for an OpenGL buffer object. It stores information about the buffer to allow for quickly accessing that information without querying the OpenGL buffer object. It also contains an attribute_buffer object that will allow for storage of data outside of OpenGL which makes inserting data into the buffer significantly more easy as well as allowing for checking to make sure data being inserted is valid. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="afde90951c4cebabd6a6d80e5a7027cf0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::gl_attribute_buffer::gl_attribute_buffer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const buffer_usage_t&#160;</td>
+          <td class="paramname"><em>usage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize the buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>A reference to an attribute map. </td></tr>
+    <tr><td class="paramname">usage</td><td>A enumerable that will be used to tell OpenGL how the buffer will be used.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Generate the an OpenGL buffer object, creates an attribute buffer to store data inserted into the buffer, and binds that buffer as an array buffer. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a58ea21106acfac03c3cc5b35ce59f6b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::gl_attribute_buffer::bind_buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Binds the buffer as an array buffer object. </p>
+<p>Binds the buffer as an array buffer object and sets the OpenGL buffer's data store to the contents of the attribute buffer. Should be called prior to using the buffer in an OpenGL draw call or after the data in the attribute buffer has changed. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1241841aa913b0df057b5d885f1447b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::gl_attribute_buffer::get_buffer_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the attribute_map of the attribute_buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the attribute_map used in the attribute_buffer contained by the <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">gl_attribute_buffer</a>.</dd></dl>
+<p>Gets a reference to the attribute_map used by the attribute_buffer contained by the <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">gl_attribute_buffer</a>. Intended to be used for formatting data to be inserted into the <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">gl_attribute_buffer</a> as well as determining the inputs to a glVertexAttribPointer call. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab23624ebadcabdcb0d028e2fe0039ffd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::gl_attribute_buffer::get_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the id of the OpenGL buffer object. </p>
+<p>Gets the id of the OpenGL buffer object connected to this buffer. If this buffer is being used in a STL container, the value returned will change when the <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">gl_attribute_buffer</a> is inserted into the container. </p><dl class="section warning"><dt>Warning</dt><dd>Do not call glDeleteBuffer on the id returned from this function call. It will cause an OpenGL to enter an error state when the the gl_attribute_buffers destructor is called. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afd58deefb5659c0cd9a316263515b68f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::opengl::retained::gl_attribute_buffer::insert_values </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inserts data into the buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>reference to a vector of bytes containing the data to be inserted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Inserts data into the attribute buffer, then binds the buffer and sets the OpenGL data store to the data in the attribute buffer for the OpenGL buffer object connected to this buffer. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>OccludedLibrary/opengl/retained/<a class="el" href="gl__attribute__buffer_8h_source.html">gl_attribute_buffer.h</a></li>
 <li>OccludedLibrary/opengl/retained/gl_attribute_buffer.cpp</li>
@@ -141,7 +267,7 @@ const <br class="typebreak" />
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>opengl</b></li><li class="navelem"><b>retained</b></li><li class="navelem"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a></li>
-    <li class="footer">Generated on Tue Jun 3 2014 12:24:22 for Occluded Library by
+    <li class="footer">Generated on Tue Jun 3 2014 22:36:22 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>
