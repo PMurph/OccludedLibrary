@@ -64,5 +64,29 @@ namespace OccludedLibraryUnitTests
 			// Test to make sure setting it to true
 			Assert::IsTrue( testAttrib.is_normalized() );
 		}
+
+		TEST_METHOD( attribute_operator_boolean_equality_test )
+		{
+			attribute test1Attrib( "test1", 1, attrib_float );
+			attribute test2Attrib( "test1", 1, attrib_float );
+
+			// Test to make sure == operator returns true when name, arity, and type are the same
+			Assert::IsTrue( test1Attrib == test2Attrib );
+
+			attribute test3Attrib( "test2", 1, attrib_float );
+
+			// Test to make sure == operator returns false when the names of the attributes are different
+			Assert::IsFalse( test1Attrib == test3Attrib );
+
+			attribute test4Attrib( "test2", 2, attrib_float );
+			
+			// Test to make sure == operator returns false when the aritys are different
+			Assert::IsFalse( test3Attrib == test4Attrib );
+
+			attribute test5Attrib( "test2", 2, attrib_uint );
+
+			// Test to make sure == operator returns false when the types are different
+			Assert::IsFalse( test4Attrib == test5Attrib );
+		}
 	};
 }

@@ -192,5 +192,101 @@ namespace OccludedLibraryUnitTests
 			testMap.reset( false );
 			Assert::IsFalse( testMap.is_interleaved() );
 		}
+
+		TEST_METHOD( attribute_map_operator_boolean_equality_test )
+		{
+			attribute_map testMap( true );
+			attribute_map testMap2( true );
+			attribute testAttrib( "test", 1, attrib_float );
+			attribute testAttrib2( "test2", 2, attrib_int );
+			attribute testAttrib3( "test3", 3, attrib_uint );
+
+			try {
+				testMap.add_attribute( testAttrib );
+				testMap.add_attribute( testAttrib2 );
+				testMap.end_definition();
+
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib2 );
+				testMap2.end_definition();
+
+				// Test to make sure attribute maps with same attributes returns true when compared
+				Assert::IsTrue( testMap == testMap2 );
+
+				testMap2.reset( false );
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib2 );
+				testMap2.end_definition();
+
+				// Test to make sure that attribute maps where one is interleaved and one is segregated returns false when compared
+				Assert::IsFalse( testMap == testMap2 );
+
+				testMap2.reset( true );
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib3 );
+				testMap2.end_definition();
+
+				// Test to make sure attribute maps with different attributes returns false when compared
+				Assert::IsFalse( testMap == testMap2 );
+
+				testMap2.reset( false );
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib2 );
+				
+				// Test to make sure attribute maps that are still being defined returns false when compared
+				Assert::IsFalse( testMap == testMap2 );
+				Assert::IsFalse( testMap2 == testMap );
+			} catch( std::exception& ) {
+				Assert::Fail();
+			}
+		}
+
+		TEST_METHOD( attribute_map_operator_boolean_not_equality_test )
+		{
+			attribute_map testMap( true );
+			attribute_map testMap2( true );
+			attribute testAttrib( "test", 1, attrib_float );
+			attribute testAttrib2( "test2", 2, attrib_int );
+			attribute testAttrib3( "test3", 3, attrib_uint );
+
+			try {
+				testMap.add_attribute( testAttrib );
+				testMap.add_attribute( testAttrib2 );
+				testMap.end_definition();
+
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib2 );
+				testMap2.end_definition();
+
+				// Test to make sure attribute maps with same attributes returns false when compared
+				Assert::IsFalse( testMap != testMap2 );
+
+				testMap2.reset( false );
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib2 );
+				testMap2.end_definition();
+
+				// Test to make sure that attribute maps where one is interleaved and one is segregated returns true when compared
+				Assert::IsTrue( testMap != testMap2 );
+
+				testMap2.reset( true );
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib3 );
+				testMap2.end_definition();
+
+				// Test to make sure attribute maps with different attributes returns true when compared
+				Assert::IsTrue( testMap != testMap2 );
+
+				testMap2.reset( false );
+				testMap2.add_attribute( testAttrib );
+				testMap2.add_attribute( testAttrib2 );
+				
+				// Test to make sure attribute maps that are still being defined returns true when compared
+				Assert::IsTrue( testMap != testMap2 );
+				Assert::IsTrue( testMap2 != testMap );
+			} catch( std::exception& ) {
+				Assert::Fail();
+			}
+		}
 	};
 }

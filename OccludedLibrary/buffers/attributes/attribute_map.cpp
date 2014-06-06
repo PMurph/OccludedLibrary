@@ -71,6 +71,35 @@ const bool attribute_map::being_defined() const {
 	return m_defining;
 }
 
+const bool attribute_map::operator==( const attribute_map& other ) const {
+	unsigned int i = 0;
+	bool equal = true;
+	std::vector<const attribute> otherAttrib;
+
+	// If either attribute_map is still being defined return false
+	if( this->m_defining == false && other.being_defined() == false ){
+		otherAttrib = other.get_attributes();
+	
+		// Check the counts of the attributes so that iterating through all the attributes can be avoided if possible
+		equal = otherAttrib.size() == m_attribCount;
+
+		for( i = 0; equal && i < otherAttrib.size(); ++i ) {
+			// Check to see if the attribute are not equal
+			equal = otherAttrib[i] == m_attributes[i]; 
+		}
+	
+		equal = this->m_interleaved == other.m_interleaved && equal;
+	} else {
+		equal = false;
+	}
+
+	return equal;
+}
+
+const bool attribute_map::operator!=( const attribute_map& other ) const {
+	return !( *this == other );
+}
+
 } // end of attributes namespace
 } // end of buffers namespace
 } // end of occluded namespace

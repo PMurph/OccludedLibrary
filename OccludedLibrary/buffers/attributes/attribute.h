@@ -35,6 +35,15 @@ public:
 	const std::size_t get_attrib_size() const;
 
 	const bool is_normalized() const;
+
+	/**
+	 * \fn operator==
+	 * \brief Gets whether or not the two attributes are the same.
+	 * 
+	 * \param other The other attribute being tested against.
+	 * \return Returns true if the two attributes have the same name, arity, and type, otherwise returns false.
+	 */
+	const bool operator==( const attribute& other ) const;
 };
 
 } // end of attributes namespace

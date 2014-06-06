@@ -20,25 +20,42 @@ shader_attribute_map::~shader_attribute_map()
 {
 }
 
-void shader_attribute_map::set_attrib_pointers() const {
+void shader_attribute_map::set_attrib_pointers( const buffers::attribute_buffer& buffer ) const {
+	unsigned int i = 0;
 	std::vector<const buffers::attributes::attribute> attributes = m_attribMap.get_attributes();
+
+	// Checks to make sure the buffer's attribute map is the same as the attribute map
+	if( buffer.get_attribute_map() != m_attribMap ) {
+		throw std::runtime_error( "shader_attribute_map.set_attrib_pointers: Failed to set attribute pointers because the attribute_buffer's attribute_map passed does not match"
+			+ std::string( " the attribute_map contained byy the shader_attribute_map." ) );
+	}
 
 	// Ensure that the correct shader program is being used
 	m_shaderProg.use_program();
 
-	for( std::vector<const buffers::attributes::attribute>::const_iterator it = attributes.begin(); it != attributes.end(); ++it ) {
-		std::map< const std::string, std::pair<const std::string, GLint> >::const_iterator entry = m_map.find( it->get_name() );
+	for( i = 0; i < attributes.size(); ++i ) {
+		std::map< const std::string, std::pair<const std::string, GLint> >::const_iterator entry = m_map.find( attributes[i].get_name() );
 		
 		// Check to make sure that the name of the attribute is in the map
 		if( entry == m_map.end() ) {
-			throw std::runtime_error( "shader_attribute_map.set_attrib_pointers: Failed to set attribute pointers because attribute(" + it->get_name() + 
+			throw std::runtime_error( "shader_attribute_map.set_attrib_pointers: Failed to set attribute pointers because attribute(" + attributes[i].get_name() + 
 				") was found in attribute_map but not in shader_attribute_map." );
 		}
 
 		// If the location exists, setup the attribute pointer
 		if( entry->second.second >= 0 ) {
-			//glVertexAttribPointer( static_cast<GLuint>( entry->second.second ), static_cast<GLint>( it->get_arity() ), it->get_type(), static_cast<GLboolean>( it->is_normalized() ),
-			//	static_cast<GLsizei>( m_attribMap.get_byte_size() ), reinterpret_cast<const GLvoid*>( it->)
+			if( m_attribMap.is_interleaved() ) {
+				glVertexAttribPointer( static_cast<GLuint>( entry->second.second ), static_cast<GLint>( attributes[i].get_arity() ), attributes[i].get_type(), 
+					static_cast<GLboolean>( attributes[i].is_normalized() ), static_cast<GLsizei>( m_attribMap.get_byte_size() ), 
+					reinterpret_cast<const GLvoid*>( buffer.get_attribute_data_offsets()[i] ) );
+			} else {
+				glVertexAttribPointer( static_cast<GLuint>( entry->second.second ), static_cast<GLint>( attributes[i].get_arity() ), attributes[i].get_type(),
+					static_cast<GLboolean>( attributes[i].is_normalized() ), static_cast<GLsizei>( 0 ), 
+					reinterpret_cast<const GLvoid*>( buffer.get_attribute_data_offsets()[i] ) );
+			}
+
+			if( GL_NO_ERROR == glGetError() )
+				throw std::runtime_error( "shader_attribute_map.set_attrib_pointers: OpenGL entered an error state after a vertex attrib pointer was attempted to be setup." );
 		}
 	}
 }

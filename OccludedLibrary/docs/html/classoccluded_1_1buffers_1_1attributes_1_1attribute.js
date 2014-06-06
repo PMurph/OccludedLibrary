@@ -7,5 +7,6 @@ var classoccluded_1_1buffers_1_1attributes_1_1attribute =
     [ "get_component_size", "classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a012ea3f8aa212784b7bb7d0cd8b490b9", null ],
     [ "get_name", "classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a883bbea2242dd4f81a8bd6edde01d956", null ],
     [ "get_type", "classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a1b1c4b6762664a2d8ef5f410e3bf2545", null ],
-    [ "is_normalized", "classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a53b604a3b38c68892bb8691f89dd78dd", null ]
+    [ "is_normalized", "classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a53b604a3b38c68892bb8691f89dd78dd", null ],
+    [ "operator==", "classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a4e5897c884ac34635613576b633189e7", null ]
 ];

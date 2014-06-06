@@ -9,5 +9,7 @@ var classoccluded_1_1buffers_1_1attributes_1_1attribute__map =
     [ "get_attributes", "classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a7c40376c72ad8b85e936213af5abfccf", null ],
     [ "get_byte_size", "classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#ad886ab232a2f74be15e3930145545caf", null ],
     [ "is_interleaved", "classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a378a2e5d7cb0371d45267ef1018f01e0", null ],
+    [ "operator!=", "classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a3bb49b4c1ca9895883d1b76a0431e7d6", null ],
+    [ "operator==", "classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#aa27a4acfbc32c8a9545c2e4aad8fdd12", null ],
     [ "reset", "classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a4b55a620f00eaf746ef55063b8e9f6ff", null ]
 ];

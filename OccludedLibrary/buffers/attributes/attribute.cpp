@@ -41,6 +41,10 @@ const bool attribute::is_normalized() const {
 	return m_normalized;
 }
 
+const bool attribute::operator==( const attribute& other ) const {
+	return this->m_name == other.m_name && this->m_arity == other.m_arity && this->m_type == other.m_type;
+}
+
 } // end of attributes namespace
 } // end of buffers namespace
 } // end of occluded namespace

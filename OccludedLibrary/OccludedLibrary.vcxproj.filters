@@ -87,6 +87,9 @@
     <ClCompile Include="utilities\files\file_reader.cpp">
       <Filter>Source Files\utilities\files</Filter>
     </ClCompile>
+    <ClCompile Include="opengl\retained\shaders\shader_attribute_map.cpp">
+      <Filter>Source Files\opengl\retained\shaders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opengl\retained\shaders\shader.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="utilities\files\file_reader.h">
       <Filter>Header Files\utilities\files</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\retained\shaders\shader_attribute_map.h">
+      <Filter>Header Files\opengl\retained\shaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

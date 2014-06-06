@@ -31,6 +31,8 @@ public:
 	const std::vector<const attribute>& get_attributes() const;
 	const bool is_interleaved() const;
 	const bool being_defined() const;
+	const bool operator==( const attribute_map& other ) const;
+	const bool operator!=( const attribute_map& other ) const;
 };
 
 } // end of attributes namespace

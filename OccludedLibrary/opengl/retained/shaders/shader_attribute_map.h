@@ -6,7 +6,7 @@
 #include <GL/glew.h>
 
 #include "shader_program.h"
-#include "../../../buffers/attributes/attribute_map.h"
+#include "../../../buffers/attribute_buffer.h"
 
 namespace occluded { namespace opengl { namespace retained { namespace shaders {
 
@@ -46,11 +46,13 @@ public:
 	/**
 	 * \fn set_attrib_pointers
 	 * \brief Setups of all the vertex attrib pointers in preparation for a draw call.
+	 * 
+	 * \param buffer The attribute buffer the attrib pointers will be set for.
 	 *
 	 * Makes all the necessary calls to glVertexAttribPointer that are needed in order to make a glDraw call. Used the necessary preparation 
 	 * for an OpenGL buffer object, thats data is organized according to the attribute_map, to be used by a glDraw call.
 	 */
-	void set_attrib_pointers() const;
+	void set_attrib_pointers( const buffers::attribute_buffer& buffer ) const;
 
 
 private:

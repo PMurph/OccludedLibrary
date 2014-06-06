@@ -10,5 +10,6 @@ var hierarchy =
     [ "occluded::utilities::files::file_reader", "classoccluded_1_1utilities_1_1files_1_1file__reader.html", null ],
     [ "occluded::opengl::retained::gl_attribute_buffer", "classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html", null ],
     [ "occluded::opengl::retained::shaders::shader", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html", null ],
+    [ "occluded::opengl::retained::shaders::shader_attribute_map", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__attribute__map.html", null ],
     [ "occluded::opengl::retained::shaders::shader_program", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html", null ]
 ];
