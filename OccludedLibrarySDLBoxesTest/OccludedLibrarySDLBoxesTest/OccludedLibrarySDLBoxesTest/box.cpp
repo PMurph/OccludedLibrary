@@ -8,7 +8,7 @@ const float box::TWO_PI = 2.f * 3.14159f;
 
 box::box( const occluded::shader_program& shaderProg, const occluded::buffers::attributes::attribute_map& map, GLuint& vao ):
 	m_shaderProg( shaderProg ),
-	m_buffer( map, occluded::opengl::retained::static_draw_usage ),
+	m_buffer( map, shaderProg, occluded::opengl::retained::static_draw_usage ),
 	m_indices( 0 ),
 	m_posX( 0.f ),
 	m_posY( 0.f ),

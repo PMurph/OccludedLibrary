@@ -89,7 +89,6 @@ void shader_attribute_map::init_map() {
 					+ shaderName + ")." );
 			}
 		}
-
 	}
 }
 

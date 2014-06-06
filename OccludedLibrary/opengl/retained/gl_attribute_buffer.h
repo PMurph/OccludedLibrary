@@ -3,6 +3,7 @@
 #include <GL\glew.h>
 
 #include "../../buffers/attribute_buffer_factory.h"
+#include "shaders/shader_attribute_map.h"
 
 namespace occluded { namespace opengl { namespace retained {
 
@@ -33,28 +34,21 @@ private:
 	GLuint m_id;
 	std::auto_ptr<buffers::attribute_buffer> m_buffer;
 	buffer_usage_t m_usage;
+	shaders::shader_attribute_map m_shaderMap;
 
 public:
 	/**
 	 * \brief Initialize the buffer.
 	 *
 	 * \param map A reference to an attribute map.
+	 * \param shaderProg A reference to a shader program.
 	 * \param usage A enumerable that will be used to tell OpenGL how the buffer will be used.
 	 *
 	 * Generate the an OpenGL buffer object, creates an attribute buffer to store data inserted into the buffer, and binds that buffer
 	 * as an array buffer.
 	 */
-	gl_attribute_buffer( const buffers::attributes::attribute_map& map, const buffer_usage_t usage );
+	gl_attribute_buffer( const buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, const buffer_usage_t usage );
 	~gl_attribute_buffer();
-
-	/**
-	 * \fn bind_buffer
-	 * \brief Binds the buffer as an array buffer object.
-	 *
-	 * Binds the buffer as an array buffer object and sets the OpenGL buffer's data store to the contents of the attribute buffer. Should
-	 * be called prior to using the buffer in an OpenGL draw call or after the data in the attribute buffer has changed.
-	 */
-	void bind_buffer();
 	
 	/**
 	 * \fn insert_values
@@ -66,6 +60,15 @@ public:
 	 * OpenGL buffer object connected to this buffer.
 	 */
 	void insert_values( const std::vector<char>& values );
+
+	/**
+	 * \fn bind_buffer
+	 * \brief Binds the buffer as an array buffer object.
+	 *
+	 * Binds the buffer as an array buffer object and sets the OpenGL buffer's data store to the contents of the attribute buffer. Should
+	 * be called prior to using the buffer in an OpenGL draw call or after the data in the attribute buffer has changed.
+	 */
+	void bind_buffer() const;
 
 	/**
 	 * \fn get_id
@@ -87,6 +90,15 @@ public:
 	 * to be inserted into the gl_attribute_buffer as well as determining the inputs to a glVertexAttribPointer call.
 	 */
 	const buffers::attributes::attribute_map& get_buffer_map() const;
+
+	/**
+	 * \fn prepare_for_render
+	 * \brief Sets up the buffer for rendering.
+	 *
+	 * Sets up the buffer for rendering by binding the buffer and setting up the vertex attribute pointers so that the data can be passed to the shader 
+	 * program. Used for making so that a single call can be made prior to a glDraw call.
+	 */
+	void prepare_for_render() const;
 
 private:
 	/**
