@@ -111,52 +111,63 @@ $(document).ready(function(){initNavTree('attribute_8h_source.html','');});
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>occluded { <span class="keyword">namespace </span>buffers { <span class="keyword">namespace </span>attributes {</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> ATTRIB_TYPE {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    attrib_float,</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    attrib_uint,</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    attrib_int,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    attrib_invalid</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;} attribute_t;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t ATTRIB_SIZE;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::string m_name;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_arity;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    attribute_t m_type;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> m_normalized;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a>( <span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> arity, <span class="keyword">const</span> attribute_t type, <span class="keyword">const</span> <span class="keywordtype">bool</span> normalized = <span class="keyword">false</span> );</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ~<a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">const</span> std::string&amp; get_name() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> get_arity() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">const</span> attribute_t get_type() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> std::size_t get_component_size() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">const</span> std::size_t get_attrib_size() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> is_normalized() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> operator==( <span class="keyword">const</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a>&amp; other ) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;} <span class="comment">// end of attributes namespace</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;} <span class="comment">// end of buffers namespace</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <span class="comment">// end of occluded namespace</span></div>
-<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">occluded::buffers::attributes::attribute</a></div><div class="ttdef"><b>Definition:</b> attribute.h:14</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> ATTRIB_TYPE {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    attrib_float,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    attrib_uint,</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    attrib_int,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    attrib_invalid</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;} attribute_t;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">   27</a></span>&#160;<span class="keyword">class </span><a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::size_t ATTRIB_SIZE;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    std::string m_name;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> m_arity;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    attribute_t m_type;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> m_normalized;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a31868f0f2c3714b048bde8aca537755e">attribute</a>( <span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> arity, <span class="keyword">const</span> attribute_t type, <span class="keyword">const</span> <span class="keywordtype">bool</span> normalized = <span class="keyword">false</span> );</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ~<a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a3c7cd10a78a7539168f4d47bbfb96430">get_name</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#af9931141c3f65ff744ae811ceccffd55">get_arity</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">const</span> attribute_t <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#aefb7b7a891c3f31e92f9927ed1410855">get_type</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">const</span> std::size_t <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#ab0ddaf5ff9916ff4970752aa29bb83c1">get_component_size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">const</span> std::size_t <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a5024f30a77a271262209e8e6f51932d8">get_attrib_size</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a6e06ee8031036c777442922a5a0be680">is_normalized</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a4e5897c884ac34635613576b633189e7">operator==</a>( <span class="keyword">const</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a>&amp; other ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#affa4220bf465a8d2aa2a32569a5e2ea7">operator!=</a>( <span class="keyword">const</span> <a class="code" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a>&amp; other ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;} <span class="comment">// end of attributes namespace</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">// end of buffers namespace</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// end of occluded namespace</span></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_a3c7cd10a78a7539168f4d47bbfb96430"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a3c7cd10a78a7539168f4d47bbfb96430">occluded::buffers::attributes::attribute::get_name</a></div><div class="ttdeci">const std::string &amp; get_name() const </div><div class="ttdoc">Gets the name of the attribute. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:20</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_a31868f0f2c3714b048bde8aca537755e"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a31868f0f2c3714b048bde8aca537755e">occluded::buffers::attributes::attribute::attribute</a></div><div class="ttdeci">attribute(const std::string &amp;name, const unsigned int arity, const attribute_t type, const bool normalized=false)</div><div class="ttdoc">Initializes the attribute. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:7</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_ab0ddaf5ff9916ff4970752aa29bb83c1"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#ab0ddaf5ff9916ff4970752aa29bb83c1">occluded::buffers::attributes::attribute::get_component_size</a></div><div class="ttdeci">const std::size_t get_component_size() const </div><div class="ttdoc">Gets the size of the individual primitives that make up the attribute. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:32</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_affa4220bf465a8d2aa2a32569a5e2ea7"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#affa4220bf465a8d2aa2a32569a5e2ea7">occluded::buffers::attributes::attribute::operator!=</a></div><div class="ttdeci">const bool operator!=(const attribute &amp;other) const </div><div class="ttdoc">Gets whether or not the two attributes are not the same. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:48</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_af9931141c3f65ff744ae811ceccffd55"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#af9931141c3f65ff744ae811ceccffd55">occluded::buffers::attributes::attribute::get_arity</a></div><div class="ttdeci">const unsigned int get_arity() const </div><div class="ttdoc">Gets the arity of the attribute. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:24</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">occluded::buffers::attributes::attribute</a></div><div class="ttdoc">Stores metadata about a value or a set of values. </div><div class="ttdef"><b>Definition:</b> attribute.h:27</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_a4e5897c884ac34635613576b633189e7"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a4e5897c884ac34635613576b633189e7">occluded::buffers::attributes::attribute::operator==</a></div><div class="ttdeci">const bool operator==(const attribute &amp;other) const </div><div class="ttdoc">Gets whether or not the two attributes are the same. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:44</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_aefb7b7a891c3f31e92f9927ed1410855"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#aefb7b7a891c3f31e92f9927ed1410855">occluded::buffers::attributes::attribute::get_type</a></div><div class="ttdeci">const attribute_t get_type() const </div><div class="ttdoc">Get the type of the attribute. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:28</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_a6e06ee8031036c777442922a5a0be680"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a6e06ee8031036c777442922a5a0be680">occluded::buffers::attributes::attribute::is_normalized</a></div><div class="ttdeci">const bool is_normalized() const </div><div class="ttdoc">Gets whether or not the attribute&#39;s values need to be normalized. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:40</div></div>
+<div class="ttc" id="classoccluded_1_1buffers_1_1attributes_1_1attribute_html_a5024f30a77a271262209e8e6f51932d8"><div class="ttname"><a href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html#a5024f30a77a271262209e8e6f51932d8">occluded::buffers::attributes::attribute::get_attrib_size</a></div><div class="ttdeci">const std::size_t get_attrib_size() const </div><div class="ttdoc">Gets the size of a single value of the attribute. </div><div class="ttdef"><b>Definition:</b> attribute.cpp:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_eb31cc02556c90539efbe1c6c599098c.html">OccludedLibrary</a></li><li class="navelem"><a class="el" href="dir_dcc9642635ccf9f8c4e4dcc53b0aa772.html">buffers</a></li><li class="navelem"><a class="el" href="dir_54d8bde23601a1b578c5d25b5e58cf09.html">attributes</a></li><li class="navelem"><b>attribute.h</b></li>
-    <li class="footer">Generated on Fri Jun 6 2014 14:50:19 for Occluded Library by
+    <li class="footer">Generated on Fri Jun 6 2014 23:59:48 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

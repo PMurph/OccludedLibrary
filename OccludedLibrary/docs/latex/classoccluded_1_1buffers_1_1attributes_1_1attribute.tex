@@ -1,33 +1,197 @@
 \hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute}{\section{occluded\+:\+:buffers\+:\+:attributes\+:\+:attribute Class Reference}
 \label{classoccluded_1_1buffers_1_1attributes_1_1attribute}\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
 }
+
+
+Stores metadata about a value or a set of values.  
+
+
+
+
+{\ttfamily \#include $<$attribute.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a31868f0f2c3714b048bde8aca537755e}{{\bfseries attribute} (const std\+::string \&name, const unsigned int arity, const attribute\+\_\+t type, const bool normalized=false)}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a31868f0f2c3714b048bde8aca537755e}
+\hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_a31868f0f2c3714b048bde8aca537755e}{attribute} (const std\+::string \&name, const unsigned int arity, const attribute\+\_\+t type, const bool normalized=false)
+\begin{DoxyCompactList}\small\item\em Initializes the attribute. \end{DoxyCompactList}\item 
+const std\+::string \& \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_a3c7cd10a78a7539168f4d47bbfb96430}{get\+\_\+name} () const 
+\begin{DoxyCompactList}\small\item\em Gets the name of the attribute. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_af9931141c3f65ff744ae811ceccffd55}{get\+\_\+arity} () const 
+\begin{DoxyCompactList}\small\item\em Gets the arity of the attribute. \end{DoxyCompactList}\item 
+const attribute\+\_\+t \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_aefb7b7a891c3f31e92f9927ed1410855}{get\+\_\+type} () const 
+\begin{DoxyCompactList}\small\item\em Get the type of the attribute. \end{DoxyCompactList}\item 
+const std\+::size\+\_\+t \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_ab0ddaf5ff9916ff4970752aa29bb83c1}{get\+\_\+component\+\_\+size} () const 
+\begin{DoxyCompactList}\small\item\em Gets the size of the individual primitives that make up the attribute. \end{DoxyCompactList}\item 
+const std\+::size\+\_\+t \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_a5024f30a77a271262209e8e6f51932d8}{get\+\_\+attrib\+\_\+size} () const 
+\begin{DoxyCompactList}\small\item\em Gets the size of a single value of the attribute. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_a6e06ee8031036c777442922a5a0be680}{is\+\_\+normalized} () const 
+\begin{DoxyCompactList}\small\item\em Gets whether or not the attribute's values need to be normalized. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_a4e5897c884ac34635613576b633189e7}{operator==} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute}{attribute} \&other) const 
+\begin{DoxyCompactList}\small\item\em Gets whether or not the two attributes are the same. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute_affa4220bf465a8d2aa2a32569a5e2ea7}{operator!=} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute}{attribute} \&other) const 
+\begin{DoxyCompactList}\small\item\em Gets whether or not the two attributes are not the same. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a883bbea2242dd4f81a8bd6edde01d956}{const std\+::string \& {\bfseries get\+\_\+name} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a883bbea2242dd4f81a8bd6edde01d956}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a4ea58b1332778b6936234a53d73543d5}{const unsigned int {\bfseries get\+\_\+arity} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a4ea58b1332778b6936234a53d73543d5}
+\subsection{Detailed Description}
+Stores metadata about a value or a set of values. 
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a1b1c4b6762664a2d8ef5f410e3bf2545}{const attribute\+\_\+t {\bfseries get\+\_\+type} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a1b1c4b6762664a2d8ef5f410e3bf2545}
+Stores metadata about a value or a set of values. This is to used by an \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attribute\+\_\+map}. \begin{DoxySeeAlso}{See also}
+\{ \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{occluded\+::buffers\+::attributes\+::attribute\+\_\+map} \}. 
+\end{DoxySeeAlso}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a012ea3f8aa212784b7bb7d0cd8b490b9}{const std\+::size\+\_\+t {\bfseries get\+\_\+component\+\_\+size} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a012ea3f8aa212784b7bb7d0cd8b490b9}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a7c99ea65b61108b80e935f985cb125a2}{const std\+::size\+\_\+t {\bfseries get\+\_\+attrib\+\_\+size} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a7c99ea65b61108b80e935f985cb125a2}
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a31868f0f2c3714b048bde8aca537755e}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!attribute@{attribute}}
+\index{attribute@{attribute}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{attribute}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+::attribute (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{name, }
+\item[{const unsigned int}]{arity, }
+\item[{const attribute\+\_\+t}]{type, }
+\item[{const bool}]{normalized = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a31868f0f2c3714b048bde8aca537755e}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a53b604a3b38c68892bb8691f89dd78dd}{const bool {\bfseries is\+\_\+normalized} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a53b604a3b38c68892bb8691f89dd78dd}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a4e5897c884ac34635613576b633189e7}{const bool {\bfseries operator==} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute}{attribute} \&other) const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a4e5897c884ac34635613576b633189e7}
+Initializes the attribute. 
 
-\end{DoxyCompactItemize}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & A reference to string representing the name of the attribute. \\
+\hline
+{\em arity} & An unsigned int representing the number of primitives in the attribute. \\
+\hline
+{\em type} & An attribute\+\_\+t representing the type of the primitive of the attribute. \\
+\hline
+{\em normalized} & An optional boolean representing whether or not the attribute needs to be normalized. The default value is false.\\
+\hline
+\end{DoxyParams}
+Initializes the attribute using the information provided by the parameters. The normalized parameter has a default value of false. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_af9931141c3f65ff744ae811ceccffd55}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!get\+\_\+arity@{get\+\_\+arity}}
+\index{get\+\_\+arity@{get\+\_\+arity}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{get\+\_\+arity}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+::get\+\_\+arity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_af9931141c3f65ff744ae811ceccffd55}
+
+
+Gets the arity of the attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns an unsigned int representing the arity of the attribute. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a5024f30a77a271262209e8e6f51932d8}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!get\+\_\+attrib\+\_\+size@{get\+\_\+attrib\+\_\+size}}
+\index{get\+\_\+attrib\+\_\+size@{get\+\_\+attrib\+\_\+size}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{get\+\_\+attrib\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+::get\+\_\+attrib\+\_\+size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a5024f30a77a271262209e8e6f51932d8}
+
+
+Gets the size of a single value of the attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns a std\+::size\+\_\+t representing the size(in bytes) of a single value of the attribute. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_ab0ddaf5ff9916ff4970752aa29bb83c1}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!get\+\_\+component\+\_\+size@{get\+\_\+component\+\_\+size}}
+\index{get\+\_\+component\+\_\+size@{get\+\_\+component\+\_\+size}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{get\+\_\+component\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+::get\+\_\+component\+\_\+size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_ab0ddaf5ff9916ff4970752aa29bb83c1}
+
+
+Gets the size of the individual primitives that make up the attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns a std\+::size\+\_\+t representing the size(in bytes) of the individual primitives of the attribute. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a3c7cd10a78a7539168f4d47bbfb96430}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!get\+\_\+name@{get\+\_\+name}}
+\index{get\+\_\+name@{get\+\_\+name}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{get\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+::get\+\_\+name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a3c7cd10a78a7539168f4d47bbfb96430}
+
+
+Gets the name of the attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns a reference to string representing the name of the attribute. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_aefb7b7a891c3f31e92f9927ed1410855}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!get\+\_\+type@{get\+\_\+type}}
+\index{get\+\_\+type@{get\+\_\+type}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{get\+\_\+type}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+::get\+\_\+type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_aefb7b7a891c3f31e92f9927ed1410855}
+
+
+Get the type of the attribute. 
+
+\begin{DoxyReturn}{Returns}
+Returns an attribute\+\_\+t representing the type of the attribute 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a6e06ee8031036c777442922a5a0be680}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!is\+\_\+normalized@{is\+\_\+normalized}}
+\index{is\+\_\+normalized@{is\+\_\+normalized}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{is\+\_\+normalized}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+::is\+\_\+normalized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a6e06ee8031036c777442922a5a0be680}
+
+
+Gets whether or not the attribute's values need to be normalized. 
+
+\begin{DoxyReturn}{Returns}
+Returns a boolean representing whether or not the attribute's values needed to be normalized. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_affa4220bf465a8d2aa2a32569a5e2ea7}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}const bool occluded\+::buffers\+::attributes\+::attribute\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf attribute} \&}]{other}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_affa4220bf465a8d2aa2a32569a5e2ea7}
+
+
+Gets whether or not the two attributes are not the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other attribute that is being tested against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns false if the two attribute have the same name, arity, and type, otherwise returns true. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute_a4e5897c884ac34635613576b633189e7}{\index{occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}!operator==@{operator==}}
+\index{operator==@{operator==}!occluded\+::buffers\+::attributes\+::attribute@{occluded\+::buffers\+::attributes\+::attribute}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}const bool occluded\+::buffers\+::attributes\+::attribute\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf attribute} \&}]{other}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute_a4e5897c884ac34635613576b633189e7}
+
+
+Gets whether or not the two attributes are the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other attribute that is being tested against. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the two attributes have the same name, arity, and type, otherwise returns false. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

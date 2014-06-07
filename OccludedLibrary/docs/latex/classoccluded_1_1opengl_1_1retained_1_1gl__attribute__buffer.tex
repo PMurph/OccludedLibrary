@@ -13,17 +13,19 @@ A wrapper class for an Open\+G\+L buffer.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_afde90951c4cebabd6a6d80e5a7027cf0}{gl\+\_\+attribute\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{buffers\+::attributes\+::attribute\+\_\+map} \&map, const buffer\+\_\+usage\+\_\+t usage)
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}{gl\+\_\+attribute\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{buffers\+::attributes\+::attribute\+\_\+map} \&map, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, const buffer\+\_\+usage\+\_\+t usage)
 \begin{DoxyCompactList}\small\item\em Initialize the buffer. \end{DoxyCompactList}\item 
-void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a58ea21106acfac03c3cc5b35ce59f6b2}{bind\+\_\+buffer} ()
-\begin{DoxyCompactList}\small\item\em Binds the buffer as an array buffer object. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_afd58deefb5659c0cd9a316263515b68f}{insert\+\_\+values} (const std\+::vector$<$ char $>$ \&values)
 \begin{DoxyCompactList}\small\item\em Inserts data into the buffer. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a0bc941bf7603a80ea249cd1d64cc2b67}{bind\+\_\+buffer} () const 
+\begin{DoxyCompactList}\small\item\em Binds the buffer as an array buffer object. \end{DoxyCompactList}\item 
 const G\+Luint \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ab23624ebadcabdcb0d028e2fe0039ffd}{get\+\_\+id} () const 
 \begin{DoxyCompactList}\small\item\em Gets the id of the Open\+G\+L buffer object. \end{DoxyCompactList}\item 
 const \\*
 \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{buffers\+::attributes\+::attribute\+\_\+map} \& \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a1241841aa913b0df057b5d885f1447b4}{get\+\_\+buffer\+\_\+map} () const 
-\begin{DoxyCompactList}\small\item\em Gets the attribute\+\_\+map of the attribute\+\_\+buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the attribute\+\_\+map of the attribute\+\_\+buffer. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ab7707122e284ee1c28bf238885ae6a59}{prepare\+\_\+for\+\_\+render} () const 
+\begin{DoxyCompactList}\small\item\em Sets up the buffer for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -32,14 +34,15 @@ A wrapper class for an Open\+G\+L buffer.
 A wrapper class for an Open\+G\+L buffer object. It stores information about the buffer to allow for quickly accessing that information without querying the Open\+G\+L buffer object. It also contains an attribute\+\_\+buffer object that will allow for storage of data outside of Open\+G\+L which makes inserting data into the buffer significantly more easy as well as allowing for checking to make sure data being inserted is valid. 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_afde90951c4cebabd6a6d80e5a7027cf0}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}}
 \index{gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
 \subsubsection[{gl\+\_\+attribute\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::gl\+\_\+attribute\+\_\+buffer (
 \begin{DoxyParamCaption}
 \item[{const {\bf buffers\+::attributes\+::attribute\+\_\+map} \&}]{map, }
+\item[{const {\bf shaders\+::shader\+\_\+program} \&}]{shader\+Prog, }
 \item[{const buffer\+\_\+usage\+\_\+t}]{usage}
 \end{DoxyParamCaption}
-)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_afde90951c4cebabd6a6d80e5a7027cf0}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}
 
 
 Initialize the buffer. 
@@ -48,19 +51,21 @@ Initialize the buffer.
 \begin{DoxyParams}{Parameters}
 {\em map} & A reference to an attribute map. \\
 \hline
+{\em shader\+Prog} & A reference to a shader program. \\
+\hline
 {\em usage} & A enumerable that will be used to tell Open\+G\+L how the buffer will be used.\\
 \hline
 \end{DoxyParams}
 Generate the an Open\+G\+L buffer object, creates an attribute buffer to store data inserted into the buffer, and binds that buffer as an array buffer. 
 
 \subsection{Member Function Documentation}
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a58ea21106acfac03c3cc5b35ce59f6b2}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!bind\+\_\+buffer@{bind\+\_\+buffer}}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a0bc941bf7603a80ea249cd1d64cc2b67}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!bind\+\_\+buffer@{bind\+\_\+buffer}}
 \index{bind\+\_\+buffer@{bind\+\_\+buffer}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
 \subsubsection[{bind\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::bind\+\_\+buffer (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a58ea21106acfac03c3cc5b35ce59f6b2}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a0bc941bf7603a80ea249cd1d64cc2b67}
 
 
 Binds the buffer as an array buffer object. 
@@ -109,7 +114,18 @@ Inserts data into the buffer.
 {\em A} & reference to a vector of bytes containing the data to be inserted.\\
 \hline
 \end{DoxyParams}
-Inserts data into the attribute buffer, then binds the buffer and sets the Open\+G\+L data store to the data in the attribute buffer for the Open\+G\+L buffer object connected to this buffer. 
+Inserts data into the attribute buffer, then binds the buffer and sets the Open\+G\+L data store to the data in the attribute buffer for the Open\+G\+L buffer object connected to this buffer. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ab7707122e284ee1c28bf238885ae6a59}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!prepare\+\_\+for\+\_\+render@{prepare\+\_\+for\+\_\+render}}
+\index{prepare\+\_\+for\+\_\+render@{prepare\+\_\+for\+\_\+render}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
+\subsubsection[{prepare\+\_\+for\+\_\+render}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::prepare\+\_\+for\+\_\+render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ab7707122e284ee1c28bf238885ae6a59}
+
+
+Sets up the buffer for rendering. 
+
+Sets up the buffer for rendering by binding the buffer and setting up the vertex attribute pointers so that the data can be passed to the shader program. Used for making so that a single call can be made prior to a gl\+Draw call. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
