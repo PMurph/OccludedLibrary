@@ -57,7 +57,6 @@ public:
 	 */
 	void set_attrib_pointers( const buffers::attribute_buffer& buffer ) const;
 
-
 private:
 	/**
 	 * \fn init_map
