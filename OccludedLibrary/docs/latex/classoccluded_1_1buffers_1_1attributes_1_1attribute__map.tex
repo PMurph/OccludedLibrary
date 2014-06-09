@@ -1,43 +1,215 @@
 \hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{\section{occluded\+:\+:buffers\+:\+:attributes\+:\+:attribute\+\_\+map Class Reference}
 \label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
 }
+
+
+Defines an organization of attributes.  
+
+
+
+
+{\ttfamily \#include $<$attribute\+\_\+map.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a4915c4e6bfd59584dc22fb2685f40d02}{{\bfseries attribute\+\_\+map} (const bool interleaved)}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a4915c4e6bfd59584dc22fb2685f40d02}
+\hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a4915c4e6bfd59584dc22fb2685f40d02}{attribute\+\_\+map} (const bool interleaved)
+\begin{DoxyCompactList}\small\item\em Initializes the attribute map. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ae03cf93f72e8d8ad4aab49eccdcab217}{add\+\_\+attribute} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute}{attribute} \&new\+Attrib)
+\begin{DoxyCompactList}\small\item\em Adds an attribute to the map. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_af9cef5ceb3def1c089e9b6c43c63a82d}{end\+\_\+definition} ()
+\begin{DoxyCompactList}\small\item\em Ends the definition of the attribute map. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3fad5d024dd302efc48a5301165c6d83}{reset} (const bool interleaved)
+\begin{DoxyCompactList}\small\item\em Clears attributes and restarts definition of attribute map. \end{DoxyCompactList}\item 
+const std\+::size\+\_\+t \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ad11595f333afebf97788ead4a0fcb273}{get\+\_\+byte\+\_\+size} () const 
+\begin{DoxyCompactList}\small\item\em Gets the byte size of the attribute map. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3b02f1cfe16328f5d56c7277cb4ae7af}{get\+\_\+attrib\+\_\+count} () const 
+\begin{DoxyCompactList}\small\item\em Gets the number of attributes in the attribute map. \end{DoxyCompactList}\item 
+const std\+::vector$<$ const \\*
+\hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute}{attribute} $>$ \& \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a9ed9079eae3a647ae2e0396ef772a4dc}{get\+\_\+attributes} () const 
+\begin{DoxyCompactList}\small\item\em Gets all the attribute in the attribute map. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a6f543112d50cde0e245df8803b2295a3}{is\+\_\+interleaved} () const 
+\begin{DoxyCompactList}\small\item\em Gets whether or not the values of the attributes should be interleaved or segregated. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a60b356edba05f177309def6136213313}{being\+\_\+defined} () const 
+\begin{DoxyCompactList}\small\item\em Gets whether or not the attribute map is still being defined. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_aa27a4acfbc32c8a9545c2e4aad8fdd12}{operator==} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attribute\+\_\+map} \&other) const 
+\begin{DoxyCompactList}\small\item\em Gets whether or not the attribute maps are the same. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3bb49b4c1ca9895883d1b76a0431e7d6}{operator!=} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attribute\+\_\+map} \&other) const 
+\begin{DoxyCompactList}\small\item\em Gets whether or not the attribute maps are different. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a23c2b0154dd3478fc1877a04e479624a}{void {\bfseries add\+\_\+attribute} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute}{attribute} \&new\+Attrib)}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a23c2b0154dd3478fc1877a04e479624a}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a6c64d6c47c0942c714d0105163e250aa}{void {\bfseries end\+\_\+definition} ()}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a6c64d6c47c0942c714d0105163e250aa}
+\subsection{Detailed Description}
+Defines an organization of attributes. 
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a4b55a620f00eaf746ef55063b8e9f6ff}{void {\bfseries reset} (const bool interleaved)}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a4b55a620f00eaf746ef55063b8e9f6ff}
+The attribute map defines an organization of attributes.\+This is to be used with an attribute buffer to determine in which order values are placed and if the values are interleaved or segregated in the buffer. \begin{DoxySeeAlso}{See also}
+\{ \hyperlink{classoccluded_1_1buffers_1_1attribute__buffer}{occluded\+::buffers\+::attribute\+\_\+buffer} \} 
+\end{DoxySeeAlso}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ad886ab232a2f74be15e3930145545caf}{const std\+::size\+\_\+t {\bfseries get\+\_\+byte\+\_\+size} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ad886ab232a2f74be15e3930145545caf}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ae78420eeed982caaaa77cada069c315f}{const unsigned int {\bfseries get\+\_\+attrib\+\_\+count} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ae78420eeed982caaaa77cada069c315f}
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a4915c4e6bfd59584dc22fb2685f40d02}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!attribute\+\_\+map@{attribute\+\_\+map}}
+\index{attribute\+\_\+map@{attribute\+\_\+map}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{attribute\+\_\+map}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::attribute\+\_\+map (
+\begin{DoxyParamCaption}
+\item[{const bool}]{interleaved}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a4915c4e6bfd59584dc22fb2685f40d02}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a7c40376c72ad8b85e936213af5abfccf}{const std\+::vector$<$ const \\*
-\hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute}{attribute} $>$ \& {\bfseries get\+\_\+attributes} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a7c40376c72ad8b85e936213af5abfccf}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a378a2e5d7cb0371d45267ef1018f01e0}{const bool {\bfseries is\+\_\+interleaved} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a378a2e5d7cb0371d45267ef1018f01e0}
+Initializes the attribute map. 
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_afc2dc57c1bdc2dd5f82a145925243642}{const bool {\bfseries being\+\_\+defined} () const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_afc2dc57c1bdc2dd5f82a145925243642}
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_aa27a4acfbc32c8a9545c2e4aad8fdd12}{const bool {\bfseries operator==} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attribute\+\_\+map} \&other) const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_aa27a4acfbc32c8a9545c2e4aad8fdd12}
+\begin{DoxyParams}{Parameters}
+{\em interleaved} & A boolean which determines whether or not the values should be segregated or interleaved.\\
+\hline
+\end{DoxyParams}
+Initializes the attribute map using a boolean which provides a hint on whether or not values associated with attributes should be segregated or interleaved. This will start the definition of the map, and therefore must be paired with an end\+\_\+definition call. 
 
-\item 
-\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3bb49b4c1ca9895883d1b76a0431e7d6}{const bool {\bfseries operator!=} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attribute\+\_\+map} \&other) const }\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3bb49b4c1ca9895883d1b76a0431e7d6}
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ae03cf93f72e8d8ad4aab49eccdcab217}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!add\+\_\+attribute@{add\+\_\+attribute}}
+\index{add\+\_\+attribute@{add\+\_\+attribute}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{add\+\_\+attribute}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::add\+\_\+attribute (
+\begin{DoxyParamCaption}
+\item[{const {\bf attribute} \&}]{new\+Attrib}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ae03cf93f72e8d8ad4aab49eccdcab217}
 
-\end{DoxyCompactItemize}
+
+Adds an attribute to the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Attrib} & A reference to the attribute that is to be added to the attribute map.\\
+\hline
+\end{DoxyParams}
+Adds a new attribute to the attribute map. If the attribute or an attribute with the same name already exists in the attribute map, an exception will be thrown. If the definition of the attribute map has been ended then an exception will be thrown. \hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a60b356edba05f177309def6136213313}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!being\+\_\+defined@{being\+\_\+defined}}
+\index{being\+\_\+defined@{being\+\_\+defined}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{being\+\_\+defined}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::being\+\_\+defined (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a60b356edba05f177309def6136213313}
+
+
+Gets whether or not the attribute map is still being defined. 
+
+\begin{DoxyReturn}{Returns}
+A boolean that is true if the attribute map is still being defined and false if it has finished being defined. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_af9cef5ceb3def1c089e9b6c43c63a82d}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!end\+\_\+definition@{end\+\_\+definition}}
+\index{end\+\_\+definition@{end\+\_\+definition}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{end\+\_\+definition}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::end\+\_\+definition (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_af9cef5ceb3def1c089e9b6c43c63a82d}
+
+
+Ends the definition of the attribute map. 
+
+Ends the definition of the attribute map. This indicates that the attribute map is ready to be used by other classes. \hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3b02f1cfe16328f5d56c7277cb4ae7af}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!get\+\_\+attrib\+\_\+count@{get\+\_\+attrib\+\_\+count}}
+\index{get\+\_\+attrib\+\_\+count@{get\+\_\+attrib\+\_\+count}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{get\+\_\+attrib\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::get\+\_\+attrib\+\_\+count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3b02f1cfe16328f5d56c7277cb4ae7af}
+
+
+Gets the number of attributes in the attribute map. 
+
+\begin{DoxyReturn}{Returns}
+An unsigned int representing the number of attributes. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a9ed9079eae3a647ae2e0396ef772a4dc}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!get\+\_\+attributes@{get\+\_\+attributes}}
+\index{get\+\_\+attributes@{get\+\_\+attributes}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{get\+\_\+attributes}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::get\+\_\+attributes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a9ed9079eae3a647ae2e0396ef772a4dc}
+
+
+Gets all the attribute in the attribute map. 
+
+\begin{DoxyReturn}{Returns}
+A reference to a vector containing all the attributes in the attribute map. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ad11595f333afebf97788ead4a0fcb273}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!get\+\_\+byte\+\_\+size@{get\+\_\+byte\+\_\+size}}
+\index{get\+\_\+byte\+\_\+size@{get\+\_\+byte\+\_\+size}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{get\+\_\+byte\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::get\+\_\+byte\+\_\+size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_ad11595f333afebf97788ead4a0fcb273}
+
+
+Gets the byte size of the attribute map. 
+
+\begin{DoxyReturn}{Returns}
+A std\+::size\+\_\+t representing the number of bytes.
+\end{DoxyReturn}
+Gets the byte of size that a single value of all the attributes in the attribute map would take up. \hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a6f543112d50cde0e245df8803b2295a3}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!is\+\_\+interleaved@{is\+\_\+interleaved}}
+\index{is\+\_\+interleaved@{is\+\_\+interleaved}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{is\+\_\+interleaved}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::is\+\_\+interleaved (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a6f543112d50cde0e245df8803b2295a3}
+
+
+Gets whether or not the values of the attributes should be interleaved or segregated. 
+
+\begin{DoxyReturn}{Returns}
+A boolean that is true if the values should be interleaved and false if they should be segregated. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3bb49b4c1ca9895883d1b76a0431e7d6}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}const bool occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf attribute\+\_\+map} \&}]{other}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3bb49b4c1ca9895883d1b76a0431e7d6}
+
+
+Gets whether or not the attribute maps are different. 
+
+\begin{DoxyReturn}{Returns}
+A boolean that is false if the attributes are the same in both attribute maps and are in the same order, and returns true otherwise. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_aa27a4acfbc32c8a9545c2e4aad8fdd12}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!operator==@{operator==}}
+\index{operator==@{operator==}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}const bool occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf attribute\+\_\+map} \&}]{other}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_aa27a4acfbc32c8a9545c2e4aad8fdd12}
+
+
+Gets whether or not the attribute maps are the same. 
+
+\begin{DoxyReturn}{Returns}
+A boolean that is true if the attributes are the same in both attribute maps and are in the same order, and returns false otherwise. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3fad5d024dd302efc48a5301165c6d83}{\index{occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}!reset@{reset}}
+\index{reset@{reset}!occluded\+::buffers\+::attributes\+::attribute\+\_\+map@{occluded\+::buffers\+::attributes\+::attribute\+\_\+map}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::attributes\+::attribute\+\_\+map\+::reset (
+\begin{DoxyParamCaption}
+\item[{const bool}]{interleaved}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1buffers_1_1attributes_1_1attribute__map_a3fad5d024dd302efc48a5301165c6d83}
+
+
+Clears attributes and restarts definition of attribute map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interleaved} & A boolean which determines whether or not the values should be segregated or interleaved.\\
+\hline
+\end{DoxyParams}
+Removes all attributes from the attribute map and restarts the definition of the attribute map. This is to be used in the the current definition of the attribute map needs to be changed. \begin{DoxyWarning}{Warning}
+If an attribute map is being used by another class that doesn't make a deep copy of it, this function should not be called because it may cause undefined behaviour. 
+\end{DoxyWarning}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

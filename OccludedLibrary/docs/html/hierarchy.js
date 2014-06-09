@@ -11,5 +11,6 @@ var hierarchy =
     [ "occluded::opengl::retained::gl_attribute_buffer", "classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html", null ],
     [ "occluded::opengl::retained::shaders::shader", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html", null ],
     [ "occluded::opengl::retained::shaders::shader_attribute_map", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__attribute__map.html", null ],
-    [ "occluded::opengl::retained::shaders::shader_program", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html", null ]
+    [ "occluded::opengl::retained::shaders::shader_program", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html", null ],
+    [ "occluded::opengl::retained::shaders::shader_uniform_store", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html", null ]
 ];

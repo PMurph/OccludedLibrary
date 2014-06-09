@@ -111,44 +111,276 @@ $(document).ready(function(){initNavTree('classoccluded_1_1buffers_1_1attributes
 <div class="title">occluded::buffers::attributes::attribute_map Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Defines an organization of attributes.  
+ <a href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="attribute__map_8h_source.html">attribute_map.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4915c4e6bfd59584dc22fb2685f40d02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4915c4e6bfd59584dc22fb2685f40d02"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>attribute_map</b> (const bool interleaved)</td></tr>
+<tr class="memitem:a4915c4e6bfd59584dc22fb2685f40d02"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a4915c4e6bfd59584dc22fb2685f40d02">attribute_map</a> (const bool interleaved)</td></tr>
+<tr class="memdesc:a4915c4e6bfd59584dc22fb2685f40d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the attribute map.  <a href="#a4915c4e6bfd59584dc22fb2685f40d02">More...</a><br /></td></tr>
 <tr class="separator:a4915c4e6bfd59584dc22fb2685f40d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23c2b0154dd3478fc1877a04e479624a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23c2b0154dd3478fc1877a04e479624a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_attribute</b> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a> &amp;newAttrib)</td></tr>
-<tr class="separator:a23c2b0154dd3478fc1877a04e479624a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c64d6c47c0942c714d0105163e250aa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6c64d6c47c0942c714d0105163e250aa"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>end_definition</b> ()</td></tr>
-<tr class="separator:a6c64d6c47c0942c714d0105163e250aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b55a620f00eaf746ef55063b8e9f6ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b55a620f00eaf746ef55063b8e9f6ff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (const bool interleaved)</td></tr>
-<tr class="separator:a4b55a620f00eaf746ef55063b8e9f6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad886ab232a2f74be15e3930145545caf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad886ab232a2f74be15e3930145545caf"></a>
-const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_byte_size</b> () const </td></tr>
-<tr class="separator:ad886ab232a2f74be15e3930145545caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae78420eeed982caaaa77cada069c315f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae78420eeed982caaaa77cada069c315f"></a>
-const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_attrib_count</b> () const </td></tr>
-<tr class="separator:ae78420eeed982caaaa77cada069c315f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c40376c72ad8b85e936213af5abfccf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c40376c72ad8b85e936213af5abfccf"></a>
-const std::vector&lt; const <br class="typebreak" />
-<a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_attributes</b> () const </td></tr>
-<tr class="separator:a7c40376c72ad8b85e936213af5abfccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a378a2e5d7cb0371d45267ef1018f01e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a378a2e5d7cb0371d45267ef1018f01e0"></a>
-const bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_interleaved</b> () const </td></tr>
-<tr class="separator:a378a2e5d7cb0371d45267ef1018f01e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc2dc57c1bdc2dd5f82a145925243642"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc2dc57c1bdc2dd5f82a145925243642"></a>
-const bool&#160;</td><td class="memItemRight" valign="bottom"><b>being_defined</b> () const </td></tr>
-<tr class="separator:afc2dc57c1bdc2dd5f82a145925243642"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa27a4acfbc32c8a9545c2e4aad8fdd12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa27a4acfbc32c8a9545c2e4aad8fdd12"></a>
-const bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attribute_map</a> &amp;other) const </td></tr>
+<tr class="memitem:ae03cf93f72e8d8ad4aab49eccdcab217"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#ae03cf93f72e8d8ad4aab49eccdcab217">add_attribute</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a> &amp;newAttrib)</td></tr>
+<tr class="memdesc:ae03cf93f72e8d8ad4aab49eccdcab217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an attribute to the map.  <a href="#ae03cf93f72e8d8ad4aab49eccdcab217">More...</a><br /></td></tr>
+<tr class="separator:ae03cf93f72e8d8ad4aab49eccdcab217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9cef5ceb3def1c089e9b6c43c63a82d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#af9cef5ceb3def1c089e9b6c43c63a82d">end_definition</a> ()</td></tr>
+<tr class="memdesc:af9cef5ceb3def1c089e9b6c43c63a82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the definition of the attribute map.  <a href="#af9cef5ceb3def1c089e9b6c43c63a82d">More...</a><br /></td></tr>
+<tr class="separator:af9cef5ceb3def1c089e9b6c43c63a82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fad5d024dd302efc48a5301165c6d83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a3fad5d024dd302efc48a5301165c6d83">reset</a> (const bool interleaved)</td></tr>
+<tr class="memdesc:a3fad5d024dd302efc48a5301165c6d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears attributes and restarts definition of attribute map.  <a href="#a3fad5d024dd302efc48a5301165c6d83">More...</a><br /></td></tr>
+<tr class="separator:a3fad5d024dd302efc48a5301165c6d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad11595f333afebf97788ead4a0fcb273"><td class="memItemLeft" align="right" valign="top">const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#ad11595f333afebf97788ead4a0fcb273">get_byte_size</a> () const </td></tr>
+<tr class="memdesc:ad11595f333afebf97788ead4a0fcb273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the byte size of the attribute map.  <a href="#ad11595f333afebf97788ead4a0fcb273">More...</a><br /></td></tr>
+<tr class="separator:ad11595f333afebf97788ead4a0fcb273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b02f1cfe16328f5d56c7277cb4ae7af"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a3b02f1cfe16328f5d56c7277cb4ae7af">get_attrib_count</a> () const </td></tr>
+<tr class="memdesc:a3b02f1cfe16328f5d56c7277cb4ae7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of attributes in the attribute map.  <a href="#a3b02f1cfe16328f5d56c7277cb4ae7af">More...</a><br /></td></tr>
+<tr class="separator:a3b02f1cfe16328f5d56c7277cb4ae7af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ed9079eae3a647ae2e0396ef772a4dc"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; const <br class="typebreak" />
+<a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a9ed9079eae3a647ae2e0396ef772a4dc">get_attributes</a> () const </td></tr>
+<tr class="memdesc:a9ed9079eae3a647ae2e0396ef772a4dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all the attribute in the attribute map.  <a href="#a9ed9079eae3a647ae2e0396ef772a4dc">More...</a><br /></td></tr>
+<tr class="separator:a9ed9079eae3a647ae2e0396ef772a4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f543112d50cde0e245df8803b2295a3"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a6f543112d50cde0e245df8803b2295a3">is_interleaved</a> () const </td></tr>
+<tr class="memdesc:a6f543112d50cde0e245df8803b2295a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether or not the values of the attributes should be interleaved or segregated.  <a href="#a6f543112d50cde0e245df8803b2295a3">More...</a><br /></td></tr>
+<tr class="separator:a6f543112d50cde0e245df8803b2295a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b356edba05f177309def6136213313"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a60b356edba05f177309def6136213313">being_defined</a> () const </td></tr>
+<tr class="memdesc:a60b356edba05f177309def6136213313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether or not the attribute map is still being defined.  <a href="#a60b356edba05f177309def6136213313">More...</a><br /></td></tr>
+<tr class="separator:a60b356edba05f177309def6136213313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa27a4acfbc32c8a9545c2e4aad8fdd12"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#aa27a4acfbc32c8a9545c2e4aad8fdd12">operator==</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attribute_map</a> &amp;other) const </td></tr>
+<tr class="memdesc:aa27a4acfbc32c8a9545c2e4aad8fdd12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether or not the attribute maps are the same.  <a href="#aa27a4acfbc32c8a9545c2e4aad8fdd12">More...</a><br /></td></tr>
 <tr class="separator:aa27a4acfbc32c8a9545c2e4aad8fdd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb49b4c1ca9895883d1b76a0431e7d6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bb49b4c1ca9895883d1b76a0431e7d6"></a>
-const bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attribute_map</a> &amp;other) const </td></tr>
+<tr class="memitem:a3bb49b4c1ca9895883d1b76a0431e7d6"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a3bb49b4c1ca9895883d1b76a0431e7d6">operator!=</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attribute_map</a> &amp;other) const </td></tr>
+<tr class="memdesc:a3bb49b4c1ca9895883d1b76a0431e7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether or not the attribute maps are different.  <a href="#a3bb49b4c1ca9895883d1b76a0431e7d6">More...</a><br /></td></tr>
 <tr class="separator:a3bb49b4c1ca9895883d1b76a0431e7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Defines an organization of attributes. </p>
+<p>The attribute map defines an organization of attributes.This is to be used with an attribute buffer to determine in which order values are placed and if the values are interleaved or segregated in the buffer. </p><dl class="section see"><dt>See also</dt><dd>{ <a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html">occluded::buffers::attribute_buffer</a> } </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4915c4e6bfd59584dc22fb2685f40d02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::attribute_map </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>interleaved</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the attribute map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interleaved</td><td>A boolean which determines whether or not the values should be segregated or interleaved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initializes the attribute map using a boolean which provides a hint on whether or not values associated with attributes should be segregated or interleaved. This will start the definition of the map, and therefore must be paired with an end_definition call. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae03cf93f72e8d8ad4aab49eccdcab217"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::add_attribute </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute.html">attribute</a> &amp;&#160;</td>
+          <td class="paramname"><em>newAttrib</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds an attribute to the map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newAttrib</td><td>A reference to the attribute that is to be added to the attribute map.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Adds a new attribute to the attribute map. If the attribute or an attribute with the same name already exists in the attribute map, an exception will be thrown. If the definition of the attribute map has been ended then an exception will be thrown. </p>
+
+</div>
+</div>
+<a class="anchor" id="a60b356edba05f177309def6136213313"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::being_defined </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether or not the attribute map is still being defined. </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean that is true if the attribute map is still being defined and false if it has finished being defined. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af9cef5ceb3def1c089e9b6c43c63a82d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::end_definition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ends the definition of the attribute map. </p>
+<p>Ends the definition of the attribute map. This indicates that the attribute map is ready to be used by other classes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3b02f1cfe16328f5d56c7277cb4ae7af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::get_attrib_count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of attributes in the attribute map. </p>
+<dl class="section return"><dt>Returns</dt><dd>An unsigned int representing the number of attributes. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9ed9079eae3a647ae2e0396ef772a4dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::get_attributes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets all the attribute in the attribute map. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to a vector containing all the attributes in the attribute map. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad11595f333afebf97788ead4a0fcb273"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::get_byte_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the byte size of the attribute map. </p>
+<dl class="section return"><dt>Returns</dt><dd>A std::size_t representing the number of bytes.</dd></dl>
+<p>Gets the byte of size that a single value of all the attributes in the attribute map would take up. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6f543112d50cde0e245df8803b2295a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::is_interleaved </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether or not the values of the attributes should be interleaved or segregated. </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean that is true if the values should be interleaved and false if they should be segregated. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3bb49b4c1ca9895883d1b76a0431e7d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool occluded::buffers::attributes::attribute_map::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attribute_map</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether or not the attribute maps are different. </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean that is false if the attributes are the same in both attribute maps and are in the same order, and returns true otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa27a4acfbc32c8a9545c2e4aad8fdd12"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool occluded::buffers::attributes::attribute_map::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attribute_map</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets whether or not the attribute maps are the same. </p>
+<dl class="section return"><dt>Returns</dt><dd>A boolean that is true if the attributes are the same in both attribute maps and are in the same order, and returns false otherwise. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3fad5d024dd302efc48a5301165c6d83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attributes::attribute_map::reset </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>interleaved</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clears attributes and restarts definition of attribute map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interleaved</td><td>A boolean which determines whether or not the values should be segregated or interleaved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Removes all attributes from the attribute map and restarts the definition of the attribute map. This is to be used in the the current definition of the attribute map needs to be changed. </p><dl class="section warning"><dt>Warning</dt><dd>If an attribute map is being used by another class that doesn't make a deep copy of it, this function should not be called because it may cause undefined behaviour. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>OccludedLibrary/buffers/attributes/<a class="el" href="attribute__map_8h_source.html">attribute_map.h</a></li>
 <li>OccludedLibrary/buffers/attributes/attribute_map.cpp</li>
@@ -159,7 +391,7 @@ const bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>buffers</b></li><li class="navelem"><b>attributes</b></li><li class="navelem"><a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attribute_map</a></li>
-    <li class="footer">Generated on Fri Jun 6 2014 23:59:51 for Occluded Library by
+    <li class="footer">Generated on Mon Jun 9 2014 14:12:28 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

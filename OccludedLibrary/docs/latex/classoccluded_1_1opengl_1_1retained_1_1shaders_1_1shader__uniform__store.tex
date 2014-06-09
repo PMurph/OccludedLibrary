@@ -1,0 +1,50 @@
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store}{\section{occluded\+:\+:opengl\+:\+:retained\+:\+:shaders\+:\+:shader\+\_\+uniform\+\_\+store Class Reference}
+\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store}\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}}
+}
+
+
+Stores uniform values for a particular shader program.  
+
+
+
+
+{\ttfamily \#include $<$shader\+\_\+uniform\+\_\+store.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a862db8afb99f17ec1b14c3e9a882618e}{shader\+\_\+uniform\+\_\+store} (const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program} \&shader\+Prog)
+\begin{DoxyCompactList}\small\item\em Initializes an empty uniform store. \end{DoxyCompactList}\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_ae7e6d5638d60cb1a7feac886316fdf8f}{void {\bfseries add\+\_\+uniform} (const std\+::string \&name, const uniform\+\_\+value \&value)}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_ae7e6d5638d60cb1a7feac886316fdf8f}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Stores uniform values for a particular shader program. 
+
+Stores the uniform values for a particular shader program by maintaining a mapping from uniforms' names to their values. This class provides a way of storing all the uniform values of a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program}. By convention any name provided will be converted to the uniform equivalent which has a u prefixed to the beginning and the first letter of the original name capitalized( \char`\"{}model\char`\"{} becomes \char`\"{}u\+Model\char`\"{} ). 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a862db8afb99f17ec1b14c3e9a882618e}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!shader\+\_\+uniform\+\_\+store@{shader\+\_\+uniform\+\_\+store}}
+\index{shader\+\_\+uniform\+\_\+store@{shader\+\_\+uniform\+\_\+store}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}}
+\subsubsection[{shader\+\_\+uniform\+\_\+store}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store\+::shader\+\_\+uniform\+\_\+store (
+\begin{DoxyParamCaption}
+\item[{const {\bf shader\+\_\+program} \&}]{shader\+Prog}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a862db8afb99f17ec1b14c3e9a882618e}
+
+
+Initializes an empty uniform store. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader\+Prog} & A reference to a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Occluded\+Library/opengl/retained/shaders/shader\+\_\+uniform\+\_\+store.\+h\item 
+Occluded\+Library/opengl/retained/shaders/shader\+\_\+uniform\+\_\+store.\+cpp\end{DoxyCompactItemize}

@@ -16,7 +16,8 @@ var annotated =
           [ "shaders", null, [
             [ "shader", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader" ],
             [ "shader_attribute_map", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__attribute__map.html", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__attribute__map" ],
-            [ "shader_program", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program" ]
+            [ "shader_program", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program" ],
+            [ "shader_uniform_store", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html", "classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store" ]
           ] ],
           [ "gl_attribute_buffer", "classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html", "classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer" ]
         ] ]
