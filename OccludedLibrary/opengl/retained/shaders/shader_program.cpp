@@ -44,8 +44,6 @@ const bool shader_program::is_linked() const {
 }
 
 const std::string& shader_program::get_error_log() const {
-	std::string log("");
-
 	if( m_linked ) {
 		throw std::runtime_error( "shader_program.get_compile_log: Failed to get compile log because program has been properly linked." );
 	}
@@ -56,18 +54,21 @@ const std::string& shader_program::get_error_log() const {
 // Private Member Functions
 
 void shader_program::init_shader_program( const std::vector< const boost::shared_ptr<const shader> >& shaders ) {
+	GLuint genId;
 	boost::unordered_set<shader_type_t> shaderTypes;
 
 	if( m_linked )
 		throw std::runtime_error( "shader_program.init_shader_program: Failed to initialize shader program because it has already been linked." );
 
-	m_id = glCreateProgram();
+	genId = glCreateProgram();
 
-	if( m_id == 0 )
+	if( genId == 0 )
 		throw std::runtime_error( "shader_program.init_shader_progam: Failed to initialize shader program because there was an OpenGL error when creating the program." );
 
 	if( shaders.size() < 2 )
 		throw std::runtime_error( "shader_program.link_shaders: Failed to initialize shader program because there needs to be a least two shaders to link." );
+
+	m_id = genId;
 
 	// Check to make sure there are not two or more shaders of the same type in the shaders vector
 	for( std::vector< const boost::shared_ptr<const shader> >::const_iterator it = shaders.begin(); it != shaders.end(); ++it ) {
@@ -104,7 +105,6 @@ void shader_program::link_shaders() {
 			// If there was error that occured during linking, populate the shader program error log
 			handle_link_errors();
 			m_linked = false;
-			throw std::runtime_error( "shader_program.link_shaders: Failed to link shader programs due to link errors." );
 		} else {
 			m_linked = true;
 		}
@@ -143,9 +143,7 @@ void shader_program::handle_link_errors() {
 
 	glGetProgramInfoLog( m_id, static_cast<GLsizei>( logLength ), &logLength, &log[0] );
 
-	for( std::vector<GLchar>::iterator it = log.begin(); it != log.end(); ++it ) {
-		logStr.push_back( *it );
-	}
+	logStr = std::string( &log[0] );
 
 	m_errorLog = logStr;
 }

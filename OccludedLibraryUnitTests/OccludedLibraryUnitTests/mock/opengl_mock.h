@@ -65,9 +65,9 @@ inline void glGetShaderInfoLog( GLuint shader, GLsizei maxLength, GLsizei *lengt
 
 inline void glGetProgramiv( GLuint program, GLenum pname, GLint *params) {
 	if( errorState )
-		*params = GL_TRUE;
-	else
 		*params = GL_FALSE;
+	else
+		*params = GL_TRUE;
 }
 
 inline void glGetProgramInfoLog( GLuint program, GLsizei maxLength, GLsizei *length, GLchar *infoLog ) {

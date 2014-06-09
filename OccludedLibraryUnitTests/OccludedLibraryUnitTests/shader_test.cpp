@@ -28,7 +28,7 @@ namespace OccludedLibraryUnitTests
 
 				// Check to make sure it compiles properly
 				Assert::IsTrue( testShader->is_compiled() );
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 				Assert::Fail();
 			}
 
@@ -39,7 +39,7 @@ namespace OccludedLibraryUnitTests
 
 				// Check to make sure it "fails" to compile
 				Assert::IsFalse( testShader->is_compiled() );
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 				Assert::Fail();
 			}
 
@@ -51,7 +51,7 @@ namespace OccludedLibraryUnitTests
 
 				// Test to make sure it throws an exception when an empty string is passed as the shader source
 				Assert::Fail();
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 			}
 		}
 
@@ -66,18 +66,18 @@ namespace OccludedLibraryUnitTests
 
 				// Check to make sure the id is correct when the shader compiles properly
 				Assert::AreEqual( testShader->get_id(), static_cast<unsigned int>( 1 ) );
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 				Assert::Fail();
 			}
 
-			try {
-				errorState = true;
-				testShader.reset( new shader( src, tess_eval_shader ) );
+			errorState = true;
+			testShader.reset( new shader( src, tess_eval_shader ) );
 
+			try {
 				// If it fails to compile, an exception should be thrown when trying to get the id
 				testShader->get_id();
 				Assert::Fail();
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 				
 			}
 		}
@@ -93,18 +93,18 @@ namespace OccludedLibraryUnitTests
 
 				// Check to make sure the vertex_shader is returned, when properly compiled
 				Assert::IsTrue( testShader->get_type() == vert_shader );
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 				Assert::Fail();
 			}
 
-			try {
-				errorState = true;
-				testShader.reset( new shader( src, tess_control_shader ) );
+			errorState = true;
+			testShader.reset( new shader( src, tess_control_shader ) );
 
+			try {
 				// Check to make sure that an exception is thrown, when compiling fails
 				testShader->get_type();
 				Assert::Fail();
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 			}
 		}
 
@@ -113,14 +113,14 @@ namespace OccludedLibraryUnitTests
 			std::auto_ptr<shader> testShader;
 			std::string src( "Not Empty" );
 
-			try {
-				errorState = false;
-				testShader.reset( new shader( src, compute_shader ) );
+			errorState = false;
+			testShader.reset( new shader( src, compute_shader ) );
 
+			try {
 				// Check to make sure an exception is thrown if the shader is properly compiled
 				testShader->get_compile_log();
 				Assert::Fail();
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 			}
 
 			try {
@@ -129,7 +129,7 @@ namespace OccludedLibraryUnitTests
 
 				// Check to make sure no exception is thrown if the shader does not properly compiled
 				Assert::IsTrue( "" == testShader->get_compile_log() );
-			} catch( std::exception& ) {
+			} catch( const std::exception& ) {
 				Assert::Fail();
 			}
 		}
