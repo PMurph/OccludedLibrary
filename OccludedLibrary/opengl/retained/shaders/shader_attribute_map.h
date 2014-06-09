@@ -3,7 +3,11 @@
 #include <map>
 #include <ctype.h>
 
+#ifndef UNIT_TESTING
 #include <GL/glew.h>
+#else
+#include "opengl_mock.h"
+#endif
 
 #include "shader_program.h"
 #include "../../../buffers/attribute_buffer.h"
@@ -18,7 +22,6 @@ namespace occluded { namespace opengl { namespace retained { namespace shaders {
  * glVertexAttribPointer to a single a function call as well as to prevent calls to glVertexAttribPointer that would cause OpenGL to
  * enter an error state.
  */
-
 class shader_attribute_map
 {
 private:

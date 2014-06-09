@@ -2,7 +2,6 @@
 
 #include <boost/unordered_set.hpp>
 #include <boost/shared_ptr.hpp>
-#include <GL/glew.h>
 
 #include "shader.h"
 

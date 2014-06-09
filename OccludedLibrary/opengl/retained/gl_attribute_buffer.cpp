@@ -20,7 +20,7 @@ void gl_attribute_buffer::insert_values( const std::vector<char>& values ) {
 
 	bind_buffer();
 
-	if( glGetError() != GL_NO_ERROR ) {
+	if( GL_NO_ERROR != glGetError() ) {
 		throw std::runtime_error( "gl_attribute_buffer.bind_buffer: Failed to set buffer's data." );
 	}
 }
@@ -32,7 +32,7 @@ void gl_attribute_buffer::bind_buffer() const {
 	if( m_buffer->get_byte_size() > 0 )
 		glBufferData( GL_ARRAY_BUFFER, m_buffer->get_byte_size(), &m_buffer->get_all_data()[0], m_usage );
 	
-	if( glGetError() != GL_NO_ERROR ) {
+	if( GL_NO_ERROR != glGetError() ) {
 		throw std::runtime_error( "gl_attribute_buffer.bind_buffer: Failed to bind buffer." );
 	}
 }
@@ -56,7 +56,7 @@ void gl_attribute_buffer::prepare_for_render() const {
 void gl_attribute_buffer::init_buffer() {
 	glGenBuffers( 1, &m_id );
 
-	if( glGetError() != GL_NO_ERROR ) {
+	if( GL_NO_ERROR != glGetError() ) {
 		throw std::runtime_error( "gl_attribute_buffer.init_buffer: Failed to generate buffer." );
 	}
 

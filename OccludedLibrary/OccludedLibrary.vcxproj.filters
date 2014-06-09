@@ -90,6 +90,9 @@
     <ClCompile Include="opengl\retained\shaders\shader_attribute_map.cpp">
       <Filter>Source Files\opengl\retained\shaders</Filter>
     </ClCompile>
+    <ClCompile Include="opengl\retained\shaders\shader_uniform_store.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opengl\retained\shaders\shader.h">
@@ -127,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="opengl\retained\shaders\shader_attribute_map.h">
       <Filter>Header Files\opengl\retained\shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\retained\shaders\shader_uniform_store.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

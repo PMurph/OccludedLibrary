@@ -6,7 +6,11 @@
 
 #include <boost/lexical_cast.hpp>
 
+#ifndef UNIT_TESTING
 #include  <GL/glew.h>
+#else
+#include "opengl_mock.h"
+#endif
 
 namespace occluded { 
 
@@ -24,23 +28,8 @@ typedef enum SHADER_TYPE {
 	tess_eval_shader = GL_TESS_EVALUATION_SHADER,
 	geo_shader = GL_GEOMETRY_SHADER,
 	frag_shader = GL_FRAGMENT_SHADER,
-	compute_shader = GL_COMPUTE_SHADER,
-	invalid_shader = 0
+	compute_shader = GL_COMPUTE_SHADER
 } shader_type_t;
-
-/**
- * \enum shader_status_t
- * \brief An enum that represents the state of the shader.
- *
- * An enum representing the current state of a shader. It is used to throw expections if a function is called that shouldn't 
- * be called due to the shader being in the wrong state. For example if the shader is in an error state due to a compile error,
- * the get_id function should throw an exception.
- */
-typedef enum SHADER_STATUS {
-	shader_initialized,
-	shader_compiled,
-	shader_error
-} shader_status_t;
 
 /**
  * \class shader
@@ -57,7 +46,7 @@ private:
 	shader_type_t m_type;
 
 	GLuint m_id;
-	shader_status_t m_status;
+	bool m_compiled;
 
 	std::string m_compileLog;
 

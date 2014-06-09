@@ -1,6 +1,10 @@
 #pragma once
 
+#ifndef UNIT_TESTING
 #include <GL\glew.h>
+#else
+#include "opengl_mock.h"
+#endif
 
 #include "../../buffers/attribute_buffer_factory.h"
 #include "shaders/shader_attribute_map.h"

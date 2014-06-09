@@ -99,9 +99,9 @@ const std::string shader_attribute_map::get_shader_attrib_name( const std::strin
 		throw std::runtime_error( "shader_attribute_map.get_shader_attrib_name: Failed to convert string because an empty string was passed as a parameter." );
 
 	if( attribName.size() == 1 ) {
-		shaderAttribName = std::string( std::string( "v" ) + static_cast<char>( toupper( attribName[0] ) ) );
+		shaderAttribName = std::string( "v" ) + static_cast<char>( toupper( attribName[0] ) );
 	} else {
-		shaderAttribName = std::string( std::string( "v" ) + static_cast<char>( toupper( attribName[0] ) ) + attribName.substr(1) );
+		shaderAttribName = std::string( "v" ) + static_cast<char>( toupper( attribName[0] ) ) + attribName.substr( 1 );
 	}
 
 	return shaderAttribName;

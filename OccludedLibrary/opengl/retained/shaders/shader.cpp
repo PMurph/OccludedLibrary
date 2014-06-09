@@ -3,7 +3,7 @@
 namespace occluded { namespace opengl { namespace retained { namespace shaders {
 
 shader::shader( const std::string& shaderSrc, const shader_type_t type ):
-	m_status( shader_initialized ),
+	m_compiled( false ),
 	m_shaderSrc( shaderSrc ),
 	m_id( 0 ),
 	m_type( type )
@@ -19,27 +19,29 @@ shader::~shader()
 }
 
 const GLuint shader::get_id() const {
-	if( m_status != shader_compiled )
+	if( !m_compiled )
 		throw std::runtime_error( "shader.get_id: Failed to get shader id because it has not been compiled." );
 
 	return m_id;
 }
 
 const bool shader::is_compiled() const {
-	return shader_compiled == m_status;
+	return m_compiled;
 }
 
 const shader_type_t shader::get_type() const {
-	shader_type_t thisShaderType = invalid_shader;
+	shader_type_t thisShaderType;
 
-	if( m_status == shader_compiled )
-		thisShaderType = m_type;
+	if( !m_compiled )
+		throw std::runtime_error( "shader.get_type: Failed to get shader type because it has not been compiled." );
+
+	thisShaderType = m_type;
 
 	return thisShaderType;
 }
 
 const std::string& shader::get_compile_log() const {
-	if( m_status != shader_error )
+	if( m_compiled )
 		throw std::runtime_error( "shader.get_compile_log: Failed to get compile log because there has been no compile error" );
 
 	return m_compileLog;
@@ -52,11 +54,11 @@ void shader::compile_shader() {
 	const GLchar * src = NULL;
 	GLint srcLength = static_cast<GLint>( m_shaderSrc.size() );
 
+	// Shader should not be compiled at this point
+	assert( !m_compiled );
+
 	if( m_shaderSrc == "" )
 		throw std::runtime_error( "shader.compile_shader: Failed to compile shader because source was an empty string." );
-	
-	if( m_status != shader_initialized )
-		throw std::runtime_error( "shader.compile_shader: Failed to compile shader because shader has already been compiled." );
 
 	m_id = glCreateShader( m_type );
 
@@ -65,7 +67,6 @@ void shader::compile_shader() {
 
 	src = m_shaderSrc.c_str();
 	glShaderSource( m_id, 1, &src, &srcLength );
-
 	glCompileShader( m_id );
 
 	// Check the compile status of the shader
@@ -80,7 +81,7 @@ void shader::compile_shader() {
 		handle_compile_error();
 		throw std::runtime_error( "shader.compile_shader: Shader was not compiled due to compile error." );
 	} else {
-		m_status = shader_compiled;
+		m_compiled = true;
 	}
 }
 
@@ -97,7 +98,7 @@ void shader::handle_compile_error() {
 
 	m_compileLog = std::string( &error[0] );
 
-	m_status = shader_error;
+	m_compiled = false;
 }
 
 } // end of shaders namespace
