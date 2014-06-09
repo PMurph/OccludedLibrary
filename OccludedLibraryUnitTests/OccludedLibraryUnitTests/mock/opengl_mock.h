@@ -29,90 +29,85 @@
 #define GL_TRUE 1
 #define GL_FALSE 2
 #define GL_NO_ERROR 0
-#define GL_COMPILE_STATUS 0
-#define GL_INFO_LOG_LENGTH 0
 #define GL_LINK_STATUS 0
 #define GL_ARRAY_BUFFER 0
 
-bool errorState = false;
+#define GL_COMPILE_STATUS 0
+#define GL_INFO_LOG_LENGTH 0
 
-GLuint glCreateShader( GLenum shaderType ) {
-	if( errorState )
-		return 0;
-	else
-		return 1;
+extern bool errorState;
+
+inline GLuint glCreateShader( GLenum shaderType ) {
+	return 1;
 }
 
-GLuint glCreateProgram() {
-	if( errorState )
-		return 0;
-	else
-		return 1;
+inline GLuint glCreateProgram() {
+	return 1;
 }
 
-void glGetShaderiv( GLuint shader, GLenum pname, GLint* params ) {
+inline void glGetShaderiv( GLuint shader, GLenum pname, GLint* params ) {
 	if( errorState )
-		*params = GL_TRUE;
-	else
 		*params = GL_FALSE;
+	else
+		*params = GL_TRUE;
 }
 
-GLenum glGetError() {
+inline GLenum glGetError() {
 	return GL_NO_ERROR;
 }
 
-void glGetShaderInfoLog( GLuint shader, GLsizei maxLength, GLsizei *length, GLchar *infoLog ) {
+inline void glGetShaderInfoLog( GLuint shader, GLsizei maxLength, GLsizei *length, GLchar *infoLog ) {
 	if( errorState )
 		*infoLog = '\0';
 	else
 		infoLog = 0;
 }
 
-void glGetProgramiv( GLuint program, GLenum pname, GLint *params) {
+inline void glGetProgramiv( GLuint program, GLenum pname, GLint *params) {
 	if( errorState )
 		*params = GL_TRUE;
 	else
 		*params = GL_FALSE;
 }
 
-void glGetProgramInfoLog( GLuint program, GLsizei maxLength, GLsizei *length, GLchar *infoLog ) {
+inline void glGetProgramInfoLog( GLuint program, GLsizei maxLength, GLsizei *length, GLchar *infoLog ) {
 	if( errorState )
 		*infoLog = '\0';
 	else
 		infoLog = 0;
 }
 
-GLint glGetAttribLocation( GLuint program, const GLchar *name ) {
+inline GLint glGetAttribLocation( GLuint program, const GLchar *name ) {
 	if( errorState )
 		return 0;
 	else
 		return 1;
 }
 
-void glGenBuffers( GLsizei n, GLuint * buffers ) {
+inline void glGenBuffers( GLsizei n, GLuint * buffers ) {
 	if( errorState )
 		*buffers = 0;
 	else
 		*buffers = 1;
 }
 
-GLint glGetUniformLocation( GLuint program, const GLchar* name ) {
+inline GLint glGetUniformLocation( GLuint program, const GLchar* name ) {
 	if( errorState )
 		return -1;
 	else
 		return 0;
 }
 
-void glBufferData( GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage) {}
-void glBindBuffer( GLenum target, GLuint buffer) {}
-void glEnableVertexAttribArray( GLuint index ) {}
-void glDisableVertexAttribArray( GLuint index ) {}
-void glVertexAttribPointer(	GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid * pointer ) {}
-void glAttachShader( GLuint program, GLuint shader ) {}
-void glShaderSource( GLuint shader, GLsizei count, const GLchar **string, const GLint *length ) {}
-void glCompileShader( GLuint shader ) {}
-void glDeleteShader( GLuint shader ) {}
-void glDeleteProgram( GLuint program ) {}
-void glUseProgram( GLuint program ) {}
-void glLinkProgram( GLuint program ) {}
-void glDeleteBuffers( GLsizei n, const GLuint* buffers ) {}
+inline void glBufferData( GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage) {}
+inline void glBindBuffer( GLenum target, GLuint buffer) {}
+inline void glEnableVertexAttribArray( GLuint index ) {}
+inline void glDisableVertexAttribArray( GLuint index ) {}
+inline void glVertexAttribPointer(	GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid * pointer ) {}
+inline void glAttachShader( GLuint program, GLuint shader ) {}
+inline void glShaderSource( GLuint shader, GLsizei count, const GLchar **string, const GLint *length ) {}
+inline void glCompileShader( GLuint shader ) {}
+inline void glDeleteShader( GLuint shader ) {}
+inline void glDeleteProgram( GLuint program ) {}
+inline void glUseProgram( GLuint program ) {}
+inline void glLinkProgram( GLuint program ) {}
+inline void glDeleteBuffers( GLsizei n, const GLuint* buffers ) {}

@@ -103,14 +103,14 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>E:\Libraries\glew\glew-1.10.0\include;E:\Libraries\glm;E:\Libraries\boost\boost_1_55_0;E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibrary;$(VCInstallDir)UnitTest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;UNIT_TESTING%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibraryUnitTests\OccludedLibraryUnitTests\mock;E:\Libraries\glew\glew-1.10.0\include;E:\Libraries\glm;E:\Libraries\boost\boost_1_55_0;E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibrary;$(VCInstallDir)UnitTest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;UNIT_TESTING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <UseFullPaths>true</UseFullPaths>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\Libraries\glew\glew-1.10.0\lib\Release\x64;E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibrary\x64\Debug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>E:\Libraries\glew\glew-1.10.0\lib\Release\x64;E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibraryUnitTests\x64\TestDebug;$(VCInstallDir)UnitTest\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -180,7 +180,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\PublicProjects\Libraries\OccludedLibrary\OccludedLibrary\OccludedLibrary.vcxproj">
+    <ProjectReference Include="..\..\OccludedLibrary\OccludedLibrary.vcxproj">
       <Project>{8a187f39-1043-4adb-a28f-1ce9be3da173}</Project>
     </ProjectReference>
   </ItemGroup>

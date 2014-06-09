@@ -133,7 +133,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>E:\Libraries\glm;E:\Libraries\boost\boost_1_55_0;E:\Libraries\glew\glew-1.10.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\Development\PublicProjects\Libraries\OccludedLibrary\OccludedLibraryUnitTests\OccludedLibraryUnitTests\mock;E:\Libraries\glm;E:\Libraries\boost\boost_1_55_0;E:\Libraries\glew\glew-1.10.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>UNIT_TESTING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

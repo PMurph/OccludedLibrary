@@ -50,6 +50,7 @@ const std::string& shader::get_compile_log() const {
 // private member functions
 
 void shader::compile_shader() {
+	GLuint genId;
 	GLint status;
 	const GLchar * src = NULL;
 	GLint srcLength = static_cast<GLint>( m_shaderSrc.size() );
@@ -60,10 +61,12 @@ void shader::compile_shader() {
 	if( m_shaderSrc == "" )
 		throw std::runtime_error( "shader.compile_shader: Failed to compile shader because source was an empty string." );
 
-	m_id = glCreateShader( m_type );
+	genId = glCreateShader( m_type );
 
-	if( m_id == 0 )
+	if( genId == 0 )
 		throw std::runtime_error( "shader.compile_shader: Failed to compile shader because an error occured while creating the shader." );
+
+	m_id = genId;
 
 	src = m_shaderSrc.c_str();
 	glShaderSource( m_id, 1, &src, &srcLength );
@@ -79,7 +82,6 @@ void shader::compile_shader() {
 	if( status != GL_TRUE ) {
 		// If the shader did not compile properly, populate the error log and throw an exception
 		handle_compile_error();
-		throw std::runtime_error( "shader.compile_shader: Shader was not compiled due to compile error." );
 	} else {
 		m_compiled = true;
 	}
