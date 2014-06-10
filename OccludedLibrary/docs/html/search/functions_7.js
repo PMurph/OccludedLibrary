@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reset',['reset',['../classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a3fad5d024dd302efc48a5301165c6d83',1,'occluded::buffers::attributes::attribute_map']]]
+  ['prepare_5ffor_5frender',['prepare_for_render',['../classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#ab7707122e284ee1c28bf238885ae6a59',1,'occluded::opengl::retained::gl_attribute_buffer']]]
 ];

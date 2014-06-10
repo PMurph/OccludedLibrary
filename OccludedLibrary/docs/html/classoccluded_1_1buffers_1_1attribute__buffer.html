@@ -112,43 +112,49 @@ $(document).ready(function(){initNavTree('classoccluded_1_1buffers_1_1attribute_
 <div class="title">occluded::buffers::attribute_buffer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Provides contiguous storage for values associated with attributes.  
+ <a href="classoccluded_1_1buffers_1_1attribute__buffer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="attribute__buffer_8h_source.html">attribute_buffer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for occluded::buffers::attribute_buffer:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classoccluded_1_1buffers_1_1attribute__buffer.png" usemap="#occluded::buffers::attribute_buffer_map" alt=""/>
   <map id="occluded::buffers::attribute_buffer_map" name="occluded::buffers::attribute_buffer_map">
-<area href="classoccluded_1_1buffers_1_1interleaved__attr__buffer.html" alt="occluded::buffers::interleaved_attr_buffer" shape="rect" coords="0,56,245,80"/>
-<area href="classoccluded_1_1buffers_1_1segregated__attr__buffer.html" alt="occluded::buffers::segregated_attr_buffer" shape="rect" coords="255,56,500,80"/>
+<area href="classoccluded_1_1buffers_1_1interleaved__attr__buffer.html" title="An attribute buffer subclass with interleaved data. " alt="occluded::buffers::interleaved_attr_buffer" shape="rect" coords="0,56,245,80"/>
+<area href="classoccluded_1_1buffers_1_1segregated__attr__buffer.html" title="An attribute buffer subclass with segregated data. " alt="occluded::buffers::segregated_attr_buffer" shape="rect" coords="255,56,500,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7c3a087b1ec1c67ba66e2385050d1139"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7c3a087b1ec1c67ba66e2385050d1139"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>attribute_buffer</b> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;map)</td></tr>
+<tr class="memitem:a7c3a087b1ec1c67ba66e2385050d1139"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a7c3a087b1ec1c67ba66e2385050d1139">attribute_buffer</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;map)</td></tr>
+<tr class="memdesc:a7c3a087b1ec1c67ba66e2385050d1139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the attribute buffer.  <a href="#a7c3a087b1ec1c67ba66e2385050d1139">More...</a><br /></td></tr>
 <tr class="separator:a7c3a087b1ec1c67ba66e2385050d1139"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9140b1308d096412fafe62c2c926cbb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9140b1308d096412fafe62c2c926cbb"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>insert_values</b> (const std::vector&lt; char &gt; &amp;values)=0</td></tr>
-<tr class="separator:ad9140b1308d096412fafe62c2c926cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebf3845db925a130cc87bafe0d4b610a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebf3845db925a130cc87bafe0d4b610a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear_buffer</b> ()</td></tr>
-<tr class="separator:aebf3845db925a130cc87bafe0d4b610a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb50ede9ca40b4b8a399c0a85d632092"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb50ede9ca40b4b8a399c0a85d632092"></a>
-const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><b>get_byte_size</b> () const </td></tr>
-<tr class="separator:abb50ede9ca40b4b8a399c0a85d632092"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1b2464149cdd1f2e7cb19080158c977"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1b2464149cdd1f2e7cb19080158c977"></a>
-const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_num_values</b> () const </td></tr>
-<tr class="separator:af1b2464149cdd1f2e7cb19080158c977"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6e35e41f03ccd70451c9ed5e112f3b8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6e35e41f03ccd70451c9ed5e112f3b8"></a>
-const std::vector&lt; char &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_all_data</b> () const </td></tr>
-<tr class="separator:af6e35e41f03ccd70451c9ed5e112f3b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1b72cfa4129a03466ba6fe7696fdbc3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1b72cfa4129a03466ba6fe7696fdbc3"></a>
-const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_attribute_map</b> () const </td></tr>
-<tr class="separator:af1b72cfa4129a03466ba6fe7696fdbc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40a7fe499682771a9cfd21f254c326b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40a7fe499682771a9cfd21f254c326b5"></a>
-const std::vector&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_attribute_data_offsets</b> () const </td></tr>
-<tr class="separator:a40a7fe499682771a9cfd21f254c326b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a323a2283330b0bcf4909e8d93bfc594a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a323a2283330b0bcf4909e8d93bfc594a">insert_values</a> (const std::vector&lt; char &gt; &amp;values)=0</td></tr>
+<tr class="memdesc:a323a2283330b0bcf4909e8d93bfc594a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts values into the attribute buffer.  <a href="#a323a2283330b0bcf4909e8d93bfc594a">More...</a><br /></td></tr>
+<tr class="separator:a323a2283330b0bcf4909e8d93bfc594a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f67d28a3825be82be1ef54ad7c632d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61f67d28a3825be82be1ef54ad7c632d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a61f67d28a3825be82be1ef54ad7c632d">clear_buffer</a> ()</td></tr>
+<tr class="memdesc:a61f67d28a3825be82be1ef54ad7c632d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all the values from the buffer. <br /></td></tr>
+<tr class="separator:a61f67d28a3825be82be1ef54ad7c632d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d5883862c21deda2cea7739ac9ec5b3"><td class="memItemLeft" align="right" valign="top">const std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a3d5883862c21deda2cea7739ac9ec5b3">get_byte_size</a> () const </td></tr>
+<tr class="memdesc:a3d5883862c21deda2cea7739ac9ec5b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size in bytes of the buffer.  <a href="#a3d5883862c21deda2cea7739ac9ec5b3">More...</a><br /></td></tr>
+<tr class="separator:a3d5883862c21deda2cea7739ac9ec5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f6d890bde1063a6dcf92af1b0bc36ab"><td class="memItemLeft" align="right" valign="top">const unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a5f6d890bde1063a6dcf92af1b0bc36ab">get_num_values</a> () const </td></tr>
+<tr class="memdesc:a5f6d890bde1063a6dcf92af1b0bc36ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of values in the buffer.  <a href="#a5f6d890bde1063a6dcf92af1b0bc36ab">More...</a><br /></td></tr>
+<tr class="separator:a5f6d890bde1063a6dcf92af1b0bc36ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a338701d776783b154bb27fc9e8e7c79b"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; char &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a338701d776783b154bb27fc9e8e7c79b">get_all_data</a> () const </td></tr>
+<tr class="memdesc:a338701d776783b154bb27fc9e8e7c79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the data in the attribute buffer.  <a href="#a338701d776783b154bb27fc9e8e7c79b">More...</a><br /></td></tr>
+<tr class="separator:a338701d776783b154bb27fc9e8e7c79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14a2cdb2675135a00d6b7db18ca02b7a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a14a2cdb2675135a00d6b7db18ca02b7a">get_attribute_map</a> () const </td></tr>
+<tr class="memdesc:a14a2cdb2675135a00d6b7db18ca02b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the attribute map of the attribute buffer.  <a href="#a14a2cdb2675135a00d6b7db18ca02b7a">More...</a><br /></td></tr>
+<tr class="separator:a14a2cdb2675135a00d6b7db18ca02b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52e537624fad0f1b22cefade12366d88"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; unsigned int &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html#a52e537624fad0f1b22cefade12366d88">get_attribute_data_offsets</a> () const </td></tr>
+<tr class="memdesc:a52e537624fad0f1b22cefade12366d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the offsets of to the values in attribute buffer.  <a href="#a52e537624fad0f1b22cefade12366d88">More...</a><br /></td></tr>
+<tr class="separator:a52e537624fad0f1b22cefade12366d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -168,6 +174,161 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>m_numValues</
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_pointersSet</b></td></tr>
 <tr class="separator:a23f52b63882d1ea6864995672be40577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Provides contiguous storage for values associated with attributes. </p>
+<p>Provides contiguous storage for values associated with attributes in an attribute map. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7c3a087b1ec1c67ba66e2385050d1139"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attribute_buffer::attribute_buffer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the attribute buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>A reference to an attribute map.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Intializes the attribute buffer using the provided attribute map. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a338701d776783b154bb27fc9e8e7c79b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attribute_buffer::get_all_data </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the data in the attribute buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to a vector of character representing the values stored in the attribute buffer. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a52e537624fad0f1b22cefade12366d88"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attribute_buffer::get_attribute_data_offsets </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the offsets of to the values in attribute buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to a vector of unsigned integers representing the location of the first value of each attribute in the attribute buffer. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a14a2cdb2675135a00d6b7db18ca02b7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attribute_buffer::get_attribute_map </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the attribute map of the attribute buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the attribute map of the attribute buffer. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3d5883862c21deda2cea7739ac9ec5b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attribute_buffer::get_byte_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the size in bytes of the buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>A std::size_t representing the size of the attribute buffer in bytes. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5f6d890bde1063a6dcf92af1b0bc36ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attribute_buffer::get_num_values </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the number of values in the buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>An unsigned int representing the number of values in the buffer. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a323a2283330b0bcf4909e8d93bfc594a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::attribute_buffer::insert_values </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; char &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts values into the attribute buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">values</td><td>A reference to a vector of characters representing the values to be inserted.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Insertes a values into the attribute buffer. The values are inserted such a way that the organization of the values in the buffer is preserved. The values in the vector parameter are assumed to be organized in the same way as the attributes in the attribute map. If inserting a single value, a single value must be inserted for every attribute in the attribute map. </p>
+
+<p>Implemented in <a class="el" href="classoccluded_1_1buffers_1_1interleaved__attr__buffer.html#a7347f20462c3bb9744602fc159e54e00">occluded::buffers::interleaved_attr_buffer</a>, and <a class="el" href="classoccluded_1_1buffers_1_1segregated__attr__buffer.html#a437ef88504021dc75d45dff010986128">occluded::buffers::segregated_attr_buffer</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>OccludedLibrary/buffers/<a class="el" href="attribute__buffer_8h_source.html">attribute_buffer.h</a></li>
 <li>OccludedLibrary/buffers/attribute_buffer.cpp</li>
@@ -178,7 +339,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_pointersSet</b></td
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>buffers</b></li><li class="navelem"><a class="el" href="classoccluded_1_1buffers_1_1attribute__buffer.html">attribute_buffer</a></li>
-    <li class="footer">Generated on Mon Jun 9 2014 14:12:26 for Occluded Library by
+    <li class="footer">Generated on Tue Jun 10 2014 12:50:55 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

@@ -1,6 +1,15 @@
 \hypertarget{classoccluded_1_1buffers_1_1interleaved__attr__buffer}{\section{occluded\+:\+:buffers\+:\+:interleaved\+\_\+attr\+\_\+buffer Class Reference}
 \label{classoccluded_1_1buffers_1_1interleaved__attr__buffer}\index{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer}}
 }
+
+
+An attribute buffer subclass with interleaved data.  
+
+
+
+
+{\ttfamily \#include $<$interleaved\+\_\+attr\+\_\+buffer.\+h$>$}
+
 Inheritance diagram for occluded\+:\+:buffers\+:\+:interleaved\+\_\+attr\+\_\+buffer\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,10 +22,37 @@ Inheritance diagram for occluded\+:\+:buffers\+:\+:interleaved\+\_\+attr\+\_\+bu
 \hypertarget{classoccluded_1_1buffers_1_1interleaved__attr__buffer_af40be210a1b5468d1696e1cb1e9f663b}{{\bfseries interleaved\+\_\+attr\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attributes\+::attribute\+\_\+map} \&map)}\label{classoccluded_1_1buffers_1_1interleaved__attr__buffer_af40be210a1b5468d1696e1cb1e9f663b}
 
 \item 
-\hypertarget{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a719550fc8a8afb80d5770b4b8c5bbc47}{void {\bfseries insert\+\_\+values} (const std\+::vector$<$ char $>$ \&values)}\label{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a719550fc8a8afb80d5770b4b8c5bbc47}
-
-\end{DoxyCompactItemize}
+void \hyperlink{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a7347f20462c3bb9744602fc159e54e00}{insert\+\_\+values} (const std\+::vector$<$ char $>$ \&values)
+\begin{DoxyCompactList}\small\item\em Inserts values into the attribute buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+An attribute buffer subclass with interleaved data. 
+
+An attribute buffer that stores values such that they are interleaved. The first value of the first attribute will be stored then the first value of the second attribute will stored and so on. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a7347f20462c3bb9744602fc159e54e00}{\index{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer}!insert\+\_\+values@{insert\+\_\+values}}
+\index{insert\+\_\+values@{insert\+\_\+values}!occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer}}
+\subsubsection[{insert\+\_\+values}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer\+::insert\+\_\+values (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ char $>$ \&}]{values}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a7347f20462c3bb9744602fc159e54e00}
+
+
+Inserts values into the attribute buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & A reference to a vector of characters representing the values to be inserted.\\
+\hline
+\end{DoxyParams}
+Inserts a value into the attribute buffer. Since the attribute values are interleaved and the vector passed as a parameter has interleaved values, the values can be placed as the end of the buffer. 
+
+Implements \hyperlink{classoccluded_1_1buffers_1_1attribute__buffer_a323a2283330b0bcf4909e8d93bfc594a}{occluded\+::buffers\+::attribute\+\_\+buffer}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
