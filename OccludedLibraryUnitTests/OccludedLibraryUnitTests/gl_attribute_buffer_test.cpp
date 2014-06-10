@@ -1,0 +1,62 @@
+#include "stdafx.h"
+#include "CppUnitTest.h"
+
+#include "opengl/retained/gl_attribute_buffer.h"
+
+using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+using namespace occluded::opengl::retained;
+using namespace occluded::opengl::retained::shaders;
+using namespace occluded::buffers::attributes;
+
+namespace OccludedLibraryUnitTests
+{
+	static std::vector< const boost::shared_ptr<const shader> > shaders;
+
+	TEST_CLASS( gl_attribute_buffer_test )
+	{
+	public:
+		TEST_CLASS_INITIALIZE( gl_attribute_buffer_init )
+		{
+			std::string src( "Not Empty" );
+
+			shaders.push_back( boost::shared_ptr<shader>( new shader( src, vert_shader ) ) );
+			shaders.push_back( boost::shared_ptr<shader>( new shader( src, frag_shader ) ) );
+		}
+		
+		TEST_METHOD( gl_attribute_buffer_get_id_test )
+		{
+			std::auto_ptr<shader_program> testProgram( new shader_program( shaders ) );
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
+			testMap.end_definition();
+
+			gl_attribute_buffer testBuffer( testMap, *testProgram, static_draw_usage );
+
+			// Test to make sure the an id is returned
+			Assert::AreEqual( testBuffer.get_id(), static_cast<unsigned int>( 1 ) );
+		}
+
+		TEST_METHOD( gl_attribute_buffer_get_attribute_map_test )
+		{
+			std::auto_ptr<shader_program> testProgram( new shader_program( shaders ) );
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
+			testMap.end_definition();
+
+			gl_attribute_buffer testBuffer( testMap, *testProgram, static_draw_usage );
+
+			// Test to make sure the correct attribute map is returned
+			Assert::IsTrue( testBuffer.get_buffer_map() == testMap );
+
+			testMap.reset( true );
+			testMap.add_attribute( attribute( "test1", 1, attrib_uint ) );
+			testMap.add_attribute( attribute( "test2", 2, attrib_float ) );
+			testMap.end_definition();
+
+			gl_attribute_buffer testBuffer1( testMap, *testProgram, stream_draw_usage );
+
+			// Test to make sure the attribute map is actually different if a different map is passed as a parameter
+			Assert::IsTrue( testBuffer1.get_buffer_map() == testMap );
+		}
+	};
+}

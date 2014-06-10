@@ -1,13 +1,48 @@
 \hypertarget{classoccluded_1_1utilities_1_1files_1_1file__reader}{\section{occluded\+:\+:utilities\+:\+:files\+:\+:file\+\_\+reader Class Reference}
 \label{classoccluded_1_1utilities_1_1files_1_1file__reader}\index{occluded\+::utilities\+::files\+::file\+\_\+reader@{occluded\+::utilities\+::files\+::file\+\_\+reader}}
 }
+
+
+A class that provides ways of reading files.  
+
+
+
+
+{\ttfamily \#include $<$file\+\_\+reader.\+h$>$}
+
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classoccluded_1_1utilities_1_1files_1_1file__reader_aaae5be83e26fd8d591c25cd5d24ab919}{static const std\+::string {\bfseries get\+\_\+string\+\_\+from\+\_\+file} (const std\+::string \&file\+Path)}\label{classoccluded_1_1utilities_1_1files_1_1file__reader_aaae5be83e26fd8d591c25cd5d24ab919}
+static const std\+::string \hyperlink{classoccluded_1_1utilities_1_1files_1_1file__reader_a905fd62c6bc5da558c3c303c4a5fe40a}{get\+\_\+string\+\_\+from\+\_\+file} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Reads a file's contents into a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\end{DoxyCompactItemize}
 
+\subsection{Detailed Description}
+A class that provides ways of reading files. 
+
+A utility class that provides ways of reading files for processing in the occluded library. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1utilities_1_1files_1_1file__reader_a905fd62c6bc5da558c3c303c4a5fe40a}{\index{occluded\+::utilities\+::files\+::file\+\_\+reader@{occluded\+::utilities\+::files\+::file\+\_\+reader}!get\+\_\+string\+\_\+from\+\_\+file@{get\+\_\+string\+\_\+from\+\_\+file}}
+\index{get\+\_\+string\+\_\+from\+\_\+file@{get\+\_\+string\+\_\+from\+\_\+file}!occluded\+::utilities\+::files\+::file\+\_\+reader@{occluded\+::utilities\+::files\+::file\+\_\+reader}}
+\subsubsection[{get\+\_\+string\+\_\+from\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::utilities\+::files\+::file\+\_\+reader\+::get\+\_\+string\+\_\+from\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{file\+Path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{classoccluded_1_1utilities_1_1files_1_1file__reader_a905fd62c6bc5da558c3c303c4a5fe40a}
+
+
+Reads a file's contents into a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & A reference to a string representing the file path of the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A string containing the contents of the file.
+\end{DoxyReturn}
+Reads the contents of the file located at the file\+Path into a string preserving new line characters. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -117,7 +117,7 @@
       <Command>if not exist $(SolutionDir)$(Platform)\$(Configuration)\glew32.dll copy E:\Libraries\glew\glew-1.10.0\bin\Release\x64\glew32.dll $(SolutionDir)$(Platform)\$(Congifuration)\</Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Command>if not exist $(SolutionDir)$(Platform)\$(Configuration)\glew32.dll copy E:\Libraries\glew\glew-1.10.0\bin\Release\x64 $(SolutionDir)$(Platform)\$(Congifuration)\</Command>
+      <Command>if not exist $(SolutionDir)$(Platform)\$(Configuration)\glew32.dll copy E:\Libraries\glew\glew-1.10.0\bin\Release\x64\glew32.dll $(SolutionDir)$(Platform)\$(Congifuration)\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -167,6 +167,7 @@
     <ClCompile Include="attribute_buffer_factory_test.cpp" />
     <ClCompile Include="attribute_buffer_test.cpp" />
     <ClCompile Include="file_reader_test.cpp" />
+    <ClCompile Include="gl_attribute_buffer_test.cpp" />
     <ClCompile Include="interleaved_attr_buffer_test.cpp" />
     <ClCompile Include="segregated_attr_buffer_test.cpp" />
     <ClCompile Include="attribute_map_test.cpp" />
