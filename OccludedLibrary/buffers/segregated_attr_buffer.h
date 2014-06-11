@@ -15,6 +15,13 @@ class segregated_attr_buffer:
 	public attribute_buffer
 {
 public:
+	/**
+	 * \brief Initializes the attribute buffer.
+	 *
+	 * \param map A reference to an attribute map.
+	 *
+	 * Initializes the attribute buffer. Throws an exception if the map is not a segregated map.
+	 */
 	segregated_attr_buffer( const attributes::attribute_map& map );
 	~segregated_attr_buffer();
 
