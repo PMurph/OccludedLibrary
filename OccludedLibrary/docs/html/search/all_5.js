@@ -17,6 +17,7 @@ var searchData=
   ['get_5fnum_5fvalues',['get_num_values',['../classoccluded_1_1buffers_1_1attribute__buffer.html#a5f6d890bde1063a6dcf92af1b0bc36ab',1,'occluded::buffers::attribute_buffer']]],
   ['get_5fstring_5ffrom_5ffile',['get_string_from_file',['../classoccluded_1_1utilities_1_1files_1_1file__reader.html#a905fd62c6bc5da558c3c303c4a5fe40a',1,'occluded::utilities::files::file_reader']]],
   ['get_5ftype',['get_type',['../classoccluded_1_1buffers_1_1attributes_1_1attribute.html#aefb7b7a891c3f31e92f9927ed1410855',1,'occluded::buffers::attributes::attribute::get_type()'],['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#af9befeaa32ea72f80d1c3825f4cd2f48',1,'occluded::opengl::retained::shaders::shader::get_type()']]],
-  ['gl_5fattribute_5fbuffer',['gl_attribute_buffer',['../classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a22cdc11d70684a364895715b12293487',1,'occluded::opengl::retained::gl_attribute_buffer']]],
-  ['gl_5fattribute_5fbuffer',['gl_attribute_buffer',['../classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html',1,'occluded::opengl::retained']]]
+  ['get_5fvalue',['get_value',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a69ee4a0dd33e31fcf4ea0e82acf0f2db',1,'occluded::opengl::retained::shaders::shader_uniform_store']]],
+  ['gl_5fattribute_5fbuffer',['gl_attribute_buffer',['../classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html',1,'occluded::opengl::retained']]],
+  ['gl_5fattribute_5fbuffer',['gl_attribute_buffer',['../classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a22cdc11d70684a364895715b12293487',1,'occluded::opengl::retained::gl_attribute_buffer']]]
 ];

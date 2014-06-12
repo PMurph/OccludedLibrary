@@ -35,14 +35,29 @@ typedef enum BUFFER_USAGE {
 class gl_attribute_buffer
 {
 private:
+	// Need to maintain a count of references to a buffer with a particular buffer id, so it is not cleaned up when it is still in use
+	static std::map<GLuint, unsigned int> refCounts; 
+
 	GLuint m_id;
-	std::auto_ptr<buffers::attribute_buffer> m_buffer;
 	buffer_usage_t m_usage;
-	shaders::shader_attribute_map m_shaderMap;
+
+	// Need to be shared across multiple copies of an attribute buffer
+	boost::shared_ptr<buffers::attribute_buffer> m_buffer;
+	boost::shared_ptr<shaders::shader_attribute_map> m_shaderMap;
 
 public:
 	/**
-	 * \brief Initialize the buffer.
+	 * \brief Creates a copy of the gl_attribute_buffer.
+	 *
+	 * \param other A reference to the gl_attribute_buffer that is being copied.
+	 *
+	 * Makes a copy of an gl_attribute_buffer so that it can be used by a class that needs to retain a copy of it as well as act as its own independent
+	 * entity.
+	 */
+	gl_attribute_buffer( gl_attribute_buffer& other );
+
+	/**
+	 * \brief Creates the buffer.
 	 *
 	 * \param map A reference to an attribute map.
 	 * \param shaderProg A reference to a shader program.

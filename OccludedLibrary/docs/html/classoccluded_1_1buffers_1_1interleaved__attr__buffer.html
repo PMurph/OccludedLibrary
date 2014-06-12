@@ -128,8 +128,8 @@ Inheritance diagram for occluded::buffers::interleaved_attr_buffer:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af40be210a1b5468d1696e1cb1e9f663b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af40be210a1b5468d1696e1cb1e9f663b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>interleaved_attr_buffer</b> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;map)</td></tr>
+<tr class="memitem:af40be210a1b5468d1696e1cb1e9f663b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1interleaved__attr__buffer.html#af40be210a1b5468d1696e1cb1e9f663b">interleaved_attr_buffer</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;map)</td></tr>
+<tr class="memdesc:af40be210a1b5468d1696e1cb1e9f663b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the attribute buffer.  <a href="#af40be210a1b5468d1696e1cb1e9f663b">More...</a><br /></td></tr>
 <tr class="separator:af40be210a1b5468d1696e1cb1e9f663b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7347f20462c3bb9744602fc159e54e00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1buffers_1_1interleaved__attr__buffer.html#a7347f20462c3bb9744602fc159e54e00">insert_values</a> (const std::vector&lt; char &gt; &amp;values)</td></tr>
 <tr class="memdesc:a7347f20462c3bb9744602fc159e54e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts values into the attribute buffer.  <a href="#a7347f20462c3bb9744602fc159e54e00">More...</a><br /></td></tr>
@@ -180,7 +180,33 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_pointersSet</b></td
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An attribute buffer subclass with interleaved data. </p>
 <p>An attribute buffer that stores values such that they are interleaved. The first value of the first attribute will be stored then the first value of the second attribute will stored and so on. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af40be210a1b5468d1696e1cb1e9f663b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">occluded::buffers::interleaved_attr_buffer::interleaved_attr_buffer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">attributes::attribute_map</a> &amp;&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the attribute buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>A reference to an attribute map</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initializes the attribute buffer. Throws an exception if map is not an interleaved attribute map. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a7347f20462c3bb9744602fc159e54e00"></a>
 <div class="memitem">
 <div class="memproto">
@@ -226,7 +252,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_pointersSet</b></td
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>buffers</b></li><li class="navelem"><a class="el" href="classoccluded_1_1buffers_1_1interleaved__attr__buffer.html">interleaved_attr_buffer</a></li>
-    <li class="footer">Generated on Tue Jun 10 2014 13:32:57 for Occluded Library by
+    <li class="footer">Generated on Wed Jun 11 2014 09:37:22 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

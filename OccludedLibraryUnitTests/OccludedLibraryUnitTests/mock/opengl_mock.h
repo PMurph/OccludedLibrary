@@ -17,6 +17,15 @@
 #define GL_STREAM_DRAW 1
 #define GL_DYNAMIC_DRAW 2
 
+#define GL_POINTS 0
+#define GL_LINES 1
+#define GL_LINE_STRIP 2
+#define GL_LINE_LOOP 3
+#define GL_TRIANGLES 4
+#define GL_TRIANGLE_STRIP 5
+#define GL_TRIANGLE_FAN 6
+#define GL_PATCHES 7
+
 #define GLint int
 #define GLuint unsigned int
 #define GLenum unsigned int

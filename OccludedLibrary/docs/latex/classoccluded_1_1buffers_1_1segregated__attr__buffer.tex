@@ -19,9 +19,8 @@ Inheritance diagram for occluded\+:\+:buffers\+:\+:segregated\+\_\+attr\+\_\+buf
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classoccluded_1_1buffers_1_1segregated__attr__buffer_ab822a9e4ccf2be069418224fc2663622}{{\bfseries segregated\+\_\+attr\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attributes\+::attribute\+\_\+map} \&map)}\label{classoccluded_1_1buffers_1_1segregated__attr__buffer_ab822a9e4ccf2be069418224fc2663622}
-
-\item 
+\hyperlink{classoccluded_1_1buffers_1_1segregated__attr__buffer_ab822a9e4ccf2be069418224fc2663622}{segregated\+\_\+attr\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attributes\+::attribute\+\_\+map} \&map)
+\begin{DoxyCompactList}\small\item\em Initializes the attribute buffer. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1buffers_1_1segregated__attr__buffer_a437ef88504021dc75d45dff010986128}{insert\+\_\+values} (const std\+::vector$<$ char $>$ \&values)
 \begin{DoxyCompactList}\small\item\em Inserts values into the attribute buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
@@ -31,6 +30,25 @@ void \hyperlink{classoccluded_1_1buffers_1_1segregated__attr__buffer_a437ef88504
 An attribute buffer subclass with segregated data. 
 
 An attribute buffer that stores values in segregated sections. The first value of the first attribute will be stored, then the second value of the first attribute is stored and so on. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1buffers_1_1segregated__attr__buffer_ab822a9e4ccf2be069418224fc2663622}{\index{occluded\+::buffers\+::segregated\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::segregated\+\_\+attr\+\_\+buffer}!segregated\+\_\+attr\+\_\+buffer@{segregated\+\_\+attr\+\_\+buffer}}
+\index{segregated\+\_\+attr\+\_\+buffer@{segregated\+\_\+attr\+\_\+buffer}!occluded\+::buffers\+::segregated\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::segregated\+\_\+attr\+\_\+buffer}}
+\subsubsection[{segregated\+\_\+attr\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::segregated\+\_\+attr\+\_\+buffer\+::segregated\+\_\+attr\+\_\+buffer (
+\begin{DoxyParamCaption}
+\item[{const {\bf attributes\+::attribute\+\_\+map} \&}]{map}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1buffers_1_1segregated__attr__buffer_ab822a9e4ccf2be069418224fc2663622}
+
+
+Initializes the attribute buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & A reference to an attribute map.\\
+\hline
+\end{DoxyParams}
+Initializes the attribute buffer. Throws an exception if the map is not a segregated map. 
 
 \subsection{Member Function Documentation}
 \hypertarget{classoccluded_1_1buffers_1_1segregated__attr__buffer_a437ef88504021dc75d45dff010986128}{\index{occluded\+::buffers\+::segregated\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::segregated\+\_\+attr\+\_\+buffer}!insert\+\_\+values@{insert\+\_\+values}}

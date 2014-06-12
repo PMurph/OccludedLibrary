@@ -19,9 +19,8 @@ Inheritance diagram for occluded\+:\+:buffers\+:\+:interleaved\+\_\+attr\+\_\+bu
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classoccluded_1_1buffers_1_1interleaved__attr__buffer_af40be210a1b5468d1696e1cb1e9f663b}{{\bfseries interleaved\+\_\+attr\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attributes\+::attribute\+\_\+map} \&map)}\label{classoccluded_1_1buffers_1_1interleaved__attr__buffer_af40be210a1b5468d1696e1cb1e9f663b}
-
-\item 
+\hyperlink{classoccluded_1_1buffers_1_1interleaved__attr__buffer_af40be210a1b5468d1696e1cb1e9f663b}{interleaved\+\_\+attr\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{attributes\+::attribute\+\_\+map} \&map)
+\begin{DoxyCompactList}\small\item\em Initializes the attribute buffer. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a7347f20462c3bb9744602fc159e54e00}{insert\+\_\+values} (const std\+::vector$<$ char $>$ \&values)
 \begin{DoxyCompactList}\small\item\em Inserts values into the attribute buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
@@ -31,6 +30,25 @@ void \hyperlink{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a7347f2046
 An attribute buffer subclass with interleaved data. 
 
 An attribute buffer that stores values such that they are interleaved. The first value of the first attribute will be stored then the first value of the second attribute will stored and so on. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1buffers_1_1interleaved__attr__buffer_af40be210a1b5468d1696e1cb1e9f663b}{\index{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer}!interleaved\+\_\+attr\+\_\+buffer@{interleaved\+\_\+attr\+\_\+buffer}}
+\index{interleaved\+\_\+attr\+\_\+buffer@{interleaved\+\_\+attr\+\_\+buffer}!occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer}}
+\subsubsection[{interleaved\+\_\+attr\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer\+::interleaved\+\_\+attr\+\_\+buffer (
+\begin{DoxyParamCaption}
+\item[{const {\bf attributes\+::attribute\+\_\+map} \&}]{map}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1buffers_1_1interleaved__attr__buffer_af40be210a1b5468d1696e1cb1e9f663b}
+
+
+Initializes the attribute buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & A reference to an attribute map\\
+\hline
+\end{DoxyParams}
+Initializes the attribute buffer. Throws an exception if map is not an interleaved attribute map. 
 
 \subsection{Member Function Documentation}
 \hypertarget{classoccluded_1_1buffers_1_1interleaved__attr__buffer_a7347f20462c3bb9744602fc159e54e00}{\index{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer@{occluded\+::buffers\+::interleaved\+\_\+attr\+\_\+buffer}!insert\+\_\+values@{insert\+\_\+values}}
