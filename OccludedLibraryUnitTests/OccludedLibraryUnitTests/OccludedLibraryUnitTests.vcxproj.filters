@@ -65,5 +65,8 @@
     <ClCompile Include="shader_uniform_store_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gl_retained_mesh_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -168,6 +168,7 @@
     <ClCompile Include="attribute_buffer_test.cpp" />
     <ClCompile Include="file_reader_test.cpp" />
     <ClCompile Include="gl_attribute_buffer_test.cpp" />
+    <ClCompile Include="gl_retained_mesh_test.cpp" />
     <ClCompile Include="interleaved_attr_buffer_test.cpp" />
     <ClCompile Include="segregated_attr_buffer_test.cpp" />
     <ClCompile Include="attribute_map_test.cpp" />

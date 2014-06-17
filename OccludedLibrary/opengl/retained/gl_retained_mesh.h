@@ -12,6 +12,9 @@ namespace occluded { namespace opengl { namespace retained {
 
 /**
  * \enum primitive_type_t
+ * \brief Stores the type of primitive that will be used to render the mesh.
+ *
+ * Stores the type of primitive that will be used by OpenGL to render the mesh.
  */
 typedef enum PRIMITIVE_TYPE {
 	primitive_point = GL_POINTS,
@@ -26,7 +29,7 @@ typedef enum PRIMITIVE_TYPE {
 
 /**
  * \class gl_retained_mesh
- * 
+ * \brief An OpenGL
  */
 class gl_retained_mesh
 {

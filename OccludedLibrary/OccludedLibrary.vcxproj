@@ -175,6 +175,7 @@
     <ClInclude Include="buffers\attributes\attribute_map.h" />
     <ClInclude Include="buffers\attributes\attribute.h" />
     <ClInclude Include="buffers\interleaved_attr_buffer.h" />
+    <ClInclude Include="opengl\retained\gl_retained_mesh.h" />
     <ClInclude Include="opengl\retained\shaders\shader_attribute_map.h" />
     <ClInclude Include="opengl\retained\shaders\shader_uniform_store.h" />
     <ClInclude Include="utilities\files\file_reader.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="buffers\attributes\attribute_map.cpp" />
     <ClCompile Include="buffers\attributes\attribute.cpp" />
     <ClCompile Include="buffers\interleaved_attr_buffer.cpp" />
+    <ClCompile Include="opengl\retained\gl_retained_mesh.cpp" />
     <ClCompile Include="opengl\retained\shaders\shader_attribute_map.cpp" />
     <ClCompile Include="opengl\retained\shaders\shader_uniform_store.cpp" />
     <ClCompile Include="utilities\files\file_reader.cpp" />

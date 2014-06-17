@@ -93,6 +93,9 @@
     <ClCompile Include="opengl\retained\shaders\shader_uniform_store.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="opengl\retained\gl_retained_mesh.cpp">
+      <Filter>Source Files\opengl\retained</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opengl\retained\shaders\shader.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="opengl\retained\shaders\shader_uniform_store.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\retained\gl_retained_mesh.h">
+      <Filter>Header Files\opengl\retained</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
