@@ -12,7 +12,8 @@ gl_attribute_buffer::gl_attribute_buffer( gl_attribute_buffer& other ):
 	refCounts[m_id] += 1;
 }
 
-gl_attribute_buffer::gl_attribute_buffer( const buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, const buffer_usage_t usage ):
+gl_attribute_buffer::gl_attribute_buffer( const buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, 
+	const buffer_usage_t usage = static_draw_usage ):
 	m_buffer( buffers::attribute_buffer_factory::create_attribute_buffer( map ) ),
 	m_usage( usage ),
 	m_shaderMap( new shaders::shader_attribute_map( map, shaderProg ) )
@@ -47,7 +48,7 @@ void gl_attribute_buffer::bind_buffer() const {
 
 	// Check to make sure the buffer has a size greater than 0, so that the glBufferData call does not cause OpenGL to enter an error state.
 	if( m_buffer->get_byte_size() > 0 )
-		glBufferData( GL_ARRAY_BUFFER, m_buffer->get_byte_size(), &m_buffer->get_all_data()[0], m_usage );
+		glBufferData( GL_ARRAY_BUFFER, static_cast<GLsizeiptr>( m_buffer->get_byte_size() ), &m_buffer->get_all_data()[0], m_usage );
 	
 	if( GL_NO_ERROR != glGetError() ) {
 		throw std::runtime_error( "gl_attribute_buffer.bind_buffer: Failed to bind buffer." );
@@ -60,6 +61,10 @@ const GLuint gl_attribute_buffer::get_id() const {
 
 const buffers::attributes::attribute_map& gl_attribute_buffer::get_buffer_map() const {
 	return m_buffer->get_attribute_map();
+}
+
+const buffer_usage_t gl_attribute_buffer::get_usage() const {
+	return m_usage;
 }
 
 void gl_attribute_buffer::prepare_for_render() const {
@@ -80,10 +85,13 @@ void gl_attribute_buffer::init_buffer() {
 	// The entry should not exist in map or its count should be 0
 	assert( refCounts.find( m_id ) == refCounts.end() || refCounts.find( m_id )->second == 0 );
 
-	refCounts.insert( std::pair<GLuint, unsigned int>( m_id, 1 ) );
+	refCounts[m_id] = 1;
 
 	bind_buffer();
 }
+
+// Static Varaibles
+std::map<GLuint, unsigned int> gl_attribute_buffer::refCounts;
 
 } // end of retained namespace
 } // end of opengl namespace

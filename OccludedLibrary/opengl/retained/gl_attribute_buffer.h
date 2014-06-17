@@ -64,7 +64,8 @@ public:
 	 * \param usage A enumerable that will be used to tell OpenGL how the buffer will be used.
 	 *
 	 * Generate the an OpenGL buffer object, creates an attribute buffer to store data inserted into the buffer, and binds that buffer
-	 * as an array buffer.
+	 * as an array buffer. An exception is thrown if the shaderProg is not linked or the map is still being defined. The default value for
+	 * the usage parameter is static_draw_usage.
 	 */
 	gl_attribute_buffer( const buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, const buffer_usage_t usage );
 	~gl_attribute_buffer();
@@ -103,12 +104,21 @@ public:
 	/**
 	 * \fn get_buffer_map
 	 * \brief Gets the attribute_map of the attribute_buffer.
+	 *
 	 * \return A reference to the attribute_map used in the attribute_buffer contained by the gl_attribute_buffer.
 	 *
 	 * Gets a reference to the attribute_map used by the attribute_buffer contained by the gl_attribute_buffer. Intended to be used for formatting data
 	 * to be inserted into the gl_attribute_buffer as well as determining the inputs to a glVertexAttribPointer call.
 	 */
 	const buffers::attributes::attribute_map& get_buffer_map() const;
+
+	/**
+	 * \fn get_usage
+	 * \brief Gets the usage of the buffer.
+	 *
+	 * \return The buffer_usage_t of the gl_attribute_buffer.
+	 */
+	const buffer_usage_t get_usage() const;
 
 	/**
 	 * \fn prepare_for_render

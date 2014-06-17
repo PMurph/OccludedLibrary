@@ -55,6 +55,9 @@
     <Filter Include="Source Files\utilities\files">
       <UniqueIdentifier>{cfe0e603-7468-4ae7-b4b3-f8880cd35c4e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\meshes">
+      <UniqueIdentifier>{1dc16bfb-3f64-4730-87bd-d50252302d09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="opengl\retained\shaders\shader.cpp">
@@ -139,6 +142,9 @@
     </ClInclude>
     <ClInclude Include="opengl\retained\gl_retained_mesh.h">
       <Filter>Header Files\opengl\retained</Filter>
+    </ClInclude>
+    <ClInclude Include="meshes\mesh.h">
+      <Filter>Header Files\meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

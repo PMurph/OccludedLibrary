@@ -175,6 +175,7 @@
     <ClInclude Include="buffers\attributes\attribute_map.h" />
     <ClInclude Include="buffers\attributes\attribute.h" />
     <ClInclude Include="buffers\interleaved_attr_buffer.h" />
+    <ClInclude Include="meshes\mesh.h" />
     <ClInclude Include="opengl\retained\gl_retained_mesh.h" />
     <ClInclude Include="opengl\retained\shaders\shader_attribute_map.h" />
     <ClInclude Include="opengl\retained\shaders\shader_uniform_store.h" />

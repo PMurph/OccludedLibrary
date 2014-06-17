@@ -43,20 +43,55 @@ namespace OccludedLibraryUnitTests
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
 
-			gl_attribute_buffer testBuffer( testMap, *testProgram, static_draw_usage );
+			try {
+				gl_attribute_buffer testBuffer( testMap, *testProgram, static_draw_usage );
 
-			// Test to make sure the correct attribute map is returned
-			Assert::IsTrue( testBuffer.get_buffer_map() == testMap );
+				// Test to make sure the correct attribute map is returned
+				Assert::IsTrue( testBuffer.get_buffer_map() == testMap );
+			} catch ( const std::exception& ) {
+				Assert::Fail();
+			}
 
 			testMap.reset( true );
 			testMap.add_attribute( attribute( "test1", 1, attrib_uint ) );
 			testMap.add_attribute( attribute( "test2", 2, attrib_float ) );
 			testMap.end_definition();
 
-			gl_attribute_buffer testBuffer1( testMap, *testProgram, stream_draw_usage );
+			try {
+				gl_attribute_buffer testBuffer1( testMap, *testProgram, stream_draw_usage );
 
-			// Test to make sure the attribute map is actually different if a different map is passed as a parameter
-			Assert::IsTrue( testBuffer1.get_buffer_map() == testMap );
+				// Test to make sure the attribute map is actually different if a different map is passed as a parameter
+				Assert::IsTrue( testBuffer1.get_buffer_map() == testMap );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
 		}
+
+		TEST_METHOD( gl_attribute_buffer_get_usage_test )
+		{
+			std::auto_ptr<shader_program> testProgram( new shader_program( shaders ) );
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
+			testMap.end_definition();
+
+			try	{ 
+				gl_attribute_buffer testBuffer( testMap, *testProgram, stream_draw_usage );
+
+				// Test to make sure that the stream_draw_usage is returned by get_usage
+				Assert::IsTrue( testBuffer.get_usage() == stream_draw_usage );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
+
+			try {
+				gl_attribute_buffer testBuffer2( testMap, *testProgram, dynamic_draw_usage );
+
+				// Test to make sure that the dynamic_draw_usage is returned by get_usage
+				Assert::IsTrue( testBuffer2.get_usage() == dynamic_draw_usage );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
+		}
+
 	};
 }
