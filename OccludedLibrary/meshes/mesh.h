@@ -17,8 +17,8 @@ public:
 	/**
 	 * \brief Initializes the mesh.
 	 */
-	mesh();
-	~mesh();
+	mesh() {}
+	~mesh() {}
 
 	/**
 	 * \fn draw
@@ -26,7 +26,7 @@ public:
 	 *
 	 * Draws the mesh to the context.
 	 */
-	virtual void draw() = 0;
+	virtual void draw() const = 0;
 
 	/**
 	 * \fn addVertices
@@ -38,7 +38,7 @@ public:
 	 * Adds the vertices contained in the vector to the mesh. An exception will be thrown if the vertices vector is not formatted to be properly
 	 * inserted into the data structure that is to contain the data.
 	 */
-	virtual const std::vector<unsigned int> addVertices( const std::vector<char>& vertices ) = 0;
+	virtual const std::vector<unsigned int> add_vertices( const std::vector<char>& vertices ) = 0;
 
 	/**
 	 * \fn addFaces.
@@ -50,7 +50,7 @@ public:
 	 * Adds the faces contained in the faceIndices vector to the mesh. An exception will be thrown if the faceIndices vector does not have a size
 	 * that is a multiple of the number of vertices required for each face or if an index is encountered that doesn't have a corresponding vertex.
 	 */
-	virtual const std::vector<unsigned int> addFaces( const std::vector<unsigned int>& faceIndices ) = 0;
+	virtual const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faceIndices ) = 0;
 };
 
 } // end of meshes namespace

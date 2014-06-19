@@ -93,5 +93,25 @@ namespace OccludedLibraryUnitTests
 			}
 		}
 
+		TEST_METHOD( gl_attribute_buffer_get_num_values_test )
+		{
+			shader_program testProgram( shaders );
+
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
+			testMap.end_definition();
+
+			gl_attribute_buffer testBuffer( testMap, testProgram, static_draw_usage );
+
+			// Test to make sure the number of values in the gl_attribute_buffer is initially 0
+			Assert::AreEqual( static_cast<unsigned int>( 0 ), testBuffer.get_num_values() );
+
+			std::vector<char> data( 3 * sizeof( float ) );
+
+			testBuffer.insert_values( data );
+
+			// Test to make sure the nubmer of values is 3 after 3 values are inserted
+			Assert::AreEqual( static_cast<unsigned int>( 3 ), testBuffer.get_num_values() );
+		}
 	};
 }

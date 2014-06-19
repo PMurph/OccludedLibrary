@@ -67,6 +67,10 @@ const buffer_usage_t gl_attribute_buffer::get_usage() const {
 	return m_usage;
 }
 
+const unsigned int gl_attribute_buffer::get_num_values() const {
+	return m_buffer->get_num_values();
+}
+
 void gl_attribute_buffer::prepare_for_render() const {
 	bind_buffer();
 

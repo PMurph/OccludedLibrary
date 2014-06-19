@@ -121,6 +121,14 @@ public:
 	const buffer_usage_t get_usage() const;
 
 	/**
+	 * \fn get_num_values
+	 * \brief Gets the number of values in the buffer.
+	 *
+	 * \return An unsigned int representing the number of values in the buffer.
+	 */
+	const unsigned int get_num_values() const;
+
+	/**
 	 * \fn prepare_for_render
 	 * \brief Sets up the buffer for rendering.
 	 *
