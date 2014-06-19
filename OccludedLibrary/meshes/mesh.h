@@ -29,7 +29,7 @@ public:
 	virtual void draw() const = 0;
 
 	/**
-	 * \fn addVertices
+	 * \fn add_vertices
 	 * \brief Adds vertices to the mesh.
 	 *
 	 * \param vertices A reference to a vector of bytes.
@@ -41,16 +41,16 @@ public:
 	virtual const std::vector<unsigned int> add_vertices( const std::vector<char>& vertices ) = 0;
 
 	/**
-	 * \fn addFaces.
+	 * \fn add_faces.
 	 * \brief Adds faces to the mesh.
 	 *
-	 * \param faceIndices A reference to a vector of unsigned ints containing the indices of vertices that make up the face.
+	 * \param faces A reference to a vector of unsigned ints containing the indices of vertices that make up the face.
 	 * \return A vector of unsigned ints representing the indices of the faces added.
 	 *
 	 * Adds the faces contained in the faceIndices vector to the mesh. An exception will be thrown if the faceIndices vector does not have a size
 	 * that is a multiple of the number of vertices required for each face or if an index is encountered that doesn't have a corresponding vertex.
 	 */
-	virtual const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faceIndices ) = 0;
+	virtual const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faces ) = 0;
 };
 
 } // end of meshes namespace

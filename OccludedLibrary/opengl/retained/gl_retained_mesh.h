@@ -90,7 +90,7 @@ public:
 	void draw() const;
 
 	/**
-	 * \fn addVertices
+	 * \fn add_vertices
 	 * \brief Adds vertices to the mesh.
 	 *
 	 * \param vertices A reference to a vector of bytes.
@@ -102,19 +102,38 @@ public:
 	const std::vector<unsigned int> add_vertices( const std::vector<char>& vertices );
 
 	/**
-	 * \fn addFaces.
+	 * \fn add_faces.
 	 * \brief Adds faces to the mesh.
 	 *
-	 * \param faceIndices A reference to a vector of unsigned ints containing the indices of vertices that make up the face.
+	 * \param faces A reference to a vector of unsigned ints containing the indices of vertices that make up the face.
 	 * \return A vector of unsigned ints representing the indices of the faces added.
 	 *
 	 * Adds the faces contained in the faceIndices vector to the mesh. An exception will be thrown if the faceIndices vector does not have a size
 	 * that is a multiple of the number of vertices required for each face or if an index is encountered that doesn't have a corresponding vertex.
 	 */
-	const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faceIndices );
+	const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faces );
 
 private:
-	void init_mesh();
+	/**
+	 * \fn get_num_verts_of_face
+	 * \brief Gets the number of vertices that are required when adding another face.
+	 * 
+	 * \param primitiveType A primitive_type_t that represents the primitive that are the faces of the mesh.
+	 * \return An unsigned int representing the the number of vertices required for adding another primitive to the mesh. 
+	 *
+	 * Returns the number of vertices required for adding another face to the mesh. This may not be the same as the number of vertices required
+	 * for initial face of the mesh. For example: if the primitive is primitive_triangles the initial number of vertices is equal to the number
+	 * of vertices required to add another face where as if the primitive is primitive_triangle_strips the number of vertices required to initially
+	 * add a face is 3, but to add another face the only one vertex is required. A 0 is returned for primitive_patches since the number of vertices
+	 * required for primitive_patches varies.
+	 */
+	static unsigned int get_num_verts_for_next_face( const primitive_type_t primitiveType );
+
+	/**
+	 * \fn get_num_verts_for_init_primitive
+	 * \brief Get ths number of vertices that are required when adding the first face.
+	 */
+	static unsigned int get_num_verts_for_init_face( const primitive_type_t primitiveType );
 };
 
 } // end of retained namespace

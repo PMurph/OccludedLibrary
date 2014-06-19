@@ -74,10 +74,74 @@ namespace OccludedLibraryUnitTests
 			// Test to make sure the vector returned by add_vertices is the correct size
 			Assert::AreEqual( static_cast<std::size_t>( 3 ), indices.size() );
 
-			// Test to make sure the vector contains the correct values
+			// Test to make sure the vector returned from add_vertices contains the correct values
 			Assert::AreEqual( static_cast<unsigned int>( 0 ), indices[0] );
 			Assert::AreEqual( static_cast<unsigned int>( 1 ), indices[1] );
 			Assert::AreEqual( static_cast<unsigned int>( 2 ), indices[2] );
+
+			data.resize( sizeof( float ) + sizeof( unsigned int ) );
+
+			indices = glMesh.add_vertices( data );
+
+			// Test to make sure the vector returned from add_vertices has the proper indices in it
+			Assert::AreEqual( static_cast<unsigned int>( 3 ), indices[0] );
+		}
+
+		TEST_METHOD( gl_retained_mesh_add_faces_invalid_param_test )
+		{
+			shader_program shaderProg( shaders );
+
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute ( "test", 1, attrib_float ) );
+			testMap.end_definition();
+
+			gl_retained_mesh glMesh( testMap, shaderProg );
+
+			std::vector<unsigned int> indices( 3 );
+			indices[0] = 0; indices[1] = 1; indices[2] = 2;
+
+			try {
+				glMesh.add_faces( indices );
+
+				// Test to make sure add_faces throws an exception when indices are inserted into a mesh with no vertices
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			std::vector<char> testData( 3 * sizeof( float ) );
+			indices[0] = 0; indices[1] = 1; indices[2] = 4;
+
+			glMesh.add_vertices( testData );
+
+			try {
+				glMesh.add_faces( indices );
+
+				// Test to make sure add_faces throws an exception when an index being added as part of a face does not correspond
+				// to a vertex in the mesh
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			indices[0] = 0; indices[1] = 1; indices[2] = 0;
+
+			try {
+				glMesh.add_faces( indices );
+
+				// Test to make sure an exception is thrown when two indices of the same index are found in the same face.
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_mesh_add_faces_invalid_number_of_indices_test )
+		{
+			shader_program shaderProg( shaders );
+
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute( "test", 1, attrib_uint ) );
+			testMap.end_definition();
+
+			gl_retained_mesh glMesh( testMap, shaderProg );
 		}
 	};
 }
