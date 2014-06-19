@@ -199,5 +199,23 @@ namespace OccludedLibraryUnitTests
 			Assert::AreEqual( static_cast<unsigned int>( 4 ), testBuffer.get_attribute_data_offsets()[1] );
 			Assert::AreEqual( static_cast<unsigned int>( 12 ), testBuffer.get_attribute_data_offsets()[2] );
 		}
+
+		TEST_METHOD( interleaved_attr_buffer_get_num_values_test )
+		{
+			testMap->add_attribute( attribute( "test3", 1, attrib_uint ) );
+			testMap->end_definition();
+
+			interleaved_attr_buffer testBuffer( *testMap );
+
+			// Test to make sure the number of values is initially 0
+			Assert::AreEqual( static_cast<unsigned int>( 0 ), testBuffer.get_num_values() );
+
+			std::vector<char> data( 3 * sizeof( float ) + 3 * sizeof( unsigned int ) );
+
+			testBuffer.insert_values( data );
+
+			// Test to make sure the number of values is 3 after inserting 3 values
+			Assert::AreEqual( static_cast<unsigned int>( 3 ), testBuffer.get_num_values() );
+		}
 	};
 }

@@ -60,6 +60,24 @@ namespace OccludedLibraryUnitTests
 			} catch( const std::exception& ) {
 
 			}
+
+			data.resize( 3 * sizeof( float ) + 3 * sizeof( unsigned int ) );
+			std::vector<unsigned int> indices;
+
+			try {
+				indices = glMesh.add_vertices( data );
+			} catch( const std::exception& ) {
+				// Test to make sure no exception is thrown when valid vector is passed to add_vertices function
+				Assert::Fail();
+			}
+
+			// Test to make sure the vector returned by add_vertices is the correct size
+			Assert::AreEqual( static_cast<std::size_t>( 3 ), indices.size() );
+
+			// Test to make sure the vector contains the correct values
+			Assert::AreEqual( static_cast<unsigned int>( 0 ), indices[0] );
+			Assert::AreEqual( static_cast<unsigned int>( 1 ), indices[1] );
+			Assert::AreEqual( static_cast<unsigned int>( 2 ), indices[2] );
 		}
 	};
 }

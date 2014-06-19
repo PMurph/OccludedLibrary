@@ -25,7 +25,11 @@ void gl_retained_mesh::draw() const {
 }
 
 const std::vector<unsigned int> gl_retained_mesh::add_vertices( const std::vector<char>& vertices ) {
-	return std::vector<unsigned int>( 0 );
+	unsigned int initNumVals = m_buffer.get_num_values();
+
+	m_buffer.insert_values( vertices );
+
+	return std::vector<unsigned int>( m_buffer.get_num_values() - initNumVals );
 } 
 
 const std::vector<unsigned int> gl_retained_mesh::add_faces( const std::vector<unsigned int>& faceIndices ) {

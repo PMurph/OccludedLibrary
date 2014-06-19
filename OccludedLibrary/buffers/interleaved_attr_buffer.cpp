@@ -47,6 +47,8 @@ void interleaved_attr_buffer::insert_values( const std::vector<char>& values ) {
 
 		m_pointersSet = true;
 	}
+
+	m_numValues += static_cast<unsigned int>( values.size() / m_map.get_byte_size() );
 }
 
 } // end of buffers namespace
