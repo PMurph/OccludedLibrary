@@ -46,6 +46,7 @@
 #define GL_INFO_LOG_LENGTH 0
 
 extern bool errorState;
+static GLuint currVBOID = 1;
 
 inline GLuint glCreateShader( GLenum shaderType ) {
 	return 1;
@@ -97,8 +98,10 @@ inline GLint glGetAttribLocation( GLuint program, const GLchar *name ) {
 inline void glGenBuffers( GLsizei n, GLuint * buffers ) {
 	if( errorState )
 		*buffers = 0;
-	else
-		*buffers = 1;
+	else {
+		*buffers = currVBOID;
+		currVBOID++;
+	}
 }
 
 inline GLint glGetUniformLocation( GLuint program, const GLchar* name ) {
@@ -123,3 +126,7 @@ inline void glLinkProgram( GLuint program ) {}
 inline void glDeleteBuffers( GLsizei n, const GLuint* buffers ) {}
 inline void glUniform3fv( GLint location, GLsizei count, const GLfloat *value ) {}
 inline void glUniformMatrix4fv( GLint location, GLsizei count, GLboolean transpose, const GLfloat *value ) {}
+
+inline void resetVBOIDs() {
+	currVBOID = 1;
+}

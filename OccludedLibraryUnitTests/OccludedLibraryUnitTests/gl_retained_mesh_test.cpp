@@ -141,7 +141,56 @@ namespace OccludedLibraryUnitTests
 			testMap.add_attribute( attribute( "test", 1, attrib_uint ) );
 			testMap.end_definition();
 
-			gl_retained_mesh glMesh( testMap, shaderProg );
+			gl_retained_mesh testMesh1( testMap, shaderProg );
+			std::vector<char> testVertices( 3 * sizeof( unsigned int ) );
+			std::vector<unsigned int> testFaces( 1 );
+			memset( &testFaces[0], 0, sizeof( unsigned int ) );
+
+			testMesh1.add_vertices( testVertices );
+
+			try {
+				testMesh1.add_faces( testFaces );
+
+				// Test to make sure an exception is thrown if an invalid number of indices are passed to add_faces when no faces are currently present
+				// and the primitive used has the same number of vertices required for the first face and for each subsequent face
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			testFaces.resize( 3 );
+			testFaces[0] = 0;
+			testFaces[1] = 1;
+			testFaces[2] = 2;
+
+			testMesh1.add_faces( testFaces );
+
+			testFaces.resize( 2 );
+
+			try {
+				testMesh1.add_faces( testFaces );
+
+				// Test to make sure an exception is thrown if an invalid number of indices are passed to add_faces when faces are already in the mesh
+				// and the primitive used has the same nubmer of vertices required for the first face and for each subsequent faces
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			gl_retained_mesh testMesh2( testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
+			testVertices.resize( 3 * sizeof( unsigned int )  );
+			testFaces.resize( 2 );
+			testFaces[0] = 0;
+			testFaces[1] = 1;
+
+			try {
+				testMesh2.add_faces( testFaces );
+
+				// Test to make sure an exception is thrown if an invalid number of indices are passed to add_faces when no faces are currently present
+				// and the primitive used has the different number of vertices required for the first face and for each subsequent faces
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+
 		}
 	};
 }

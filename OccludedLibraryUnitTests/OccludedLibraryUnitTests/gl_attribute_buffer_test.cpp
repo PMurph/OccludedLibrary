@@ -22,6 +22,16 @@ namespace OccludedLibraryUnitTests
 			shaders.push_back( boost::shared_ptr<shader>( new shader( src, vert_shader ) ) );
 			shaders.push_back( boost::shared_ptr<shader>( new shader( src, frag_shader ) ) );
 		}
+
+		TEST_CLASS_CLEANUP( gl_attribute_buffer_cleanup )
+		{
+			resetVBOIDs();
+		}
+
+		TEST_METHOD_INITIALIZE( gl_attribute_buffer_test_cleanup )
+		{
+			resetVBOIDs();
+		}
 		
 		TEST_METHOD( gl_attribute_buffer_get_id_test )
 		{
@@ -29,6 +39,8 @@ namespace OccludedLibraryUnitTests
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
+
+			errorState = false;
 
 			gl_attribute_buffer testBuffer( testMap, *testProgram, static_draw_usage );
 

@@ -119,12 +119,12 @@ private:
 	 * \brief Gets the number of vertices that are required when adding another face.
 	 * 
 	 * \param primitiveType A primitive_type_t that represents the primitive that are the faces of the mesh.
-	 * \return An unsigned int representing the the number of vertices required for adding another primitive to the mesh. 
+	 * \return An unsigned int representing the number of vertices required for adding another primitive to the mesh. 
 	 *
 	 * Returns the number of vertices required for adding another face to the mesh. This may not be the same as the number of vertices required
 	 * for initial face of the mesh. For example: if the primitive is primitive_triangles the initial number of vertices is equal to the number
 	 * of vertices required to add another face where as if the primitive is primitive_triangle_strips the number of vertices required to initially
-	 * add a face is 3, but to add another face the only one vertex is required. A 0 is returned for primitive_patches since the number of vertices
+	 * add a face is 3, but to add another face only one vertex is required. A 0 is returned for primitive_patches since the number of vertices
 	 * required for primitive_patches varies.
 	 */
 	static unsigned int get_num_verts_for_next_face( const primitive_type_t primitiveType );
@@ -132,6 +132,15 @@ private:
 	/**
 	 * \fn get_num_verts_for_init_primitive
 	 * \brief Get ths number of vertices that are required when adding the first face.
+	 *
+	 * \param primitiveType A primitive_type_t that represents the primitive that are the faces of the mesh.
+	 * \return An unsigned in representing the number of vertices required for adding the first face to the mesh.
+	 *
+	 * Returns the number of vertices required for adding the first face to the mesh. This may not be the same as the number of vertices requied
+	 * for every additional face of the mesh. For example: if the primitive_triangles the initial number of vertices is equal to the number of
+	 * vertices required to add another face where as if the primitive is primitive_triangle_strips the number of vertices requied to initially
+	 * add a face is 3, but to add another face only one vertex is required. A 0 is returned for primitive_patches since the number of vertices
+	 * required for primitive_patches varies.
 	 */
 	static unsigned int get_num_verts_for_init_face( const primitive_type_t primitiveType );
 };
