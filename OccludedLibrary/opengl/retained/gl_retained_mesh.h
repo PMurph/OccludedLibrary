@@ -49,6 +49,9 @@ private:
 	primitive_type_t m_primitiveType;
 	std::vector<unsigned int> m_indices;
 
+	unsigned int m_numFaces;
+
+
 public:
 	/**
 	 * \brief Initializes an empty mesh.
@@ -105,15 +108,39 @@ public:
 	 * \fn add_faces.
 	 * \brief Adds faces to the mesh.
 	 *
-	 * \param faces A reference to a vector of unsigned ints containing the indices of vertices that make up the face.
-	 * \return A vector of unsigned ints representing the indices of the faces added.
+	 * \param faceIndices A reference to a vector of unsigned ints containing the indices of vertices that make up the faces to be added.
+	 * \return A vector of unsigned ints representing the indices of the faces that were added.
 	 *
 	 * Adds the faces contained in the faceIndices vector to the mesh. An exception will be thrown if the faceIndices vector does not have a size
 	 * that is a multiple of the number of vertices required for each face or if an index is encountered that doesn't have a corresponding vertex.
 	 */
-	const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faces );
+	//const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faceIndices );
+
+	/**
+	 * \fn add_face
+	 * \brief Adds a single face to the mesh.
+	 *
+	 * \param faceIndices A reference to a vector of unsigned ints containing the indices of the vertices that make up the face to be added.
+	 * \return A unsigned int representing the index of the face that was added.
+	 *
+	 * Adds a face to the mesh that is made up of the vertices specified by the indices in the faceIndices vector. An exception is thrown if the
+	 * faceIndices vector does not contain the correct number of vertices or if it contains a index that does not correspond to a vertex in the
+	 * the mesh.
+	 */
+	const unsigned int add_face( const std::vector<unsigned int>& faceIndcies );
+
+	/**
+	 * \fn get_num_faces
+	 * \brief Gets the number of faces in the mesh.
+	 *
+	 * \return A unsigned in representing the nubmer of faces in the mesh.
+	 */
+	const unsigned int get_num_faces() const;
 
 private:
+	
+
+
 	/**
 	 * \fn get_num_verts_of_face
 	 * \brief Gets the number of vertices that are required when adding another face.
