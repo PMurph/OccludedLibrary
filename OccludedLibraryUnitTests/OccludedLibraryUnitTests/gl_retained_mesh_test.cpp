@@ -246,6 +246,26 @@ namespace OccludedLibraryUnitTests
 
 			// Test to make sure that adding another face after the first one get_num_faces increases the number of faces returned
 			Assert::AreEqual( testMesh.get_num_faces(), static_cast<unsigned int>( 2 ) );
+
+			indices.resize( 3 );
+			indices[0] = 1;
+			indices[1] = 2;
+			indices[2] = 3;
+			testMesh.add_faces( indices );
+
+			// Test to make sure the correct number is returned after an add_faces call is made that inserts mulitple faces
+			Assert::AreEqual( testMesh.get_num_faces(), static_cast<unsigned int>( 5 ) );
+
+			indices[1] = 20;
+
+			try {
+				testMesh.add_faces( indices );
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure that the number returned does not change if an exception occurs during adding of multiple faces
+			Assert::AreEqual( testMesh.get_num_faces(), static_cast<unsigned int>( 5 ) );
+			
 		}
 
 		TEST_METHOD( gl_retained_mesh_add_face_correct_test )
@@ -283,7 +303,7 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_add_faces_invalid_param_test )
 		{
-			/*shader_program shaderProg( shaders );
+			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
@@ -318,7 +338,70 @@ namespace OccludedLibraryUnitTests
 				// Test to make sure that an exception is thrown if add_faces is called with an invalid number of indices is passed to it
 				Assert::Fail();
 			} catch( const std::exception& ) {
-			}*/
+			}
+
+			indices.resize( 6 );
+			indices[5] = 20;
+
+			try {
+				testMesh.add_faces( indices );
+
+				// Test to make sure that an exception is thrown if an index is found in any of the faces that dose not correspond to a
+				// vertex in the mesh
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_mesh_add_faces_valid_test )
+		{
+			shader_program shaderProg( shaders );
+
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
+			testMap.end_definition();
+
+			gl_retained_mesh testMesh( testMap, shaderProg );
+			std::vector<char> vertices( 5 * sizeof( float ) );
+			std::vector<unsigned int> indices( 6 );
+
+			testMesh.add_vertices( vertices );
+
+			indices[0] = 0;
+			indices[1] = 1;
+			indices[2] = 2;
+			indices[3] = 1;
+			indices[4] = 3;
+			indices[5] = 4;
+
+			std::vector<unsigned int> facesAdded = testMesh.add_faces( indices );
+
+			// Test to make sure the correct face indices are returned from the add_faces call on an empty mesh with a primitive that requires
+			// the same number of faces for the initial face and each subsequent face
+			Assert::AreEqual( facesAdded.size(), static_cast<std::size_t>( 2 ) );
+			Assert::AreEqual( facesAdded[0], static_cast<unsigned int>( 0 ) );
+			Assert::AreEqual( facesAdded[1], static_cast<unsigned int>( 1 ) );
+
+			gl_retained_mesh testMesh2( testMap, shaderProg, static_draw_usage, primitive_triangle_strip );
+
+			testMesh2.add_vertices( vertices );
+			indices.resize( 5 );
+
+			facesAdded = testMesh2.add_faces( indices );
+
+			// Test to make sure the correct face indices are returned from the add_faces call on an empty mesh with a primitive that requires
+			// different numbers of faces for the initial face and each subsequent face
+			Assert::AreEqual( facesAdded.size(), static_cast<std::size_t>( 3 ) );
+			Assert::AreEqual( facesAdded[0], static_cast<unsigned int>( 0 ) );
+			Assert::AreEqual( facesAdded[2], static_cast<unsigned int>( 2 ) );
+
+			facesAdded = testMesh2.add_faces( indices );
+
+			// Test to make sure the correct number of faces were added from the added from an add_faces call on a non-empty mesh with a primitive
+			// that requires different numbers of faces for the initial face and each subsequent face
+			Assert::AreEqual( facesAdded.size(), static_cast<std::size_t>( 5 ) );
+			Assert::AreEqual( facesAdded[0], static_cast<unsigned int>( 3 ) );
+			Assert::AreEqual( facesAdded[4], static_cast<unsigned int>( 7 ) );
 		}
 
 		TEST_METHOD( gl_retained_mesh_num_verts_for_next_face_test )
@@ -341,20 +424,20 @@ namespace OccludedLibraryUnitTests
 
 			// Makes sure the correct number is returned for an empty mesh using a primitive that has the same vertices requirements for the
 			// initial face as well as subsequent faces
-			Assert::AreEqual( testMesh.num_verts_for_next_face(), static_cast<unsigned int>( 3 ) );
+			Assert::AreEqual( testMesh.num_verts_for_next_face( testMesh.get_num_faces() ), static_cast<unsigned int>( 3 ) );
 
 			testMesh.add_face( indices );
 
 			// Make sure the correct number is returned for a non empty mesh using a primitive that has the same vertices requirements for the
 			// initial face as well as subsequent faces
-			Assert::AreEqual( testMesh.num_verts_for_next_face(), static_cast<unsigned int>( 3 ) );
+			Assert::AreEqual( testMesh.num_verts_for_next_face( testMesh.get_num_faces() ), static_cast<unsigned int>( 3 ) );
 
 			gl_retained_mesh testMesh2( testMap, shaderProg, static_draw_usage, primitive_lines );
 
 			testMesh2.add_vertices( vertices );
 
 			// Make sure the correct number is returned if a primitive with different vertice requirements for its faces is used
-			Assert::AreEqual( testMesh2.num_verts_for_next_face(), static_cast<unsigned int>( 2 ) );
+			Assert::AreEqual( testMesh2.num_verts_for_next_face( testMesh2.get_num_faces() ), static_cast<unsigned int>( 2 ) );
 
 			gl_retained_mesh testMesh3( testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
 
@@ -363,7 +446,7 @@ namespace OccludedLibraryUnitTests
 
 			// Make sure that the correct number is returned if called on a non empty mesh with a primitive that has different vertice requirements
 			// for the first face and subsequent faces
-			Assert::AreEqual( testMesh3.num_verts_for_next_face(), static_cast<unsigned int>( 1 ) );
+			Assert::AreEqual( testMesh3.num_verts_for_next_face( testMesh3.get_num_faces() ), static_cast<unsigned int>( 1 ) );
 		}
 	};
 }

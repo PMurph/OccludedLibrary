@@ -57,12 +57,13 @@ public:
 	 * \fn num_verts_for_next_face
 	 * \brief Gets the number of vertices needed for the next face.
 	 *
+	 * \param numFaces An unsigned int that specifies a face in the mesh.
 	 * \return Returns an unsigned int representing the number of vertices needed to add a new face.
 	 *
-	 * Gets the number of vertices needed for the next face to be added to the mesh. This should be called before adding a face to the mesh
-	 * so that the chance of an exception being thrown by the call is minimized.
+	 * Gets the number of vertices needed for the next face to be added to the mesh after the face specified by numFaces parameter. This should 
+	 * be called before adding a face to the mesh so that the chance of an exception being thrown by the call is minimized.
 	 */
-	virtual const unsigned int num_verts_for_next_face() const = 0;
+	virtual const unsigned int num_verts_for_next_face( const unsigned int numFaces ) const = 0;
 };
 
 } // end of meshes namespace

@@ -42,13 +42,52 @@ const std::vector<unsigned int> gl_retained_mesh::add_vertices( const std::vecto
 }
 
 const std::vector<unsigned int> gl_retained_mesh::add_faces( const std::vector<unsigned int>& faceIndices ) {
-	return std::vector<unsigned int>( 0 );
+	unsigned int currIndex = 0, currFace = m_numFaces;
+	std::vector< std::vector<unsigned int> > toAdd;
+	std::vector<unsigned int> addedFaces;
+
+	// Go through each face
+	while( currIndex < faceIndices.size() ) {
+		const unsigned int numIndicesForFace = num_verts_for_next_face( currFace );
+		std::vector<unsigned int> indices( numIndicesForFace );
+
+		if( numIndicesForFace > static_cast<unsigned int>( faceIndices.size() ) - currIndex )
+			throw std::exception( "gl_retained_mesh.add_faces: Failed to add faces because incorrect number of indices were found in faceIndices parameter." );
+
+		memcpy( &indices[0], &faceIndices[currIndex], numIndicesForFace * sizeof( unsigned int ) );
+
+		check_face( indices );
+
+		currIndex += numIndicesForFace;
+		++currFace;
+		toAdd.push_back( indices );
+	}
+
+	// Add the faces to mesh
+	for( std::vector< std::vector<unsigned int> >::const_iterator it = toAdd.begin(); it != toAdd.end(); ++it ) {
+		addedFaces.push_back( m_numFaces );
+
+		insert_face( *it );
+	}
+
+	return addedFaces;
 }
 
 const unsigned int gl_retained_mesh::add_face( const std::vector<unsigned int>& faceIndices ) {
 	std::vector<unsigned int> indices( 0 );
 	unsigned int faceNumber = m_numFaces;
 	
+	// Throw an exception if the incorrect number of faces are passed as the parameter. There are two cases:
+	//   1) If there are currently no faces in the mesh, throw an exception if the number of indices passed is not the correct number of 
+	//		indices for the first face.
+	//   2) If there are currently faces in the mesh, throw an exception if the number of indices passed is not the correct number of indices
+	//		for each subsequent face.
+	if( ( m_indices.size() == 0 &&  faceIndices.size() != get_num_verts_for_init_face( m_primitiveType )  ) 
+		|| ( m_indices.size() != 0 && faceIndices.size() != get_num_verts_for_next_face( m_primitiveType ) ) ) {
+		throw std::runtime_error( "gl_retained_mesh.add_faces: Failed to add faces to the mesh because an incorrect number of indices(" + 
+			boost::lexical_cast<std::string>( faceIndices.size() ) + ") where passed to the function." );
+	}
+
 	check_face( faceIndices );
 	insert_face( faceIndices );
 
@@ -59,10 +98,10 @@ const unsigned int gl_retained_mesh::get_num_faces() const {
 	return m_numFaces;
 }
 
-const unsigned int gl_retained_mesh::num_verts_for_next_face() const {
+const unsigned int gl_retained_mesh::num_verts_for_next_face( const unsigned int numFaces ) const {
 	unsigned int numVerts = 0;
 
-	if( m_indices.size() == 0 )
+	if( numFaces == 0 )
 		numVerts = get_num_verts_for_init_face( m_primitiveType );
 	else
 		numVerts = get_num_verts_for_next_face( m_primitiveType );
@@ -78,17 +117,6 @@ void gl_retained_mesh::check_face( const std::vector<unsigned int>& faceIndices 
 
 	if( numVertices == 0 )
 		throw std::runtime_error( "gl_retained_mesh.add_faces: Failed to add faces to the mesh because there are no vertices in the mesh." );
-
-	// Throw an exception if the incorrect number of faces are passed as the parameter. There are two cases:
-	//   1) If there are currently no faces in the mesh, throw an exception if the number of indices passed is not the correct number of 
-	//		indices for the first face.
-	//   2) If there are currently faces in the mesh, throw an exception if the number of indices passed is not the correct number of indices
-	//		for each subsequent face.
-	if( ( m_indices.size() == 0 &&  faceIndices.size() != get_num_verts_for_init_face( m_primitiveType )  ) 
-		|| ( m_indices.size() != 0 && faceIndices.size() != get_num_verts_for_next_face( m_primitiveType ) ) ) {
-		throw std::runtime_error( "gl_retained_mesh.add_faces: Failed to add faces to the mesh because an incorrect number of indices(" + 
-			boost::lexical_cast<std::string>( numVertices ) + ") where passed to the function." );
-	}
 
 	// Check to make sure there are no indices that don't correspond to a vertex and that there are no duplicate indices in the face
 	for( std::vector<unsigned int>::const_iterator it = faceIndices.begin(); it != faceIndices.end(); ++it ) {
