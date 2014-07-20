@@ -39,14 +39,43 @@ const std::vector<unsigned int> gl_retained_mesh::add_vertices( const std::vecto
 	}
 
 	return indices;
-} 
+}
+
+const std::vector<unsigned int> gl_retained_mesh::add_faces( const std::vector<unsigned int>& faceIndices ) {
+	return std::vector<unsigned int>( 0 );
+}
 
 const unsigned int gl_retained_mesh::add_face( const std::vector<unsigned int>& faceIndices ) {
-	boost::unordered_set<unsigned int> addedIndices;
-	unsigned int numVertices = m_buffer.get_num_values();
 	std::vector<unsigned int> indices( 0 );
 	unsigned int faceNumber = m_numFaces;
 	
+	check_face( faceIndices );
+	insert_face( faceIndices );
+
+	return faceNumber;
+}
+
+const unsigned int gl_retained_mesh::get_num_faces() const {
+	return m_numFaces;
+}
+
+const unsigned int gl_retained_mesh::num_verts_for_next_face() const {
+	unsigned int numVerts = 0;
+
+	if( m_indices.size() == 0 )
+		numVerts = get_num_verts_for_init_face( m_primitiveType );
+	else
+		numVerts = get_num_verts_for_next_face( m_primitiveType );
+
+	return numVerts;
+}
+
+// Private Member Functions
+
+void gl_retained_mesh::check_face( const std::vector<unsigned int>& faceIndices ) const {
+	boost::unordered_set<unsigned int> addedIndices;
+	const unsigned int numVertices = m_buffer.get_num_values();
+
 	if( numVertices == 0 )
 		throw std::runtime_error( "gl_retained_mesh.add_faces: Failed to add faces to the mesh because there are no vertices in the mesh." );
 
@@ -61,6 +90,7 @@ const unsigned int gl_retained_mesh::add_face( const std::vector<unsigned int>& 
 			boost::lexical_cast<std::string>( numVertices ) + ") where passed to the function." );
 	}
 
+	// Check to make sure there are no indices that don't correspond to a vertex and that there are no duplicate indices in the face
 	for( std::vector<unsigned int>::const_iterator it = faceIndices.begin(); it != faceIndices.end(); ++it ) {
 		if( *it >= numVertices ) {
 			throw std::runtime_error( "gl_retained_mesh.add_faces: Failed to add faces because an index(" + boost::lexical_cast<std::string>( *it )
@@ -72,22 +102,20 @@ const unsigned int gl_retained_mesh::add_face( const std::vector<unsigned int>& 
 				+ ") appears more than once in the same face." );
 		}
 
-		indices.push_back( *it );
 		addedIndices.insert( *it );
 	}
+}
 
-	// Add the indices to the mesh
-	for( std::vector<unsigned int>::const_iterator it = indices.begin(); it != indices.end(); ++it ) {
+const unsigned int gl_retained_mesh::insert_face( const std::vector<unsigned int>& faceIndices ) {
+	unsigned int newFaceIndex = m_numFaces;
+	
+	for( std::vector<unsigned int>::const_iterator it = faceIndices.begin(); it != faceIndices.end(); ++it ) {
 		m_indices.push_back( *it );
 	}
 
 	m_numFaces++;
 
-	return faceNumber;
-}
-
-const unsigned int gl_retained_mesh::get_num_faces() const {
-	return m_numFaces;
+	return newFaceIndex;
 }
 
 // Static Functions

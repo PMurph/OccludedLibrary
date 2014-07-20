@@ -114,7 +114,7 @@ public:
 	 * Adds the faces contained in the faceIndices vector to the mesh. An exception will be thrown if the faceIndices vector does not have a size
 	 * that is a multiple of the number of vertices required for each face or if an index is encountered that doesn't have a corresponding vertex.
 	 */
-	//const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faceIndices );
+	const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faceIndices );
 
 	/**
 	 * \fn add_face
@@ -137,9 +137,39 @@ public:
 	 */
 	const unsigned int get_num_faces() const;
 
-private:
-	
+	/**
+	 * \fn num_verts_for_next_face
+	 * \brief Gets the number of vertices needed for the next face.
+	 *
+	 * \return Returns an unsigned int representing the number of vertices needed to add a new face.
+	 *
+	 * Gets the number of vertices needed for the next face to be added to the mesh. This should be called before adding a face to the mesh
+	 * so that the chance of an exception being thrown by the call is minimized.
+	 */
+	const unsigned int num_verts_for_next_face() const;
 
+private:
+	/**
+	 * \fn check_face
+	 * \brief Checks to make sure a face is valid.
+	 *
+	 * \param faceIndices A reference to vector of unsigned ints containing the indices of the vertices of the face.
+	 *
+	 * Checks to make sure a face that is to be added to the mesh is valid. If the face is invalid an exception is thrown. Used to prevent
+	 * invalid faces from making it into the mesh.
+	 */
+	void check_face( const std::vector<unsigned int>& faceIndices ) const;
+
+	/**
+	 * \fn insert_face
+	 * \brief Inserts a face into the mesh.
+	 *
+	 * \param faceIndices A reference to a vector of unsigned ints containing the indices of the vertices of the face.
+	 * \return An unsigned int representing the number 
+	 *
+	 * Inserts the face's indices into the indices vector of the mesh.
+	 */
+	const unsigned int insert_face( const std::vector<unsigned int>& faceIndices );
 
 	/**
 	 * \fn get_num_verts_of_face

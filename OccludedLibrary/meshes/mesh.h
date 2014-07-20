@@ -41,18 +41,6 @@ public:
 	virtual const std::vector<unsigned int> add_vertices( const std::vector<char>& vertices ) = 0;
 
 	/**
-	 * \fn add_faces.
-	 * \brief Adds faces to the mesh.
-	 *
-	 * \param faces A reference to a vector of unsigned ints containing the indices of vertices that make up the face.
-	 * \return A vector of unsigned ints representing the indices of the faces added.
-	 *
-	 * Adds the faces contained in the faceIndices vector to the mesh. An exception will be thrown if the faceIndices vector does not have a size
-	 * that is a multiple of the number of vertices required for each face or if an index is encountered that doesn't have a corresponding vertex.
-	 */
-	//virtual const std::vector<unsigned int> add_faces( const std::vector<unsigned int>& faces ) = 0;
-
-	/**
 	 * \fn add_face
 	 * \brief Adds a single face to the mesh
 	 *
@@ -64,6 +52,17 @@ public:
 	 * the mesh.
 	 */
 	virtual const unsigned int add_face( const std::vector<unsigned int>& faceIndices ) = 0;
+
+	/**
+	 * \fn num_verts_for_next_face
+	 * \brief Gets the number of vertices needed for the next face.
+	 *
+	 * \return Returns an unsigned int representing the number of vertices needed to add a new face.
+	 *
+	 * Gets the number of vertices needed for the next face to be added to the mesh. This should be called before adding a face to the mesh
+	 * so that the chance of an exception being thrown by the call is minimized.
+	 */
+	virtual const unsigned int num_verts_for_next_face() const = 0;
 };
 
 } // end of meshes namespace
