@@ -39,11 +39,17 @@
 #define GL_TRUE 1
 #define GL_FALSE 2
 #define GL_NO_ERROR 0
+#define GL_ERROR 1
 #define GL_LINK_STATUS 0
 #define GL_ARRAY_BUFFER 0
+#define GL_ELEMENT_ARRAY_BUFFER 1
 
 #define GL_COMPILE_STATUS 0
 #define GL_INFO_LOG_LENGTH 0
+
+#define GL_UNSIGNED_BYTE 0
+#define GL_UNSIGNED_SHORT 1
+#define GL_UNSIGNED_INT 2
 
 extern bool errorState;
 static GLuint currVBOID = 1;
@@ -64,7 +70,10 @@ inline void glGetShaderiv( GLuint shader, GLenum pname, GLint* params ) {
 }
 
 inline GLenum glGetError() {
-	return GL_NO_ERROR;
+	if( errorState )
+		return GL_ERROR;
+	else
+		return GL_NO_ERROR;
 }
 
 inline void glGetShaderInfoLog( GLuint shader, GLsizei maxLength, GLsizei *length, GLchar *infoLog ) {
@@ -126,6 +135,7 @@ inline void glLinkProgram( GLuint program ) {}
 inline void glDeleteBuffers( GLsizei n, const GLuint* buffers ) {}
 inline void glUniform3fv( GLint location, GLsizei count, const GLfloat *value ) {}
 inline void glUniformMatrix4fv( GLint location, GLsizei count, GLboolean transpose, const GLfloat *value ) {}
+inline void glDrawElements( GLenum mode, GLsizei count, GLenum type, const GLvoid* indices ) {}
 
 inline void resetVBOIDs() {
 	currVBOID = 1;

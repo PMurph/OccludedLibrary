@@ -77,7 +77,7 @@ void shader::compile_shader() {
 
 	// Check to see if the compiling of the shader has caused an error in OpenGL
 	if( GL_NO_ERROR != glGetError() )
-		throw std::runtime_error( "shader.compile_shader: Compiling of the shader caused OpenGL to enter an error state(" + boost::lexical_cast<std::string>( glGetError() ) + ")." );
+		m_compileLog = OPEN_GL_ERROR_STATE_MSG;
 
 	if( status != GL_TRUE ) {
 		// If the shader did not compile properly, populate the error log and throw an exception
@@ -102,6 +102,10 @@ void shader::handle_compile_error() {
 
 	m_compiled = false;
 }
+
+// Static Variables
+
+const std::string shader::OPEN_GL_ERROR_STATE_MSG = std::string( "OpenGL error state encountered." );
 
 } // end of shaders namespace
 } // end of retained namespace

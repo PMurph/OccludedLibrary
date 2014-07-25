@@ -7,8 +7,10 @@ gl_retained_mesh::gl_retained_mesh( const occluded::buffers::attributes::attribu
 	m_shaderProg( shaderProg ),
 	m_buffer( gl_attribute_buffer( map, shaderProg, usage ) ),
 	m_primitiveType( primitiveType ),
-	m_numFaces( 0 )
+	m_numFaces( 0 ),
+	m_indices( 0 )
 {
+	init_buffer();
 }
 
 gl_retained_mesh::gl_retained_mesh( const shaders::shader_program& shaderProg, gl_attribute_buffer& buffer, const std::vector<unsigned int>& faces,
@@ -16,8 +18,10 @@ gl_retained_mesh::gl_retained_mesh( const shaders::shader_program& shaderProg, g
 	m_shaderProg( shaderProg ),
 	m_buffer( buffer ),
 	m_primitiveType( primitiveType ),
-	m_numFaces( 0 )
+	m_numFaces( 0 ),
+	m_indices( 0 )
 {
+	init_buffer();
 }
 
 
@@ -26,6 +30,19 @@ gl_retained_mesh::~gl_retained_mesh()
 }
 
 void gl_retained_mesh::draw() const {
+	//m_shaderProg.use_program();
+
+	m_buffer.prepare_for_render();
+	bind_buffer();
+
+	assert( GL_NO_ERROR == glGetError() );
+
+	if( m_indices.size() > 0 )
+		glDrawElements( m_primitiveType, static_cast<GLsizei>( m_indices.size() ), GL_UNSIGNED_INT, reinterpret_cast<const GLvoid*>( &m_indices[0] ) );
+
+	if( GL_NO_ERROR != glGetError() ) {
+		throw std::runtime_error( "gl_retained_mesh.draw: Failed to draw mesh because OpenGL entered an error state after glDrawElements call." );
+	}
 }
 
 const std::vector<unsigned int> gl_retained_mesh::add_vertices( const std::vector<char>& vertices ) {
@@ -110,6 +127,36 @@ const unsigned int gl_retained_mesh::num_verts_for_next_face( const unsigned int
 }
 
 // Private Member Functions
+
+void gl_retained_mesh::init_buffer() {
+	glGenBuffers( 1, &m_bufferID );
+
+	if( GL_NO_ERROR != glGetError() ) {
+		throw std::runtime_error( "gl_retained_mesh.init_buffer: Failed to initialize buffer because OpenGL entered an error state when trying "
+			+ std::string( "to generate a buffer for mesh indices." ) );
+	}
+
+	bind_buffer();
+}
+
+void gl_retained_mesh::bind_buffer() const {
+	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, m_bufferID );
+
+	if( GL_NO_ERROR != glGetError() ) {
+		throw std::runtime_error( "gl_retained_mesh.bind_buffer: Failed to bind buffer(" + boost::lexical_cast<std::string>( m_bufferID ) + 
+			") to element array target because OpenGL entered an error state after attempting to bind buffer." );
+	}
+
+	if( m_indices.size() > 0 ) {
+		glBufferData( GL_ELEMENT_ARRAY_BUFFER, static_cast<GLsizeiptr>( m_indices.size() * sizeof( unsigned int ) ), 
+			reinterpret_cast<const GLvoid*>( &m_indices[0] ), m_buffer.get_usage() );
+	}
+
+	if( GL_NO_ERROR != glGetError() ) {
+		throw std::runtime_error( "gl_retained_mesh.bind_buffer: Failed to bind buffer(" + boost::lexical_cast<std::string>( m_bufferID ) +
+			") because OpenGL entered an error state after attempting to specify the data used for the indices." );
+	}
+}
 
 void gl_retained_mesh::check_face( const std::vector<unsigned int>& faceIndices ) const {
 	boost::unordered_set<unsigned int> addedIndices;

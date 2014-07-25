@@ -54,7 +54,7 @@ void shader_attribute_map::set_attrib_pointers( const buffers::attribute_buffer&
 					reinterpret_cast<const GLvoid*>( buffer.get_attribute_data_offsets()[i] ) );
 			}
 
-			if( GL_NO_ERROR == glGetError() )
+			if( GL_NO_ERROR != glGetError() )
 				throw std::runtime_error( "shader_attribute_map.set_attrib_pointers: OpenGL entered an error state after a vertex attrib pointer was attempted to be setup." );
 		}
 	}

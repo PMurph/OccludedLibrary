@@ -42,6 +42,8 @@ typedef enum SHADER_TYPE {
 class shader 
 {
 private:
+	static const std::string OPEN_GL_ERROR_STATE_MSG;
+
 	std::string m_shaderSrc;
 	shader_type_t m_type;
 

@@ -44,10 +44,11 @@ namespace OccludedLibraryUnitTests
 				
 			}
 
-			errorState = true;
 			testShaderProg.reset( new shader_program( shaders ) );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
+
+			errorState = true;
 
 			try {
 				shader_attribute_map testShaderMap( testMap, *testShaderProg );

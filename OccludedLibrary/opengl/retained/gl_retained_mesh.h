@@ -52,7 +52,7 @@ private:
 	std::vector<unsigned int> m_indices;
 
 	unsigned int m_numFaces;
-
+	GLuint m_bufferID;
 
 public:
 	/**
@@ -152,6 +152,22 @@ public:
 	const unsigned int num_verts_for_next_face( const unsigned int numFaces ) const;
 
 private:
+	/**
+	 * \fn init_mesh
+	 * \brief Initializes the mesh.
+	 *
+	 * Initializes the mesh by initializing the index buffer.
+	 */
+	void init_buffer();
+
+	/**
+	 * \fn bind_buffer
+	 * \brief Binds the index buffer.
+	 *
+	 * Binds and sets the data for the indice buffer.
+	 */
+	void bind_buffer() const;
+
 	/**
 	 * \fn check_face
 	 * \brief Checks to make sure a face is valid.

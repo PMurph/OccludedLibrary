@@ -96,10 +96,8 @@ void shader_program::link_shaders() {
 		glGetProgramiv( m_id, GL_LINK_STATUS, &status );
 
 		// Check to make sure that OpenGL has not entered an error state during linking of the shader program
-		if( GL_NO_ERROR != glGetError() ) {
-			throw std::runtime_error( "shader_program.link_shaders: Linking of shader program caused OpenGL to enter an error state(" + 
-				boost::lexical_cast<std::string>( glGetError() ) + ")." );
-		}
+		if( GL_NO_ERROR != glGetError() )
+			m_errorLog = OPEN_GL_ERROR_STATE_MSG;
 
 		if( GL_FALSE == status ) {
 			// If there was error that occured during linking, populate the shader program error log
@@ -122,7 +120,7 @@ void shader_program::attach_shaders( const std::vector< const boost::shared_ptr<
 		glAttachShader( m_id, (*it)->get_id() );
 		
 		if( GL_NO_ERROR != glGetError() )
-			throw std::runtime_error( "shader_program.attach_shaders: OpenGL error thrown when trying to attach shader." );
+			m_errorLog = OPEN_GL_ERROR_STATE_MSG;
 
 		// Check to see if vertex shader or fragment shader. Needed to make sure that a shader program contains both a vertex shader and a fragment shader.
 		if( (*it)->get_type() == vert_shader ) vertShader = true;
@@ -147,6 +145,10 @@ void shader_program::handle_link_errors() {
 
 	m_errorLog = logStr;
 }
+
+// Static Variables
+
+const std::string shader_program::OPEN_GL_ERROR_STATE_MSG = std::string( "OpenGL error state encountered." );
 
 } // end of shaders namespace
 } // end of retained namespace

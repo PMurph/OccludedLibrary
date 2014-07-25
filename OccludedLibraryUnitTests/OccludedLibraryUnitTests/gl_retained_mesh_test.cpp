@@ -23,6 +23,11 @@ namespace OccludedLibraryUnitTests
 			shaders.push_back( boost::shared_ptr<shader>( new shader( src, frag_shader ) ) );
 		}
 
+		TEST_METHOD_CLEANUP( gl_retained_mesh_method_cleanup )
+		{
+			errorState = false;
+		}
+
 		TEST_METHOD( gl_retained_mesh_constructor_test )
 		{
 			std::auto_ptr<shader_program> shaderProg( new shader_program( shaders ) );
@@ -34,6 +39,18 @@ namespace OccludedLibraryUnitTests
 				gl_retained_mesh testMesh( testMap, *shaderProg, static_draw_usage );
 
 				// Test to make sure an exception is thrown when a attribute_map passed to the constructor is still being defined
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			errorState = true;
+
+			testMap.end_definition();
+
+			try {
+				gl_retained_mesh testMesh( testMap, *shaderProg );
+
+				// Test to make sure an exception is thrown if OpenGL is in an error state
 				Assert::Fail();
 			} catch( const std::exception& ) {
 			}
@@ -447,6 +464,34 @@ namespace OccludedLibraryUnitTests
 			// Make sure that the correct number is returned if called on a non empty mesh with a primitive that has different vertice requirements
 			// for the first face and subsequent faces
 			Assert::AreEqual( testMesh3.num_verts_for_next_face( testMesh3.get_num_faces() ), static_cast<unsigned int>( 1 ) );
+		}
+
+		TEST_METHOD( gl_retained_mesh_draw_test )
+		{
+			shader_program shaderProg( shaders );
+
+			attribute_map testMap( false );
+			testMap.add_attribute( attribute( "test", 1, attrib_uint ) );
+			testMap.end_definition();
+
+			gl_retained_mesh testMesh( testMap, shaderProg );
+
+			try {
+				testMesh.draw();
+			} catch( const std::exception& ) {
+				// Test to make sure no exception is called if OpenGL does not enter an error state
+				Assert::Fail();
+			}
+
+			errorState = true;
+
+			try {
+				testMesh.draw();
+
+				// Test to make sure an exception is thrown if OpenGL is in an error state
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
 		}
 	};
 }

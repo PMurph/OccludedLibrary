@@ -18,6 +18,8 @@ namespace occluded { namespace opengl { namespace retained { namespace shaders {
 class shader_program
 {
 private:
+	static const std::string OPEN_GL_ERROR_STATE_MSG;
+
 	GLuint m_id;
 	bool m_linked;
 	std::string m_errorLog;
