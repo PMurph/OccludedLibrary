@@ -13,8 +13,10 @@ A wrapper class for an Open\+G\+L buffer.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ae5e26c840ef863b9c5ff3ce438cb83a0}{gl\+\_\+attribute\+\_\+buffer} (\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} \&other)
+\begin{DoxyCompactList}\small\item\em Creates a copy of the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer}. \end{DoxyCompactList}\item 
 \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}{gl\+\_\+attribute\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{buffers\+::attributes\+::attribute\+\_\+map} \&map, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, const buffer\+\_\+usage\+\_\+t usage)
-\begin{DoxyCompactList}\small\item\em Initialize the buffer. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates the buffer. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_afd58deefb5659c0cd9a316263515b68f}{insert\+\_\+values} (const std\+::vector$<$ char $>$ \&values)
 \begin{DoxyCompactList}\small\item\em Inserts data into the buffer. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a0bc941bf7603a80ea249cd1d64cc2b67}{bind\+\_\+buffer} () const 
@@ -24,6 +26,10 @@ const G\+Luint \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__
 const \\*
 \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{buffers\+::attributes\+::attribute\+\_\+map} \& \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a1241841aa913b0df057b5d885f1447b4}{get\+\_\+buffer\+\_\+map} () const 
 \begin{DoxyCompactList}\small\item\em Gets the attribute\+\_\+map of the attribute\+\_\+buffer. \end{DoxyCompactList}\item 
+const buffer\+\_\+usage\+\_\+t \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a29426fc913cbb13615e245206b28befc}{get\+\_\+usage} () const 
+\begin{DoxyCompactList}\small\item\em Gets the usage of the buffer. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a5f2f320a6c494925fc12c378b90f00ce}{get\+\_\+num\+\_\+values} () const 
+\begin{DoxyCompactList}\small\item\em Gets the number of values in the buffer. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ab7707122e284ee1c28bf238885ae6a59}{prepare\+\_\+for\+\_\+render} () const 
 \begin{DoxyCompactList}\small\item\em Sets up the buffer for rendering. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -34,18 +40,34 @@ A wrapper class for an Open\+G\+L buffer.
 A wrapper class for an Open\+G\+L buffer object. It stores information about the buffer to allow for quickly accessing that information without querying the Open\+G\+L buffer object. It also contains an attribute\+\_\+buffer object that will allow for storage of data outside of Open\+G\+L which makes inserting data into the buffer significantly more easy as well as allowing for checking to make sure data being inserted is valid. 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ae5e26c840ef863b9c5ff3ce438cb83a0}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}}
+\index{gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
+\subsubsection[{gl\+\_\+attribute\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::gl\+\_\+attribute\+\_\+buffer (
+\begin{DoxyParamCaption}
+\item[{{\bf gl\+\_\+attribute\+\_\+buffer} \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ae5e26c840ef863b9c5ff3ce438cb83a0}
+
+
+Creates a copy of the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & A reference to the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} that is being copied.\\
+\hline
+\end{DoxyParams}
+Makes a copy of an \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} so that it can be used by a class that needs to retain a copy of it as well as act as its own independent entity. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}}
 \index{gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
 \subsubsection[{gl\+\_\+attribute\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::gl\+\_\+attribute\+\_\+buffer (
 \begin{DoxyParamCaption}
 \item[{const {\bf buffers\+::attributes\+::attribute\+\_\+map} \&}]{map, }
 \item[{const {\bf shaders\+::shader\+\_\+program} \&}]{shader\+Prog, }
-\item[{const buffer\+\_\+usage\+\_\+t}]{usage}
+\item[{const buffer\+\_\+usage\+\_\+t}]{usage = {\ttfamily static\+\_\+draw\+\_\+usage}}
 \end{DoxyParamCaption}
 )}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}
 
 
-Initialize the buffer. 
+Creates the buffer. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -56,7 +78,7 @@ Initialize the buffer.
 {\em usage} & A enumerable that will be used to tell Open\+G\+L how the buffer will be used.\\
 \hline
 \end{DoxyParams}
-Generate the an Open\+G\+L buffer object, creates an attribute buffer to store data inserted into the buffer, and binds that buffer as an array buffer. 
+Generate the an Open\+G\+L buffer object, creates an attribute buffer to store data inserted into the buffer, and binds that buffer as an array buffer. An exception is thrown if the shader\+Prog is not linked or the map is still being defined. The default value for the usage parameter is static\+\_\+draw\+\_\+usage. 
 
 \subsection{Member Function Documentation}
 \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a0bc941bf7603a80ea249cd1d64cc2b67}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!bind\+\_\+buffer@{bind\+\_\+buffer}}
@@ -98,6 +120,34 @@ Gets the id of the Open\+G\+L buffer object.
 Gets the id of the Open\+G\+L buffer object connected to this buffer. If this buffer is being used in a S\+T\+L container, the value returned will change when the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} is inserted into the container. \begin{DoxyWarning}{Warning}
 Do not call gl\+Delete\+Buffer on the id returned from this function call. It will cause an Open\+G\+L to enter an error state when the the gl\+\_\+attribute\+\_\+buffers destructor is called. 
 \end{DoxyWarning}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a5f2f320a6c494925fc12c378b90f00ce}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!get\+\_\+num\+\_\+values@{get\+\_\+num\+\_\+values}}
+\index{get\+\_\+num\+\_\+values@{get\+\_\+num\+\_\+values}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
+\subsubsection[{get\+\_\+num\+\_\+values}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::get\+\_\+num\+\_\+values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a5f2f320a6c494925fc12c378b90f00ce}
+
+
+Gets the number of values in the buffer. 
+
+\begin{DoxyReturn}{Returns}
+An unsigned int representing the number of values in the buffer. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a29426fc913cbb13615e245206b28befc}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!get\+\_\+usage@{get\+\_\+usage}}
+\index{get\+\_\+usage@{get\+\_\+usage}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
+\subsubsection[{get\+\_\+usage}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::get\+\_\+usage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a29426fc913cbb13615e245206b28befc}
+
+
+Gets the usage of the buffer. 
+
+\begin{DoxyReturn}{Returns}
+The buffer\+\_\+usage\+\_\+t of the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer}. 
+\end{DoxyReturn}
 \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_afd58deefb5659c0cd9a316263515b68f}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!insert\+\_\+values@{insert\+\_\+values}}
 \index{insert\+\_\+values@{insert\+\_\+values}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
 \subsubsection[{insert\+\_\+values}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::insert\+\_\+values (

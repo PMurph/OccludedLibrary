@@ -1,0 +1,224 @@
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh}{\section{occluded\+:\+:opengl\+:\+:retained\+:\+:gl\+\_\+retained\+\_\+mesh Class Reference}
+\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh}\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+}
+
+
+A mesh implementation for Open\+G\+L retained mode.  
+
+
+
+
+{\ttfamily \#include $<$gl\+\_\+retained\+\_\+mesh.\+h$>$}
+
+Inheritance diagram for occluded\+:\+:opengl\+:\+:retained\+:\+:gl\+\_\+retained\+\_\+mesh\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aab98caf76863522b8c67e3d2bb632592}{gl\+\_\+retained\+\_\+mesh} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{occluded\+::buffers\+::attributes\+::attribute\+\_\+map} \&map, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, const buffer\+\_\+usage\+\_\+t usage=static\+\_\+draw\+\_\+usage, const primitive\+\_\+type\+\_\+t primitive\+Type=primitive\+\_\+triangles)
+\begin{DoxyCompactList}\small\item\em Initializes an empty mesh. \end{DoxyCompactList}\item 
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a6923146a8f5f8b092b3f92d6d910b2cd}{gl\+\_\+retained\+\_\+mesh} (const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} \&buffer, const std\+::vector$<$ unsigned int $>$ \&faces, const primitive\+\_\+type\+\_\+t primitive\+Type=primitive\+\_\+triangles)
+\begin{DoxyCompactList}\small\item\em Initializes an mesh. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aa2018120d3a1dcca990e85a24efe20fb}{draw} () const 
+\begin{DoxyCompactList}\small\item\em Draws the mesh. \end{DoxyCompactList}\item 
+const std\+::vector$<$ unsigned int $>$ \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_af1df11c76aefccc2bd9b67f839bfcbb8}{add\+\_\+vertices} (const std\+::vector$<$ char $>$ \&vertices)
+\begin{DoxyCompactList}\small\item\em Adds vertices to the mesh. \end{DoxyCompactList}\item 
+const std\+::vector$<$ unsigned int $>$ \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a3f0f0574b87516c2a88d1bf14089c801}{add\+\_\+faces} (const std\+::vector$<$ unsigned int $>$ \&face\+Indices)
+\begin{DoxyCompactList}\small\item\em Adds faces to the mesh. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ae9f8c756698b09458d61aba3a616f78b}{add\+\_\+face} (const std\+::vector$<$ unsigned int $>$ \&face\+Indcies)
+\begin{DoxyCompactList}\small\item\em Adds a single face to the mesh. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a57bfbb414bd06bab36f09c19bc0a4e13}{get\+\_\+num\+\_\+faces} () const 
+\begin{DoxyCompactList}\small\item\em Gets the number of faces in the mesh. \end{DoxyCompactList}\item 
+const unsigned int \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ab3efafd282bb6f844bd21ca911cfe9dd}{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face} (const unsigned int num\+Faces) const 
+\begin{DoxyCompactList}\small\item\em Gets the number of vertices needed for the next face. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A mesh implementation for Open\+G\+L retained mode. 
+
+A mesh implementation for Open\+G\+L retained mode. This contains a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} and a vector of unsigned int representing the faces of the of the mesh. This is class contains everything needed to draw a single object in object coordinates. The purpose of this class is to be contained within a model class and allow the model class to render the mesh with a single call. /see \{ \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer} \} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aab98caf76863522b8c67e3d2bb632592}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}}
+\index{gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{gl\+\_\+retained\+\_\+mesh}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::gl\+\_\+retained\+\_\+mesh (
+\begin{DoxyParamCaption}
+\item[{const {\bf occluded\+::buffers\+::attributes\+::attribute\+\_\+map} \&}]{map, }
+\item[{const {\bf shaders\+::shader\+\_\+program} \&}]{shader\+Prog, }
+\item[{const buffer\+\_\+usage\+\_\+t}]{usage = {\ttfamily static\+\_\+draw\+\_\+usage}, }
+\item[{const primitive\+\_\+type\+\_\+t}]{primitive\+Type = {\ttfamily primitive\+\_\+triangles}}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aab98caf76863522b8c67e3d2bb632592}
+
+
+Initializes an empty mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & A reference to the attribute map that will be used to store vertex data. \\
+\hline
+{\em shader\+Prog} & A refernce to a shader program that will be used to render the mesh. \\
+\hline
+{\em usage} & A buffer usage type that specifies how the vertex and index data will be used. \\
+\hline
+{\em primitive\+Type} & A primitive type that specifies which Open\+G\+L primitive will be used to construct the faces of the mesh.\\
+\hline
+\end{DoxyParams}
+Initializes the mesh by constructing an \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} from the map, shader program and usage parameters. The default primitive used for constructing the mesh is primitive\+\_\+triangles. This constructor is to be used if the mesh is to be built up from scratch. An exception will be thrown in the attribute map is still being defined or if the shader program has not been linked. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a6923146a8f5f8b092b3f92d6d910b2cd}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}}
+\index{gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{gl\+\_\+retained\+\_\+mesh}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::gl\+\_\+retained\+\_\+mesh (
+\begin{DoxyParamCaption}
+\item[{const {\bf shaders\+::shader\+\_\+program} \&}]{shader\+Prog, }
+\item[{{\bf gl\+\_\+attribute\+\_\+buffer} \&}]{buffer, }
+\item[{const std\+::vector$<$ unsigned int $>$ \&}]{faces, }
+\item[{const primitive\+\_\+type\+\_\+t}]{primitive\+Type = {\ttfamily primitive\+\_\+triangles}}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a6923146a8f5f8b092b3f92d6d910b2cd}
+
+
+Initializes an mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader\+Prog} & A reference to a shader program that will be used to render the mesh. \\
+\hline
+{\em buffer} & A reference to a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} which stores the vertice data. \\
+\hline
+{\em faces} & A reference to a vector of unsigned integers representing the vertices that make up the faces of the mesh. \\
+\hline
+{\em primitive\+Type} & A primitive type that specifies which Open\+G\+L primitive will be used to construct the faces of the mesh.\\
+\hline
+\end{DoxyParams}
+Initializes the mesh by making a copy of an \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} and a vector of indices. he default primitive used for constructing the mesh is primitive\+\_\+triangles. This constructor is to be used if the mesh is to be pre-\/built or to be built up from another mesh. An exception will be thrown in the attribute map is still being defined or if the shader program has not been linked. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ae9f8c756698b09458d61aba3a616f78b}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!add\+\_\+face@{add\+\_\+face}}
+\index{add\+\_\+face@{add\+\_\+face}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{add\+\_\+face}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::add\+\_\+face (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ unsigned int $>$ \&}]{face\+Indcies}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ae9f8c756698b09458d61aba3a616f78b}
+
+
+Adds a single face to the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em face\+Indices} & A reference to a vector of unsigned ints containing the indices of the vertices that make up the face to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unsigned int representing the index of the face that was added.
+\end{DoxyReturn}
+Adds a face to the mesh that is made up of the vertices specified by the indices in the face\+Indices vector. An exception is thrown if the face\+Indices vector does not contain the correct number of vertices or if it contains a index that does not correspond to a vertex in the the mesh. 
+
+Implements \hyperlink{classoccluded_1_1meshes_1_1mesh_a4be1ad0c1b5144faa4f0e9a9c1d3023b}{occluded\+::meshes\+::mesh}.
+
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a3f0f0574b87516c2a88d1bf14089c801}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!add\+\_\+faces@{add\+\_\+faces}}
+\index{add\+\_\+faces@{add\+\_\+faces}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{add\+\_\+faces}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::add\+\_\+faces (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ unsigned int $>$ \&}]{face\+Indices}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a3f0f0574b87516c2a88d1bf14089c801}
+
+
+Adds faces to the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em face\+Indices} & A reference to a vector of unsigned ints containing the indices of vertices that make up the faces to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of unsigned ints representing the indices of the faces that were added.
+\end{DoxyReturn}
+Adds the faces contained in the face\+Indices vector to the mesh. An exception will be thrown if the face\+Indices vector does not have a size that is a multiple of the number of vertices required for each face or if an index is encountered that doesn't have a corresponding vertex. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_af1df11c76aefccc2bd9b67f839bfcbb8}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!add\+\_\+vertices@{add\+\_\+vertices}}
+\index{add\+\_\+vertices@{add\+\_\+vertices}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{add\+\_\+vertices}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::add\+\_\+vertices (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ char $>$ \&}]{vertices}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_af1df11c76aefccc2bd9b67f839bfcbb8}
+
+
+Adds vertices to the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & A reference to a vector of bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of unsigned ints representing the indices of the vertices added.
+\end{DoxyReturn}
+Adds the vertices contained in the vector to the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} in the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh}{gl\+\_\+retained\+\_\+mesh}. An exception will be thrown if the vertices vector is not formatted to be properly inserted into the data structure that is to contain the data. 
+
+Implements \hyperlink{classoccluded_1_1meshes_1_1mesh_ad015481328fc0ae9f72712f7f58ef1e3}{occluded\+::meshes\+::mesh}.
+
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aa2018120d3a1dcca990e85a24efe20fb}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!draw@{draw}}
+\index{draw@{draw}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aa2018120d3a1dcca990e85a24efe20fb}
+
+
+Draws the mesh. 
+
+
+\begin{DoxyItemize}
+\item Draws the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh}{gl\+\_\+retained\+\_\+mesh} to the context. 
+\end{DoxyItemize}
+
+Implements \hyperlink{classoccluded_1_1meshes_1_1mesh_ac9b5fa42ac4d6e2da862311058b664d6}{occluded\+::meshes\+::mesh}.
+
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a57bfbb414bd06bab36f09c19bc0a4e13}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!get\+\_\+num\+\_\+faces@{get\+\_\+num\+\_\+faces}}
+\index{get\+\_\+num\+\_\+faces@{get\+\_\+num\+\_\+faces}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{get\+\_\+num\+\_\+faces}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::get\+\_\+num\+\_\+faces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a57bfbb414bd06bab36f09c19bc0a4e13}
+
+
+Gets the number of faces in the mesh. 
+
+\begin{DoxyReturn}{Returns}
+A unsigned in representing the nubmer of faces in the mesh. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ab3efafd282bb6f844bd21ca911cfe9dd}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face@{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face}}
+\index{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face@{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
+\subsubsection[{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{num\+Faces}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ab3efafd282bb6f844bd21ca911cfe9dd}
+
+
+Gets the number of vertices needed for the next face. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Faces} & An unsigned int that specifies a face in the mesh. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an unsigned int representing the number of vertices needed to add a new face.
+\end{DoxyReturn}
+Gets the number of vertices needed for the next face to be added to the mesh. This should be called before adding a face to the mesh so that the chance of an exception being thrown by the call is minimized. 
+
+Implements \hyperlink{classoccluded_1_1meshes_1_1mesh_a70fbac683f8718017fde9236c7c0b156}{occluded\+::meshes\+::mesh}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Occluded\+Library/opengl/retained/gl\+\_\+retained\+\_\+mesh.\+h\item 
+Occluded\+Library/opengl/retained/gl\+\_\+retained\+\_\+mesh.\+cpp\end{DoxyCompactItemize}

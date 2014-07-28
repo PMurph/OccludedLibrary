@@ -1,0 +1,73 @@
+\hypertarget{classoccluded_1_1scene_1_1objects_1_1camera}{\section{occluded\+:\+:scene\+:\+:objects\+:\+:camera Class Reference}
+\label{classoccluded_1_1scene_1_1objects_1_1camera}\index{occluded\+::scene\+::objects\+::camera@{occluded\+::scene\+::objects\+::camera}}
+}
+
+
+An abstract class that contains all the methods other camera sub classes must implement.  
+
+
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classoccluded_1_1scene_1_1objects_1_1camera_a4e62fa6846f1009409a7ed87fe03f8ca}{set\+\_\+for\+\_\+render} () const =0
+\begin{DoxyCompactList}\small\item\em Sets this camera to the camera that will be used for rendering. \end{DoxyCompactList}\item 
+virtual const glm\+::mat4 \& \hyperlink{classoccluded_1_1scene_1_1objects_1_1camera_ae045f6f1549e58c3211e75a708f8f490}{get\+\_\+projection} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the projection transformation. \end{DoxyCompactList}\item 
+virtual const glm\+::mat4 \& \hyperlink{classoccluded_1_1scene_1_1objects_1_1camera_aa4168c8ffacdf6a3eb52b528d4780d4e}{get\+\_\+view} () const =0
+\begin{DoxyCompactList}\small\item\em Gets the view transformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract class that contains all the methods other camera sub classes must implement. 
+
+An abstract class that contains all the methods other camera sub classes must implement. A camera contains all the information necessary for displaying a scene of objects from a specific point of view. It specifies what the view volumes shape is, where that view volume is located, how the the view volume is orientated, and how objects in that view volume are projected onto a 2d surface that the user sees. This usually is implemented by two transformations\+: 1) The view transformation 2) The projection transformation 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1scene_1_1objects_1_1camera_ae045f6f1549e58c3211e75a708f8f490}{\index{occluded\+::scene\+::objects\+::camera@{occluded\+::scene\+::objects\+::camera}!get\+\_\+projection@{get\+\_\+projection}}
+\index{get\+\_\+projection@{get\+\_\+projection}!occluded\+::scene\+::objects\+::camera@{occluded\+::scene\+::objects\+::camera}}
+\subsubsection[{get\+\_\+projection}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::scene\+::objects\+::camera\+::get\+\_\+projection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classoccluded_1_1scene_1_1objects_1_1camera_ae045f6f1549e58c3211e75a708f8f490}
+
+
+Gets the projection transformation. 
+
+\begin{DoxyReturn}{Returns}
+A 4x4 matrix containing the projection transformation. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1scene_1_1objects_1_1camera_aa4168c8ffacdf6a3eb52b528d4780d4e}{\index{occluded\+::scene\+::objects\+::camera@{occluded\+::scene\+::objects\+::camera}!get\+\_\+view@{get\+\_\+view}}
+\index{get\+\_\+view@{get\+\_\+view}!occluded\+::scene\+::objects\+::camera@{occluded\+::scene\+::objects\+::camera}}
+\subsubsection[{get\+\_\+view}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::scene\+::objects\+::camera\+::get\+\_\+view (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classoccluded_1_1scene_1_1objects_1_1camera_aa4168c8ffacdf6a3eb52b528d4780d4e}
+
+
+Gets the view transformation. 
+
+\begin{DoxyReturn}{Returns}
+A 4x4 matrix containing the view transformation. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1scene_1_1objects_1_1camera_a4e62fa6846f1009409a7ed87fe03f8ca}{\index{occluded\+::scene\+::objects\+::camera@{occluded\+::scene\+::objects\+::camera}!set\+\_\+for\+\_\+render@{set\+\_\+for\+\_\+render}}
+\index{set\+\_\+for\+\_\+render@{set\+\_\+for\+\_\+render}!occluded\+::scene\+::objects\+::camera@{occluded\+::scene\+::objects\+::camera}}
+\subsubsection[{set\+\_\+for\+\_\+render}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::scene\+::objects\+::camera\+::set\+\_\+for\+\_\+render (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classoccluded_1_1scene_1_1objects_1_1camera_a4e62fa6846f1009409a7ed87fe03f8ca}
+
+
+Sets this camera to the camera that will be used for rendering. 
+
+Sets up the Open\+G\+L state so that the scene will be render using the transformation contained within this camera. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Occluded\+Library/scene/objects/camera.\+h\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['file_5freader',['file_reader',['../classoccluded_1_1utilities_1_1files_1_1file__reader.html',1,'occluded::utilities::files']]]
+  ['camera',['camera',['../classoccluded_1_1scene_1_1objects_1_1camera.html',1,'occluded::scene::objects']]]
 ];

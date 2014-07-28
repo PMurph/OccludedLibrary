@@ -1,0 +1,130 @@
+\hypertarget{classoccluded_1_1meshes_1_1mesh}{\section{occluded\+:\+:meshes\+:\+:mesh Class Reference}
+\label{classoccluded_1_1meshes_1_1mesh}\index{occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}}
+}
+
+
+An abstract class that provides an interface for all mesh classes.  
+
+
+
+
+{\ttfamily \#include $<$mesh.\+h$>$}
+
+Inheritance diagram for occluded\+:\+:meshes\+:\+:mesh\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoccluded_1_1meshes_1_1mesh}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classoccluded_1_1meshes_1_1mesh_a4249fa2a6e5482281aa7b4a48e8aa283}{\hyperlink{classoccluded_1_1meshes_1_1mesh_a4249fa2a6e5482281aa7b4a48e8aa283}{mesh} ()}\label{classoccluded_1_1meshes_1_1mesh_a4249fa2a6e5482281aa7b4a48e8aa283}
+
+\begin{DoxyCompactList}\small\item\em Initializes the mesh. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classoccluded_1_1meshes_1_1mesh_ac9b5fa42ac4d6e2da862311058b664d6}{draw} () const =0
+\begin{DoxyCompactList}\small\item\em Draws the mesh. \end{DoxyCompactList}\item 
+virtual const std\+::vector\\*
+$<$ unsigned int $>$ \hyperlink{classoccluded_1_1meshes_1_1mesh_ad015481328fc0ae9f72712f7f58ef1e3}{add\+\_\+vertices} (const std\+::vector$<$ char $>$ \&vertices)=0
+\begin{DoxyCompactList}\small\item\em Adds vertices to the mesh. \end{DoxyCompactList}\item 
+virtual const unsigned int \hyperlink{classoccluded_1_1meshes_1_1mesh_a4be1ad0c1b5144faa4f0e9a9c1d3023b}{add\+\_\+face} (const std\+::vector$<$ unsigned int $>$ \&face\+Indices)=0
+\begin{DoxyCompactList}\small\item\em Adds a single face to the mesh. \end{DoxyCompactList}\item 
+virtual const unsigned int \hyperlink{classoccluded_1_1meshes_1_1mesh_a70fbac683f8718017fde9236c7c0b156}{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face} (const unsigned int num\+Faces) const =0
+\begin{DoxyCompactList}\small\item\em Gets the number of vertices needed for the next face. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract class that provides an interface for all mesh classes. 
+
+An abstract class that provides an interface for all mesh classes. Since meshes are one of the basic objects that will be used in the occluded library, a common interface must be created for all meshes so that any graphics A\+P\+I can be used without changing the way in which the library is used by the end user. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1meshes_1_1mesh_a4be1ad0c1b5144faa4f0e9a9c1d3023b}{\index{occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}!add\+\_\+face@{add\+\_\+face}}
+\index{add\+\_\+face@{add\+\_\+face}!occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}}
+\subsubsection[{add\+\_\+face}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::meshes\+::mesh\+::add\+\_\+face (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ unsigned int $>$ \&}]{face\+Indices}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classoccluded_1_1meshes_1_1mesh_a4be1ad0c1b5144faa4f0e9a9c1d3023b}
+
+
+Adds a single face to the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em face\+Indices} & A reference to a vector of unsigned ints containing the indices of the vertices that make up the face to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A unsigned int representing the index of the face that was added.
+\end{DoxyReturn}
+Adds a face to the mesh that is made up of the vertices specified by the indices in the face\+Indices vector. An exception is thrown if the face\+Indices vector does not contain the correct number of vertices or if it contains a index that does not correspond to a vertex in the the mesh. 
+
+Implemented in \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ae9f8c756698b09458d61aba3a616f78b}{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}.
+
+\hypertarget{classoccluded_1_1meshes_1_1mesh_ad015481328fc0ae9f72712f7f58ef1e3}{\index{occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}!add\+\_\+vertices@{add\+\_\+vertices}}
+\index{add\+\_\+vertices@{add\+\_\+vertices}!occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}}
+\subsubsection[{add\+\_\+vertices}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::meshes\+::mesh\+::add\+\_\+vertices (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ char $>$ \&}]{vertices}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classoccluded_1_1meshes_1_1mesh_ad015481328fc0ae9f72712f7f58ef1e3}
+
+
+Adds vertices to the mesh. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & A reference to a vector of bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of unsigned ints representing the indices of the vertices added.
+\end{DoxyReturn}
+Adds the vertices contained in the vector to the mesh. An exception will be thrown if the vertices vector is not formatted to be properly inserted into the data structure that is to contain the data. 
+
+Implemented in \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_af1df11c76aefccc2bd9b67f839bfcbb8}{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}.
+
+\hypertarget{classoccluded_1_1meshes_1_1mesh_ac9b5fa42ac4d6e2da862311058b664d6}{\index{occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}!draw@{draw}}
+\index{draw@{draw}!occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::meshes\+::mesh\+::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classoccluded_1_1meshes_1_1mesh_ac9b5fa42ac4d6e2da862311058b664d6}
+
+
+Draws the mesh. 
+
+Draws the mesh to the context. 
+
+Implemented in \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aa2018120d3a1dcca990e85a24efe20fb}{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}.
+
+\hypertarget{classoccluded_1_1meshes_1_1mesh_a70fbac683f8718017fde9236c7c0b156}{\index{occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}!num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face@{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face}}
+\index{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face@{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face}!occluded\+::meshes\+::mesh@{occluded\+::meshes\+::mesh}}
+\subsubsection[{num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::meshes\+::mesh\+::num\+\_\+verts\+\_\+for\+\_\+next\+\_\+face (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{num\+Faces}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classoccluded_1_1meshes_1_1mesh_a70fbac683f8718017fde9236c7c0b156}
+
+
+Gets the number of vertices needed for the next face. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Faces} & An unsigned int that specifies a face in the mesh. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns an unsigned int representing the number of vertices needed to add a new face.
+\end{DoxyReturn}
+Gets the number of vertices needed for the next face to be added to the mesh after the face specified by num\+Faces parameter. This should be called before adding a face to the mesh so that the chance of an exception being thrown by the call is minimized. 
+
+Implemented in \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ab3efafd282bb6f844bd21ca911cfe9dd}{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Occluded\+Library/meshes/mesh.\+h\end{DoxyCompactItemize}
