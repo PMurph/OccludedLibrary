@@ -2,40 +2,20 @@
 
 namespace occluded { namespace opengl { namespace retained { namespace shaders {
 
-shader_uniform_store::shader_uniform_store( const shader_program& shaderProg ):
-	m_shaderProg( shaderProg )
-{
-	if( !shaderProg.is_linked() )
-		throw std::runtime_error( "shader_uniform_store: Failed to initialize shader uniform store because shader program is not linked." );
-}
-
-shader_uniform_store::shader_uniform_store( const shader_program& shaderProg, const std::vector< std::pair<const std::string, const uniform_value> >& 
-	values ):
-	m_shaderProg( shaderProg )
-{
-	if( !shaderProg.is_linked() )
-		throw std::runtime_error( "shader_uniform_store: Failed to initialize shader uniform store because shader program is not linked." );
-
-	populate_store( values );
-}
-
-shader_uniform_store::~shader_uniform_store()
-{
-}
-
 void shader_uniform_store::add_uniform( const std::string& name, const uniform_value& value ) {
 	GLint uniformId = -1;
 	std::string convertedName = convert_to_uniform_name( name );
+	boost::shared_ptr<shader_program> shaderProg;
 
-	// The linked status of the shader program should have already been checked in the constructor
-	assert( m_shaderProg.is_linked() );
+	// The shaderProgId should have been set by the shader_program and therefore not be 0
+	assert( m_shaderProgId != 0 );
 	
 	// Check to make sure uniform doesn't already exist
 	if( m_store.find( convertedName ) != m_store.end() ) {
 		throw std::runtime_error( "shader_uniform_store.add_uniform: Failed to add uniform because it already exists in the store." );
 	}
 
-	uniformId = glGetUniformLocation( m_shaderProg.get_id(), convertedName.c_str() );
+	uniformId = glGetUniformLocation( m_shaderProgId, convertedName.c_str() );
 
 	// Check to make sure the call has not caused OpenGL to enter an error state
 	if( GL_NO_ERROR != glGetError() ) {
@@ -48,6 +28,9 @@ void shader_uniform_store::add_uniform( const std::string& name, const uniform_v
 
 void shader_uniform_store::set_uniform_value( const std::string& name, const uniform_value& value ) {
 	std::map< const std::string, std::pair<GLint, uniform_value> >::iterator currValue;
+
+	// The shaderProgId should have been set by the shader_program and therefore not be 0
+	assert( m_shaderProgId != 0 );
 
 	currValue = m_store.find( convert_to_uniform_name( name ) );
 
@@ -67,9 +50,27 @@ void shader_uniform_store::set_uniform_value( const std::string& name, const uni
 	currValue->second.second = value;
 }
 
+// Private Member Function
+
+shader_uniform_store::shader_uniform_store():
+	m_shaderProgId( 0 )
+{
+}
+
+shader_uniform_store::shader_uniform_store( const shader_uniform_store& toCopy ):
+	m_shaderProgId( toCopy.m_shaderProgId ),
+	m_store( toCopy.m_store )
+{
+}
+
+shader_uniform_store::~shader_uniform_store()
+{
+	m_shaderProgId = 0;
+}
+
 void shader_uniform_store::pass_to_shader() const {
-	// Make sure the correct shader program is being used
-	m_shaderProg.use_program();
+	// The shaderProgId should have been set by the shader_program and therefore not be 0
+	assert( m_shaderProgId != 0 );
 
 	for( std::map< const std::string, std::pair<GLint, uniform_value> >::const_iterator it = m_store.begin(); it != m_store.end(); ++it ) {
 		// Check to make sure the uniform has a valid location
@@ -81,8 +82,6 @@ void shader_uniform_store::pass_to_shader() const {
 		}
 	}
 }
-
-// Private Member Function
 
 const std::string shader_uniform_store::convert_to_uniform_name( const std::string& name ) const {
 	std::string convertedName;
@@ -98,12 +97,6 @@ const std::string shader_uniform_store::convert_to_uniform_name( const std::stri
 	}
 
 	return convertedName;
-}
-
-void shader_uniform_store::populate_store( const std::vector< std::pair<const std::string, const uniform_value> >& values ) {
-	for( std::vector< std::pair<const std::string, const uniform_value> >::const_iterator it = values.begin(); it != values.end(); ++it ) {
-		add_uniform( it->first, it->second );
-	}
 }
 
 } // end of shaders namespace

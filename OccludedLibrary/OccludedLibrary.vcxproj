@@ -175,10 +175,13 @@
     <ClInclude Include="buffers\attributes\attribute_map.h" />
     <ClInclude Include="buffers\attributes\attribute.h" />
     <ClInclude Include="buffers\interleaved_attr_buffer.h" />
+    <ClInclude Include="opengl\scene\objects\fixed_gl_camera.h" />
     <ClInclude Include="meshes\mesh.h" />
     <ClInclude Include="opengl\retained\gl_retained_mesh.h" />
     <ClInclude Include="opengl\retained\shaders\shader_attribute_map.h" />
     <ClInclude Include="opengl\retained\shaders\shader_uniform_store.h" />
+    <ClInclude Include="opengl\scene\objects\gl_retained_camera.h" />
+    <ClInclude Include="scene\objects\camera.h" />
     <ClInclude Include="utilities\files\file_reader.h" />
     <ClInclude Include="opengl\retained\gl_attribute_buffer.h" />
     <ClInclude Include="opengl\retained\shaders\shader.h" />
@@ -192,9 +195,11 @@
     <ClCompile Include="buffers\attributes\attribute_map.cpp" />
     <ClCompile Include="buffers\attributes\attribute.cpp" />
     <ClCompile Include="buffers\interleaved_attr_buffer.cpp" />
+    <ClCompile Include="opengl\scene\objects\fixed_gl_camera.cpp" />
     <ClCompile Include="opengl\retained\gl_retained_mesh.cpp" />
     <ClCompile Include="opengl\retained\shaders\shader_attribute_map.cpp" />
     <ClCompile Include="opengl\retained\shaders\shader_uniform_store.cpp" />
+    <ClCompile Include="opengl\scene\objects\gl_retained_camera.cpp" />
     <ClCompile Include="utilities\files\file_reader.cpp" />
     <ClCompile Include="opengl\retained\gl_attribute_buffer.cpp" />
     <ClCompile Include="opengl\retained\shaders\shader.cpp" />

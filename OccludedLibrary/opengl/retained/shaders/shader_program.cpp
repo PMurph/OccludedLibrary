@@ -9,6 +9,22 @@ shader_program::shader_program():
 {
 }
 
+shader_program::shader_program( const shader_program& other ):
+	m_linked( other.m_linked ),
+	m_id( other.m_id ),
+	m_errorLog( other.m_errorLog ),
+	m_store( other.m_store )
+{
+	if( !other.is_linked() )
+		throw std::runtime_error( "shader_program: Failed to copy shader_program because it has not been linked." );
+
+	if( m_id != 0 ) {
+		assert( shader_prog_id_ref_count[other.m_id] > 0 );
+
+		shader_prog_id_ref_count[other.m_id] += 1;
+	}
+}
+
 shader_program::shader_program( const std::vector< const boost::shared_ptr<const shader> >& shaders ):
 	m_linked( false ),
 	m_id( 0 ),
@@ -20,8 +36,16 @@ shader_program::shader_program( const std::vector< const boost::shared_ptr<const
 
 shader_program::~shader_program()
 {
-	if( m_id != 0 )
-		glDeleteProgram( m_id );
+	if( m_id != 0 ) {
+		// The ref count of a shader program id should exist in the map and not be zero if the destructor is called
+		assert( shader_prog_id_ref_count.find( m_id ) != shader_prog_id_ref_count.end() && shader_prog_id_ref_count[m_id] != 0 );
+		
+		shader_prog_id_ref_count[m_id] -= 1;
+
+		// Free the OpenGL shader id since the shader program is no longer in use
+		if( shader_prog_id_ref_count[m_id] == 0 )
+			glDeleteProgram( m_id );
+	}
 }
 
 void shader_program::use_program() const {
@@ -39,6 +63,15 @@ const GLuint shader_program::get_id() const {
 
 	return m_id;
 }
+
+shader_uniform_store& shader_program::get_uniform_store() const {
+	if( !m_linked ) {
+		throw std::runtime_error( "shader_program.get_uniform_store: Failed to get shader program's uniform store because shaders have not been linked." );
+	}
+
+	return m_store;
+}
+
 const bool shader_program::is_linked() const {
 	return m_linked;
 }
@@ -69,6 +102,20 @@ void shader_program::init_shader_program( const std::vector< const boost::shared
 		throw std::runtime_error( "shader_program.link_shaders: Failed to initialize shader program because there needs to be a least two shaders to link." );
 
 	m_id = genId;
+	
+	// Increase refence count of the shader_program id
+	if( shader_prog_id_ref_count.find( m_id ) == shader_prog_id_ref_count.end() ) {
+		shader_prog_id_ref_count.insert( std::pair<const GLuint, unsigned int>( m_id, 1 ) );
+	} else {
+		// The ref count of the id should be 0 if it exist; OpenGL will no return two of the same id so this should only be reached if the shader program id
+		// has been freed
+		assert( shader_prog_id_ref_count[m_id] == 0 );
+
+		shader_prog_id_ref_count[m_id] += 1;
+	}
+
+	// Set the id in the shader_uniform_store
+	m_store.m_shaderProgId = m_id;
 
 	// Check to make sure there are not two or more shaders of the same type in the shaders vector
 	for( std::vector< const boost::shared_ptr<const shader> >::const_iterator it = shaders.begin(); it != shaders.end(); ++it ) {
@@ -149,6 +196,8 @@ void shader_program::handle_link_errors() {
 // Static Variables
 
 const std::string shader_program::OPEN_GL_ERROR_STATE_MSG = std::string( "OpenGL error state encountered." );
+
+std::map<const GLuint, unsigned int> shader_program::shader_prog_id_ref_count = std::map<const GLuint, unsigned int>();
 
 } // end of shaders namespace
 } // end of retained namespace

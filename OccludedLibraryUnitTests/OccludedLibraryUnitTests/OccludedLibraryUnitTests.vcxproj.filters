@@ -68,5 +68,8 @@
     <ClCompile Include="gl_retained_mesh_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fixed_gl_camera_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

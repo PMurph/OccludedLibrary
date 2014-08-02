@@ -51,15 +51,21 @@
 #define GL_UNSIGNED_SHORT 1
 #define GL_UNSIGNED_INT 2
 
-extern bool errorState;
+extern bool errorState; // If true, the mock should mimic OpenGL functions returning errors
+extern bool programLinkError; // If true, the mock will return GL_FALSE when glGetProgramiv is called
 static GLuint currVBOID = 1;
+static GLuint currShaderProgID = 1;
 
 inline GLuint glCreateShader( GLenum shaderType ) {
 	return 1;
 }
 
 inline GLuint glCreateProgram() {
-	return 1;
+	if( errorState )
+		return 0;
+
+	currShaderProgID++;
+	return currShaderProgID - 1;
 }
 
 inline void glGetShaderiv( GLuint shader, GLenum pname, GLint* params ) {
@@ -84,7 +90,7 @@ inline void glGetShaderInfoLog( GLuint shader, GLsizei maxLength, GLsizei *lengt
 }
 
 inline void glGetProgramiv( GLuint program, GLenum pname, GLint *params) {
-	if( errorState )
+	if( programLinkError )
 		*params = GL_FALSE;
 	else
 		*params = GL_TRUE;

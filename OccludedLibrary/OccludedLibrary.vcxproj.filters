@@ -58,6 +58,24 @@
     <Filter Include="Header Files\meshes">
       <UniqueIdentifier>{1dc16bfb-3f64-4730-87bd-d50252302d09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\scene">
+      <UniqueIdentifier>{00e89ca5-3a2c-472c-aa0d-21eea8481f36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scene">
+      <UniqueIdentifier>{b604e249-247c-4f39-a2ba-dfb353334f84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scene\objects">
+      <UniqueIdentifier>{13ec0eb8-78bb-46d3-9ab4-13c72bc14c97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\opengl\scene">
+      <UniqueIdentifier>{47a02dab-d3a9-4465-9d25-2d1009be0ecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\opengl\scene">
+      <UniqueIdentifier>{657e81a9-cac3-45bf-9a75-bb006f477d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\opengl\scene\objects">
+      <UniqueIdentifier>{1208e0d1-aff1-4d20-8c5d-2567010b6058}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="opengl\retained\shaders\shader.cpp">
@@ -93,11 +111,17 @@
     <ClCompile Include="opengl\retained\shaders\shader_attribute_map.cpp">
       <Filter>Source Files\opengl\retained\shaders</Filter>
     </ClCompile>
-    <ClCompile Include="opengl\retained\shaders\shader_uniform_store.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="opengl\retained\gl_retained_mesh.cpp">
       <Filter>Source Files\opengl\retained</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\scene\objects\fixed_gl_camera.cpp">
+      <Filter>Source Files\opengl\scene\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\retained\shaders\shader_uniform_store.cpp">
+      <Filter>Source Files\opengl\retained\shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="opengl\scene\objects\gl_retained_camera.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,14 +161,23 @@
     <ClInclude Include="opengl\retained\shaders\shader_attribute_map.h">
       <Filter>Header Files\opengl\retained\shaders</Filter>
     </ClInclude>
-    <ClInclude Include="opengl\retained\shaders\shader_uniform_store.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="opengl\retained\gl_retained_mesh.h">
       <Filter>Header Files\opengl\retained</Filter>
     </ClInclude>
     <ClInclude Include="meshes\mesh.h">
       <Filter>Header Files\meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\objects\camera.h">
+      <Filter>Header Files\scene\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\scene\objects\fixed_gl_camera.h">
+      <Filter>Header Files\opengl\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\scene\objects\gl_retained_camera.h">
+      <Filter>Header Files\opengl\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="opengl\retained\shaders\shader_uniform_store.h">
+      <Filter>Header Files\opengl\retained\shaders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

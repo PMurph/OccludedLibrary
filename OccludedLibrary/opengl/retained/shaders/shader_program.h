@@ -4,6 +4,7 @@
 #include <boost/shared_ptr.hpp>
 
 #include "shader.h"
+#include "shader_uniform_store.h"
 
 namespace occluded { namespace opengl { namespace retained { namespace shaders {
 
@@ -19,10 +20,13 @@ class shader_program
 {
 private:
 	static const std::string OPEN_GL_ERROR_STATE_MSG;
+	static std::map<const GLuint, unsigned int> shader_prog_id_ref_count;
 
 	GLuint m_id;
 	bool m_linked;
 	std::string m_errorLog;
+	
+	mutable shader_uniform_store m_store; // A const shader_program should still be able to have its store values changed
 
 public:
 	/**
@@ -32,6 +36,16 @@ public:
 	 * his/her project.
 	 */
 	shader_program();
+
+	/**
+	 * \brief A copy constructor for shader_programs.
+	 * 
+	 * \param other A reference to the shader_program to be copied.
+	 *
+	 * A copy constructor for shader_programs. It will copy all the member variables of the shader_program and increments the referennce count to shader_program.
+	 * An exception will be thrown if an unlinked shader is passed to the copy constructor.
+	 */
+	shader_program( const shader_program& other );
 
 	/**
 	 * \brief Creates and initializes a OpenGL GLSL shader program.
@@ -56,6 +70,7 @@ public:
 	/**
 	 * \fn get_id
 	 * \brief Gets the id of the shader program
+	 *
 	 * \return Returns the id of the OpenGL GLSL shader program. 
 	 *
 	 * Returns the id of the OpenGL GLSL shader program. This function will throw an exception if the shader program was not properly linked. This can be but should not be
@@ -63,6 +78,17 @@ public:
 	 * \warning Do not use for making a call to glDeleteProgram because it will cause an error when the deconstructor tries to delete the program.
 	 */
 	const GLuint get_id() const;
+
+	/**
+	 * \fn get_uniform_store
+	 * \brief Gets the uniform store of the shader program.
+	 *
+	 * \return Returns a reference to the shader_uniform_store of this program.
+	 *
+	 * Gets a reference to the shader_uniform_store of the shader_program. Throws an exception if the shader_program is not linked. This does
+	 * not returns a constant reference because the uniform store can be modified if the shader program should not be modified.
+	 */
+	shader_uniform_store& get_uniform_store() const;
 
 	/**
 	 * \fn is_linked

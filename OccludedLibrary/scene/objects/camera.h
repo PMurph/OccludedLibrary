@@ -44,4 +44,7 @@ public:
 
 } // end of objects namespace
 } // end of scene namespace
+
+typedef scene::objects::camera camera;
+
 } // end of occluded namespace

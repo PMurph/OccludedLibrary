@@ -4,6 +4,7 @@
 
 #include <boost/variant.hpp>
 #include <boost/variant/static_visitor.hpp>
+#include <boost/weak_ptr.hpp>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -13,8 +14,6 @@
 #else
 #include "opengl_mock.h"
 #endif
-
-#include "shader_program.h"
 
 namespace occluded { namespace opengl { namespace retained { namespace shaders {
 
@@ -33,27 +32,13 @@ typedef boost::variant<glm::vec3, glm::mat4> uniform_value;
 class shader_uniform_store
 {
 private:
-	const shader_program& m_shaderProg;
+	friend class shader_program;
+
+	GLuint m_shaderProgId; 
 
 	std::map< const std::string, std::pair<GLint, uniform_value> > m_store;
 
 public:
-	/**
-	 * \brief Initializes an empty uniform store.
-	 * 
-	 * \param shaderProg A reference to a shader_program.
-	 */
-	shader_uniform_store( const shader_program& shaderProg );
-
-	/**
-	 * \brief Initializes an uniform store and populates it.
-	 *
-	 * \param shaderProg A reference to a shader_program.
-	 * \param values A reference to a vector of values to populate the store with.
-	 */
-	shader_uniform_store( const shader_program& shaderProg, const std::vector< std::pair<const std::string, const uniform_value> >& values );
-	~shader_uniform_store();
-
 	/**
 	 * \fn add_uniform
 	 * \brief Adds a new uniform value to the uniform store.
@@ -76,14 +61,6 @@ public:
 	 * of the current value.
 	 */
 	void set_uniform_value( const std::string& name, const uniform_value& value );
-
-	/**
-	 * \fn pass_to_shader
-	 * \brief Passes the uniform values to the shader program.
-	 *
-	 * Passes the uniform values to shader program, so that they can be used to render a scene.
-	 */
-	void pass_to_shader() const;
 
 	/**
 	 * \fn get_value
@@ -111,6 +88,32 @@ public:
 
 private:
 	/**
+	 * \brief Initializes an empty uniform store with a unlinked shader program.
+	 *
+	 * Initializes an empty uniform store. Private because any shader_uniform_store that exists will only created by a properly linked shader_program.
+	 */
+	shader_uniform_store();
+
+	/**
+	 * \brief A copy constructor for the uniform store.
+	 *
+	 * \param toCopy A reference to the shader_uniform_store that is to be copied.
+	 *
+	 * A copy constructor for the shader_uniform_store that is only used by the copy constructor of the shader_program.
+	 */
+	shader_uniform_store( const shader_uniform_store& toCopy );
+	~shader_uniform_store();
+
+	/**
+	 * \fn pass_to_shader
+	 * \brief Passes the uniform values to the shader program.
+	 *
+	 * Passes the uniform values to shader program, so that they can be used to render a scene. This is private because it should only be called by the 
+	 * shader_program that this uniform store is a part of.
+	 */
+	void pass_to_shader() const;
+
+	/**
 	 * \fn convert_to_uniform_name
 	 * \brief Converts a name to the equivalent uniform variable name.
 	 *
@@ -121,16 +124,6 @@ private:
 	 * name with a 'u'.
 	 */
 	const std::string convert_to_uniform_name( const std::string& name ) const;
-
-	/**
-	 * \fn populate_store
-	 * \brief Populates the uniform store.
-	 *
-	 * \param values A reference to a vector of pairs of names and values.
-	 *
-	 * Iterates through the vector of name-value pairs and adds each of them to the uniform store.
-	 */
-	void populate_store( const std::vector< std::pair<const std::string, const uniform_value> >& values );
 
 	/**
 	 * \class accessor_visitor

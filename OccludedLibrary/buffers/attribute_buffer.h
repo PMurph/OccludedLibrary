@@ -9,7 +9,7 @@ namespace occluded { namespace buffers {
  * \brief Provides contiguous storage for values associated with attributes.
  *
  * Provides contiguous storage for values associated with attributes in an attribute map.
- */
+ */ 
 class attribute_buffer {
 protected:
 	attributes::attribute_map m_map;
