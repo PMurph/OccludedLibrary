@@ -43,7 +43,7 @@ public:
 	 * \fn add_uniform
 	 * \brief Adds a new uniform value to the uniform store.
 	 *
-	 * \param name A reference to string representing the name of the uniform value to be stored.
+	 * \param name A reference to a string representing the name of the uniform value to be stored.
 	 * \param value A refrence to the value to be added.
 	 *
 	 * Adds a new uniform to the uniform store. This is to be used for a value that is not already in the store.
@@ -61,6 +61,15 @@ public:
 	 * of the current value.
 	 */
 	void set_uniform_value( const std::string& name, const uniform_value& value );
+
+	/**
+	 * \fn has_uniform
+	 * \brief Checks to see if a uniform has a value in the store.
+	 *
+	 * \param name A reference to a string representing the name of the uniform value.
+	 * \return Returns a bool representing whether or not the uniform is in the uniform store.
+	 */
+	const bool has_uniform( const std::string& name ) const;
 
 	/**
 	 * \fn get_value

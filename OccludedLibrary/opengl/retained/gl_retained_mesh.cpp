@@ -30,8 +30,6 @@ gl_retained_mesh::~gl_retained_mesh()
 }
 
 void gl_retained_mesh::draw() const {
-	//m_shaderProg.use_program();
-
 	m_buffer.prepare_for_render();
 	bind_buffer();
 

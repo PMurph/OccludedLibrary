@@ -21,7 +21,7 @@ public:
 	 * \fn set_for_render
 	 * \brief Sets this camera to the camera that will be used for rendering.
 	 *
-	 * Sets up the OpenGL state so that the scene will be render using the transformation contained within this camera.
+	 * Sets this camera as the camera to be used for next render.
 	 */
 	virtual void set_for_render() const = 0;
 

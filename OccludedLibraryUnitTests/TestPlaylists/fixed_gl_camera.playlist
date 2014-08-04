@@ -1,0 +1,1 @@
+<Playlist Version="1.0"><Add Test="OccludedLibraryUnitTests::fixed_gl_camera_test::fixed_gl_camera_get_projection_test" /><Add Test="OccludedLibraryUnitTests::fixed_gl_camera_test::fixed_gl_camera_get_view_test" /><Add Test="OccludedLibraryUnitTests::fixed_gl_camera_test::fixed_gl_camera_set_for_render_test" /></Playlist>

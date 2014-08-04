@@ -50,6 +50,15 @@ void shader_uniform_store::set_uniform_value( const std::string& name, const uni
 	currValue->second.second = value;
 }
 
+const bool shader_uniform_store::has_uniform( const std::string& name ) const {
+	bool hasValue = false;
+
+	if( m_store.find( convert_to_uniform_name( name ) ) != m_store.end() )
+		hasValue = true;
+
+	return hasValue;
+}
+
 // Private Member Function
 
 shader_uniform_store::shader_uniform_store():

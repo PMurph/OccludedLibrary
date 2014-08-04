@@ -127,5 +127,22 @@ namespace OccludedLibraryUnitTests
 				Assert::Fail();
 			}
 		}
+
+		TEST_METHOD( shader_uniform_store_has_value_test )
+		{
+			shader_program testProg( shaders );
+			shader_uniform_store& store = testProg.get_uniform_store();
+
+			// Test to make sure that if there are no values in the store, false is returned by the has_uniform function
+			Assert::IsFalse( store.has_uniform( "test") );
+
+			store.add_uniform( "test", glm::mat4( 1 ) );
+
+			// Test to make sure that if the uniform is in the store, true is returned by the has_uniform function
+			Assert::IsTrue( store.has_uniform( "test" ) );
+
+			// Test to make sure that if the uniform is not in the store but the the store is not empty, false is returned by the has_uniform function
+			Assert::IsFalse( store.has_uniform( "test2" ) );
+		}
 	};
 }
