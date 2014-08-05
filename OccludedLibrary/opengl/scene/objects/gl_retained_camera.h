@@ -11,7 +11,8 @@ namespace occluded { namespace opengl { namespace scene { namespace objects {
  * \class gl_retained_camera
  * \brief An abstract OpenGL camera class which contains the necessary method that any retained camera will use.
  *
- *
+ * This is an abstract class for a camera that uses the OpenGL retained mode to render objects in the scene. It provides a number of
+ * functions that are common to all retained cameras.
  */
 class gl_retained_camera:
 	public occluded::camera
