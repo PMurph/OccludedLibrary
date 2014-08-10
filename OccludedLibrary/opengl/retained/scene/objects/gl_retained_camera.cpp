@@ -1,6 +1,6 @@
 #include "gl_retained_camera.h"
 
-namespace occluded { namespace opengl { namespace scene { namespace objects {
+namespace occluded { namespace opengl { namespace retained { namespace scene { namespace objects {
 
 gl_retained_camera::gl_retained_camera( const shader_program& shaderProg, const glm::mat4& projection, const glm::mat4& view ):
 	m_shaderProg( shaderProg ),
@@ -59,5 +59,6 @@ const std::string gl_retained_camera::SHADER_VIEW_UNIFORM_NAME = "view";
 
 } // end of objects namespace
 } // end of scene namespace
+} // end of retained namespace
 } // end of opengl namespace
 } // end of occluded namespace

@@ -1,12 +1,13 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
 
-#include <opengl/scene/objects/fixed_gl_camera.h>
+#include <opengl/retained/scene/objects/gl_retained_fixed_camera.h>
 
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/matrix_transform.hpp>
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-using namespace occluded::opengl::scene::objects;
+using namespace occluded::opengl::retained::scene::objects;
 using namespace occluded::opengl::retained::shaders;
 
 namespace OccludedLibraryUnitTests
@@ -25,7 +26,7 @@ namespace OccludedLibraryUnitTests
 			shaders.push_back( boost::shared_ptr<shader>( new shader( src, vert_shader ) ) );
 			shaders.push_back( boost::shared_ptr<shader>( new shader( src, frag_shader ) ) );
 
-			testProj = glm::perspective( 60.0f, 4.0f/3.0f, 1.0f, 5.0f );
+			testProj = glm::perspective( 1.047198f, 4.0f/3.0f, 1.0f, 5.0f );
 			testView = glm::mat4( 1 );
 		}
 
@@ -34,7 +35,7 @@ namespace OccludedLibraryUnitTests
 			shader_program testProg( shaders );
 			shader_program testProg2( shaders );
 
-			std::auto_ptr<gl_retained_camera> testCamera( new fixed_gl_camera( testProg, testProj, testView ) );
+			std::auto_ptr<gl_retained_camera> testCamera( new gl_retained_fixed_camera( testProg, testProj, testView ) );
 
 			// Test to make sure the correct shader_program is returned by get_shader_program
 			Assert::AreEqual( testProg.get_id(), testCamera->get_shader_program().get_id() );

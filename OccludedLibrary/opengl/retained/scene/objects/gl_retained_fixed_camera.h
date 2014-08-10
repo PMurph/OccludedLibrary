@@ -2,16 +2,16 @@
 
 #include "gl_retained_camera.h"
 
-namespace occluded { namespace opengl { namespace scene { namespace objects {
+namespace occluded { namespace opengl { namespace retained { namespace scene { namespace objects {
 
 /**
- * \class fixed_gl_camera
+ * \class gl_retained_fixed_camera
  * \brief A camera with a fixed position and a fixed orientation.
  *
  * A camera with a fixed position and a fixed orientation that are set at the creation of the camera. This is for the simple creation
  * of a camera for a scene where the scene may change but the view of the scene does not.
  */
-class fixed_gl_camera:
+class gl_retained_fixed_camera:
 	public gl_retained_camera
 {
 public:
@@ -24,8 +24,8 @@ public:
 	 *
 	 * Initializes an OpenGL camera that has fixed projection and view transformations.
 	 */
-	fixed_gl_camera( const shader_program& shaderProg, const glm::mat4& proj, const glm::mat4& view );
-	~fixed_gl_camera();
+	gl_retained_fixed_camera( const shader_program& shaderProg, const glm::mat4& proj, const glm::mat4& view );
+	~gl_retained_fixed_camera();
 
 	/**
 	 * \fn set_for_render
@@ -54,5 +54,6 @@ public:
 
 } // end of objects namespace
 } // end of scene namespace
+} // end of retained namespace
 } // end of opengl namespace
 } // end of occluded namespace

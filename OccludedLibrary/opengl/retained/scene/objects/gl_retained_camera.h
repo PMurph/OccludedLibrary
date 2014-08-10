@@ -2,10 +2,10 @@
 
 #include <boost/ref.hpp>
 
-#include "../../../scene/objects/camera.h"
-#include "../../retained/shaders/shader_program.h"
+#include "../../../../scene/objects/camera.h"
+#include "../../shaders/shader_program.h"
 
-namespace occluded { namespace opengl { namespace scene { namespace objects {
+namespace occluded { namespace opengl { namespace retained { namespace scene { namespace objects {
 
 /**
  * \class gl_retained_camera
@@ -69,5 +69,6 @@ private:
 
 } // end of objects namespace
 } // end of scene namespace
+} // end of retained namespace
 } // end of opengl namespace
 } // end of occluded namespace
