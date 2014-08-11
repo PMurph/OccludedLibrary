@@ -18,11 +18,11 @@ void gl_retained_fixed_camera::set_for_render() const {
 	gl_retained_camera::set_uniform_vals();
 }
 
-const glm::mat4& gl_retained_fixed_camera::get_projection() const {
+const nodes::gl_retained_fixed_transformation& gl_retained_fixed_camera::get_projection() const {
 	return m_projection;
 }
 
-const glm::mat4& gl_retained_fixed_camera::get_view() const {
+const nodes::gl_retained_fixed_transformation& gl_retained_fixed_camera::get_view() const {
 	return m_view;
 }
 

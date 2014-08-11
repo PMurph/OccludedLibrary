@@ -2,6 +2,8 @@
 
 #include <glm/glm.hpp>
 
+#include "../nodes/transformation.h"
+
 namespace occluded { namespace scene { namespace objects {
 
 /**
@@ -19,9 +21,9 @@ public:
 	 * \fn get_model
 	 * \brief Gets the model transformation.
 	 *
-	 * \return A reference to a 4x4 matrix representing the model transformation of this model.
+	 * \return A constant reference to the transformation object representing the model transformation of this model.
 	 */
-	virtual const glm::mat4& get_model() const = 0;
+	virtual const occluded::transformation& get_model() const = 0;
 
 };
 

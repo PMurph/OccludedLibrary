@@ -39,17 +39,17 @@ public:
 	 * \fn get_projection
 	 * \brief Gets the projection transformation.
 	 *
-	 * \return A 4x4 matrix containing the projection transformation.
+	 * \return A constant reference to the transformation object representing the projection transformation.
 	 */
-	const glm::mat4& get_projection() const;
+	const nodes::gl_retained_fixed_transformation& get_projection() const;
 
 	/**
 	 * \fn get_view
 	 * \brief Gets the view transformation.
 	 *
-	 * \return A 4x4 matrix containing the view transformation.
+	 * \return A constant reference to the transformation object representing the view transformation.
 	 */
-	const glm::mat4& get_view() const;
+	const nodes::gl_retained_fixed_transformation& get_view() const;
 };
 
 } // end of objects namespace

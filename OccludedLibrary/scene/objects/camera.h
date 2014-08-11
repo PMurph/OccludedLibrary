@@ -1,4 +1,8 @@
+#pragma once
+
 #include <glm/glm.hpp>
+
+#include "../nodes/transformation.h"
 
 namespace occluded { namespace scene { namespace objects {
 
@@ -29,17 +33,17 @@ public:
 	 * \fn get_projection
 	 * \brief Gets the projection transformation.
 	 *
-	 * \return A 4x4 matrix containing the projection transformation.
+	 * \return A constant reference to the transformation object representing the projection transformation.
 	 */
-	virtual const glm::mat4& get_projection() const = 0;
+	virtual const occluded::transformation& get_projection() const = 0;
 
 	/**
 	 * \fn get_view
 	 * \brief Gets the view transformation.
 	 *
-	 * \return A 4x4 matrix containing the view transformation.
+	 * \return A constant reference to the transformation object containing the view transformation.
 	 */
-	virtual const glm::mat4& get_view() const = 0;
+	virtual const occluded::transformation& get_view() const = 0;
 };
 
 } // end of objects namespace

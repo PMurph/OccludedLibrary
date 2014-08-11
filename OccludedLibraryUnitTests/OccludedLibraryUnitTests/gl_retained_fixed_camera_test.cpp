@@ -37,12 +37,12 @@ namespace OccludedLibraryUnitTests
 			gl_retained_fixed_camera testCamera( testProgram, testProj, testView );
 
 			// Test to make sure the correct matrix is returned by the get_projection function
-			Assert::IsTrue( testProj == testCamera.get_projection() );
+			Assert::IsTrue( testProj == testCamera.get_projection().get_raw_transformation() );
 
 			gl_retained_fixed_camera testCamera2( testProgram, glm::mat4( 1 ), glm::mat4( 1 ) );
 
 			// Test to make sure a different matrix is returned by the get_projection if the matrix passed to the constructor is changed
-			Assert::IsFalse( testProj == testCamera2.get_projection() );
+			Assert::IsFalse( testProj == testCamera2.get_projection().get_raw_transformation() );
 		}
 
 		TEST_METHOD( gl_retained_fixed_camera_get_view_test )
@@ -51,12 +51,12 @@ namespace OccludedLibraryUnitTests
 			gl_retained_fixed_camera testCamera( testProgram, testProj, testView );
 
 			// Test to make sure the correct matrix is returned by the get_view function
-			Assert::IsTrue( testView == testCamera.get_view() );
+			Assert::IsTrue( testView == testCamera.get_view().get_raw_transformation() );
 
 			gl_retained_fixed_camera testCamera2( testProgram, glm::mat4( 0 ), glm::mat4( 0 ) );
 
 			// Test to make sure a different matrix is returned by get_view if the matrix passed to the constructor is changed
-			Assert::IsFalse( testView == testCamera2.get_view() );
+			Assert::IsFalse( testView == testCamera2.get_view().get_raw_transformation() );
 		}
 
 		TEST_METHOD( gl_retained_fixed_camera_set_for_render_test )

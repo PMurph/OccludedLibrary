@@ -4,6 +4,7 @@
 
 #include "../../../../scene/objects/camera.h"
 #include "../../shaders/shader_program.h"
+#include "../nodes/gl_retained_fixed_transformation.h"
 
 namespace occluded { namespace opengl { namespace retained { namespace scene { namespace objects {
 
@@ -22,8 +23,8 @@ private:
 	static const std::string SHADER_VIEW_UNIFORM_NAME;
 
 protected:
-	glm::mat4 m_projection;
-	glm::mat4 m_view;
+	nodes::gl_retained_fixed_transformation m_projection;
+	nodes::gl_retained_fixed_transformation m_view;
 	
 	boost::reference_wrapper<const shader_program> m_shaderProg;
 
