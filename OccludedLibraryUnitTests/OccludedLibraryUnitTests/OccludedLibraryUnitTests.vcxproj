@@ -172,6 +172,7 @@
     <ClCompile Include="gl_retained_camera_test.cpp" />
     <ClCompile Include="gl_retained_fixed_transformation_test.cpp" />
     <ClCompile Include="gl_retained_mesh_test.cpp" />
+    <ClCompile Include="gl_retained_state_monitor_test.cpp" />
     <ClCompile Include="interleaved_attr_buffer_test.cpp" />
     <ClCompile Include="segregated_attr_buffer_test.cpp" />
     <ClCompile Include="attribute_map_test.cpp" />

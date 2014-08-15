@@ -175,6 +175,7 @@
     <ClInclude Include="buffers\attributes\attribute_map.h" />
     <ClInclude Include="buffers\attributes\attribute.h" />
     <ClInclude Include="buffers\interleaved_attr_buffer.h" />
+    <ClInclude Include="opengl\retained\gl_retained_state_monitor.h" />
     <ClInclude Include="opengl\retained\scene\nodes\gl_retained_fixed_transformation.h" />
     <ClInclude Include="opengl\retained\scene\objects\gl_retained_fixed_camera.h" />
     <ClInclude Include="meshes\mesh.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="buffers\attributes\attribute_map.cpp" />
     <ClCompile Include="buffers\attributes\attribute.cpp" />
     <ClCompile Include="buffers\interleaved_attr_buffer.cpp" />
+    <ClCompile Include="opengl\retained\gl_retained_state_monitor.cpp" />
     <ClCompile Include="opengl\retained\scene\nodes\gl_retained_fixed_transformation.cpp" />
     <ClCompile Include="opengl\retained\scene\objects\gl_retained_fixed_camera.cpp" />
     <ClCompile Include="opengl\retained\gl_retained_mesh.cpp" />

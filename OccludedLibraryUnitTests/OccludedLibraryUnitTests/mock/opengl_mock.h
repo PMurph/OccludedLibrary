@@ -53,6 +53,7 @@
 
 extern bool errorState; // If true, the mock should mimic OpenGL functions returning errors
 extern bool programLinkError; // If true, the mock will return GL_FALSE when glGetProgramiv is called
+static GLuint currVAOID = 1;
 static GLuint currVBOID = 1;
 static GLuint currShaderProgID = 1;
 
@@ -110,7 +111,16 @@ inline GLint glGetAttribLocation( GLuint program, const GLchar *name ) {
 		return 1;
 }
 
-inline void glGenBuffers( GLsizei n, GLuint * buffers ) {
+inline void glGenVertexArrays( GLsizei n, GLuint* arrays ) {
+	if( errorState )
+		*arrays = 0;
+	else {
+		*arrays = currVAOID;
+		currVAOID++;
+	}
+}
+
+inline void glGenBuffers( GLsizei n, GLuint* buffers ) {
 	if( errorState )
 		*buffers = 0;
 	else {
@@ -127,6 +137,7 @@ inline GLint glGetUniformLocation( GLuint program, const GLchar* name ) {
 }
 
 inline void glBufferData( GLenum target, GLsizeiptr size, const GLvoid* data, GLenum usage) {}
+inline void glBindVertexArray( GLuint array ) {}
 inline void glBindBuffer( GLenum target, GLuint buffer) {}
 inline void glEnableVertexAttribArray( GLuint index ) {}
 inline void glDisableVertexAttribArray( GLuint index ) {}
@@ -145,4 +156,8 @@ inline void glDrawElements( GLenum mode, GLsizei count, GLenum type, const GLvoi
 
 inline void resetVBOIDs() {
 	currVBOID = 1;
+}
+
+inline void resetVAOIDs() {
+	currVAOID = 1;
 }

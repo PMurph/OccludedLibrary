@@ -18,12 +18,12 @@ private:
 
 public:
 	/**
-	 * \fn get_model
+	 * \fn get_model_transform
 	 * \brief Gets the model transformation.
 	 *
 	 * \return A constant reference to the transformation object representing the model transformation of this model.
 	 */
-	virtual const occluded::transformation& get_model() const = 0;
+	virtual const occluded::transformation& get_model_transform() const = 0;
 
 };
 
