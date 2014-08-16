@@ -17,6 +17,25 @@ const GLuint gl_retained_object_manager::get_new_vao() {
 	return vaoId;
 }
 
+void gl_retained_object_manager::add_ref_to_vao( const GLuint vaoId ) {
+	if( vaoId == 0 || m_vaoCount.find( vaoId ) == m_vaoCount.end() || 
+		( m_vaoCount.find( vaoId ) != m_vaoCount.end() && m_vaoCount[vaoId] == 0 ) ) {
+		throw std::runtime_error( "gl_retained_object_manager.add_ref_to_vao: Failed to add reference to vao because vao id("
+			+ boost::lexical_cast<std::string>( vaoId ) + ") does not correspond to a valid vao." );
+	}
+
+	inc_vao_entry( vaoId );
+}
+
+void gl_retained_object_manager::remove_ref_to_vao( const GLuint vaoId ) {
+	if( vaoId == 0 || m_vaoCount.find( vaoId ) == m_vaoCount.end() ) {
+		throw std::runtime_error( "gl_retained_object_manager.remove_ref_to_vao: Failed to remove reference to vao because vao id(" 
+			+ boost::lexical_cast<std::string>( vaoId ) + ") does not correspond to a valid vao." );	
+	}
+
+	dec_vao_entry( vaoId );
+}
+
 const bool gl_retained_object_manager::check_valid_vao_id( const GLuint vaoId ) const {
 	bool isValid = false;
 
@@ -79,10 +98,11 @@ void gl_retained_object_manager::inc_vao_entry( const GLuint vaoId ) {
 	assert( vaoId != 0 );
 
 	if( vaoId != 0 ) {
-		if( m_vaoCount.find( vaoId ) == m_vaoCount.end() )
+		if( m_vaoCount.find( vaoId ) == m_vaoCount.end() ) {
 			m_vaoCount.insert( std::pair<const GLuint, unsigned int>( vaoId, 1 ) );
-		else
+		} else {
 			m_vaoCount[vaoId] += 1;
+		}
 	}
 }
 

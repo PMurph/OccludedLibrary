@@ -137,5 +137,89 @@ namespace OccludedLibraryUnitTests
 
 			// TODO: Test for when object is destroyed
 		}
+
+		TEST_METHOD( gl_retained_object_manager_add_ref_to_vao_test )
+		{
+			GLuint testVaoId = 0;
+
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+
+			testVaoId = manager.get_new_vao();
+
+			// Test to make sure no exception is thrown if a valid vao id is passed to add_ref_to_vao
+			try {
+				manager.add_ref_to_vao( testVaoId );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
+
+			// Test to make sure an exception is thrown if 0 is passed to add_ref_to_vao as the vaoId
+			try {
+				manager.add_ref_to_vao( static_cast<GLuint>( 0 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if an invalid vao id is passed to add_ref_to_vao
+			try {
+				manager.add_ref_to_vao( static_cast<GLuint>( 893 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			manager.remove_ref_to_vao( testVaoId );
+			manager.remove_ref_to_vao( testVaoId );
+
+			// Test to make sure an exception is thrown if the reference count for a vaoId has been reduced to 0 and add_ref_to_vao is
+			try {
+				manager.add_ref_to_vao( static_cast<GLuint>( testVaoId ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_object_manager_remove_ref_to_vao_test )
+		{
+			GLuint testVaoId = 0;
+
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+
+			testVaoId = manager.get_new_vao();
+
+			// Test to make sure no exception is thrown if a valid vao is passed to 
+			try {
+				manager.remove_ref_to_vao( testVaoId );
+			} catch ( const std::exception& ) {
+				Assert::Fail();
+			}
+
+			// Test to make sure an exception is thrown if 0 is passed to remove_ref_to_vao as the vaoId
+			try {
+				manager.remove_ref_to_vao( 0 );
+			
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if an invalid vao id is passed as a parameter to remove_ref_to_vao
+			try {
+				manager.remove_ref_to_vao( static_cast<GLuint>( 985 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if an vao id is passed to remove_ref_to_vao that has had its ref count reduced
+			// to 1
+			try {
+				manager.remove_ref_to_vao( testVaoId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
 	};
 }

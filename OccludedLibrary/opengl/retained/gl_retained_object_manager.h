@@ -38,6 +38,29 @@ public:
 	const GLuint get_new_vao();
 
 	/**
+	 * \fn add_ref_to_vao
+	 * \brief Adds a reference to a vao.
+	 *
+	 * \param vaoId A constant GLuint representing an id for a vao.
+	 *
+	 * Incremenets the reference count to the OpenGL vertex array object specified by the vaoId parameter. Throws an exception if there is no
+	 * vao associated with the vaoId parameter.
+	 */
+	void add_ref_to_vao( const GLuint vaoId );
+
+	/**
+	 * \fn remove_ref_to_vao
+	 * \brief Removes a reference to a vao.
+	 *
+	 * \param vaoId A constant GLuint representing an id for a vao.
+	 *
+	 * Decremenents the refrence count to the OpenGL vertex array object specified by the vaoId parameter. If the reference count is reduced to
+	 * 0, the OpenGL vertex array object is removed so that memory can be freed. Throws an exception if there is no vao associated with the 
+	 * vaoId parameter.
+	 */
+	void remove_ref_to_vao( const GLuint vaoId );
+
+	/**
 	 * \fn check_valid_vao_id
 	 * \brief Checks to see if a vao id is corresponds to a valid vao.
 	 *
@@ -87,6 +110,7 @@ public:
 private:
 	gl_retained_object_manager();
 	~gl_retained_object_manager();
+	gl_retained_object_manager( const gl_retained_object_manager& other ) { /* Disabled */ }
 
 	/**
 	 * \fn inc_vao_entry

@@ -77,7 +77,7 @@
     <ClCompile Include="gl_retained_fixed_transformation_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gl_retained_state_monitor_test.cpp">
+    <ClCompile Include="gl_retained_object_manager_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

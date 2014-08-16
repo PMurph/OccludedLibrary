@@ -147,7 +147,7 @@
     <ClCompile Include="opengl\retained\scene\nodes\gl_retained_fixed_transformation.cpp">
       <Filter>Source Files\opengl\retained\scene\nodes</Filter>
     </ClCompile>
-    <ClCompile Include="opengl\retained\gl_retained_state_monitor.cpp">
+    <ClCompile Include="opengl\retained\gl_retained_object_manager.cpp">
       <Filter>Source Files\opengl\retained</Filter>
     </ClCompile>
   </ItemGroup>
@@ -215,7 +215,7 @@
     <ClInclude Include="opengl\retained\scene\nodes\gl_retained_fixed_transformation.h">
       <Filter>Header Files\opengl\retained\scene\nodes</Filter>
     </ClInclude>
-    <ClInclude Include="opengl\retained\gl_retained_state_monitor.h">
+    <ClInclude Include="opengl\retained\gl_retained_object_manager.h">
       <Filter>Header Files\opengl\retained</Filter>
     </ClInclude>
   </ItemGroup>
