@@ -28,6 +28,12 @@ private:
 public:
 
 	/**
+	 * \fn delete_objects
+	 * \brief Deletes all the OpenGL objects managed by the object manager.
+	 */
+	void delete_objects();
+
+	/**
 	 * \fn get_new_vao
 	 * \brief Creates a new vao object and gets its id.
 	 *
@@ -136,6 +142,22 @@ private:
 	gl_retained_object_manager();
 	~gl_retained_object_manager();
 	gl_retained_object_manager( const gl_retained_object_manager& other ) { /* Disabled */ }
+
+	/**
+	 * \fn delete_vaos
+	 * \brief Deletes all the vao's managed.
+	 *
+	 * Deletes all the OpenGL vertex array objects monitored by the object manager.
+	 */
+	void delete_vaos();
+
+	/**
+	 * \fn delete_vbos
+	 * \brief Deletes all the vbo's managed.
+	 *
+	 * Deletes all the OpenGL vertex buffer objects monitored by the object manager.
+	 */
+	void delete_vbos();
 
 	/**
 	 * \fn inc_vao_entry

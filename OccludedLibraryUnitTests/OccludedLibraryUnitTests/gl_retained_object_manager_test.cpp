@@ -23,6 +23,14 @@ namespace OccludedLibraryUnitTests
 			resetVBOIDs();
 		}
 
+		TEST_METHOD_CLEANUP( gl_retained_object_manager_test_cleanup ) 
+		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			errorState = false;
+
+			manager.delete_objects();;
+		}
+
 		TEST_METHOD( gl_retained_object_manager_gen_new_vao_test )
 		{
 			GLuint testId = 0;
@@ -73,6 +81,13 @@ namespace OccludedLibraryUnitTests
 			monitor.remove_ref_to_vao( testVaoId );
 
 			// Check to make sure false is returned for a vaoId that has had its reference count to 0
+			Assert::IsFalse( monitor.check_valid_vao_id( testVaoId ) );
+
+			testVaoId = monitor.get_new_vao();
+
+			monitor.delete_objects();
+
+			// Test to make sure false is returned after a call to delete_objects is made
 			Assert::IsFalse( monitor.check_valid_vao_id( testVaoId ) );
 		}
 
@@ -138,9 +153,18 @@ namespace OccludedLibraryUnitTests
 			} catch( const std::exception& ) {
 			}
 
-			try {
-			} catch( const std::exception& ) {
-			}
+			monitor.remove_ref_to_vbo( testVaoId, testVboId );
+
+			// Check to make sure false is returned by check_valid_vbo_id when the ref count is reduced to 0 for a vbo
+			Assert::IsFalse( monitor.check_valid_vbo_id( testVaoId, testVboId ) );
+
+			testVaoId = monitor.get_new_vao();
+			testVboId = monitor.get_new_vbo( testVaoId );
+
+			monitor.delete_objects();
+
+			// Check to make sure false is returned by check_valid_vbo_id after all the objects are deleted
+			Assert::IsFalse( monitor.check_valid_vbo_id( testVaoId, testVboId ) );
 		}
 
 		TEST_METHOD( gl_retained_object_manager_add_ref_to_vao_test )
@@ -179,7 +203,19 @@ namespace OccludedLibraryUnitTests
 
 			// Test to make sure an exception is thrown if the reference count for a vaoId has been reduced to 0 and add_ref_to_vao is
 			try {
-				manager.add_ref_to_vao( static_cast<GLuint>( testVaoId ) );
+				manager.add_ref_to_vao( testVaoId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			testVaoId = manager.get_new_vao();
+			
+			manager.delete_objects();
+
+			// Test to make sure an exception is thrown if the add_ref_to_vao called after a delete_objects call
+			try {
+				manager.add_ref_to_vao( testVaoId );
 
 				Assert::Fail();
 			} catch( const std::exception& ) {
@@ -217,8 +253,20 @@ namespace OccludedLibraryUnitTests
 			} catch( const std::exception& ) {
 			}
 
-			// Test to make sure an exception is thrown if an vao id is passed to remove_ref_to_vao that has had its ref count reduced
+			// Test to make sure an exception is thrown if a vao id is passed to remove_ref_to_vao that has had its ref count reduced
 			// to 1
+			try {
+				manager.remove_ref_to_vao( testVaoId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			testVaoId = manager.get_new_vao();
+
+			manager.delete_objects();
+
+			// Test to make sure an exception is thrown if a call to remove_ref_to_vao is made after delete_objects call
 			try {
 				manager.remove_ref_to_vao( testVaoId );
 
@@ -286,6 +334,19 @@ namespace OccludedLibraryUnitTests
 				Assert::Fail();
 			} catch( const std::exception& ) {
 			}
+
+			testVaoId = manager.get_new_vao();
+			testVboId = manager.get_new_vbo( testVaoId );
+
+			manager.delete_objects();
+
+			// Test to make sure an exception is thrown if add_ref_to_vbo is called after delete_objects is called
+			try {
+				manager.add_ref_to_vbo( testVaoId, testVboId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
 		}
 
 		TEST_METHOD( gl_retained_object_manager_remove_ref_to_vbo_test )
@@ -339,6 +400,19 @@ namespace OccludedLibraryUnitTests
 
 			// Test to make sure an exception is thrown if a reference count to a valid vbo is already at 0 and a reference count is attempted to
 			// be removed from it
+			try {
+				manager.remove_ref_to_vbo( testVaoId, testVboId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			testVaoId = manager.get_new_vao();
+			testVboId = manager.get_new_vbo( testVaoId );
+
+			manager.delete_objects();
+
+			// Test to make sure an exception is thrown if remove_ref_to_vbo is called after delete_objects is called
 			try {
 				manager.remove_ref_to_vbo( testVaoId, testVboId );
 

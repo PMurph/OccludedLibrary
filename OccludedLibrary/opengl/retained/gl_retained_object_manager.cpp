@@ -4,6 +4,11 @@ namespace occluded { namespace opengl { namespace retained {
 
 // Public Member Functions
 
+void gl_retained_object_manager::delete_objects() {
+	delete_vbos();
+	delete_vaos();
+}
+
 const GLuint gl_retained_object_manager::get_new_vao() {
 	GLuint vaoId = 0;
 
@@ -109,7 +114,7 @@ const bool gl_retained_object_manager::check_valid_vbo_id( const GLuint vaoId, c
 	if( vaoId == 0 || vboId == 0 )
 		throw std::runtime_error( "gl_retained_object_manager.check_valid_vbo_id: An invalid value of 0 was passed as a parameter." );
 
-	if( m_vboCount.find( key ) != m_vboCount.end() )
+	if( m_vboCount.find( key ) != m_vboCount.end() && m_vboCount.find( key )->second != 0 )
 		valid = true;
 
 	return valid;
@@ -126,6 +131,32 @@ gl_retained_object_manager::gl_retained_object_manager():
 
 gl_retained_object_manager::~gl_retained_object_manager()
 {
+	delete_objects();
+}
+
+void gl_retained_object_manager::delete_vaos() {
+	for( std::map< const GLuint, unsigned int>::iterator it = m_vaoCount.begin(); it != m_vaoCount.end(); ++it ) {
+		if( it->second != 0 ) {
+			glDeleteVertexArray( 1, &(it->first) );
+
+			assert( GL_NO_ERROR == glGetError() );
+
+			it->second = 0;
+		}
+	}
+}
+
+void gl_retained_object_manager::delete_vbos() {
+	for( std::map< const std::pair<const GLuint, const GLuint>, unsigned int >::iterator it = m_vboCount.begin(); it != m_vboCount.end(); ++it ) {
+		if( it->second != 0 ) {
+			glBindVertexArray( it->first.first );
+			glDeleteBuffers(1, &(it->first.second) );
+
+			assert( GL_NO_ERROR == glGetError() );
+
+			it->second = 0;
+		}
+	}
 }
 
 void gl_retained_object_manager::inc_vao_entry( const GLuint vaoId ) {
@@ -151,7 +182,7 @@ void gl_retained_object_manager::dec_vao_entry( const GLuint vaoId ) {
 
 		m_vaoCount[vaoId] -= 1;
 
-		if( m_vaoCount[vaoId] == 0)
+		if( m_vaoCount[vaoId] == 0 )
 			glDeleteVertexArray( 1, &vaoId );
 	}
 }
