@@ -18,20 +18,24 @@ const GLuint gl_retained_object_manager::get_new_vao() {
 }
 
 void gl_retained_object_manager::add_ref_to_vao( const GLuint vaoId ) {
-	if( vaoId == 0 || m_vaoCount.find( vaoId ) == m_vaoCount.end() || 
+	if( m_vaoCount.find( vaoId ) == m_vaoCount.end() || 
 		( m_vaoCount.find( vaoId ) != m_vaoCount.end() && m_vaoCount[vaoId] == 0 ) ) {
 		throw std::runtime_error( "gl_retained_object_manager.add_ref_to_vao: Failed to add reference to vao because vao id("
 			+ boost::lexical_cast<std::string>( vaoId ) + ") does not correspond to a valid vao." );
 	}
 
+	assert( vaoId != 0 );
+
 	inc_vao_entry( vaoId );
 }
 
 void gl_retained_object_manager::remove_ref_to_vao( const GLuint vaoId ) {
-	if( vaoId == 0 || m_vaoCount.find( vaoId ) == m_vaoCount.end() ) {
+	if( m_vaoCount.find( vaoId ) == m_vaoCount.end() ) {
 		throw std::runtime_error( "gl_retained_object_manager.remove_ref_to_vao: Failed to remove reference to vao because vao id(" 
 			+ boost::lexical_cast<std::string>( vaoId ) + ") does not correspond to a valid vao." );	
 	}
+
+	assert( vaoId != 0 );
 
 	dec_vao_entry( vaoId );
 }
@@ -42,7 +46,7 @@ const bool gl_retained_object_manager::check_valid_vao_id( const GLuint vaoId ) 
 	if( vaoId == 0 )
 		throw std::runtime_error( "gl_retained_object_manager.check_valid_vao_id: The invalid vao id 0 was passed as the parameter." );
 
-	if( m_vaoCount.find( vaoId ) != m_vaoCount.end() )
+	if( m_vaoCount.find( vaoId ) != m_vaoCount.end() && m_vaoCount.find( vaoId )->second != 0 )
 		isValid = true;
 
 	return isValid;
@@ -63,9 +67,39 @@ const GLuint gl_retained_object_manager::get_new_vbo( const GLuint vaoId ) {
 	if( vboId == 0 || GL_NO_ERROR != glGetError() )
 		throw std::runtime_error( "gl_retained_object_manager.get_new_vbo: Failed to generate a vertex buffer object because of an error in OpenGL" );
 
-	inc_vbo_entry( vaoId, vboId );
+	inc_vbo_entry( std::pair<const GLuint, const GLuint>( vaoId, vboId ) );
 
 	return vboId;
+}
+
+void gl_retained_object_manager::add_ref_to_vbo( const GLuint vaoId, const GLuint vboId ) {
+	std::pair<const GLuint, const GLuint> key( vaoId, vboId ) ;
+
+	if( m_vboCount.find( key ) == m_vboCount.end() || m_vboCount[key] == 0 ) {
+		throw std::runtime_error( "gl_retained_object_manager.add_ref_to_vbo: Failed to add a reference to the vertex buffer object because the vao id("
+			+ boost::lexical_cast<std::string>( vaoId ) + ") or the vbo id(" + boost::lexical_cast<std::string>( vboId ) + 
+			") does not correspond to a OpenGL object." );
+	}
+
+	inc_vbo_entry( key );
+	m_vaoCount[vaoId] += 1;
+
+	assert( m_vaoCount[vaoId] >= m_vboCount[key] );
+}
+
+void gl_retained_object_manager::remove_ref_to_vbo( const GLuint vaoId, const GLuint vboId ) {
+	std::pair<const GLuint, const GLuint> key( vaoId, vboId );
+
+	if( m_vboCount.find( key ) == m_vboCount.end() ) {
+		throw std::runtime_error( "gl_retained_object_manager.remove_ref_to_vbo: Failed to remove a reference to the vertex buffer object becayse the vao id("
+			+ boost::lexical_cast<std::string>( vaoId ) + ") or the vbo id(" + boost::lexical_cast<std::string>( vboId ) + 
+			") does not correspond to an OpenGL object." );
+	}
+
+	dec_vbo_entry( key );
+	m_vaoCount[vaoId] -= 1;
+
+	assert( m_vaoCount[vaoId] >= m_vboCount[key] );
 }
 
 const bool gl_retained_object_manager::check_valid_vbo_id( const GLuint vaoId, const GLuint vboId ) const {
@@ -116,16 +150,22 @@ void gl_retained_object_manager::dec_vao_entry( const GLuint vaoId ) {
 		}
 
 		m_vaoCount[vaoId] -= 1;
+
+		if( m_vaoCount[vaoId] == 0)
+			glDeleteVertexArray( 1, &vaoId );
 	}
 }
 
-void gl_retained_object_manager::inc_vbo_entry( const GLuint vaoId, const GLuint vboId ) {
+void gl_retained_object_manager::inc_vbo_entry( const std::pair<const GLuint, const GLuint>& key ) {
+	GLuint vaoId = key.first;
+	GLuint vboId = key.second;
+
 	assert( vaoId != 0 && vboId != 0 );
 
 	if( vaoId != 0 && vboId != 0 ) {
 		std::pair<const GLuint, const GLuint> key( vaoId, vboId );
 
-		if( m_vboCount.find( key ) != m_vboCount.end() ) {
+		if( m_vboCount.find( key ) == m_vboCount.end() ) {
 			m_vboCount.insert( std::pair< const std::pair<const GLuint, const GLuint>, unsigned int>( key, 1 ) );
 		} else {
 			m_vboCount[key] += 1;
@@ -133,8 +173,9 @@ void gl_retained_object_manager::inc_vbo_entry( const GLuint vaoId, const GLuint
 	}
 }
 
-void gl_retained_object_manager::dec_vbo_entry( const GLuint vaoId, const GLuint vboId ) {
-	std::pair<const GLuint, const GLuint> key( vaoId, vboId );
+void gl_retained_object_manager::dec_vbo_entry( const std::pair<const GLuint, const GLuint>& key ) {
+	GLuint vaoId = key.first;
+	GLuint vboId = key.second;
 
 	assert( vaoId != 0 && vboId != 0 && m_vboCount.find( key ) != m_vboCount.end() );
 
@@ -145,6 +186,9 @@ void gl_retained_object_manager::dec_vbo_entry( const GLuint vaoId, const GLuint
 		}
 
 		m_vboCount[key] -= 1;
+
+		if( m_vboCount[key] == 0 )
+			glDeleteBuffers( 1, &(key.second) );
 	}
 }
 

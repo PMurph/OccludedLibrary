@@ -22,7 +22,7 @@ class gl_retained_object_manager
 private:
 	static gl_retained_object_manager object_manager;
 
-	std::map<GLuint, unsigned int> m_vaoCount;
+	std::map<const GLuint, unsigned int> m_vaoCount;
 	std::map< const std::pair<const GLuint, const GLuint>, unsigned int > m_vboCount;
 
 public:
@@ -85,6 +85,31 @@ public:
 	const GLuint get_new_vbo( const GLuint vaoId );
 
 	/**
+	 * \fn add_ref_to_vbo
+	 * \brief Adds a reference to a vbo.
+	 *
+	 * \param vaoId A constant GLuint that represents the vao's id that the vbo is associated with.
+	 * \param vboId A constant GLuint that represents the vbo's id
+	 *
+	 * Incremenets the reference count to the OpenGL vertex buffer object specified by the vaoId and vboId parameters. Throws an exception 
+	 * if there is no vao associated with the vaoId parameter. Throws an exception if there is no vbo associated with the vboId parameter.
+	 */
+	void add_ref_to_vbo( const GLuint vaoId, const GLuint vboId );
+
+	/**
+	 * \fn remove_ref_to_vbo
+	 * \brief Removes a reference to a vbo.
+	 *
+	 * \param vaoId A constant GLuint that represents the vao's id that the vbo is associated with.
+	 * \param vboId A constant GLuint that represents the vbo's id
+	 *
+	 * Decremenents the refrence count to the OpenGL vertex buffer object specified by the vaoId and vboId parameter. If the reference count is 
+	 * reduced to 0, the OpenGL vertex buffer object is removed so that memory can be freed. Throws an exception if there is no vbo associated with the 
+	 * vboId parameter. Throw an exception if there is no vbo associated with the vboId parameter.
+	 */
+	void remove_ref_to_vbo( const GLuint vaoId, const GLuint vboId );
+
+	/**
 	 * \fn check_valid_vbo_id
 	 * \brief Checks to see if a vao id and vbo id corresponds to a valid vbo.
 	 *
@@ -135,21 +160,19 @@ private:
 	 * \fn inc_vbo_entry
 	 * \brief Increments a vbo ref count by 1.
 	 *
-	 * \param vaoId A constant GLuint representing the id of the vao.
-	 * \param vboId A constant GLuint representing the id of the vbo.
+	 * \param key A reference to a constant pair of constant GLuints representing the vao id and vbo id that the reference will be added to.
 	 */
-	void inc_vbo_entry( const GLuint vaoId, const GLuint vboId );
+	void inc_vbo_entry( const std::pair<const GLuint, const GLuint>& key );
 
 	/**
 	 * \fn dec_vbo_entry
 	 * \brief Decrements the vbo ref count by 1.
 	 *
-	 * \param vaoId A constant GLuint representing the id of the vao.
-	 * \param vboId A constant GLuint representing the id of the vbo.
+	 * \param key A reference to a constant pair of constant GLuints representing the vao id and vbo id that the reference will be removed from.
 	 *
 	 * Decrements the vbo ref count associated with vaoId and vboId parameters by 1. Throws an exception if the ref count is equal to 0.
 	 */
-	void dec_vbo_entry( const GLuint vaoId, const GLuint vboId );
+	void dec_vbo_entry( const std::pair<const GLuint, const GLuint>& key );
 };
 
 } // end of retained namespace

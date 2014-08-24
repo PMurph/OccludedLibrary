@@ -70,7 +70,10 @@ namespace OccludedLibraryUnitTests
 			} catch( const std::runtime_error& ){
 			}
 
-			// TODO: Need a test for when the ref count is reduced to 0
+			monitor.remove_ref_to_vao( testVaoId );
+
+			// Check to make sure false is returned for a vaoId that has had its reference count to 0
+			Assert::IsFalse( monitor.check_valid_vao_id( testVaoId ) );
 		}
 
 		TEST_METHOD( gl_retained_object_manager_gen_new_vbo_test )
@@ -135,7 +138,9 @@ namespace OccludedLibraryUnitTests
 			} catch( const std::exception& ) {
 			}
 
-			// TODO: Test for when object is destroyed
+			try {
+			} catch( const std::exception& ) {
+			}
 		}
 
 		TEST_METHOD( gl_retained_object_manager_add_ref_to_vao_test )
@@ -216,6 +221,126 @@ namespace OccludedLibraryUnitTests
 			// to 1
 			try {
 				manager.remove_ref_to_vao( testVaoId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_object_manager_add_ref_to_vbo_test )
+		{
+			GLuint testVaoId = 0;
+			GLuint testVboId = 0;
+
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+
+			testVaoId = manager.get_new_vao();
+			testVboId = manager.get_new_vbo( testVaoId );
+
+			// Test to make sure that no exception is thrown if an valid vao id and vbo id is passed as parameters
+			try {
+				manager.add_ref_to_vbo( testVaoId, testVboId );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
+
+			// Test to make sure that an exception is thrown if an invalid vbo id is passed as a parameters
+			try {
+				manager.add_ref_to_vbo( testVaoId, static_cast<GLuint>( 3245 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure that an exception is thrown if an invalid vao id is passed as a parameter
+			try {
+				manager.add_ref_to_vbo( static_cast<GLuint> ( 4325 ), testVboId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if 0 is passed as the vao id
+			try {
+				manager.add_ref_to_vbo( static_cast<GLuint>( 0 ), testVboId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if 0 is passed as the vbo id
+			try {
+				manager.add_ref_to_vbo( testVaoId, static_cast<GLuint>( 0 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			manager.remove_ref_to_vbo( testVaoId, testVboId );
+			manager.remove_ref_to_vbo( testVaoId, testVboId );
+
+			// Test make sure an exception is thrown if a reference is added to a vbo that has had its reference count reduced to 0
+			try {
+				manager.add_ref_to_vbo( testVaoId, testVboId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_object_manager_remove_ref_to_vbo_test )
+		{
+			GLuint testVaoId = 0;
+			GLuint testVboId = 0;
+
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+
+			testVaoId = manager.get_new_vao();
+			testVboId = manager.get_new_vbo( testVaoId );
+
+			// Test to make sure an exception is thrown if an invalid vbo id is passed as a parameter
+			try {
+				manager.remove_ref_to_vbo( testVaoId, static_cast<GLuint>( 5467 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if an invalid vao id is passed as a parameter
+			try {
+				manager.remove_ref_to_vbo( static_cast<GLuint>( 6657 ), testVboId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if 0 is passed as the vaoid parameter
+			try {
+				manager.remove_ref_to_vbo( static_cast<GLuint>( 0 ), testVboId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if 0 is passed as the vboid parameter
+			try {
+				manager.remove_ref_to_vbo( testVaoId, static_cast<GLuint>( 0 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is not thrown if a valid vbo and vao are passed as parameters to remove_ref_to_vbo
+			try {
+				manager.remove_ref_to_vbo( testVaoId, testVboId );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
+
+			// Test to make sure an exception is thrown if a reference count to a valid vbo is already at 0 and a reference count is attempted to
+			// be removed from it
+			try {
+				manager.remove_ref_to_vbo( testVaoId, testVboId );
 
 				Assert::Fail();
 			} catch( const std::exception& ) {
