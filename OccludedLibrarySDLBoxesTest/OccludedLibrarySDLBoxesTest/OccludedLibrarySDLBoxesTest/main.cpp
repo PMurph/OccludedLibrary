@@ -29,6 +29,8 @@ int main( int argc, char** argv ) {
 
 	program_loop( boxes );
 
+	occluded::opengl::retained::gl_retained_object_manager::get_manager().remove_ref_to_vao( vao );
+
 	SDL_GL_DeleteContext( ctxt );
 	SDL_DestroyWindow( win );
 
@@ -136,11 +138,11 @@ void init_shader_program( std::auto_ptr<const occluded::shader_program>& shaderP
 }
 
 void init_boxes( std::vector<box>& boxes, const std::auto_ptr<const occluded::shader_program>& shaderProg ) {
+	occluded::opengl::retained::gl_retained_object_manager& manager = occluded::opengl::retained::gl_retained_object_manager::get_manager();
 	occluded::buffers::attributes::attribute_map boxMap( true );
 	init_box_map( boxMap );
 
-	glGenVertexArrays( 1, &vao );
-	assert( GL_NO_ERROR == glGetError() );
+	vao = manager.get_new_vao();
 
 	glBindVertexArray( vao );
 	assert( GL_NO_ERROR == glGetError() );

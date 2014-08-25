@@ -2,10 +2,11 @@
 
 namespace occluded { namespace opengl { namespace retained {
 
-gl_retained_mesh::gl_retained_mesh( const occluded::buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, 
+gl_retained_mesh::gl_retained_mesh( const GLuint vaoId, const occluded::buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, 
 	const buffer_usage_t usage, const primitive_type_t primitiveType ):
+	m_vaoId( vaoId ),
 	m_shaderProg( shaderProg ),
-	m_buffer( gl_attribute_buffer( map, shaderProg, usage ) ),
+	m_buffer( gl_attribute_buffer( vaoId, map, shaderProg, usage ) ),
 	m_primitiveType( primitiveType ),
 	m_numFaces( 0 ),
 	m_indices( 0 )
@@ -13,8 +14,9 @@ gl_retained_mesh::gl_retained_mesh( const occluded::buffers::attributes::attribu
 	init_buffer();
 }
 
-gl_retained_mesh::gl_retained_mesh( const shaders::shader_program& shaderProg, gl_attribute_buffer& buffer, const std::vector<unsigned int>& faces,
-	const primitive_type_t primitiveType ):
+gl_retained_mesh::gl_retained_mesh( const GLuint vaoId, const shaders::shader_program& shaderProg, gl_attribute_buffer& buffer, 
+	const std::vector<unsigned int>& faces, const primitive_type_t primitiveType ):
+	m_vaoId( vaoId ),
 	m_shaderProg( shaderProg ),
 	m_buffer( buffer ),
 	m_primitiveType( primitiveType ),
@@ -27,6 +29,10 @@ gl_retained_mesh::gl_retained_mesh( const shaders::shader_program& shaderProg, g
 
 gl_retained_mesh::~gl_retained_mesh()
 {
+	gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+
+	manager.remove_ref_to_vbo( m_vaoId, m_bufferId );
+	manager.remove_ref_to_vao( m_vaoId );
 }
 
 void gl_retained_mesh::draw() const {
@@ -127,7 +133,10 @@ const unsigned int gl_retained_mesh::num_verts_for_next_face( const unsigned int
 // Private Member Functions
 
 void gl_retained_mesh::init_buffer() {
-	glGenBuffers( 1, &m_bufferID );
+	gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+	
+	manager.add_ref_to_vao( m_vaoId );
+	m_bufferId = manager.get_new_vbo( m_vaoId );
 
 	if( GL_NO_ERROR != glGetError() ) {
 		throw std::runtime_error( "gl_retained_mesh.init_buffer: Failed to initialize buffer because OpenGL entered an error state when trying "
@@ -138,10 +147,11 @@ void gl_retained_mesh::init_buffer() {
 }
 
 void gl_retained_mesh::bind_buffer() const {
-	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, m_bufferID );
+	glBindVertexArray( m_vaoId );
+	glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, m_bufferId );
 
 	if( GL_NO_ERROR != glGetError() ) {
-		throw std::runtime_error( "gl_retained_mesh.bind_buffer: Failed to bind buffer(" + boost::lexical_cast<std::string>( m_bufferID ) + 
+		throw std::runtime_error( "gl_retained_mesh.bind_buffer: Failed to bind buffer(" + boost::lexical_cast<std::string>( m_bufferId ) + 
 			") to element array target because OpenGL entered an error state after attempting to bind buffer." );
 	}
 
@@ -151,7 +161,7 @@ void gl_retained_mesh::bind_buffer() const {
 	}
 
 	if( GL_NO_ERROR != glGetError() ) {
-		throw std::runtime_error( "gl_retained_mesh.bind_buffer: Failed to bind buffer(" + boost::lexical_cast<std::string>( m_bufferID ) +
+		throw std::runtime_error( "gl_retained_mesh.bind_buffer: Failed to bind buffer(" + boost::lexical_cast<std::string>( m_bufferId ) +
 			") because OpenGL entered an error state after attempting to specify the data used for the indices." );
 	}
 }

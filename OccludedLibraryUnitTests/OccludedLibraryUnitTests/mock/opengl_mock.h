@@ -149,7 +149,7 @@ inline void glDeleteShader( GLuint shader ) {}
 inline void glDeleteProgram( GLuint program ) {}
 inline void glUseProgram( GLuint program ) {}
 inline void glLinkProgram( GLuint program ) {}
-inline void glDeleteVertexArray( GLsizei n, const GLuint* arrays ) {}
+inline void glDeleteVertexArrays( GLsizei n, const GLuint* arrays ) {}
 inline void glDeleteBuffers( GLsizei n, const GLuint* buffers ) {}
 inline void glUniform3fv( GLint location, GLsizei count, const GLfloat *value ) {}
 inline void glUniformMatrix4fv( GLint location, GLsizei count, GLboolean transpose, const GLfloat *value ) {}

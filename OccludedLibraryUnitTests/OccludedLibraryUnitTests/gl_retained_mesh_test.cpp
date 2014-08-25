@@ -17,6 +17,8 @@ namespace OccludedLibraryUnitTests
 	public:
 		TEST_CLASS_INITIALIZE( gl_retained_mesh_init )
 		{
+			errorState = false;
+
 			std::string src( "Not Empty" );
 
 			shaders.push_back( boost::shared_ptr<shader>( new shader( src, vert_shader ) ) );
@@ -26,17 +28,23 @@ namespace OccludedLibraryUnitTests
 		TEST_METHOD_CLEANUP( gl_retained_mesh_method_cleanup )
 		{
 			errorState = false;
+
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			manager.delete_objects();
 		}
 
 		TEST_METHOD( gl_retained_mesh_constructor_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			std::auto_ptr<shader_program> shaderProg( new shader_program( shaders ) );
 
 			attribute_map testMap( true );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 
 			try {
-				gl_retained_mesh testMesh( testMap, *shaderProg, static_draw_usage );
+				gl_retained_mesh testMesh( vaoId, testMap, *shaderProg, static_draw_usage );
 
 				// Test to make sure an exception is thrown when a attribute_map passed to the constructor is still being defined
 				Assert::Fail();
@@ -48,7 +56,7 @@ namespace OccludedLibraryUnitTests
 			testMap.end_definition();
 
 			try {
-				gl_retained_mesh testMesh( testMap, *shaderProg );
+				gl_retained_mesh testMesh( vaoId, testMap, *shaderProg );
 
 				// Test to make sure an exception is thrown if OpenGL is in an error state
 				Assert::Fail();
@@ -58,6 +66,9 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_add_vertices_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 			
 			attribute_map testMap( true );
@@ -65,7 +76,7 @@ namespace OccludedLibraryUnitTests
 			testMap.add_attribute( attribute( "test2", 1, attrib_uint ) );
 			testMap.end_definition();
 
-			gl_retained_mesh glMesh( testMap, shaderProg, static_draw_usage );
+			gl_retained_mesh glMesh( vaoId, testMap, shaderProg, static_draw_usage );
 			
 			std::vector<char> data( 3 * sizeof( float ) + 2 * sizeof( unsigned int ) );
 
@@ -106,13 +117,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_add_face_invalid_param_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute ( "test", 1, attrib_float ) );
 			testMap.end_definition();
 
-			gl_retained_mesh glMesh( testMap, shaderProg );
+			gl_retained_mesh glMesh( vaoId, testMap, shaderProg );
 
 			std::vector<unsigned int> indices( 3 );
 			indices[0] = 0; indices[1] = 1; indices[2] = 2;
@@ -152,13 +166,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_add_face_invalid_number_of_indices_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_uint ) );
 			testMap.end_definition();
 
-			gl_retained_mesh testMesh1( testMap, shaderProg );
+			gl_retained_mesh testMesh1( vaoId, testMap, shaderProg );
 			std::vector<char> testVertices( 3 * sizeof( unsigned int ) );
 			std::vector<unsigned int> testIndices( 1 );
 			memset( &testIndices[0], 0, sizeof( unsigned int ) );
@@ -192,7 +209,7 @@ namespace OccludedLibraryUnitTests
 			} catch( const std::exception& ) {
 			}
 
-			gl_retained_mesh testMesh2( testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
+			gl_retained_mesh testMesh2( vaoId, testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
 			testVertices.resize( 3 * sizeof( unsigned int )  );
 			testIndices.resize( 2 );
 			testIndices[0] = 0;
@@ -233,13 +250,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_get_num_faces_test ) 
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
 
-			gl_retained_mesh testMesh( testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
+			gl_retained_mesh testMesh( vaoId, testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
 			std::vector<char> vertices( 4 * sizeof( float ) );
 			std::vector<unsigned int> indices( 3 );
 
@@ -287,13 +307,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_add_face_correct_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
 
-			gl_retained_mesh testMesh( testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
+			gl_retained_mesh testMesh( vaoId, testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
 			std::vector<char> vertices( 4 * sizeof( float ) );
 			std::vector<unsigned int> indices( 3 );
 
@@ -320,13 +343,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_add_faces_invalid_param_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
 
-			gl_retained_mesh testMesh( testMap, shaderProg );
+			gl_retained_mesh testMesh( vaoId, testMap, shaderProg );
 			std::vector<char> vertices( 5 * sizeof( float ) );
 			std::vector<unsigned int> indices( 6 );
 
@@ -372,13 +398,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_add_faces_valid_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
 
-			gl_retained_mesh testMesh( testMap, shaderProg );
+			gl_retained_mesh testMesh( vaoId, testMap, shaderProg );
 			std::vector<char> vertices( 5 * sizeof( float ) );
 			std::vector<unsigned int> indices( 6 );
 
@@ -399,7 +428,7 @@ namespace OccludedLibraryUnitTests
 			Assert::AreEqual( facesAdded[0], static_cast<unsigned int>( 0 ) );
 			Assert::AreEqual( facesAdded[1], static_cast<unsigned int>( 1 ) );
 
-			gl_retained_mesh testMesh2( testMap, shaderProg, static_draw_usage, primitive_triangle_strip );
+			gl_retained_mesh testMesh2( vaoId, testMap, shaderProg, static_draw_usage, primitive_triangle_strip );
 
 			testMesh2.add_vertices( vertices );
 			indices.resize( 5 );
@@ -423,13 +452,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_num_verts_for_next_face_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_float ) );
 			testMap.end_definition();
 
-			gl_retained_mesh testMesh( testMap, shaderProg );
+			gl_retained_mesh testMesh( vaoId, testMap, shaderProg );
 			std::vector<char> vertices( 5 * sizeof( float ) );
 			std::vector<unsigned int> indices( 3 );
 
@@ -449,14 +481,14 @@ namespace OccludedLibraryUnitTests
 			// initial face as well as subsequent faces
 			Assert::AreEqual( testMesh.num_verts_for_next_face( testMesh.get_num_faces() ), static_cast<unsigned int>( 3 ) );
 
-			gl_retained_mesh testMesh2( testMap, shaderProg, static_draw_usage, primitive_lines );
+			gl_retained_mesh testMesh2( vaoId, testMap, shaderProg, static_draw_usage, primitive_lines );
 
 			testMesh2.add_vertices( vertices );
 
 			// Make sure the correct number is returned if a primitive with different vertice requirements for its faces is used
 			Assert::AreEqual( testMesh2.num_verts_for_next_face( testMesh2.get_num_faces() ), static_cast<unsigned int>( 2 ) );
 
-			gl_retained_mesh testMesh3( testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
+			gl_retained_mesh testMesh3( vaoId, testMap, shaderProg, static_draw_usage, primitive_triangle_fan );
 
 			testMesh3.add_vertices( vertices );
 			testMesh3.add_face( indices );
@@ -468,13 +500,16 @@ namespace OccludedLibraryUnitTests
 
 		TEST_METHOD( gl_retained_mesh_draw_test )
 		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint vaoId = manager.get_new_vao();
+
 			shader_program shaderProg( shaders );
 
 			attribute_map testMap( false );
 			testMap.add_attribute( attribute( "test", 1, attrib_uint ) );
 			testMap.end_definition();
 
-			gl_retained_mesh testMesh( testMap, shaderProg );
+			gl_retained_mesh testMesh( vaoId, testMap, shaderProg );
 
 			try {
 				testMesh.draw();

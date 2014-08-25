@@ -52,12 +52,14 @@ private:
 	std::vector<unsigned int> m_indices;
 
 	unsigned int m_numFaces;
-	GLuint m_bufferID;
+	GLuint m_vaoId;
+	GLuint m_bufferId;
 
 public:
 	/**
 	 * \brief Initializes an empty mesh.
 	 *
+	 * \param vaoId A constant GLuint that represents the id of an OpenGL vertex attribute object
 	 * \param map A reference to the attribute map that will be used to store vertex data.
 	 * \param shaderProg A refernce to a shader program that will be used to render the mesh.
 	 * \param usage A buffer usage type that specifies how the vertex and index data will be used.
@@ -67,12 +69,13 @@ public:
 	 * constructing the mesh is primitive_triangles. This constructor is to be used if the mesh is to be built up from scratch. An exception will be
 	 * thrown in the attribute map is still being defined or if the shader program has not been linked.
 	 */
-	gl_retained_mesh( const occluded::buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, 
+	gl_retained_mesh( const GLuint vaoId, const occluded::buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, 
 		const buffer_usage_t usage = static_draw_usage, const primitive_type_t primitiveType = primitive_triangles );
 
 	/**
 	 * \brief Initializes an mesh.
 	 *
+	 * \param vaoId A constant GLuint that represents the if of an OpenGL vertex attribute object.
 	 * \param shaderProg A reference to a shader program that will be used to render the mesh.
 	 * \param buffer A reference to a gl_attribute_buffer which stores the vertice data.
 	 * \param faces A reference to a vector of unsigned integers representing the vertices that make up the faces of the mesh.
@@ -82,7 +85,7 @@ public:
 	 * primitive_triangles. This constructor is to be used if the mesh is to be pre-built or to be built up from another mesh. An exception will be
 	 * thrown in the attribute map is still being defined or if the shader program has not been linked.
 	 */
-	gl_retained_mesh( const shaders::shader_program& shaderProg, gl_attribute_buffer& buffer, const std::vector<unsigned int>& faces,
+	gl_retained_mesh( const GLuint vaoId, const shaders::shader_program& shaderProg, gl_attribute_buffer& buffer, const std::vector<unsigned int>& faces,
 		const primitive_type_t primitiveType = primitive_triangles );
 	~gl_retained_mesh();
 

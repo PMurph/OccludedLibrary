@@ -6,6 +6,7 @@
 #include "opengl_mock.h"
 #endif
 
+#include "gl_retained_object_manager.h"
 #include "../../buffers/attribute_buffer_factory.h"
 #include "shaders/shader_attribute_map.h"
 
@@ -35,9 +36,7 @@ typedef enum BUFFER_USAGE {
 class gl_attribute_buffer
 {
 private:
-	// Need to maintain a count of references to a buffer with a particular buffer id, so it is not cleaned up when it is still in use
-	static std::map<GLuint, unsigned int> refCounts; 
-
+	GLuint m_vaoId;
 	GLuint m_id;
 	buffer_usage_t m_usage;
 
@@ -59,6 +58,7 @@ public:
 	/**
 	 * \brief Creates the buffer.
 	 *
+	 * \param vaoId A constant GLuint representing an OpenGL vertex array object id.
 	 * \param map A reference to an attribute map.
 	 * \param shaderProg A reference to a shader program.
 	 * \param usage A enumerable that will be used to tell OpenGL how the buffer will be used.
@@ -67,7 +67,8 @@ public:
 	 * as an array buffer. An exception is thrown if the shaderProg is not linked or the map is still being defined. The default value for
 	 * the usage parameter is static_draw_usage.
 	 */
-	gl_attribute_buffer( const buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, const buffer_usage_t usage );
+	gl_attribute_buffer( const GLuint vaoId, const buffers::attributes::attribute_map& map, const shaders::shader_program& shaderProg, 
+		const buffer_usage_t usage );
 	~gl_attribute_buffer();
 	
 	/**

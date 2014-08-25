@@ -73,6 +73,7 @@ const GLuint gl_retained_object_manager::get_new_vbo( const GLuint vaoId ) {
 		throw std::runtime_error( "gl_retained_object_manager.get_new_vbo: Failed to generate a vertex buffer object because of an error in OpenGL" );
 
 	inc_vbo_entry( std::pair<const GLuint, const GLuint>( vaoId, vboId ) );
+	m_vaoCount[vaoId] += 1;
 
 	return vboId;
 }
@@ -137,7 +138,7 @@ gl_retained_object_manager::~gl_retained_object_manager()
 void gl_retained_object_manager::delete_vaos() {
 	for( std::map< const GLuint, unsigned int>::iterator it = m_vaoCount.begin(); it != m_vaoCount.end(); ++it ) {
 		if( it->second != 0 ) {
-			glDeleteVertexArray( 1, &(it->first) );
+			glDeleteVertexArrays( 1, &(it->first) );
 
 			assert( GL_NO_ERROR == glGetError() );
 
@@ -183,7 +184,7 @@ void gl_retained_object_manager::dec_vao_entry( const GLuint vaoId ) {
 		m_vaoCount[vaoId] -= 1;
 
 		if( m_vaoCount[vaoId] == 0 )
-			glDeleteVertexArray( 1, &vaoId );
+			glDeleteVertexArrays( 1, &vaoId );
 	}
 }
 
@@ -218,8 +219,11 @@ void gl_retained_object_manager::dec_vbo_entry( const std::pair<const GLuint, co
 
 		m_vboCount[key] -= 1;
 
-		if( m_vboCount[key] == 0 )
+		if( m_vboCount[key] == 0 ) {
+			glBindVertexArray( key.first );
+
 			glDeleteBuffers( 1, &(key.second) );
+		}
 	}
 }
 
