@@ -13,62 +13,26 @@ Stores uniform values for a particular shader program.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a862db8afb99f17ec1b14c3e9a882618e}{shader\+\_\+uniform\+\_\+store} (const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program} \&shader\+Prog)
-\begin{DoxyCompactList}\small\item\em Initializes an empty uniform store. \end{DoxyCompactList}\item 
-\hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a7503a430211c435021dbbe9628cb4e40}{shader\+\_\+uniform\+\_\+store} (const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program} \&shader\+Prog, const std\+::vector$<$ std\+::pair$<$ const std\+::string, const uniform\+\_\+value $>$ $>$ \&values)
-\begin{DoxyCompactList}\small\item\em Initializes an uniform store and populates it. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a3fb24f0d04b2f34c2013f9c272ba662b}{add\+\_\+uniform} (const std\+::string \&name, const uniform\+\_\+value \&value)
 \begin{DoxyCompactList}\small\item\em Adds a new uniform value to the uniform store. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_adc43de912769b10941eb93b407d8662d}{set\+\_\+uniform\+\_\+value} (const std\+::string \&name, const uniform\+\_\+value \&value)
 \begin{DoxyCompactList}\small\item\em Sets the value of a uniform. \end{DoxyCompactList}\item 
-void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a3b451f197b65ba65077a8d2d368bae41}{pass\+\_\+to\+\_\+shader} () const 
-\begin{DoxyCompactList}\small\item\em Passes the uniform values to the shader program. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a6d43a547f065e6fdbaa37faab77ef924}{has\+\_\+uniform} (const std\+::string \&name) const 
+\begin{DoxyCompactList}\small\item\em Checks to see if a uniform has a value in the store. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\const T \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a69ee4a0dd33e31fcf4ea0e82acf0f2db}{get\+\_\+value} (const std\+::string \&name) const 
 \begin{DoxyCompactList}\small\item\em Gets the value of a uniform. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a305cb8478e7b7488a0d45898e8cdb0a2}{class {\bfseries shader\+\_\+program}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a305cb8478e7b7488a0d45898e8cdb0a2}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Stores uniform values for a particular shader program. 
 
 Stores the uniform values for a particular shader program by maintaining a mapping from uniforms' names to their values. This class provides a way of storing all the uniform values of a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program}. By convention any name provided will be converted to the uniform equivalent which has a u prefixed to the beginning and the first letter of the original name capitalized( \char`\"{}model\char`\"{} becomes \char`\"{}u\+Model\char`\"{} ). 
-
-\subsection{Constructor \& Destructor Documentation}
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a862db8afb99f17ec1b14c3e9a882618e}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!shader\+\_\+uniform\+\_\+store@{shader\+\_\+uniform\+\_\+store}}
-\index{shader\+\_\+uniform\+\_\+store@{shader\+\_\+uniform\+\_\+store}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}}
-\subsubsection[{shader\+\_\+uniform\+\_\+store}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store\+::shader\+\_\+uniform\+\_\+store (
-\begin{DoxyParamCaption}
-\item[{const {\bf shader\+\_\+program} \&}]{shader\+Prog}
-\end{DoxyParamCaption}
-)}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a862db8afb99f17ec1b14c3e9a882618e}
-
-
-Initializes an empty uniform store. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em shader\+Prog} & A reference to a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program}. \\
-\hline
-\end{DoxyParams}
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a7503a430211c435021dbbe9628cb4e40}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!shader\+\_\+uniform\+\_\+store@{shader\+\_\+uniform\+\_\+store}}
-\index{shader\+\_\+uniform\+\_\+store@{shader\+\_\+uniform\+\_\+store}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}}
-\subsubsection[{shader\+\_\+uniform\+\_\+store}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store\+::shader\+\_\+uniform\+\_\+store (
-\begin{DoxyParamCaption}
-\item[{const {\bf shader\+\_\+program} \&}]{shader\+Prog, }
-\item[{const std\+::vector$<$ std\+::pair$<$ const std\+::string, const uniform\+\_\+value $>$ $>$ \&}]{values}
-\end{DoxyParamCaption}
-)}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a7503a430211c435021dbbe9628cb4e40}
-
-
-Initializes an uniform store and populates it. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em shader\+Prog} & A reference to a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program}. \\
-\hline
-{\em values} & A reference to a vector of values to populate the store with. \\
-\hline
-\end{DoxyParams}
-
 
 \subsection{Member Function Documentation}
 \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a3fb24f0d04b2f34c2013f9c272ba662b}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!add\+\_\+uniform@{add\+\_\+uniform}}
@@ -85,7 +49,7 @@ Adds a new uniform value to the uniform store.
 
 
 \begin{DoxyParams}{Parameters}
-{\em name} & A reference to string representing the name of the uniform value to be stored. \\
+{\em name} & A reference to a string representing the name of the uniform value to be stored. \\
 \hline
 {\em value} & A refrence to the value to be added.\\
 \hline
@@ -109,18 +73,26 @@ Gets the value of a uniform.
 \begin{DoxyReturn}{Returns}
 A value of type T representing the current value of the uniform.
 \end{DoxyReturn}
-Gets the current value stored in the uniform store for a specified uniform. If a uniform name is passed that isn't part of the uniform store, an exception will be thrown. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a3b451f197b65ba65077a8d2d368bae41}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!pass\+\_\+to\+\_\+shader@{pass\+\_\+to\+\_\+shader}}
-\index{pass\+\_\+to\+\_\+shader@{pass\+\_\+to\+\_\+shader}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}}
-\subsubsection[{pass\+\_\+to\+\_\+shader}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store\+::pass\+\_\+to\+\_\+shader (
+Gets the current value stored in the uniform store for a specified uniform. If a uniform name is passed that isn't part of the uniform store, an exception will be thrown. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a6d43a547f065e6fdbaa37faab77ef924}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!has\+\_\+uniform@{has\+\_\+uniform}}
+\index{has\+\_\+uniform@{has\+\_\+uniform}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}}
+\subsubsection[{has\+\_\+uniform}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store\+::has\+\_\+uniform (
 \begin{DoxyParamCaption}
-{}
+\item[{const std\+::string \&}]{name}
 \end{DoxyParamCaption}
-) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a3b451f197b65ba65077a8d2d368bae41}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_a6d43a547f065e6fdbaa37faab77ef924}
 
 
-Passes the uniform values to the shader program. 
+Checks to see if a uniform has a value in the store. 
 
-Passes the uniform values to shader program, so that they can be used to render a scene. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_adc43de912769b10941eb93b407d8662d}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!set\+\_\+uniform\+\_\+value@{set\+\_\+uniform\+\_\+value}}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & A reference to a string representing the name of the uniform value. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a bool representing whether or not the uniform is in the uniform store. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store_adc43de912769b10941eb93b407d8662d}{\index{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}!set\+\_\+uniform\+\_\+value@{set\+\_\+uniform\+\_\+value}}
 \index{set\+\_\+uniform\+\_\+value@{set\+\_\+uniform\+\_\+value}!occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store@{occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store}}
 \subsubsection[{set\+\_\+uniform\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::shaders\+::shader\+\_\+uniform\+\_\+store\+::set\+\_\+uniform\+\_\+value (
 \begin{DoxyParamCaption}

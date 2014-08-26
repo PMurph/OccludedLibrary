@@ -1,0 +1,91 @@
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera}{\section{occluded\+:\+:opengl\+:\+:retained\+:\+:scene\+:\+:objects\+:\+:gl\+\_\+retained\+\_\+camera Class Reference}
+\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera}\index{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera@{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera}}
+}
+
+
+An abstract Open\+G\+L camera class which contains the necessary method that any retained camera will use.  
+
+
+
+
+{\ttfamily \#include $<$gl\+\_\+retained\+\_\+camera.\+h$>$}
+
+Inheritance diagram for occluded\+:\+:opengl\+:\+:retained\+:\+:scene\+:\+:objects\+:\+:gl\+\_\+retained\+\_\+camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_ac1db6211eadc863ce4a8a58b0e56eb19}{{\bfseries gl\+\_\+retained\+\_\+camera} (const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program} \&shader\+Prog, const glm\+::mat4 \&projection, const glm\+::mat4 \&view)}\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_ac1db6211eadc863ce4a8a58b0e56eb19}
+
+\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a9d8b99eb5ce9b41dd937628be26bfbf8}{set\+\_\+shader\+\_\+program} (const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program} \&new\+Shader\+Prog)
+\begin{DoxyCompactList}\small\item\em Changes the shader program used by the camera. \end{DoxyCompactList}\item 
+const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program} \& \hyperlink{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_ae46ec6ddfd6d1144f3881ca8ca905fc8}{get\+\_\+shader\+\_\+program} () const 
+\begin{DoxyCompactList}\small\item\em Gets the shader\+\_\+program currently being used by this camera. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a22200a4a40ef97c4213b576283d29e9d}{void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a22200a4a40ef97c4213b576283d29e9d}{set\+\_\+uniform\+\_\+vals} () const }\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a22200a4a40ef97c4213b576283d29e9d}
+
+\begin{DoxyCompactList}\small\item\em Sets the view and projection uniforms of the shader\+\_\+program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a2791ba7456142bcf10413574c5019f76}{\hyperlink{classoccluded_1_1opengl_1_1retained_1_1scene_1_1nodes_1_1gl__retained__fixed__transformation}{nodes\+::gl\+\_\+retained\+\_\+fixed\+\_\+transformation} {\bfseries m\+\_\+projection}}\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a2791ba7456142bcf10413574c5019f76}
+
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_ab76197cac9c1a7d80dc5e7176d94d35c}{\hyperlink{classoccluded_1_1opengl_1_1retained_1_1scene_1_1nodes_1_1gl__retained__fixed__transformation}{nodes\+::gl\+\_\+retained\+\_\+fixed\+\_\+transformation} {\bfseries m\+\_\+view}}\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_ab76197cac9c1a7d80dc5e7176d94d35c}
+
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a9701f11b1eb2cdcca43796a093cc17cf}{boost\+::reference\+\_\+wrapper\\*
+$<$ const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shader\+\_\+program} $>$ {\bfseries m\+\_\+shader\+Prog}}\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a9701f11b1eb2cdcca43796a093cc17cf}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract Open\+G\+L camera class which contains the necessary method that any retained camera will use. 
+
+This is an abstract class for a camera that uses the Open\+G\+L retained mode to render objects in the scene. It provides a number of functions that are common to all retained cameras. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_ae46ec6ddfd6d1144f3881ca8ca905fc8}{\index{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera@{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera}!get\+\_\+shader\+\_\+program@{get\+\_\+shader\+\_\+program}}
+\index{get\+\_\+shader\+\_\+program@{get\+\_\+shader\+\_\+program}!occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera@{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera}}
+\subsubsection[{get\+\_\+shader\+\_\+program}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera\+::get\+\_\+shader\+\_\+program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_ae46ec6ddfd6d1144f3881ca8ca905fc8}
+
+
+Gets the shader\+\_\+program currently being used by this camera. 
+
+\begin{DoxyReturn}{Returns}
+A constant reference to the shader\+\_\+program currently being used. 
+\end{DoxyReturn}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a9d8b99eb5ce9b41dd937628be26bfbf8}{\index{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera@{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera}!set\+\_\+shader\+\_\+program@{set\+\_\+shader\+\_\+program}}
+\index{set\+\_\+shader\+\_\+program@{set\+\_\+shader\+\_\+program}!occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera@{occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera}}
+\subsubsection[{set\+\_\+shader\+\_\+program}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::scene\+::objects\+::gl\+\_\+retained\+\_\+camera\+::set\+\_\+shader\+\_\+program (
+\begin{DoxyParamCaption}
+\item[{const {\bf shader\+\_\+program} \&}]{new\+Shader\+Prog}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera_a9d8b99eb5ce9b41dd937628be26bfbf8}
+
+
+Changes the shader program used by the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Shader\+Program} & A reference to a shader\+\_\+program object.\\
+\hline
+\end{DoxyParams}
+Changes the shader program used by the camera to a new shader program. An exception is thrown if the new\+Shader\+Program is not a linked shader program. This is to make it so that when a scene contains multiple objects that use different shader programs, the projection and view uniforms for each shader program can be set quickly. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Occluded\+Library/opengl/retained/scene/objects/gl\+\_\+retained\+\_\+camera.\+h\item 
+Occluded\+Library/opengl/retained/scene/objects/gl\+\_\+retained\+\_\+camera.\+cpp\end{DoxyCompactItemize}

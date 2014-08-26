@@ -122,9 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae5e26c840ef863b9c5ff3ce438cb83a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#ae5e26c840ef863b9c5ff3ce438cb83a0">gl_attribute_buffer</a> (<a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a> &amp;other)</td></tr>
 <tr class="memdesc:ae5e26c840ef863b9c5ff3ce438cb83a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of the <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">gl_attribute_buffer</a>.  <a href="#ae5e26c840ef863b9c5ff3ce438cb83a0">More...</a><br /></td></tr>
 <tr class="separator:ae5e26c840ef863b9c5ff3ce438cb83a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22cdc11d70684a364895715b12293487"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a22cdc11d70684a364895715b12293487">gl_attribute_buffer</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;map, const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shaders::shader_program</a> &amp;shaderProg, const buffer_usage_t usage)</td></tr>
-<tr class="memdesc:a22cdc11d70684a364895715b12293487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the buffer.  <a href="#a22cdc11d70684a364895715b12293487">More...</a><br /></td></tr>
-<tr class="separator:a22cdc11d70684a364895715b12293487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210deb350ee2d7177e95d1b8e0a51c6c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#a210deb350ee2d7177e95d1b8e0a51c6c">gl_attribute_buffer</a> (const GLuint vaoId, const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;map, const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shaders::shader_program</a> &amp;shaderProg, const buffer_usage_t usage)</td></tr>
+<tr class="memdesc:a210deb350ee2d7177e95d1b8e0a51c6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the buffer.  <a href="#a210deb350ee2d7177e95d1b8e0a51c6c">More...</a><br /></td></tr>
+<tr class="separator:a210deb350ee2d7177e95d1b8e0a51c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd58deefb5659c0cd9a316263515b68f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html#afd58deefb5659c0cd9a316263515b68f">insert_values</a> (const std::vector&lt; char &gt; &amp;values)</td></tr>
 <tr class="memdesc:afd58deefb5659c0cd9a316263515b68f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts data into the buffer.  <a href="#afd58deefb5659c0cd9a316263515b68f">More...</a><br /></td></tr>
 <tr class="separator:afd58deefb5659c0cd9a316263515b68f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,13 +177,19 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a22cdc11d70684a364895715b12293487"></a>
+<a class="anchor" id="a210deb350ee2d7177e95d1b8e0a51c6c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">occluded::opengl::retained::gl_attribute_buffer::gl_attribute_buffer </td>
           <td>(</td>
+          <td class="paramtype">const GLuint&#160;</td>
+          <td class="paramname"><em>vaoId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">buffers::attributes::attribute_map</a> &amp;&#160;</td>
           <td class="paramname"><em>map</em>, </td>
         </tr>
@@ -210,6 +216,7 @@ Public Member Functions</h2></td></tr>
 <p>Creates the buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">vaoId</td><td>A constant GLuint representing an OpenGL vertex array object id. </td></tr>
     <tr><td class="paramname">map</td><td>A reference to an attribute map. </td></tr>
     <tr><td class="paramname">shaderProg</td><td>A reference to a shader program. </td></tr>
     <tr><td class="paramname">usage</td><td>A enumerable that will be used to tell OpenGL how the buffer will be used.</td></tr>
@@ -365,7 +372,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>opengl</b></li><li class="navelem"><b>retained</b></li><li class="navelem"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 19:45:38 for Occluded Library by
+    <li class="footer">Generated on Mon Aug 25 2014 22:44:27 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

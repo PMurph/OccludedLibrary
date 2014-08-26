@@ -119,60 +119,53 @@ $(document).ready(function(){initNavTree('shader_8h_source.html','');});
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;opengl_mock.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span>occluded { </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;../gl_retained_object_manager.h&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>opengl { <span class="keyword">namespace </span>retained { <span class="keyword">namespace </span>shaders {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace </span>occluded { </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> SHADER_TYPE {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    vert_shader = GL_VERTEX_SHADER,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    tess_control_shader = GL_TESS_CONTROL_SHADER,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    tess_eval_shader = GL_TESS_EVALUATION_SHADER,</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    geo_shader = GL_GEOMETRY_SHADER,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    frag_shader = GL_FRAGMENT_SHADER,</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    compute_shader = GL_COMPUTE_SHADER</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;} shader_type_t;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span>opengl { <span class="keyword">namespace </span>retained { <span class="keyword">namespace </span>shaders {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a> </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string OPEN_GL_ERROR_STATE_MSG;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a> </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> std::string OPEN_GL_ERROR_STATE_MSG;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::string m_shaderSrc;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    shader_type_t m_type;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    GLuint m_id;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> m_compiled;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::string m_compileLog;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::string m_shaderSrc;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    shader_type_t m_type;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    GLuint m_id;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> m_compiled;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::string m_compileLog;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#ac40b834734bf03a1c060f771b1741823">shader</a>( <span class="keyword">const</span> std::string&amp; shaderSrc, <span class="keyword">const</span> shader_type_t type );</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ~<a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a>();</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#ac40b834734bf03a1c060f771b1741823">shader</a>( <span class="keyword">const</span> std::string&amp; shaderSrc, <span class="keyword">const</span> shader_type_t type );</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    ~<a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a>();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> GLuint <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#a1694ca35f6ad85cf95a3f6b3c7b783e3">get_id</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#af1fe3fdd511da901ffa7665dad8a1d12">is_compiled</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">const</span> shader_type_t <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#af9befeaa32ea72f80d1c3825f4cd2f48">get_type</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#add6cda8459eb2a802e8eb22f70bbd1db">get_compile_log</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> compile_shader();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">const</span> GLuint <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#a1694ca35f6ad85cf95a3f6b3c7b783e3">get_id</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#af1fe3fdd511da901ffa7665dad8a1d12">is_compiled</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">const</span> shader_type_t <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#af9befeaa32ea72f80d1c3825f4cd2f48">get_type</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">const</span> std::string&amp; <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#add6cda8459eb2a802e8eb22f70bbd1db">get_compile_log</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> compile_shader();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> handle_compile_error();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;} <span class="comment">// end of shaders namespace</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;} <span class="comment">// end of retained namespace</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;} <span class="comment">// end of opengl namespace</span></div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> handle_compile_error();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;};</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;} <span class="comment">// end of shaders namespace</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;} <span class="comment">// end of retained namespace</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;} <span class="comment">// end of opengl namespace</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">typedef</span> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">opengl::retained::shaders::shader</a> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a>;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;} <span class="comment">// end of occluded namespace</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">typedef</span> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">opengl::retained::shaders::shader</a> <a class="code" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">shader</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;} <span class="comment">// end of occluded namespace</span></div>
 <div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_html_af9befeaa32ea72f80d1c3825f4cd2f48"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#af9befeaa32ea72f80d1c3825f4cd2f48">occluded::opengl::retained::shaders::shader::get_type</a></div><div class="ttdeci">const shader_type_t get_type() const </div><div class="ttdoc">Gets the type of the shader. </div><div class="ttdef"><b>Definition:</b> shader.cpp:32</div></div>
 <div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_html_a1694ca35f6ad85cf95a3f6b3c7b783e3"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#a1694ca35f6ad85cf95a3f6b3c7b783e3">occluded::opengl::retained::shaders::shader::get_id</a></div><div class="ttdeci">const GLuint get_id() const </div><div class="ttdoc">Gets the id of the shader. </div><div class="ttdef"><b>Definition:</b> shader.cpp:21</div></div>
-<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_html"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">occluded::opengl::retained::shaders::shader</a></div><div class="ttdoc">A wrapper class for an OpenGL shader. </div><div class="ttdef"><b>Definition:</b> shader.h:42</div></div>
+<div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_html"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html">occluded::opengl::retained::shaders::shader</a></div><div class="ttdoc">A wrapper class for an OpenGL shader. </div><div class="ttdef"><b>Definition:</b> shader.h:29</div></div>
 <div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_html_ac40b834734bf03a1c060f771b1741823"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#ac40b834734bf03a1c060f771b1741823">occluded::opengl::retained::shaders::shader::shader</a></div><div class="ttdeci">shader(const std::string &amp;shaderSrc, const shader_type_t type)</div><div class="ttdoc">Initializes and compiles the shader. </div><div class="ttdef"><b>Definition:</b> shader.cpp:5</div></div>
 <div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_html_add6cda8459eb2a802e8eb22f70bbd1db"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#add6cda8459eb2a802e8eb22f70bbd1db">occluded::opengl::retained::shaders::shader::get_compile_log</a></div><div class="ttdeci">const std::string &amp; get_compile_log() const </div><div class="ttdoc">Gets the compile log if a compilation error occurs. </div><div class="ttdef"><b>Definition:</b> shader.cpp:43</div></div>
 <div class="ttc" id="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader_html_af1fe3fdd511da901ffa7665dad8a1d12"><div class="ttname"><a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#af1fe3fdd511da901ffa7665dad8a1d12">occluded::opengl::retained::shaders::shader::is_compiled</a></div><div class="ttdeci">const bool is_compiled() const </div><div class="ttdoc">Returns true if the shader is compiled, and false otherwise. </div><div class="ttdef"><b>Definition:</b> shader.cpp:28</div></div>
@@ -182,7 +175,7 @@ $(document).ready(function(){initNavTree('shader_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_eb31cc02556c90539efbe1c6c599098c.html">OccludedLibrary</a></li><li class="navelem"><a class="el" href="dir_725cdbe3b0660c87c65dc4288272c312.html">opengl</a></li><li class="navelem"><a class="el" href="dir_c4ead09a1921a448dbfe4c6bb29a8d0e.html">retained</a></li><li class="navelem"><a class="el" href="dir_ab2ce609b7a18fd0d99181366bfd6a18.html">shaders</a></li><li class="navelem"><b>shader.h</b></li>
-    <li class="footer">Generated on Sun Jul 27 2014 19:45:32 for Occluded Library by
+    <li class="footer">Generated on Mon Aug 25 2014 22:44:21 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

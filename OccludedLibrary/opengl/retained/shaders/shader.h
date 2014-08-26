@@ -12,24 +12,11 @@
 #include "opengl_mock.h"
 #endif
 
+#include "../gl_retained_object_manager.h"
+
 namespace occluded { 
 
 namespace opengl { namespace retained { namespace shaders {
-
-/**
- * \enum shader_type_t
- * \brief An enum that stores the type of shader.
- *
- * An enum representing the type of shader. It is used to prevent the passing of an invalid shader type to the constructor.
- */
-typedef enum SHADER_TYPE {
-	vert_shader = GL_VERTEX_SHADER,
-	tess_control_shader = GL_TESS_CONTROL_SHADER,
-	tess_eval_shader = GL_TESS_EVALUATION_SHADER,
-	geo_shader = GL_GEOMETRY_SHADER,
-	frag_shader = GL_FRAGMENT_SHADER,
-	compute_shader = GL_COMPUTE_SHADER
-} shader_type_t;
 
 /**
  * \class shader

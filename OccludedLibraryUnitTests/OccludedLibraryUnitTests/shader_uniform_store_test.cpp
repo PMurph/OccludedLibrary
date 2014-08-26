@@ -16,6 +16,7 @@ namespace OccludedLibraryUnitTests
 		TEST_CLASS_INITIALIZE( shader_uniform_store_init )
 		{
 			errorState = false;
+			shaderCompileError = false;
 
 			shaders.push_back( boost::shared_ptr<const shader>( new shader( "Not Empty", vert_shader ) ) );
 			shaders.push_back( boost::shared_ptr<const shader>( new shader( "Not Empty", frag_shader ) ) );

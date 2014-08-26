@@ -128,12 +128,12 @@ Inheritance diagram for occluded::opengl::retained::gl_retained_mesh:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aab98caf76863522b8c67e3d2bb632592"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh.html#aab98caf76863522b8c67e3d2bb632592">gl_retained_mesh</a> (const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">occluded::buffers::attributes::attribute_map</a> &amp;map, const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shaders::shader_program</a> &amp;shaderProg, const buffer_usage_t usage=static_draw_usage, const primitive_type_t primitiveType=primitive_triangles)</td></tr>
-<tr class="memdesc:aab98caf76863522b8c67e3d2bb632592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty mesh.  <a href="#aab98caf76863522b8c67e3d2bb632592">More...</a><br /></td></tr>
-<tr class="separator:aab98caf76863522b8c67e3d2bb632592"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6923146a8f5f8b092b3f92d6d910b2cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh.html#a6923146a8f5f8b092b3f92d6d910b2cd">gl_retained_mesh</a> (const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shaders::shader_program</a> &amp;shaderProg, <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a> &amp;buffer, const std::vector&lt; unsigned int &gt; &amp;faces, const primitive_type_t primitiveType=primitive_triangles)</td></tr>
-<tr class="memdesc:a6923146a8f5f8b092b3f92d6d910b2cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an mesh.  <a href="#a6923146a8f5f8b092b3f92d6d910b2cd">More...</a><br /></td></tr>
-<tr class="separator:a6923146a8f5f8b092b3f92d6d910b2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64b7a4795fc93fc81308e1a464debd24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh.html#a64b7a4795fc93fc81308e1a464debd24">gl_retained_mesh</a> (const GLuint vaoId, const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">occluded::buffers::attributes::attribute_map</a> &amp;map, const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shaders::shader_program</a> &amp;shaderProg, const buffer_usage_t usage=static_draw_usage, const primitive_type_t primitiveType=primitive_triangles)</td></tr>
+<tr class="memdesc:a64b7a4795fc93fc81308e1a464debd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty mesh.  <a href="#a64b7a4795fc93fc81308e1a464debd24">More...</a><br /></td></tr>
+<tr class="separator:a64b7a4795fc93fc81308e1a464debd24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b08ac856c790d12581f8ce27be96bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh.html#ac7b08ac856c790d12581f8ce27be96bf">gl_retained_mesh</a> (const GLuint vaoId, const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shaders::shader_program</a> &amp;shaderProg, <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html">gl_attribute_buffer</a> &amp;buffer, const std::vector&lt; unsigned int &gt; &amp;faces, const primitive_type_t primitiveType=primitive_triangles)</td></tr>
+<tr class="memdesc:ac7b08ac856c790d12581f8ce27be96bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an mesh.  <a href="#ac7b08ac856c790d12581f8ce27be96bf">More...</a><br /></td></tr>
+<tr class="separator:ac7b08ac856c790d12581f8ce27be96bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2018120d3a1dcca990e85a24efe20fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh.html#aa2018120d3a1dcca990e85a24efe20fb">draw</a> () const </td></tr>
 <tr class="memdesc:aa2018120d3a1dcca990e85a24efe20fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the mesh.  <a href="#aa2018120d3a1dcca990e85a24efe20fb">More...</a><br /></td></tr>
 <tr class="separator:aa2018120d3a1dcca990e85a24efe20fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,13 +162,19 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>A mesh implementation for OpenGL retained mode. </p>
 <p>A mesh implementation for OpenGL retained mode. This contains a <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">gl_attribute_buffer</a> and a vector of unsigned int representing the faces of the of the mesh. This is class contains everything needed to draw a single object in object coordinates. The purpose of this class is to be contained within a model class and allow the model class to render the mesh with a single call. /see { <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">occluded::opengl::retained::gl_attribute_buffer</a> } </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aab98caf76863522b8c67e3d2bb632592"></a>
+<a class="anchor" id="a64b7a4795fc93fc81308e1a464debd24"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">occluded::opengl::retained::gl_retained_mesh::gl_retained_mesh </td>
           <td>(</td>
+          <td class="paramtype">const GLuint&#160;</td>
+          <td class="paramname"><em>vaoId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html">occluded::buffers::attributes::attribute_map</a> &amp;&#160;</td>
           <td class="paramname"><em>map</em>, </td>
         </tr>
@@ -201,6 +207,7 @@ Public Member Functions</h2></td></tr>
 <p>Initializes an empty mesh. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">vaoId</td><td>A constant GLuint that represents the id of an OpenGL vertex attribute object </td></tr>
     <tr><td class="paramname">map</td><td>A reference to the attribute map that will be used to store vertex data. </td></tr>
     <tr><td class="paramname">shaderProg</td><td>A refernce to a shader program that will be used to render the mesh. </td></tr>
     <tr><td class="paramname">usage</td><td>A buffer usage type that specifies how the vertex and index data will be used. </td></tr>
@@ -212,13 +219,19 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6923146a8f5f8b092b3f92d6d910b2cd"></a>
+<a class="anchor" id="ac7b08ac856c790d12581f8ce27be96bf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">occluded::opengl::retained::gl_retained_mesh::gl_retained_mesh </td>
           <td>(</td>
+          <td class="paramtype">const GLuint&#160;</td>
+          <td class="paramname"><em>vaoId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shaders::shader_program</a> &amp;&#160;</td>
           <td class="paramname"><em>shaderProg</em>, </td>
         </tr>
@@ -251,6 +264,7 @@ Public Member Functions</h2></td></tr>
 <p>Initializes an mesh. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">vaoId</td><td>A constant GLuint that represents the if of an OpenGL vertex attribute object. </td></tr>
     <tr><td class="paramname">shaderProg</td><td>A reference to a shader program that will be used to render the mesh. </td></tr>
     <tr><td class="paramname">buffer</td><td>A reference to a <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer.html" title="A wrapper class for an OpenGL buffer. ">gl_attribute_buffer</a> which stores the vertice data. </td></tr>
     <tr><td class="paramname">faces</td><td>A reference to a vector of unsigned integers representing the vertices that make up the faces of the mesh. </td></tr>
@@ -455,7 +469,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>opengl</b></li><li class="navelem"><b>retained</b></li><li class="navelem"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh.html">gl_retained_mesh</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 19:45:39 for Occluded Library by
+    <li class="footer">Generated on Mon Aug 25 2014 22:44:28 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

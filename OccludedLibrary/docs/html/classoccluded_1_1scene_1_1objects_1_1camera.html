@@ -116,16 +116,28 @@ $(document).ready(function(){initNavTree('classoccluded_1_1scene_1_1objects_1_1c
  <a href="classoccluded_1_1scene_1_1objects_1_1camera.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="camera_8h_source.html">camera.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for occluded::scene::objects::camera:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classoccluded_1_1scene_1_1objects_1_1camera.png" usemap="#occluded::scene::objects::camera_map" alt=""/>
+  <map id="occluded::scene::objects::camera_map" name="occluded::scene::objects::camera_map">
+<area href="classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__camera.html" title="An abstract OpenGL camera class which contains the necessary method that any retained camera will use..." alt="occluded::opengl::retained::scene::objects::gl_retained_camera" shape="rect" coords="0,56,398,80"/>
+<area href="classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__fixed__camera.html" title="A camera with a fixed position and a fixed orientation. " alt="occluded::opengl::retained::scene::objects::gl_retained_fixed_camera" shape="rect" coords="0,112,398,136"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e62fa6846f1009409a7ed87fe03f8ca"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1scene_1_1objects_1_1camera.html#a4e62fa6846f1009409a7ed87fe03f8ca">set_for_render</a> () const =0</td></tr>
 <tr class="memdesc:a4e62fa6846f1009409a7ed87fe03f8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets this camera to the camera that will be used for rendering.  <a href="#a4e62fa6846f1009409a7ed87fe03f8ca">More...</a><br /></td></tr>
 <tr class="separator:a4e62fa6846f1009409a7ed87fe03f8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae045f6f1549e58c3211e75a708f8f490"><td class="memItemLeft" align="right" valign="top">virtual const glm::mat4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1scene_1_1objects_1_1camera.html#ae045f6f1549e58c3211e75a708f8f490">get_projection</a> () const =0</td></tr>
+<tr class="memitem:ae045f6f1549e58c3211e75a708f8f490"><td class="memItemLeft" align="right" valign="top">virtual const <br class="typebreak" />
+<a class="el" href="classoccluded_1_1scene_1_1nodes_1_1transformation.html">occluded::transformation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1scene_1_1objects_1_1camera.html#ae045f6f1549e58c3211e75a708f8f490">get_projection</a> () const =0</td></tr>
 <tr class="memdesc:ae045f6f1549e58c3211e75a708f8f490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the projection transformation.  <a href="#ae045f6f1549e58c3211e75a708f8f490">More...</a><br /></td></tr>
 <tr class="separator:ae045f6f1549e58c3211e75a708f8f490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4168c8ffacdf6a3eb52b528d4780d4e"><td class="memItemLeft" align="right" valign="top">virtual const glm::mat4 &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1scene_1_1objects_1_1camera.html#aa4168c8ffacdf6a3eb52b528d4780d4e">get_view</a> () const =0</td></tr>
+<tr class="memitem:aa4168c8ffacdf6a3eb52b528d4780d4e"><td class="memItemLeft" align="right" valign="top">virtual const <br class="typebreak" />
+<a class="el" href="classoccluded_1_1scene_1_1nodes_1_1transformation.html">occluded::transformation</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1scene_1_1objects_1_1camera.html#aa4168c8ffacdf6a3eb52b528d4780d4e">get_view</a> () const =0</td></tr>
 <tr class="memdesc:aa4168c8ffacdf6a3eb52b528d4780d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the view transformation.  <a href="#aa4168c8ffacdf6a3eb52b528d4780d4e">More...</a><br /></td></tr>
 <tr class="separator:aa4168c8ffacdf6a3eb52b528d4780d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -155,7 +167,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the projection transformation. </p>
-<dl class="section return"><dt>Returns</dt><dd>A 4x4 matrix containing the projection transformation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A constant reference to the transformation object representing the projection transformation. </dd></dl>
+
+<p>Implemented in <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__fixed__camera.html#a167066c59a31c58a34bf8112e3f9ef37">occluded::opengl::retained::scene::objects::gl_retained_fixed_camera</a>.</p>
 
 </div>
 </div>
@@ -181,7 +195,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the view transformation. </p>
-<dl class="section return"><dt>Returns</dt><dd>A 4x4 matrix containing the view transformation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A constant reference to the transformation object containing the view transformation. </dd></dl>
+
+<p>Implemented in <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__fixed__camera.html#a354c288a4f0c6d05bcbbb256d7c65931">occluded::opengl::retained::scene::objects::gl_retained_fixed_camera</a>.</p>
 
 </div>
 </div>
@@ -207,7 +223,9 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets this camera to the camera that will be used for rendering. </p>
-<p>Sets up the OpenGL state so that the scene will be render using the transformation contained within this camera. </p>
+<p>Sets this camera as the camera to be used for next render. </p>
+
+<p>Implemented in <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1scene_1_1objects_1_1gl__retained__fixed__camera.html#a81ea1cd723428ac234ca814c43363a90">occluded::opengl::retained::scene::objects::gl_retained_fixed_camera</a>.</p>
 
 </div>
 </div>
@@ -220,7 +238,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>scene</b></li><li class="navelem"><b>objects</b></li><li class="navelem"><a class="el" href="classoccluded_1_1scene_1_1objects_1_1camera.html">camera</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 19:45:39 for Occluded Library by
+    <li class="footer">Generated on Mon Aug 25 2014 22:44:34 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

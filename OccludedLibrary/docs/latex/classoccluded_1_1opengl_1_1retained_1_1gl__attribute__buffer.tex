@@ -15,7 +15,7 @@ A wrapper class for an Open\+G\+L buffer.
 \item 
 \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_ae5e26c840ef863b9c5ff3ce438cb83a0}{gl\+\_\+attribute\+\_\+buffer} (\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} \&other)
 \begin{DoxyCompactList}\small\item\em Creates a copy of the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer}. \end{DoxyCompactList}\item 
-\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}{gl\+\_\+attribute\+\_\+buffer} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{buffers\+::attributes\+::attribute\+\_\+map} \&map, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, const buffer\+\_\+usage\+\_\+t usage)
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a210deb350ee2d7177e95d1b8e0a51c6c}{gl\+\_\+attribute\+\_\+buffer} (const G\+Luint vao\+Id, const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{buffers\+::attributes\+::attribute\+\_\+map} \&map, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, const buffer\+\_\+usage\+\_\+t usage)
 \begin{DoxyCompactList}\small\item\em Creates the buffer. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_afd58deefb5659c0cd9a316263515b68f}{insert\+\_\+values} (const std\+::vector$<$ char $>$ \&values)
 \begin{DoxyCompactList}\small\item\em Inserts data into the buffer. \end{DoxyCompactList}\item 
@@ -56,21 +56,24 @@ Creates a copy of the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attr
 {\em other} & A reference to the \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} that is being copied.\\
 \hline
 \end{DoxyParams}
-Makes a copy of an \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} so that it can be used by a class that needs to retain a copy of it as well as act as its own independent entity. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}}
+Makes a copy of an \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} so that it can be used by a class that needs to retain a copy of it as well as act as its own independent entity. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a210deb350ee2d7177e95d1b8e0a51c6c}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}!gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}}
 \index{gl\+\_\+attribute\+\_\+buffer@{gl\+\_\+attribute\+\_\+buffer}!occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer@{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer}}
 \subsubsection[{gl\+\_\+attribute\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer\+::gl\+\_\+attribute\+\_\+buffer (
 \begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id, }
 \item[{const {\bf buffers\+::attributes\+::attribute\+\_\+map} \&}]{map, }
 \item[{const {\bf shaders\+::shader\+\_\+program} \&}]{shader\+Prog, }
 \item[{const buffer\+\_\+usage\+\_\+t}]{usage = {\ttfamily static\+\_\+draw\+\_\+usage}}
 \end{DoxyParamCaption}
-)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a22cdc11d70684a364895715b12293487}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer_a210deb350ee2d7177e95d1b8e0a51c6c}
 
 
 Creates the buffer. 
 
 
 \begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint representing an Open\+G\+L vertex array object id. \\
+\hline
 {\em map} & A reference to an attribute map. \\
 \hline
 {\em shader\+Prog} & A reference to a shader program. \\

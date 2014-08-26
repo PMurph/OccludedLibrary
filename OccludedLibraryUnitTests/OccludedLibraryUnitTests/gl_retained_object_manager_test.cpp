@@ -8,6 +8,7 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 using namespace occluded::opengl::retained;
+using namespace occluded::opengl::retained::shaders;
 
 namespace OccludedLibraryUnitTests
 {
@@ -419,6 +420,169 @@ namespace OccludedLibraryUnitTests
 				Assert::Fail();
 			} catch( const std::exception& ) {
 			}
+		}
+
+		TEST_METHOD( gl_retained_object_manager_get_new_shader_test )
+		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint shaderId = 0;
+
+			shaderId = manager.get_new_shader( vert_shader );
+
+			// Test to make sure that get_new_shader program returns a non-zero id
+			Assert::AreNotEqual( shaderId, static_cast<GLuint>( 0 ) );
+
+			// Test to make sure that get_new_shader program returns a different id when it is called again
+			Assert::AreNotEqual( shaderId, manager.get_new_shader( vert_shader ) );
+
+			errorState = true;
+
+			// Test to make sure an exception is thrown if OpenGL encounteres an error when creating a shader
+			try {
+				manager.get_new_shader( vert_shader );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_object_manager_add_ref_to_shader_test )
+		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint shaderId = 0;
+
+			shaderId = manager.get_new_shader( vert_shader );
+
+			// Test to make sure no exceptions are thrown if a reference is attempted to be added to a valid shader
+			try {
+				manager.add_ref_to_shader( shaderId );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
+
+			// Test to make sure an exception is thrown if a reference is attempted to be added to a invalid shader
+			try {
+				manager.add_ref_to_shader( static_cast<GLuint>( 77654 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if a reference is attempted to be added to a shader with id 0
+			try {
+				manager.add_ref_to_shader( static_cast<GLuint>( 0 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			manager.remove_ref_to_shader( shaderId );
+			manager.remove_ref_to_shader( shaderId );
+
+			// Test to make sure an exception is thrown if a refrence is attempted to be added to a shader which has had its ref count reduced to 0
+			try {
+				manager.add_ref_to_shader( shaderId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			shaderId = manager.get_new_shader( vert_shader );
+
+			manager.delete_objects();
+
+			// Test to make sure no exception is thrown if add_ref_to_shader is called after a call to delete_objects
+			try {
+				manager.add_ref_to_shader( shaderId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_object_manager_remove_ref_to_shader_test )
+		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint shaderId = 0;
+
+			shaderId = manager.get_new_shader( vert_shader );
+
+			// Test to make sure no exception is thrown if a reference is removed for from a valid shader
+			try {
+				manager.remove_ref_to_shader( shaderId );
+			} catch( const std::exception& ) {
+				Assert::Fail();
+			}
+
+			// Test to make sure an exception is thrown if a invalid shaderId is passed to remove_ref_to_shader
+			try {
+				manager.remove_ref_to_shader( static_cast<GLuint>( 55464 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if 0 is passed to remove_ref_to_shader as the shaderId
+			try {
+				manager.remove_ref_to_shader( static_cast<GLuint>( 0 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			// Test to make sure an exception is thrown if a reference is attempted to be removed from a shader that has is reference count to 0
+			try {
+				manager.remove_ref_to_shader( shaderId );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			shaderId = manager.get_new_shader( vert_shader );
+
+			manager.delete_objects();
+
+			// Test to make sure an exception is thrown if a remove_ref_to_shader is called after a delete_objects call
+			try {
+				manager.remove_ref_to_shader( vert_shader );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+		}
+
+		TEST_METHOD( gl_retained_object_manager_check_valid_shader_id_test )
+		{
+			gl_retained_object_manager& manager = gl_retained_object_manager::get_manager();
+			GLuint shaderId;
+
+			shaderId = manager.get_new_shader( vert_shader );
+
+			// Test to make sure true is returned if a valid shader id is passed to check_valid_shader_id
+			Assert::IsTrue( manager.check_valid_shader_id( shaderId ) );
+
+			// Test to make sure false is returned if an invalid shader if is passed to check_valid_shader_id
+			Assert::IsFalse( manager.check_valid_shader_id( static_cast<GLuint>( 45356 ) ) );
+
+			// Test to make sure an exception is thrown if 0 is passed to check_valid_shader_id
+			try {
+				manager.check_valid_shader_id( static_cast<GLuint>( 0 ) );
+
+				Assert::Fail();
+			} catch( const std::exception& ) {
+			}
+
+			manager.remove_ref_to_shader( shaderId );
+
+			// Test to make sure false is returned by check_valid_shader_id for a shader id that has had its reference count reduced to 0
+			Assert::IsFalse( manager.check_valid_shader_id( shaderId ) );
+
+			shaderId = manager.get_new_shader( vert_shader );
+
+			manager.delete_objects();
+
+			// Test to make sure false is returned by check_valid_shader_id after a delete_objects call is made
+			Assert::IsFalse( manager.check_valid_shader_id( shaderId ) );
 		}
 	};
 }

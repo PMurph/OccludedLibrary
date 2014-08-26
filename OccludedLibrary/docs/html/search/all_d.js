@@ -1,16 +1,7 @@
 var searchData=
 [
-  ['segregated_5fattr_5fbuffer',['segregated_attr_buffer',['../classoccluded_1_1buffers_1_1segregated__attr__buffer.html',1,'occluded::buffers']]],
-  ['segregated_5fattr_5fbuffer',['segregated_attr_buffer',['../classoccluded_1_1buffers_1_1segregated__attr__buffer.html#ab822a9e4ccf2be069418224fc2663622',1,'occluded::buffers::segregated_attr_buffer']]],
-  ['set_5fattrib_5fpointers',['set_attrib_pointers',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__attribute__map.html#a913681eba3098eae202cc8aee51fdb71',1,'occluded::opengl::retained::shaders::shader_attribute_map']]],
-  ['set_5ffor_5frender',['set_for_render',['../classoccluded_1_1scene_1_1objects_1_1camera.html#a4e62fa6846f1009409a7ed87fe03f8ca',1,'occluded::scene::objects::camera']]],
-  ['set_5funiform_5fvalue',['set_uniform_value',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#adc43de912769b10941eb93b407d8662d',1,'occluded::opengl::retained::shaders::shader_uniform_store']]],
-  ['shader',['shader',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html',1,'occluded::opengl::retained::shaders']]],
-  ['shader',['shader',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader.html#ac40b834734bf03a1c060f771b1741823',1,'occluded::opengl::retained::shaders::shader']]],
-  ['shader_5fattribute_5fmap',['shader_attribute_map',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__attribute__map.html#a317ce382cc4aabad2ba440a2bc0ab745',1,'occluded::opengl::retained::shaders::shader_attribute_map']]],
-  ['shader_5fattribute_5fmap',['shader_attribute_map',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__attribute__map.html',1,'occluded::opengl::retained::shaders']]],
-  ['shader_5fprogram',['shader_program',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html',1,'occluded::opengl::retained::shaders']]],
-  ['shader_5fprogram',['shader_program',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html#a940103083cf5b991c8de690748311dc3',1,'occluded::opengl::retained::shaders::shader_program::shader_program()'],['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html#ac6459ada0453594a47d1294591d26fc5',1,'occluded::opengl::retained::shaders::shader_program::shader_program(const std::vector&lt; const boost::shared_ptr&lt; const shader &gt; &gt; &amp;shaders)']]],
-  ['shader_5funiform_5fstore',['shader_uniform_store',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a862db8afb99f17ec1b14c3e9a882618e',1,'occluded::opengl::retained::shaders::shader_uniform_store::shader_uniform_store(const shader_program &amp;shaderProg)'],['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a7503a430211c435021dbbe9628cb4e40',1,'occluded::opengl::retained::shaders::shader_uniform_store::shader_uniform_store(const shader_program &amp;shaderProg, const std::vector&lt; std::pair&lt; const std::string, const uniform_value &gt; &gt; &amp;values)']]],
-  ['shader_5funiform_5fstore',['shader_uniform_store',['../classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html',1,'occluded::opengl::retained::shaders']]]
+  ['remove_5fref_5fto_5fshader',['remove_ref_to_shader',['../classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager.html#a84804949b75971093ee3aab5dcd66a00',1,'occluded::opengl::retained::gl_retained_object_manager']]],
+  ['remove_5fref_5fto_5fvao',['remove_ref_to_vao',['../classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager.html#a651ed9bf5852f8919947b84a7a13c891',1,'occluded::opengl::retained::gl_retained_object_manager']]],
+  ['remove_5fref_5fto_5fvbo',['remove_ref_to_vbo',['../classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager.html#af7208b2920a70e49e0a762025f2c540e',1,'occluded::opengl::retained::gl_retained_object_manager']]],
+  ['reset',['reset',['../classoccluded_1_1buffers_1_1attributes_1_1attribute__map.html#a3fad5d024dd302efc48a5301165c6d83',1,'occluded::buffers::attributes::attribute_map']]]
 ];

@@ -53,12 +53,18 @@
 
 extern bool errorState; // If true, the mock should mimic OpenGL functions returning errors
 extern bool programLinkError; // If true, the mock will return GL_FALSE when glGetProgramiv is called
+extern bool shaderCompileError; // If true, the mock will return GL_FALSE when glGetProrgramiv is called
 static GLuint currVAOID = 1;
 static GLuint currVBOID = 1;
 static GLuint currShaderProgID = 1;
+static GLuint currShaderID = 1;
 
 inline GLuint glCreateShader( GLenum shaderType ) {
-	return 1;
+	if( errorState )
+		return 0;
+
+	currShaderID++;
+	return currShaderID - 1;
 }
 
 inline GLuint glCreateProgram() {
@@ -70,7 +76,7 @@ inline GLuint glCreateProgram() {
 }
 
 inline void glGetShaderiv( GLuint shader, GLenum pname, GLint* params ) {
-	if( errorState )
+	if( shaderCompileError )
 		*params = GL_FALSE;
 	else
 		*params = GL_TRUE;
@@ -161,4 +167,12 @@ inline void resetVBOIDs() {
 
 inline void resetVAOIDs() {
 	currVAOID = 1;
+}
+
+inline void resetShaderIDs() {
+	currShaderID = 1;
+}
+
+inline void resetShaderProgIDs() {
+	currShaderProgID = 1;
 }

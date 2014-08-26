@@ -19,9 +19,9 @@ Inheritance diagram for occluded\+:\+:opengl\+:\+:retained\+:\+:gl\+\_\+retained
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aab98caf76863522b8c67e3d2bb632592}{gl\+\_\+retained\+\_\+mesh} (const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{occluded\+::buffers\+::attributes\+::attribute\+\_\+map} \&map, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, const buffer\+\_\+usage\+\_\+t usage=static\+\_\+draw\+\_\+usage, const primitive\+\_\+type\+\_\+t primitive\+Type=primitive\+\_\+triangles)
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a64b7a4795fc93fc81308e1a464debd24}{gl\+\_\+retained\+\_\+mesh} (const G\+Luint vao\+Id, const \hyperlink{classoccluded_1_1buffers_1_1attributes_1_1attribute__map}{occluded\+::buffers\+::attributes\+::attribute\+\_\+map} \&map, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, const buffer\+\_\+usage\+\_\+t usage=static\+\_\+draw\+\_\+usage, const primitive\+\_\+type\+\_\+t primitive\+Type=primitive\+\_\+triangles)
 \begin{DoxyCompactList}\small\item\em Initializes an empty mesh. \end{DoxyCompactList}\item 
-\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a6923146a8f5f8b092b3f92d6d910b2cd}{gl\+\_\+retained\+\_\+mesh} (const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} \&buffer, const std\+::vector$<$ unsigned int $>$ \&faces, const primitive\+\_\+type\+\_\+t primitive\+Type=primitive\+\_\+triangles)
+\hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ac7b08ac856c790d12581f8ce27be96bf}{gl\+\_\+retained\+\_\+mesh} (const G\+Luint vao\+Id, const \hyperlink{classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program}{shaders\+::shader\+\_\+program} \&shader\+Prog, \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} \&buffer, const std\+::vector$<$ unsigned int $>$ \&faces, const primitive\+\_\+type\+\_\+t primitive\+Type=primitive\+\_\+triangles)
 \begin{DoxyCompactList}\small\item\em Initializes an mesh. \end{DoxyCompactList}\item 
 void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aa2018120d3a1dcca990e85a24efe20fb}{draw} () const 
 \begin{DoxyCompactList}\small\item\em Draws the mesh. \end{DoxyCompactList}\item 
@@ -43,22 +43,25 @@ A mesh implementation for Open\+G\+L retained mode.
 A mesh implementation for Open\+G\+L retained mode. This contains a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} and a vector of unsigned int representing the faces of the of the mesh. This is class contains everything needed to draw a single object in object coordinates. The purpose of this class is to be contained within a model class and allow the model class to render the mesh with a single call. /see \{ \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{occluded\+::opengl\+::retained\+::gl\+\_\+attribute\+\_\+buffer} \} 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aab98caf76863522b8c67e3d2bb632592}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a64b7a4795fc93fc81308e1a464debd24}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}}
 \index{gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
 \subsubsection[{gl\+\_\+retained\+\_\+mesh}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::gl\+\_\+retained\+\_\+mesh (
 \begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id, }
 \item[{const {\bf occluded\+::buffers\+::attributes\+::attribute\+\_\+map} \&}]{map, }
 \item[{const {\bf shaders\+::shader\+\_\+program} \&}]{shader\+Prog, }
 \item[{const buffer\+\_\+usage\+\_\+t}]{usage = {\ttfamily static\+\_\+draw\+\_\+usage}, }
 \item[{const primitive\+\_\+type\+\_\+t}]{primitive\+Type = {\ttfamily primitive\+\_\+triangles}}
 \end{DoxyParamCaption}
-)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_aab98caf76863522b8c67e3d2bb632592}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a64b7a4795fc93fc81308e1a464debd24}
 
 
 Initializes an empty mesh. 
 
 
 \begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint that represents the id of an Open\+G\+L vertex attribute object \\
+\hline
 {\em map} & A reference to the attribute map that will be used to store vertex data. \\
 \hline
 {\em shader\+Prog} & A refernce to a shader program that will be used to render the mesh. \\
@@ -68,22 +71,25 @@ Initializes an empty mesh.
 {\em primitive\+Type} & A primitive type that specifies which Open\+G\+L primitive will be used to construct the faces of the mesh.\\
 \hline
 \end{DoxyParams}
-Initializes the mesh by constructing an \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} from the map, shader program and usage parameters. The default primitive used for constructing the mesh is primitive\+\_\+triangles. This constructor is to be used if the mesh is to be built up from scratch. An exception will be thrown in the attribute map is still being defined or if the shader program has not been linked. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a6923146a8f5f8b092b3f92d6d910b2cd}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}}
+Initializes the mesh by constructing an \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} from the map, shader program and usage parameters. The default primitive used for constructing the mesh is primitive\+\_\+triangles. This constructor is to be used if the mesh is to be built up from scratch. An exception will be thrown in the attribute map is still being defined or if the shader program has not been linked. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ac7b08ac856c790d12581f8ce27be96bf}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}!gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}}
 \index{gl\+\_\+retained\+\_\+mesh@{gl\+\_\+retained\+\_\+mesh}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh}}
 \subsubsection[{gl\+\_\+retained\+\_\+mesh}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+mesh\+::gl\+\_\+retained\+\_\+mesh (
 \begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id, }
 \item[{const {\bf shaders\+::shader\+\_\+program} \&}]{shader\+Prog, }
 \item[{{\bf gl\+\_\+attribute\+\_\+buffer} \&}]{buffer, }
 \item[{const std\+::vector$<$ unsigned int $>$ \&}]{faces, }
 \item[{const primitive\+\_\+type\+\_\+t}]{primitive\+Type = {\ttfamily primitive\+\_\+triangles}}
 \end{DoxyParamCaption}
-)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_a6923146a8f5f8b092b3f92d6d910b2cd}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__mesh_ac7b08ac856c790d12581f8ce27be96bf}
 
 
 Initializes an mesh. 
 
 
 \begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint that represents the if of an Open\+G\+L vertex attribute object. \\
+\hline
 {\em shader\+Prog} & A reference to a shader program that will be used to render the mesh. \\
 \hline
 {\em buffer} & A reference to a \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__attribute__buffer}{gl\+\_\+attribute\+\_\+buffer} which stores the vertice data. \\

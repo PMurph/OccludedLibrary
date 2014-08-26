@@ -1,0 +1,256 @@
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager}{\section{occluded\+:\+:opengl\+:\+:retained\+:\+:gl\+\_\+retained\+\_\+object\+\_\+manager Class Reference}
+\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager}\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a3b2d86f6665a12655bb19c163a3190f5}{void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a3b2d86f6665a12655bb19c163a3190f5}{delete\+\_\+objects} ()}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a3b2d86f6665a12655bb19c163a3190f5}
+
+\begin{DoxyCompactList}\small\item\em Deletes all the Open\+G\+L objects managed by the object manager. \end{DoxyCompactList}\item 
+const G\+Luint \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af3d501abe926a5943cceb3cd9efaf7e6}{get\+\_\+new\+\_\+vao} ()
+\begin{DoxyCompactList}\small\item\em Creates a new vao object and gets its id. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a9662a7b3b53c17b50f43da4918128b74}{add\+\_\+ref\+\_\+to\+\_\+vao} (const G\+Luint vao\+Id)
+\begin{DoxyCompactList}\small\item\em Adds a reference to a vao. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a651ed9bf5852f8919947b84a7a13c891}{remove\+\_\+ref\+\_\+to\+\_\+vao} (const G\+Luint vao\+Id)
+\begin{DoxyCompactList}\small\item\em Removes a reference to a vao. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af6c25070b348972d07992e5c7a50df3d}{check\+\_\+valid\+\_\+vao\+\_\+id} (const G\+Luint vao\+Id) const 
+\begin{DoxyCompactList}\small\item\em Checks to see if a vao id is corresponds to a valid vao. \end{DoxyCompactList}\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_afc09147dab98bfb3a4ebe825e7eb2b43}{const G\+Luint {\bfseries get\+\_\+new\+\_\+vbo} (const G\+Luint vao\+Id)}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_afc09147dab98bfb3a4ebe825e7eb2b43}
+
+\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a041f82cec0f30fa9e5309051841b39a9}{add\+\_\+ref\+\_\+to\+\_\+vbo} (const G\+Luint vao\+Id, const G\+Luint vbo\+Id)
+\begin{DoxyCompactList}\small\item\em Adds a reference to a vbo. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af7208b2920a70e49e0a762025f2c540e}{remove\+\_\+ref\+\_\+to\+\_\+vbo} (const G\+Luint vao\+Id, const G\+Luint vbo\+Id)
+\begin{DoxyCompactList}\small\item\em Removes a reference to a vbo. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_aab50f60978195fc332cbb3b9eebe7cd0}{check\+\_\+valid\+\_\+vbo\+\_\+id} (const G\+Luint vao\+Id, const G\+Luint vbo\+Id) const 
+\begin{DoxyCompactList}\small\item\em Checks to see if a vao id and vbo id corresponds to a valid vbo. \end{DoxyCompactList}\item 
+const G\+Luint \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a6a8a6dd2e50e1cc08122adc5afec3cfa}{get\+\_\+new\+\_\+shader} (const shaders\+::shader\+\_\+type\+\_\+t shader\+Type)
+\begin{DoxyCompactList}\small\item\em Creates a new shader object and gets its id. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_afd26e51ac4d582c879c88862991514dc}{add\+\_\+ref\+\_\+to\+\_\+shader} (const G\+Luint shader\+Id)
+\begin{DoxyCompactList}\small\item\em Adds a reference a shader. \end{DoxyCompactList}\item 
+void \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a84804949b75971093ee3aab5dcd66a00}{remove\+\_\+ref\+\_\+to\+\_\+shader} (const G\+Luint shader\+Id)
+\begin{DoxyCompactList}\small\item\em Removes a reference to a shader. \end{DoxyCompactList}\item 
+const bool \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a0d9da23aa7e604fb57cc00fd329a5c5a}{check\+\_\+valid\+\_\+shader\+\_\+id} (const G\+Luint shader\+Id) const 
+\begin{DoxyCompactList}\small\item\em Check to see if a shader id corresponds to a valid shader. \end{DoxyCompactList}\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_acc5fccf6b51baeac3f6249aeb4095850}{const G\+Luint {\bfseries get\+\_\+new\+\_\+shader\+\_\+prog} ()}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_acc5fccf6b51baeac3f6249aeb4095850}
+
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a90717d2177dd938a6c53ad5f73026509}{void {\bfseries add\+\_\+ref\+\_\+to\+\_\+shader\+\_\+prog} (const G\+Luint shader\+Prog\+Id)}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a90717d2177dd938a6c53ad5f73026509}
+
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a55173b690384cf3d6e94a28656bb5af5}{void {\bfseries remove\+\_\+ref\+\_\+to\+\_\+shader\+\_\+prog} (const G\+Luint shader\+Prog\+Id)}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a55173b690384cf3d6e94a28656bb5af5}
+
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a6ded0a1a2f02c8d2cb348e1023bfd736}{const bool {\bfseries check\+\_\+valid\+\_\+shader\+\_\+prog\+\_\+id} (const G\+Luint shader\+Prog\+Id) const }\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a6ded0a1a2f02c8d2cb348e1023bfd736}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a4dfa20b34cf794c189f69a88d902b83a}{static \hyperlink{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager}{gl\+\_\+retained\+\_\+object\+\_\+manager} \& {\bfseries get\+\_\+manager} ()}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a4dfa20b34cf794c189f69a88d902b83a}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_afd26e51ac4d582c879c88862991514dc}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!add\+\_\+ref\+\_\+to\+\_\+shader@{add\+\_\+ref\+\_\+to\+\_\+shader}}
+\index{add\+\_\+ref\+\_\+to\+\_\+shader@{add\+\_\+ref\+\_\+to\+\_\+shader}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{add\+\_\+ref\+\_\+to\+\_\+shader}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::add\+\_\+ref\+\_\+to\+\_\+shader (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{shader\+Id}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_afd26e51ac4d582c879c88862991514dc}
+
+
+Adds a reference a shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader\+Id} & A constant G\+Luint representing the id of the shader.\\
+\hline
+\end{DoxyParams}
+Increments the reference count to the Open\+G\+L shader corresponding to the shader\+Id paramater. Throws an exception if the shader\+Id parameter does not correspond to a valid Open\+G\+L shader object. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a9662a7b3b53c17b50f43da4918128b74}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!add\+\_\+ref\+\_\+to\+\_\+vao@{add\+\_\+ref\+\_\+to\+\_\+vao}}
+\index{add\+\_\+ref\+\_\+to\+\_\+vao@{add\+\_\+ref\+\_\+to\+\_\+vao}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{add\+\_\+ref\+\_\+to\+\_\+vao}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::add\+\_\+ref\+\_\+to\+\_\+vao (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a9662a7b3b53c17b50f43da4918128b74}
+
+
+Adds a reference to a vao. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint representing an id for a vao.\\
+\hline
+\end{DoxyParams}
+Incremenets the reference count to the Open\+G\+L vertex array object specified by the vao\+Id parameter. Throws an exception if there is no vao associated with the vao\+Id parameter. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a041f82cec0f30fa9e5309051841b39a9}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!add\+\_\+ref\+\_\+to\+\_\+vbo@{add\+\_\+ref\+\_\+to\+\_\+vbo}}
+\index{add\+\_\+ref\+\_\+to\+\_\+vbo@{add\+\_\+ref\+\_\+to\+\_\+vbo}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{add\+\_\+ref\+\_\+to\+\_\+vbo}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::add\+\_\+ref\+\_\+to\+\_\+vbo (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id, }
+\item[{const G\+Luint}]{vbo\+Id}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a041f82cec0f30fa9e5309051841b39a9}
+
+
+Adds a reference to a vbo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint that represents the vao's id that the vbo is associated with. \\
+\hline
+{\em vbo\+Id} & A constant G\+Luint that represents the vbo's id\\
+\hline
+\end{DoxyParams}
+Incremenets the reference count to the Open\+G\+L vertex buffer object specified by the vao\+Id and vbo\+Id parameters. Throws an exception if there is no vao associated with the vao\+Id parameter. Throws an exception if there is no vbo associated with the vbo\+Id parameter. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a0d9da23aa7e604fb57cc00fd329a5c5a}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!check\+\_\+valid\+\_\+shader\+\_\+id@{check\+\_\+valid\+\_\+shader\+\_\+id}}
+\index{check\+\_\+valid\+\_\+shader\+\_\+id@{check\+\_\+valid\+\_\+shader\+\_\+id}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{check\+\_\+valid\+\_\+shader\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::check\+\_\+valid\+\_\+shader\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{shader\+Id}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a0d9da23aa7e604fb57cc00fd329a5c5a}
+
+
+Check to see if a shader id corresponds to a valid shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader\+Id} & A constant G\+Luint representing the id of the shader. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the shader id corresponds to a valid shader and false otherwise.
+\end{DoxyReturn}
+Checks to see if a valid Open\+G\+L shader object corresponds to the id passed via the shader\+Id parameter. Throws an exception if 0 is passed as the shader id. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af6c25070b348972d07992e5c7a50df3d}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!check\+\_\+valid\+\_\+vao\+\_\+id@{check\+\_\+valid\+\_\+vao\+\_\+id}}
+\index{check\+\_\+valid\+\_\+vao\+\_\+id@{check\+\_\+valid\+\_\+vao\+\_\+id}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{check\+\_\+valid\+\_\+vao\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::check\+\_\+valid\+\_\+vao\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af6c25070b348972d07992e5c7a50df3d}
+
+
+Checks to see if a vao id is corresponds to a valid vao. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint representing an id for a vao. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the id corresponds to a valid vao and false if it is not.
+\end{DoxyReturn}
+Checks to see if the Open\+G\+L vertex array object associated with vao\+Id parameter is a valid object. Throws an exception if the vao\+Id parameter is 0. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_aab50f60978195fc332cbb3b9eebe7cd0}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!check\+\_\+valid\+\_\+vbo\+\_\+id@{check\+\_\+valid\+\_\+vbo\+\_\+id}}
+\index{check\+\_\+valid\+\_\+vbo\+\_\+id@{check\+\_\+valid\+\_\+vbo\+\_\+id}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{check\+\_\+valid\+\_\+vbo\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::check\+\_\+valid\+\_\+vbo\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id, }
+\item[{const G\+Luint}]{vbo\+Id}
+\end{DoxyParamCaption}
+) const}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_aab50f60978195fc332cbb3b9eebe7cd0}
+
+
+Checks to see if a vao id and vbo id corresponds to a valid vbo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint representing an id for a vao. \\
+\hline
+{\em vbo\+Id} & A constant G\+Luint representing an id for a vbo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vba and vbo ids correspond to a valid vao and false if it is not.
+\end{DoxyReturn}
+Checks to see if the Open\+G\+L vertex buffer object associated with the vao\+Id and vbo\+Id parameters is a valid object. Throws an exception if either the vao\+Id or vbo\+Id parameters are 0. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a6a8a6dd2e50e1cc08122adc5afec3cfa}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!get\+\_\+new\+\_\+shader@{get\+\_\+new\+\_\+shader}}
+\index{get\+\_\+new\+\_\+shader@{get\+\_\+new\+\_\+shader}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{get\+\_\+new\+\_\+shader}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::get\+\_\+new\+\_\+shader (
+\begin{DoxyParamCaption}
+\item[{const shaders\+::shader\+\_\+type\+\_\+t}]{shader\+Type}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a6a8a6dd2e50e1cc08122adc5afec3cfa}
+
+
+Creates a new shader object and gets its id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & constant shader\+\_\+type\+\_\+t representing the type of the shader to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A constant G\+Luint representing the id of the newly created shader.
+\end{DoxyReturn}
+Creates a new Open\+G\+L shader object and returns the id representing that object. Throws an exception if an error occurs with Open\+G\+L. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af3d501abe926a5943cceb3cd9efaf7e6}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!get\+\_\+new\+\_\+vao@{get\+\_\+new\+\_\+vao}}
+\index{get\+\_\+new\+\_\+vao@{get\+\_\+new\+\_\+vao}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{get\+\_\+new\+\_\+vao}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::get\+\_\+new\+\_\+vao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af3d501abe926a5943cceb3cd9efaf7e6}
+
+
+Creates a new vao object and gets its id. 
+
+\begin{DoxyReturn}{Returns}
+A constant G\+Luint representing the new vao's id.
+\end{DoxyReturn}
+Generates a new Open\+G\+L vertex array object and returns its id. Throws an exception if Open\+G\+L enters an error state when generating the object. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a84804949b75971093ee3aab5dcd66a00}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!remove\+\_\+ref\+\_\+to\+\_\+shader@{remove\+\_\+ref\+\_\+to\+\_\+shader}}
+\index{remove\+\_\+ref\+\_\+to\+\_\+shader@{remove\+\_\+ref\+\_\+to\+\_\+shader}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{remove\+\_\+ref\+\_\+to\+\_\+shader}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::remove\+\_\+ref\+\_\+to\+\_\+shader (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{shader\+Id}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a84804949b75971093ee3aab5dcd66a00}
+
+
+Removes a reference to a shader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shader\+Id} & A constant G\+Luint representing the id of the shader.\\
+\hline
+\end{DoxyParams}
+Decrements the reference count to an Open\+G\+L shader object associated the shader\+Id paramater. If the reference count of the shader is reduced to 0 the shader object will be deleted so memory can be freed. Throws an exception if the shader\+Id does not correspond to a valid Open\+G\+L shader object. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a651ed9bf5852f8919947b84a7a13c891}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!remove\+\_\+ref\+\_\+to\+\_\+vao@{remove\+\_\+ref\+\_\+to\+\_\+vao}}
+\index{remove\+\_\+ref\+\_\+to\+\_\+vao@{remove\+\_\+ref\+\_\+to\+\_\+vao}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{remove\+\_\+ref\+\_\+to\+\_\+vao}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::remove\+\_\+ref\+\_\+to\+\_\+vao (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_a651ed9bf5852f8919947b84a7a13c891}
+
+
+Removes a reference to a vao. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint representing an id for a vao.\\
+\hline
+\end{DoxyParams}
+Decremenents the refrence count to the Open\+G\+L vertex array object specified by the vao\+Id parameter. If the reference count is reduced to 0, the Open\+G\+L vertex array object is removed so that memory can be freed. Throws an exception if there is no vao associated with the vao\+Id parameter. \hypertarget{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af7208b2920a70e49e0a762025f2c540e}{\index{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}!remove\+\_\+ref\+\_\+to\+\_\+vbo@{remove\+\_\+ref\+\_\+to\+\_\+vbo}}
+\index{remove\+\_\+ref\+\_\+to\+\_\+vbo@{remove\+\_\+ref\+\_\+to\+\_\+vbo}!occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager@{occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager}}
+\subsubsection[{remove\+\_\+ref\+\_\+to\+\_\+vbo}]{\setlength{\rightskip}{0pt plus 5cm}occluded\+::opengl\+::retained\+::gl\+\_\+retained\+\_\+object\+\_\+manager\+::remove\+\_\+ref\+\_\+to\+\_\+vbo (
+\begin{DoxyParamCaption}
+\item[{const G\+Luint}]{vao\+Id, }
+\item[{const G\+Luint}]{vbo\+Id}
+\end{DoxyParamCaption}
+)}}\label{classoccluded_1_1opengl_1_1retained_1_1gl__retained__object__manager_af7208b2920a70e49e0a762025f2c540e}
+
+
+Removes a reference to a vbo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vao\+Id} & A constant G\+Luint that represents the vao's id that the vbo is associated with. \\
+\hline
+{\em vbo\+Id} & A constant G\+Luint that represents the vbo's id\\
+\hline
+\end{DoxyParams}
+Decremenents the refrence count to the Open\+G\+L vertex buffer object specified by the vao\+Id and vbo\+Id parameter. If the reference count is reduced to 0, the Open\+G\+L vertex buffer object is removed so that memory can be freed. Throws an exception if there is no vbo associated with the vbo\+Id parameter. Throw an exception if there is no vbo associated with the vbo\+Id parameter. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Occluded\+Library/opengl/retained/gl\+\_\+retained\+\_\+object\+\_\+manager.\+h\item 
+Occluded\+Library/opengl/retained/gl\+\_\+retained\+\_\+object\+\_\+manager.\+cpp\end{DoxyCompactItemize}

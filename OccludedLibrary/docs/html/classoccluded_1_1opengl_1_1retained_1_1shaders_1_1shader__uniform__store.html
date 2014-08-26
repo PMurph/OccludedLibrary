@@ -107,6 +107,7 @@ $(document).ready(function(){initNavTree('classoccluded_1_1opengl_1_1retained_1_
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">occluded::opengl::retained::shaders::shader_uniform_store Class Reference</div>  </div>
@@ -120,90 +121,30 @@ $(document).ready(function(){initNavTree('classoccluded_1_1opengl_1_1retained_1_
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a862db8afb99f17ec1b14c3e9a882618e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a862db8afb99f17ec1b14c3e9a882618e">shader_uniform_store</a> (const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shader_program</a> &amp;shaderProg)</td></tr>
-<tr class="memdesc:a862db8afb99f17ec1b14c3e9a882618e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty uniform store.  <a href="#a862db8afb99f17ec1b14c3e9a882618e">More...</a><br /></td></tr>
-<tr class="separator:a862db8afb99f17ec1b14c3e9a882618e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7503a430211c435021dbbe9628cb4e40"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a7503a430211c435021dbbe9628cb4e40">shader_uniform_store</a> (const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shader_program</a> &amp;shaderProg, const std::vector&lt; std::pair&lt; const std::string, const uniform_value &gt; &gt; &amp;values)</td></tr>
-<tr class="memdesc:a7503a430211c435021dbbe9628cb4e40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an uniform store and populates it.  <a href="#a7503a430211c435021dbbe9628cb4e40">More...</a><br /></td></tr>
-<tr class="separator:a7503a430211c435021dbbe9628cb4e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb24f0d04b2f34c2013f9c272ba662b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a3fb24f0d04b2f34c2013f9c272ba662b">add_uniform</a> (const std::string &amp;name, const uniform_value &amp;value)</td></tr>
 <tr class="memdesc:a3fb24f0d04b2f34c2013f9c272ba662b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new uniform value to the uniform store.  <a href="#a3fb24f0d04b2f34c2013f9c272ba662b">More...</a><br /></td></tr>
 <tr class="separator:a3fb24f0d04b2f34c2013f9c272ba662b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc43de912769b10941eb93b407d8662d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#adc43de912769b10941eb93b407d8662d">set_uniform_value</a> (const std::string &amp;name, const uniform_value &amp;value)</td></tr>
 <tr class="memdesc:adc43de912769b10941eb93b407d8662d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of a uniform.  <a href="#adc43de912769b10941eb93b407d8662d">More...</a><br /></td></tr>
 <tr class="separator:adc43de912769b10941eb93b407d8662d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b451f197b65ba65077a8d2d368bae41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a3b451f197b65ba65077a8d2d368bae41">pass_to_shader</a> () const </td></tr>
-<tr class="memdesc:a3b451f197b65ba65077a8d2d368bae41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passes the uniform values to the shader program.  <a href="#a3b451f197b65ba65077a8d2d368bae41">More...</a><br /></td></tr>
-<tr class="separator:a3b451f197b65ba65077a8d2d368bae41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d43a547f065e6fdbaa37faab77ef924"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a6d43a547f065e6fdbaa37faab77ef924">has_uniform</a> (const std::string &amp;name) const </td></tr>
+<tr class="memdesc:a6d43a547f065e6fdbaa37faab77ef924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks to see if a uniform has a value in the store.  <a href="#a6d43a547f065e6fdbaa37faab77ef924">More...</a><br /></td></tr>
+<tr class="separator:a6d43a547f065e6fdbaa37faab77ef924"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69ee4a0dd33e31fcf4ea0e82acf0f2db"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a69ee4a0dd33e31fcf4ea0e82acf0f2db"><td class="memTemplItemLeft" align="right" valign="top">const T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html#a69ee4a0dd33e31fcf4ea0e82acf0f2db">get_value</a> (const std::string &amp;name) const </td></tr>
 <tr class="memdesc:a69ee4a0dd33e31fcf4ea0e82acf0f2db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the value of a uniform.  <a href="#a69ee4a0dd33e31fcf4ea0e82acf0f2db">More...</a><br /></td></tr>
 <tr class="separator:a69ee4a0dd33e31fcf4ea0e82acf0f2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a305cb8478e7b7488a0d45898e8cdb0a2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a305cb8478e7b7488a0d45898e8cdb0a2"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>shader_program</b></td></tr>
+<tr class="separator:a305cb8478e7b7488a0d45898e8cdb0a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stores uniform values for a particular shader program. </p>
 <p>Stores the uniform values for a particular shader program by maintaining a mapping from uniforms' names to their values. This class provides a way of storing all the uniform values of a <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html" title="A wrapper class for an OpenGL GLSL shader program. ">shader_program</a>. By convention any name provided will be converted to the uniform equivalent which has a u prefixed to the beginning and the first letter of the original name capitalized( "model" becomes "uModel" ). </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a862db8afb99f17ec1b14c3e9a882618e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">occluded::opengl::retained::shaders::shader_uniform_store::shader_uniform_store </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shader_program</a> &amp;&#160;</td>
-          <td class="paramname"><em>shaderProg</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes an empty uniform store. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shaderProg</td><td>A reference to a <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html" title="A wrapper class for an OpenGL GLSL shader program. ">shader_program</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a7503a430211c435021dbbe9628cb4e40"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">occluded::opengl::retained::shaders::shader_uniform_store::shader_uniform_store </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html">shader_program</a> &amp;&#160;</td>
-          <td class="paramname"><em>shaderProg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::vector&lt; std::pair&lt; const std::string, const uniform_value &gt; &gt; &amp;&#160;</td>
-          <td class="paramname"><em>values</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes an uniform store and populates it. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shaderProg</td><td>A reference to a <a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__program.html" title="A wrapper class for an OpenGL GLSL shader program. ">shader_program</a>. </td></tr>
-    <tr><td class="paramname">values</td><td>A reference to a vector of values to populate the store with. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a3fb24f0d04b2f34c2013f9c272ba662b"></a>
 <div class="memitem">
 <div class="memproto">
@@ -231,7 +172,7 @@ Public Member Functions</h2></td></tr>
 <p>Adds a new uniform value to the uniform store. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>A reference to string representing the name of the uniform value to be stored. </td></tr>
+    <tr><td class="paramname">name</td><td>A reference to a string representing the name of the uniform value to be stored. </td></tr>
     <tr><td class="paramname">value</td><td>A refrence to the value to be added.</td></tr>
   </table>
   </dd>
@@ -276,21 +217,28 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="a3b451f197b65ba65077a8d2d368bae41"></a>
+<a class="anchor" id="a6d43a547f065e6fdbaa37faab77ef924"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">occluded::opengl::retained::shaders::shader_uniform_store::pass_to_shader </td>
+          <td class="memname">occluded::opengl::retained::shaders::shader_uniform_store::has_uniform </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Passes the uniform values to the shader program. </p>
-<p>Passes the uniform values to shader program, so that they can be used to render a scene. </p>
+<p>Checks to see if a uniform has a value in the store. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>A reference to a string representing the name of the uniform value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a bool representing whether or not the uniform is in the uniform store. </dd></dl>
 
 </div>
 </div>
@@ -340,7 +288,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>occluded</b></li><li class="navelem"><b>opengl</b></li><li class="navelem"><b>retained</b></li><li class="navelem"><b>shaders</b></li><li class="navelem"><a class="el" href="classoccluded_1_1opengl_1_1retained_1_1shaders_1_1shader__uniform__store.html">shader_uniform_store</a></li>
-    <li class="footer">Generated on Sun Jul 27 2014 19:45:39 for Occluded Library by
+    <li class="footer">Generated on Mon Aug 25 2014 22:44:31 for Occluded Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
   </ul>

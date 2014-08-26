@@ -7,6 +7,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace occluded::opengl::retained::shaders;
 
 bool errorState = false;
+bool shaderCompileError = false;
 
 /**
  * NOTE: This is not a complete verification of the function of shader class since it relies heavily on how 
@@ -17,6 +18,12 @@ namespace OccludedLibraryUnitTests
 	TEST_CLASS( shader_test )
 	{
 	public:
+		TEST_METHOD_INITIALIZE( shader_test_init )
+		{
+			errorState = false;
+			shaderCompileError = false;
+		}
+
 		TEST_METHOD( shader_is_compiled_test )
 		{
 			std::string src( "Not Empty" );
@@ -33,7 +40,7 @@ namespace OccludedLibraryUnitTests
 			}
 
 			try {
-				errorState = true;
+				shaderCompileError = true;
 
 				testShader.reset( new shader( src, geo_shader ) );
 
@@ -46,7 +53,7 @@ namespace OccludedLibraryUnitTests
 			src = "";
 
 			try {
-				errorState = true;
+				shaderCompileError = true;
 				testShader.reset( new shader( src, frag_shader ) );
 
 				// Test to make sure it throws an exception when an empty string is passed as the shader source
@@ -65,12 +72,12 @@ namespace OccludedLibraryUnitTests
 				testShader.reset( new shader( src, vert_shader ) );
 
 				// Check to make sure the id is correct when the shader compiles properly
-				Assert::AreEqual( testShader->get_id(), static_cast<unsigned int>( 1 ) );
+				Assert::AreNotEqual( testShader->get_id(), static_cast<GLuint>( 0 ) );
 			} catch( const std::exception& ) {
 				Assert::Fail();
 			}
 
-			errorState = true;
+			shaderCompileError = true;
 			testShader.reset( new shader( src, tess_eval_shader ) );
 
 			try {
@@ -97,7 +104,7 @@ namespace OccludedLibraryUnitTests
 				Assert::Fail();
 			}
 
-			errorState = true;
+			shaderCompileError = true;
 			testShader.reset( new shader( src, tess_control_shader ) );
 
 			try {
@@ -124,7 +131,7 @@ namespace OccludedLibraryUnitTests
 			}
 
 			try {
-				errorState = true;
+				shaderCompileError = true;
 				testShader.reset( new shader( src, vert_shader ) );
 
 				// Check to make sure no exception is thrown if the shader does not properly compiled
