@@ -8,6 +8,7 @@ void gl_retained_object_manager::delete_objects() {
 	delete_vbos();
 	delete_vaos();
 	delete_shaders();
+	delete_shader_programs();
 }
 
 const GLuint gl_retained_object_manager::get_new_vao() {
@@ -18,7 +19,7 @@ const GLuint gl_retained_object_manager::get_new_vao() {
 	if( vaoId == 0 || GL_NO_ERROR != glGetError() )
 		throw std::runtime_error( "gl_retained_object_manager.get_new_vao: Faieled to create an new vertex array object because of an error in OpenGL" );
 
-	inc_vao_entry( vaoId );
+	inc_entry( m_vaoRefCount, vaoId );
 
 	return vaoId;
 }
@@ -30,7 +31,7 @@ void gl_retained_object_manager::add_ref_to_vao( const GLuint vaoId ) {
 			+ boost::lexical_cast<std::string>( vaoId ) + ") does not correspond to a valid vao." );
 	}
 
-	inc_vao_entry( vaoId );
+	inc_entry( m_vaoRefCount, vaoId );
 }
 
 void gl_retained_object_manager::remove_ref_to_vao( const GLuint vaoId ) {
@@ -41,7 +42,10 @@ void gl_retained_object_manager::remove_ref_to_vao( const GLuint vaoId ) {
 
 	assert( vaoId != 0 );
 
-	dec_vao_entry( vaoId );
+	dec_entry( m_vaoRefCount, vaoId );
+
+	if( m_vaoRefCount.find( vaoId )->second == 0 )
+		glDeleteVertexArrays( 1, &vaoId );
 }
 
 const bool gl_retained_object_manager::check_valid_vao_id( const GLuint vaoId ) const {
@@ -126,7 +130,7 @@ const GLuint gl_retained_object_manager::get_new_shader( const shaders::shader_t
 	if( newShaderId == 0 || GL_NO_ERROR != glGetError() )
 		throw std::runtime_error( "gl_retained_object_manager.get_new_shader: Failed to get new shader because an error occured in OpenGL." );
 
-	inc_shader_entry( newShaderId );
+	inc_entry( m_shaderRefCount, newShaderId );
 
 	return newShaderId;
 }
@@ -137,7 +141,7 @@ void gl_retained_object_manager::add_ref_to_shader( const GLuint shaderId ) {
 			+ boost::lexical_cast<std::string>( shaderId ) + ") does not correspond to a valid OpenGL shader object." );
 	}
 
-	inc_shader_entry( shaderId );
+	inc_entry( m_shaderRefCount, shaderId );
 }
 
 void gl_retained_object_manager::remove_ref_to_shader( const GLuint shaderId ) {
@@ -146,7 +150,10 @@ void gl_retained_object_manager::remove_ref_to_shader( const GLuint shaderId ) {
 			+ boost::lexical_cast<std::string>( shaderId ) + ") does not correspond to a valid OpenGL shader object." );
 	}
 
-	dec_shader_entry( shaderId );
+	dec_entry( m_shaderRefCount, shaderId );
+	
+	if( m_shaderRefCount.find( shaderId )->second == 0 )
+		glDeleteShader( shaderId );
 }
 
 const bool gl_retained_object_manager::check_valid_shader_id( const GLuint shaderId ) const {
@@ -162,17 +169,48 @@ const bool gl_retained_object_manager::check_valid_shader_id( const GLuint shade
 }
 
 const GLuint gl_retained_object_manager::get_new_shader_prog() {
-	return 0;
+	GLuint newProgId = glCreateProgram();
+
+	if( newProgId == 0 || GL_NO_ERROR != glGetError() )
+		throw std::runtime_error( "gl_retained_object_manager.get_new_shader_prog: Failed to get new shader program because an error occured in OpenGL." );
+
+	inc_entry( m_shaderProgRefCount, newProgId );
+
+	return newProgId;
 }
 
 void gl_retained_object_manager::add_ref_to_shader_prog( const GLuint shaderProgId ) {
+	if( m_shaderProgRefCount.find( shaderProgId ) == m_shaderProgRefCount.end() || m_shaderProgRefCount[shaderProgId] == 0 ) {
+		throw std::runtime_error( "gl_retained_object_manager.add_ref_to_shader_prog: Failed to add reference to shader program because the id("
+			+ boost::lexical_cast<std::string>( shaderProgId ) + ") does not correspond to a valid OpenGL shader program object." );
+	}
+
+	inc_entry( m_shaderProgRefCount, shaderProgId );
 }
 
 void gl_retained_object_manager::remove_ref_to_shader_prog( const GLuint shaderProgId ) {
+	if( m_shaderProgRefCount.find( shaderProgId ) == m_shaderProgRefCount.end() ) {
+		throw std::runtime_error( "gl_retained_object_manager.remove_ref_to_shader_prog: Failed to remove reference to shader program because " +
+			std::string( "the shader program id(" ) + boost::lexical_cast<std::string>( shaderProgId ) 
+			+ ") does not correspond to a valid OpenGL shader program object." );
+	}
+
+	dec_entry( m_shaderProgRefCount, shaderProgId );
+	
+	if( m_shaderProgRefCount.find( shaderProgId )->second == 0 )
+		glDeleteProgram( shaderProgId );
 }
 
-const bool gl_retained_object_manager::check_valid_shader_prog_id( const GLuint shaderId ) const {
-	return false;
+const bool gl_retained_object_manager::check_valid_shader_prog_id( const GLuint shaderProgId ) const {
+	bool isShaderProg = false;
+
+	if( shaderProgId == 0 )
+		throw std::runtime_error( "gl_retained_object_manager.check_valid_shader_prog_id: The invalid shader program id 0 was passed as a parameter." );
+
+	if( m_shaderProgRefCount.find( shaderProgId ) != m_shaderProgRefCount.end() && m_shaderProgRefCount.find( shaderProgId )->second != 0 )
+		isShaderProg = true;
+
+	return isShaderProg;
 }
 
 
@@ -181,7 +219,8 @@ const bool gl_retained_object_manager::check_valid_shader_prog_id( const GLuint 
 gl_retained_object_manager::gl_retained_object_manager():
 	m_vaoRefCount(),
 	m_vboRefCount(),
-	m_shaderRefCount()
+	m_shaderRefCount(),
+	m_shaderProgRefCount()
 {
 }
 
@@ -228,30 +267,39 @@ void gl_retained_object_manager::delete_shaders() {
 	}
 }
 
-void gl_retained_object_manager::inc_vao_entry( const GLuint vaoId ) {
-	assert( vaoId != 0 );
+void gl_retained_object_manager::delete_shader_programs() {
+	for( std::map<const GLuint, unsigned int>::iterator it = m_shaderProgRefCount.begin(); it != m_shaderProgRefCount.end(); ++it ) {
+		if( it->second != 0 ) {
+			glDeleteProgram( it->second );
 
-	if( vaoId != 0 ) {
-		if( m_vaoRefCount.find( vaoId ) == m_vaoRefCount.end() )
-			m_vaoRefCount.insert( std::pair<const GLuint, unsigned int>( vaoId, 1 ) );
-		else
-			m_vaoRefCount[vaoId] += 1;
+			assert( GL_NO_ERROR == glGetError() );
+
+			it->second = 0;
+		}
 	}
 }
 
-void gl_retained_object_manager::dec_vao_entry( const GLuint vaoId ) {
-	assert( vaoId != 0 && m_vaoRefCount.find( vaoId ) != m_vaoRefCount.end() );
+void gl_retained_object_manager::inc_entry( std::map<const GLuint, unsigned int>& refCounter, const GLuint id ) {
+	assert( id != 0 );
 
-	if( vaoId != 0 && m_vaoRefCount.find( vaoId ) != m_vaoRefCount.end() ) {
-		if( m_vaoRefCount[vaoId] == 0 ) {
+	if( id != 0 ) {
+		if( refCounter.find( id ) == refCounter.end() )
+			refCounter.insert( std::pair<const GLuint, unsigned int>( id, 1 ) );
+		else
+			refCounter[id] += 1;
+	}
+}
+
+void gl_retained_object_manager::dec_entry( std::map<const GLuint, unsigned int>& refCounter, const GLuint id ) {
+	assert( id != 0 && refCounter.find( id ) != refCounter.end() );
+
+	if( id != 0 && refCounter.find( id ) != refCounter.end() ) {
+		if( refCounter[id] == 0 ) {
 			throw std::runtime_error( "gl_retained_object_manager.dec_vao_entry: Failed to decrement the ref count for vao id(" + 
-				boost::lexical_cast<std::string>( vaoId ) + ") is already 0." );
+				boost::lexical_cast<std::string>( id ) + ") is already 0." );
 		}
 
-		m_vaoRefCount[vaoId] -= 1;
-
-		if( m_vaoRefCount[vaoId] == 0 )
-			glDeleteVertexArrays( 1, &vaoId );
+		refCounter[id] -= 1;
 	}
 }
 
@@ -291,33 +339,6 @@ void gl_retained_object_manager::dec_vbo_entry( const std::pair<const GLuint, co
 
 			glDeleteBuffers( 1, &(key.second) );
 		}
-	}
-}
-
-void gl_retained_object_manager::inc_shader_entry( const GLuint shaderId ) {
-	assert( shaderId != 0 );
-
-	if( shaderId != 0 ) {
-		if( m_shaderRefCount.find( shaderId ) == m_shaderRefCount.end() )
-			m_shaderRefCount.insert( std::pair<const GLuint, unsigned int>( shaderId, 1 ) );
-		else
-			m_shaderRefCount[shaderId] += 1;
-	}
-}
-
-void gl_retained_object_manager::dec_shader_entry( const GLuint shaderId ) {
-	assert( shaderId != 0 );
-
-	if( shaderId != 0 && m_shaderRefCount.find( shaderId ) != m_shaderRefCount.end() ) {
-		if( m_shaderRefCount[shaderId] == 0 ) {
-			throw std::runtime_error( "gl_retained_object_manager.dec_shader_entry: Failed to decrement the ref count for the shader id(" +
-				boost::lexical_cast<std::string>( shaderId ) + ") because the ref count is already 0." );
-		}
-
-		m_shaderRefCount[shaderId] -= 1;
-
-		if( m_shaderRefCount[shaderId] == 0 )
-			glDeleteShader( shaderId );
 	}
 }
 

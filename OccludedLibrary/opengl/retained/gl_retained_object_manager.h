@@ -44,6 +44,7 @@ private:
 	std::map<const GLuint, unsigned int> m_vaoRefCount;
 	std::map< const std::pair<const GLuint, const GLuint>, unsigned int > m_vboRefCount;
 	std::map<const GLuint, unsigned int> m_shaderRefCount;
+	std::map<const GLuint, unsigned int> m_shaderProgRefCount;
 
 public:
 
@@ -202,9 +203,49 @@ public:
 
 	// ==== Shader Program Functions ====
 
+	/**
+	 * \fn get_new_shader_prog
+	 * \brief Creates a new shader program object and gets its id
+	 *
+	 * \return A constant GLuint representing the id of the newly created shader program.
+	 *
+	 * Creates a new OpenGL shader program object and returns the id representing that object. Throws an exception if an error occurs with OpenGL.
+	 */
 	const GLuint get_new_shader_prog();
+
+	/**
+	 * \fn add_ref_to_shader_prog
+	 * \brief Adds a reference a shader program.
+	 *
+	 * \param shaderProgId A constant GLuint representing the id of the shader program.
+	 *
+	 * Increments the reference count to the OpenGL shader program corresponding to the shaderProgId paramater. Throws an exception if the shaderProgId 
+	 * parameter does not correspond to a valid OpenGL shader object.
+	 */
 	void add_ref_to_shader_prog( const GLuint shaderProgId );
+
+	/**
+	 * \fn remove_ref_to_shader_prog
+	 * \brief Removes a reference to a shader program.
+	 *
+	 * \param shaderProgId A constant GLuint representing the id of the shader program.
+	 *
+	 * Decrements the reference count to an OpenGL shader program object associated the shaderProgId paramater. If the reference count of the shader 
+	 * program is reduced to 0 the shader program object will be deleted so memory can be freed. Throws an exception if the shaderProgId does not 
+	 * correspond to a valid OpenGL shader prorgam object.
+	 */
 	void remove_ref_to_shader_prog( const GLuint shaderProgId );
+
+	/**
+	 * \fn check_valid_shader_prog_id
+	 * \brief Check to see if a shader program id corresponds to a valid shader program.
+	 *
+	 * \param shaderId A constant GLuint representing the id of the shader program.
+	 * \return True if the shader program id corresponds to a valid shader program and false otherwise.
+	 *
+	 * Checks to see if a valid OpenGL shader program object corresponds to the id passed via the shaderProgId parameter. Throws an exception if 0 is 
+	 * passed as the shader program id.
+	 */
 	const bool check_valid_shader_prog_id( const GLuint shaderProgId ) const;
 
 	/**
@@ -247,29 +288,41 @@ private:
 	void delete_shaders();
 
 	/**
-	 * \fn inc_vao_entry
-	 * \brief Increments the vao's ref count by 1.
+	 * \fn delete_shader_programs
+	 * \brief Deletes all shader programs managed.
 	 *
-	 * \param vaoId A constant GLuint representing the id of the entry to increment.
+	 * Deletes all the OpenGL shader program objects monitored by the object manager.
 	 */
-	void inc_vao_entry( const GLuint vaoId );
+	void delete_shader_programs();
 
 	/**
-	 * \fn dec_vao_entry
+	 * \fn inc_entry
+	 * \brief Increments an object's ref count by 1.
+	 *
+	 * \param refCounter A map that maps object ids to their reference count.
+	 * \param id A constant GLuint representing the id of the object that is having its reference count incremented.
+	 */
+	void inc_entry( std::map<const GLuint, unsigned int>& refCounter, const GLuint id );
+
+	/**
+	 * \fn dec_entry
 	 * \brief Decrements the vao's ref count by 1.
 	 *
-	 * \param vaoId A constant GLuint representing the id of the entry to decrement.
+	 * \param refCounter A map that maps object ids to their reference count.
+	 * \param vaoId A constant GLuint representing the id of the object that is having its reference count decremented.
 	 *
-	 * Decrements the vao specified by the vaoId parameter ref count by 1 and deletes the vao if the reference count reaches 0. Throws an exception 
-	 * if the entry corresponding to the vaoId parameter is 0.
+	 * Decrements the vao specified by the vaoId parameter ref count by 1. Throws an exception if the entry corresponding to the id parameter is 0.
 	 */
-	void dec_vao_entry( const GLuint vaoId );
+	void dec_entry( std::map<const GLuint, unsigned int>& refCounter, const GLuint id );
 
 	/**
 	 * \fn inc_vbo_entry
 	 * \brief Increments a vbo's ref count by 1.
 	 *
 	 * \param key A reference to a constant pair of constant GLuints representing the vao id and vbo id that the reference will be added to.
+	 *
+	 * Increments an OpenGL vertex buffer object's reference count by 1. Needed because vbo's require a different map than most other OpenGL objects,
+	 * since they require a vao's id as well.
 	 */
 	void inc_vbo_entry( const std::pair<const GLuint, const GLuint>& key );
 
@@ -284,24 +337,7 @@ private:
 	 */
 	void dec_vbo_entry( const std::pair<const GLuint, const GLuint>& key );
 
-	/**
-	 * \fn inc_shader_entry
-	 * \brief Increments a shader's ref count by 1.
-	 *
-	 * \param shaderId A constant GLuint representing the id of the shader.
-	 */
-	void inc_shader_entry( const GLuint shaderId );
 
-	/**
-	 * \fn dec_shader_entry
-	 * \brief Decrements a shader's ref count by 1.
-	 *
-	 * \param shaderId A constant GLuint representng the id of the shader.
-	 *
-	 * Decrements the shader's reference count associated with the shader id by 1 and deletes the shader if the reference count reaches 0. Throws an
-	 * exception if the reference count already equals 0.
-	 */
-	void dec_shader_entry( const GLuint shaderId );
 };
 
 } // end of retained namespace
